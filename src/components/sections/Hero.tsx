@@ -20,10 +20,10 @@ interface HeroPin {
   lampY: number;
 }
 
-// Exactly 3 functional workflow pins positioned matching the user's annotations:
-// 1. Invoicing at the upper right lamp (78%, 15%)
-// 2. Lead routing in the center (41%, 32%)
-// 3. Ticket closed at the middle right (75%, 48%)
+// Exactly 3 functional workflow pins shifted leftwards with generous, balanced spacing:
+// 1. Invoicing at (50%, 14%)
+// 2. Lead routing at (34%, 32%)
+// 3. Support at (66%, 26%)
 const HERO_PINS: HeroPin[] = [
   {
     id: "invoicing",
@@ -32,10 +32,10 @@ const HERO_PINS: HeroPin[] = [
     title: "Invoicing",
     desc: "Invoices out the minute a job closes, chased until paid.",
     href: "/workflows/invoicing",
-    left: "78%",
-    top: "15%",
-    side: "l",
-    lampX: 86,
+    left: "50%",
+    top: "14%",
+    side: "r",
+    lampX: 47,
     lampY: 0,
   },
   {
@@ -45,10 +45,10 @@ const HERO_PINS: HeroPin[] = [
     title: "Lead routing",
     desc: "Every enquiry scored, assigned and in the CRM in seconds.",
     href: "/workflows/lead-routing",
-    left: "41%",
+    left: "34%",
     top: "32%",
     side: "r",
-    lampX: 39.5,
+    lampX: 32,
     lampY: 0,
   },
   {
@@ -58,10 +58,10 @@ const HERO_PINS: HeroPin[] = [
     title: "Support",
     desc: "Tickets answered, tagged and escalated without a queue.",
     href: "/workflows/support",
-    left: "75%",
-    top: "48%",
+    left: "66%",
+    top: "26%",
     side: "l",
-    lampX: 74,
+    lampX: 68,
     lampY: 0,
   },
 ];

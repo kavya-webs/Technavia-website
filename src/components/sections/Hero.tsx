@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Button } from "../ui/Button";
 import { RollingCounter } from "../ui/RollingCounter";
 import { LitDot } from "../ui/LitDot";
@@ -16,6 +17,8 @@ interface HeroPin {
   left: string;
   top: string;
   side: "r" | "l";
+  lampX: number; // percentage coordinate
+  lampY: number;
 }
 
 const HERO_PINS: HeroPin[] = [
@@ -29,6 +32,8 @@ const HERO_PINS: HeroPin[] = [
     left: "40%",
     top: "13%",
     side: "r",
+    lampX: 38,
+    lampY: 0,
   },
   {
     id: "lead-routing",
@@ -40,6 +45,8 @@ const HERO_PINS: HeroPin[] = [
     left: "40%",
     top: "31%",
     side: "r",
+    lampX: 39,
+    lampY: 13,
   },
   {
     id: "support",
@@ -51,6 +58,8 @@ const HERO_PINS: HeroPin[] = [
     left: "92%",
     top: "20%",
     side: "l",
+    lampX: 55,
+    lampY: 0,
   },
   {
     id: "onboarding",
@@ -62,6 +71,8 @@ const HERO_PINS: HeroPin[] = [
     left: "57%",
     top: "66%",
     side: "r",
+    lampX: 58,
+    lampY: 20,
   },
   {
     id: "reporting",
@@ -73,20 +84,50 @@ const HERO_PINS: HeroPin[] = [
     left: "92%",
     top: "44%",
     side: "l",
+    lampX: 88,
+    lampY: 0,
   },
 ];
 
 export function Hero() {
-  const [activePin, setActivePin] = useState<string>("invoicing");
+  const [activePin, setActivePin] = useState<string>("lead-routing");
+  const [taskCount, setTaskCount] = useState<number>(1287);
+  const [mousePos, setMousePos] = useState<{ x: number; y: number } | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Live real-time counter increment (as seen in video: 1287 -> 1290 -> 1293 -> 1296)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTaskCount((prev) => prev + 1);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Track mouse within hero container for trailing cursor pill
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  const currentPin = HERO_PINS.find((p) => p.id === activePin) || HERO_PINS[1];
 
   return (
-    <section className="relative w-full min-h-[100svh] flex flex-col justify-between pt-[100px] pb-12 px-6 md:px-14 overflow-hidden bg-[#0B0D10]">
-      {/* Background Dusk Office Photography */}
+    <section
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => setMousePos(null)}
+      className="relative w-full min-h-[100svh] flex flex-col justify-between pt-[100px] pb-12 px-6 md:px-14 overflow-hidden bg-[#0B0D10]"
+    >
+      {/* Background Dusk Office Photography with dynamic parallax */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
           src="https://framerusercontent.com/images/kltvaH90N1EBZgMRovsYhy45bk0.webp?scale-down-to=2048"
           alt="An open-plan office at dusk, screens still lit"
-          className="absolute inset-0 w-full h-full object-cover object-[50%_42%] select-none scale-105 transition-transform duration-1000"
+          className="absolute inset-0 w-full h-full object-cover object-[50%_42%] select-none scale-105"
         />
         {/* Layered Lighting Scrims matching Framer .rbh-scrim */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D10]/60 via-transparent to-[#0B0D10]/95" />
@@ -94,8 +135,40 @@ export function Hero() {
         <div className="absolute inset-0 bg-[#0B0D10]/20" />
       </div>
 
+      {/* Animated SVG Electrical Cable / Wire drawn to active pin */}
+      <svg
+        className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <motion.path
+          key={activePin}
+          d={`M ${currentPin.lampX} ${currentPin.lampY} Q ${(currentPin.lampX + parseFloat(currentPin.left)) / 2 + 5} ${(currentPin.lampY + parseFloat(currentPin.top)) / 2 - 8} ${parseFloat(currentPin.left)} ${parseFloat(currentPin.top)}`}
+          fill="none"
+          stroke="#D4F542"
+          strokeWidth="0.25"
+          strokeDasharray="0.8 0.6"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 0.9 }}
+          transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
+        />
+      </svg>
+
+      {/* Floating Cursor Tag "AUTOMATE THIS" */}
+      {mousePos && (
+        <motion.div
+          className="absolute z-30 pointer-events-none hidden md:block"
+          animate={{ x: mousePos.x + 18, y: mousePos.y - 14 }}
+          transition={{ type: "spring", stiffness: 350, damping: 25, mass: 0.5 }}
+        >
+          <div className="px-3 py-1 rounded-full bg-[#D4F542] text-black font-mono text-xs font-semibold uppercase tracking-wider shadow-[0_4px_16px_rgba(212,245,66,0.4)] whitespace-nowrap">
+            Automate this
+          </div>
+        </motion.div>
+      )}
+
       {/* Floating Interactive Workflow Pins */}
-      <div className="absolute inset-0 z-10 pointer-events-none hidden lg:block">
+      <div className="absolute inset-0 z-20 pointer-events-none hidden lg:block">
         {HERO_PINS.map((pin) => {
           const isOn = activePin === pin.id;
           const isLeft = pin.side === "l";
@@ -127,7 +200,7 @@ export function Hero() {
               <div
                 className={`flex flex-col rounded-lg p-2.5 transition-all duration-400 backdrop-blur-md max-w-[320px] ${
                   isOn
-                    ? "bg-[#0B0D10]/85 border border-[#D4F542]/60 shadow-[0_12px_32px_-10px_rgba(0,0,0,0.8)]"
+                    ? "bg-[#0B0D10]/90 border border-[#D4F542]/70 shadow-[0_12px_32px_-10px_rgba(0,0,0,0.8)]"
                     : "bg-[#0B0D10]/70 border border-white/[0.18] hover:border-white/40"
                 }`}
               >
@@ -137,7 +210,12 @@ export function Hero() {
                 </div>
 
                 {isOn && (
-                  <div className="mt-2.5 pt-2 border-t border-white/[0.1] grid grid-cols-[1fr_auto] gap-x-3 gap-y-1 items-center animate-in fade-in duration-300">
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    transition={{ duration: 0.35, ease: [0.2, 0.8, 0.2, 1] }}
+                    className="mt-2.5 pt-2 border-t border-white/[0.1] grid grid-cols-[1fr_auto] gap-x-3 gap-y-1 items-center"
+                  >
                     <span className="text-base font-tight font-semibold tracking-tight text-white leading-tight">
                       {pin.title}
                     </span>
@@ -161,7 +239,7 @@ export function Hero() {
                     <span className="text-xs text-white/75 leading-snug">
                       {pin.desc}
                     </span>
-                  </div>
+                  </motion.div>
                 )}
               </div>
             </div>
@@ -208,7 +286,7 @@ export function Hero() {
         <div className="flex items-center gap-8 md:gap-12 pb-2">
           <div className="flex flex-col">
             <span className="text-4xl md:text-5xl font-tight font-semibold tracking-tight text-[#F8F8F5]">
-              <RollingCounter value="1,284" />
+              <RollingCounter value={taskCount.toLocaleString()} />
             </span>
             <span className="text-xs font-mono uppercase tracking-widest text-[#F8F8F5]/60 mt-1">
               tasks run tonight

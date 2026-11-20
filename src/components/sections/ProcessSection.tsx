@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
 
@@ -17,7 +18,7 @@ interface ProcessStep {
 const STEPS: ProcessStep[] = [
   {
     step: "01",
-    week: "Week 1",
+    week: "WEEK 1",
     title: "Audit",
     headline: "Finding the lost hours",
     description:
@@ -28,29 +29,29 @@ const STEPS: ProcessStep[] = [
   },
   {
     step: "02",
-    week: "Week 2",
+    week: "WEEK 2",
     title: "Map",
     headline: "The single source of truth",
     description:
-      "We draw every handoff, trigger, conditional branch and human sign-off on one canvas. No build starts until you sign off the flow.",
+      "Each workflow is drawn end to end: the trigger, the tools it touches, the person who signs off. You approve the map before anything is built.",
     clientRole:
       "One 45-minute diagram review call to approve the logic.",
     img: "https://framerusercontent.com/images/gL8YwCzYwSCuF5xVfVZTkj0hqjk.webp?scale-down-to=2048",
   },
   {
     step: "03",
-    week: "Weeks 3-4",
+    week: "WEEKS 3-4",
     title: "Build",
     headline: "Wiring the machine",
     description:
-      "We connect your CRM, invoicing, inbox and databases in sandbox environments. Every edge case is tested against past client transactions.",
+      "We wire the workflows into your CRM, inbox, invoicing and helpdesk, with a test run on real records and a log you can read.",
     clientRole:
       "Zero hours required from your team. We work on dummy data.",
     img: "https://framerusercontent.com/images/wpafQXWdQJCRrKXIWCks9bdMc.webp?scale-down-to=2048",
   },
   {
     step: "04",
-    week: "Week 5",
+    week: "WEEK 5",
     title: "Launch",
     headline: "Shadowing the live office",
     description:
@@ -61,11 +62,11 @@ const STEPS: ProcessStep[] = [
   },
   {
     step: "05",
-    week: "Ongoing",
+    week: "ONGOING",
     title: "Autopilot",
     headline: "The morning digest",
     description:
-      "Every morning at 08:00, your Slack or inbox receives a clean runbook digest: what closed, what got sent, and what needs human attention.",
+      "Every morning a report on what ran, what paused and what it saved. We tune, add and retire workflows as the business moves.",
     clientRole:
       "Read a 60-second summary while drinking your coffee.",
     img: "https://framerusercontent.com/images/mDldpEEr36RAiQQ7KZnIDf7wCEA.webp?scale-down-to=2048",
@@ -75,9 +76,22 @@ const STEPS: ProcessStep[] = [
 export function ProcessSection() {
   const [activeStep, setActiveStep] = useState<number>(0);
 
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        setActiveStep((prev) => Math.min(prev + 1, STEPS.length - 1));
+      } else if (e.key === "ArrowLeft") {
+        setActiveStep((prev) => Math.max(prev - 1, 0));
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
-    <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-32 px-6 md:px-14 border-t border-white/[0.08]">
-      <div className="max-w-[1280px] mx-auto flex flex-col gap-16">
+    <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-32 overflow-hidden border-t border-white/[0.08]">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-14 flex flex-col gap-12">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
@@ -98,83 +112,171 @@ export function ProcessSection() {
           </div>
         </div>
 
-        {/* Step Navigation Tabs */}
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 border-b border-white/[0.12] pb-4">
-          {STEPS.map((s, idx) => {
-            const isActive = activeStep === idx;
-            return (
+        {/* Horizontal Carousel Viewport */}
+        <div className="relative w-full min-h-[520px] sm:min-h-[580px] rounded-3xl overflow-hidden border border-white/[0.12] bg-zinc-950">
+          <div className="relative w-full h-full min-h-[520px] sm:min-h-[580px]">
+            {/* Sliding Track */}
+            <motion.div
+              className="flex h-full w-full"
+              animate={{ x: `-${activeStep * 100}%` }}
+              transition={{ type: "spring", stiffness: 220, damping: 28 }}
+            >
+              {STEPS.map((s, idx) => {
+                const isActive = activeStep === idx;
+                return (
+                  <div
+                    key={s.step}
+                    className="relative min-w-full h-full min-h-[520px] sm:min-h-[580px] flex-shrink-0 flex flex-col justify-between p-8 sm:p-14 select-none"
+                  >
+                    {/* Background Photography */}
+                    <div className="absolute inset-0 z-0">
+                      <img
+                        src={s.img}
+                        alt={s.title}
+                        className="w-full h-full object-cover object-[50%_35%] scale-100"
+                        loading="lazy"
+                      />
+                      {/* Gradient scrims for readability */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/95 via-[#0B0D10]/75 to-[#0B0D10]/40" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-transparent to-[#0B0D10]/70" />
+                    </div>
+
+                    {/* Giant Neon Stroke Outline Number */}
+                    <div
+                      className="absolute left-8 sm:left-14 top-8 sm:top-10 z-10 text-[140px] sm:text-[220px] font-tight font-extrabold select-none pointer-events-none leading-none tracking-tighter"
+                      style={{
+                        WebkitTextStroke: isActive
+                          ? "2px #D4F542"
+                          : "1.5px rgba(255, 255, 255, 0.25)",
+                        color: "transparent",
+                        textShadow: isActive
+                          ? "0 0 35px rgba(212, 245, 66, 0.25)"
+                          : "none",
+                        transition: "all 0.4s ease",
+                      }}
+                    >
+                      {s.step}
+                    </div>
+
+                    {/* Content on Bottom / Right */}
+                    <div className="relative z-20 mt-auto max-w-2xl flex flex-col gap-4">
+                      <div className="flex items-center gap-3">
+                        <span className="px-3.5 py-1 rounded-full bg-[#D4F542] text-black font-mono text-xs font-semibold shadow-[0_0_12px_rgba(212,245,66,0.3)]">
+                          {s.week}
+                        </span>
+                        <span className="text-xs font-mono text-white/60 tracking-widest uppercase">
+                          STEP {s.step} / 05
+                        </span>
+                      </div>
+
+                      <h3 className="text-4xl sm:text-6xl font-tight font-semibold text-white tracking-[-0.03em] leading-tight">
+                        {s.title}
+                      </h3>
+
+                      <p className="text-base sm:text-xl text-white/80 leading-relaxed font-sans max-w-xl">
+                        {s.description}
+                      </p>
+                    </div>
+
+                    {/* Bottom Right Client Role Pill */}
+                    <div className="relative z-20 self-start sm:self-end mt-4 p-3.5 sm:p-4 rounded-xl bg-black/70 border border-white/[0.12] text-xs font-mono text-white/80 backdrop-blur-md max-w-md">
+                      <span className="text-[#D4F542] uppercase font-semibold mr-2">
+                        Your part:
+                      </span>
+                      {s.clientRole}
+                    </div>
+                  </div>
+                );
+              })}
+            </motion.div>
+
+            {/* Side Navigation Arrow Overlays */}
+            <div className="absolute bottom-6 right-6 z-30 flex items-center gap-2">
               <button
-                key={s.step}
-                onClick={() => setActiveStep(idx)}
-                className={`py-3.5 px-4 text-left rounded-xl transition-all cursor-pointer ${
-                  isActive
-                    ? "bg-white/[0.1] text-white shadow-sm"
-                    : "text-white/40 hover:text-white hover:bg-white/[0.03]"
-                }`}
+                onClick={() => setActiveStep((prev) => Math.max(prev - 1, 0))}
+                disabled={activeStep === 0}
+                className="w-10 h-10 rounded-full bg-black/70 border border-white/20 text-white flex items-center justify-center hover:bg-[#D4F542] hover:text-black transition-colors disabled:opacity-30 disabled:pointer-events-none cursor-pointer backdrop-blur-md"
+                aria-label="Previous step"
               >
-                <div
-                  className={`text-xs font-mono tracking-wider uppercase transition-colors ${
-                    isActive ? "text-[#D4F542]" : "text-white/40"
-                  }`}
-                >
-                  Step {s.step} · {s.week}
-                </div>
-                <div className="text-lg font-semibold font-tight mt-1">
-                  {s.title}
-                </div>
+                ←
               </button>
-            );
-          })}
+              <button
+                onClick={() =>
+                  setActiveStep((prev) => Math.min(prev + 1, STEPS.length - 1))
+                }
+                disabled={activeStep === STEPS.length - 1}
+                className="w-10 h-10 rounded-full bg-black/70 border border-white/20 text-white flex items-center justify-center hover:bg-[#D4F542] hover:text-black transition-colors disabled:opacity-30 disabled:pointer-events-none cursor-pointer backdrop-blur-md"
+                aria-label="Next step"
+              >
+                →
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Active Step Hero Card */}
-        <div className="relative rounded-2xl bg-zinc-950 border border-white/[0.12] min-h-[480px] overflow-hidden shadow-2xl flex flex-col lg:flex-row items-stretch">
-          {/* Background Photography for active step */}
-          <div className="absolute inset-0 z-0">
-            <img
-              src={STEPS[activeStep].img}
-              alt={STEPS[activeStep].title}
-              className="w-full h-full object-cover object-[50%_40%] scale-100 transition-all duration-700"
+        {/* Bottom Interactive Timeline Rail */}
+        <div className="relative w-full pt-8 pb-4">
+          {/* Track line background */}
+          <div className="relative w-full h-[2px] bg-white/[0.16] rounded-full">
+            {/* Animated filling lime line */}
+            <motion.div
+              className="absolute left-0 top-0 h-full bg-[#D4F542] shadow-[0_0_12px_#D4F542]"
+              animate={{
+                width: `${(activeStep / (STEPS.length - 1)) * 100}%`,
+              }}
+              transition={{ type: "spring", stiffness: 220, damping: 28 }}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/95 via-[#0B0D10]/80 to-[#0B0D10]/40" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-transparent to-[#0B0D10]/60" />
           </div>
 
-          {/* Big Outline Watermark Number */}
-          <div className="absolute right-8 top-6 z-10 text-[140px] sm:text-[200px] font-tight font-bold text-white/[0.06] select-none pointer-events-none leading-none">
-            {STEPS[activeStep].step}
-          </div>
+          {/* 5 Milestone Points */}
+          <div className="relative flex justify-between items-start -mt-[7px]">
+            {STEPS.map((s, idx) => {
+              const isActive = activeStep === idx;
+              const isPassed = activeStep >= idx;
+              return (
+                <button
+                  key={s.step}
+                  onClick={() => setActiveStep(idx)}
+                  className="group flex flex-col items-center cursor-pointer text-left focus:outline-none"
+                  style={{ width: "20%" }}
+                >
+                  {/* The dot */}
+                  <div className="relative flex items-center justify-center">
+                    <div
+                      className={`w-3.5 h-3.5 rounded-full border-2 transition-all ${
+                        isActive
+                          ? "bg-[#D4F542] border-[#0B0D10] ring-4 ring-[#D4F542]/30 scale-125"
+                          : isPassed
+                          ? "bg-[#D4F542] border-[#0B0D10]"
+                          : "bg-zinc-700 border-[#0B0D10] group-hover:bg-white"
+                      }`}
+                    />
+                  </div>
 
-          {/* Content Area */}
-          <div className="relative z-20 flex-1 p-8 sm:p-14 flex flex-col justify-between gap-8 max-w-3xl">
-            <div className="flex flex-col gap-6">
-              <div className="flex items-center gap-3">
-                <span className="px-3 py-1 rounded-full bg-[#D4F542] text-black font-mono text-xs font-semibold">
-                  {STEPS[activeStep].week}
-                </span>
-                <span className="text-xs font-mono text-white/50 tracking-wider uppercase">
-                  Step {STEPS[activeStep].step} / 05
-                </span>
-              </div>
-
-              <h3 className="text-3xl sm:text-5xl font-tight font-semibold text-white tracking-[-0.03em] leading-tight">
-                {STEPS[activeStep].title} —{" "}
-                <span className="text-[#D4F542] font-normal">
-                  {STEPS[activeStep].headline}
-                </span>
-              </h3>
-
-              <p className="text-base sm:text-lg text-white/80 leading-relaxed font-sans max-w-2xl">
-                {STEPS[activeStep].description}
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-black/60 border border-white/[0.12] text-xs font-mono text-white/80 backdrop-blur-md max-w-xl">
-              <span className="text-[#D4F542] uppercase font-semibold mr-2">
-                Your part:
-              </span>
-              {STEPS[activeStep].clientRole}
-            </div>
+                  {/* Active floating pill above or below */}
+                  <div className="flex flex-col items-center mt-3 text-center">
+                    {isActive ? (
+                      <span className="px-2.5 py-0.5 rounded-full bg-[#D4F542] text-black font-mono text-[11px] font-bold tracking-wider mb-1 shadow-[0_0_10px_rgba(212,245,66,0.3)]">
+                        {s.week}
+                      </span>
+                    ) : (
+                      <span className="text-[11px] font-mono tracking-wider uppercase text-white/40 group-hover:text-white/70 transition-colors mb-1">
+                        {s.week}
+                      </span>
+                    )}
+                    <span
+                      className={`text-sm sm:text-base font-tight font-semibold transition-colors ${
+                        isActive
+                          ? "text-white"
+                          : "text-white/50 group-hover:text-white"
+                      }`}
+                    >
+                      {s.title}
+                    </span>
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>

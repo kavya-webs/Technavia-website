@@ -42,7 +42,7 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 h-[84px] z-50 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${
+      className={`fixed top-0 left-0 right-0 h-[88px] z-50 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${
         isAway ? "-translate-y-full" : "translate-y-0"
       }`}
     >
@@ -53,26 +53,28 @@ export function Navbar() {
             : "bg-transparent"
         }`}
       >
-        {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <LitDot />
-          <span className="font-tight font-semibold text-lg md:text-xl tracking-tight text-[#F8F8F5] group-hover:text-[#D4F542] transition-colors">
+        {/* Brand Logo - Made bigger */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="scale-125 flex items-center justify-center">
+            <LitDot />
+          </div>
+          <span className="font-tight font-semibold text-2xl md:text-[26px] tracking-tight text-[#F8F8F5] group-hover:text-[#D4F542] transition-colors">
             Runbook
           </span>
         </Link>
 
-        {/* Desktop Navigation Links - Clean text without pill background matching image 3 */}
-        <nav className="hidden md:flex items-center gap-8 lg:gap-10">
+        {/* Desktop Navigation Links - Hover effect with white pill shape & black text */}
+        <nav className="hidden md:flex items-center gap-2 lg:gap-3">
           {navLinks.map((item) => {
             const isActive = pathname.startsWith(item.href);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
                   isActive
-                    ? "text-[#F8F8F5]"
-                    : "text-[#F8F8F5]/80 hover:text-[#F8F8F5]"
+                    ? "bg-white/15 text-[#F8F8F5] hover:bg-white hover:text-black"
+                    : "text-[#F8F8F5]/85 hover:bg-white hover:text-black"
                 }`}
               >
                 {item.name}
@@ -121,7 +123,7 @@ export function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[84px] bg-[#0B0D10]/95 backdrop-blur-xl border-b border-white/[0.1] p-6 flex flex-col gap-4 animate-in fade-in slide-in-from-top-4 duration-300">
+        <div className="md:hidden fixed inset-x-0 top-[88px] bg-[#0B0D10]/95 backdrop-blur-xl border-b border-white/[0.1] p-6 flex flex-col gap-4 animate-in fade-in slide-in-from-top-4 duration-300">
           {navLinks.map((item) => (
             <Link
               key={item.href}

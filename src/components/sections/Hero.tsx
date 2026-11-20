@@ -20,6 +20,7 @@ interface HeroPin {
   lampY: number;
 }
 
+// Exactly 3 pins in total, all functional with hover expand and direct links
 const HERO_PINS: HeroPin[] = [
   {
     id: "invoicing",
@@ -28,10 +29,10 @@ const HERO_PINS: HeroPin[] = [
     title: "Invoicing",
     desc: "Invoices out the minute a job closes, chased until paid.",
     href: "/workflows/invoicing",
-    left: "41%",
-    top: "14%",
+    left: "56%",
+    top: "15%",
     side: "r",
-    lampX: 39.5,
+    lampX: 53,
     lampY: 0,
   },
   {
@@ -42,7 +43,7 @@ const HERO_PINS: HeroPin[] = [
     desc: "Every enquiry scored, assigned and in the CRM in seconds.",
     href: "/workflows/lead-routing",
     left: "41%",
-    top: "31%",
+    top: "32%",
     side: "r",
     lampX: 39.5,
     lampY: 0,
@@ -54,36 +55,10 @@ const HERO_PINS: HeroPin[] = [
     title: "Support",
     desc: "Tickets answered, tagged and escalated without a queue.",
     href: "/workflows/support",
-    left: "74%",
-    top: "21%",
+    left: "75%",
+    top: "22%",
     side: "l",
-    lampX: 58,
-    lampY: 0,
-  },
-  {
-    id: "onboarding",
-    time: "02:18",
-    event: "CLIENT FOLDER CREATED",
-    title: "Onboarding",
-    desc: "Contracts, accounts and welcome sequences from one form.",
-    href: "/workflows/onboarding",
-    left: "58%",
-    top: "68%",
-    side: "r",
-    lampX: 55,
-    lampY: 20,
-  },
-  {
-    id: "reporting",
-    time: "02:20",
-    event: "MONDAY REPORT SENT",
-    title: "Reporting",
-    desc: "The numbers on the desk every morning, nobody builds them.",
-    href: "/workflows/reporting",
-    left: "74%",
-    top: "45%",
-    side: "l",
-    lampX: 88,
+    lampX: 72,
     lampY: 0,
   },
 ];
@@ -115,7 +90,7 @@ export function Hero() {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsInsideHero(true)}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full min-h-[100svh] flex flex-col justify-between pt-[100px] pb-12 px-6 md:px-14 overflow-hidden bg-[#0B0D10] select-none cursor-none"
+      className="relative w-full min-h-[100svh] flex flex-col justify-between pt-[104px] pb-12 px-6 md:px-14 overflow-hidden bg-[#0B0D10] select-none cursor-none"
     >
       {/* Background Dusk Office Photography */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -125,15 +100,18 @@ export function Hero() {
           className="absolute inset-0 w-full h-full object-cover object-[50%_42%] scale-105"
         />
 
-        {/* Perimeter Vignette Only: clear and light in the center, dark at outer edges */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(11,13,16,0.45)_75%,rgba(11,13,16,0.92)_100%)]" />
+        {/* Minor Black Tint across entire background for crisp text readability */}
+        <div className="absolute inset-0 bg-black/25 pointer-events-none" />
 
-        {/* Gentle top and bottom section transitions */}
-        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0B0D10]/80 to-transparent pointer-events-none" />
+        {/* Perimeter Vignette: darker towards the outer edges, lighter in center */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(11,13,16,0.35)_75%,rgba(11,13,16,0.9)_100%)] pointer-events-none" />
+
+        {/* Top and bottom subtle blending transitions */}
+        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#0B0D10]/80 to-transparent pointer-events-none" />
         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0B0D10] to-transparent pointer-events-none" />
       </div>
 
-      {/* The Cursor as the "AUTOMATE THIS" Button (Hidden outside hero, acts as the mouse pointer inside) */}
+      {/* The Cursor as the "AUTOMATE THIS" Button (Acts as mouse cursor within Hero) */}
       {isInsideHero && cursorPos && (
         <div
           className="fixed pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center justify-center px-4 py-1.5 rounded-full bg-[#D4F542] text-black font-mono text-[11px] font-bold uppercase tracking-wider shadow-[0_4px_16px_rgba(0,0,0,0.4)] whitespace-nowrap will-change-transform"
@@ -146,7 +124,7 @@ export function Hero() {
         </div>
       )}
 
-      {/* Animated SVG Electrical Cable / Wire connected dynamically to active pin */}
+      {/* Animated SVG Electrical Cable / Wire connected dynamically to active/hovered pin */}
       <svg
         className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible"
         viewBox="0 0 100 100"
@@ -154,18 +132,18 @@ export function Hero() {
       >
         <motion.path
           key={displayedPinId}
-          d={`M ${currentPin.lampX} ${currentPin.lampY} Q ${(currentPin.lampX + parseFloat(currentPin.left)) / 2 + 3} ${(currentPin.lampY + parseFloat(currentPin.top)) / 2 - 6} ${parseFloat(currentPin.left)} ${parseFloat(currentPin.top)}`}
+          d={`M ${currentPin.lampX} ${currentPin.lampY} Q ${(currentPin.lampX + parseFloat(currentPin.left)) / 2 + 2} ${(currentPin.lampY + parseFloat(currentPin.top)) / 2 - 5} ${parseFloat(currentPin.left)} ${parseFloat(currentPin.top)}`}
           fill="none"
           stroke="#D4F542"
           strokeWidth="0.25"
           strokeDasharray="0.8 0.6"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ pathLength: 1, opacity: 0.9 }}
-          transition={{ duration: 0.7, ease: [0.2, 0.8, 0.2, 1] }}
+          transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
         />
       </svg>
 
-      {/* Floating Interactive Workflow Pins (Expand on hover/click) */}
+      {/* 3 Interactive Workflow Pins (All 3 working with hover expansion, click selection, and direct links) */}
       <div className="absolute inset-0 z-20 pointer-events-none hidden lg:block">
         {HERO_PINS.map((pin) => {
           const isExpanded = displayedPinId === pin.id;
@@ -178,7 +156,7 @@ export function Hero() {
               onMouseEnter={() => setHoveredPin(pin.id)}
               onMouseLeave={() => setHoveredPin(null)}
               onClick={() => setActivePin(pin.id)}
-              className={`absolute pointer-events-auto flex items-center gap-2 cursor-none -translate-x-[7px] -translate-y-[7px] ${
+              className={`absolute pointer-events-auto flex items-center gap-2.5 cursor-none -translate-x-[7px] -translate-y-[7px] ${
                 isLeft ? "flex-row-reverse -translate-x-[calc(100%-7px)]" : ""
               }`}
             >
@@ -196,7 +174,7 @@ export function Hero() {
                 )}
               </div>
 
-              {/* Pin Plate (Expands with details on hover) */}
+              {/* Pin Plate (Expands with details & arrow button on hover/click) */}
               <div
                 className={`flex flex-col rounded-xl transition-all duration-300 backdrop-blur-md overflow-hidden ${
                   isExpanded
@@ -213,13 +191,13 @@ export function Hero() {
                     </span>
                   </div>
 
-                  {/* Top green accent pill when expanded matching image 1 */}
+                  {/* Accent pill indicator when expanded */}
                   {isExpanded && (
                     <span className="w-6 h-1 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542] flex-shrink-0" />
                   )}
                 </div>
 
-                {/* Expanded Details on Hover */}
+                {/* Expanded Details on Hover with arrow button */}
                 {isExpanded && (
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
@@ -261,9 +239,9 @@ export function Hero() {
         })}
       </div>
 
-      {/* Main Copy & Headlines (Bottom Left positioned with proper margin matching image 1) */}
+      {/* Main Copy & Headlines (Larger font size, comfortable bottom-left margin) */}
       <div className="relative z-20 max-w-[1280px] w-full mx-auto mt-auto pt-24 pb-4 flex flex-col lg:flex-row lg:items-end justify-between gap-10">
-        <div className="max-w-xl flex flex-col gap-4">
+        <div className="max-w-2xl flex flex-col gap-5">
           {/* Eyebrow Label */}
           <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.12] w-fit">
             <LitDot />
@@ -272,21 +250,21 @@ export function Hero() {
             </span>
           </div>
 
-          {/* Hero Headline (Adjusted font size matching image 1) */}
-          <h1 className="text-4xl sm:text-6xl lg:text-[76px] font-tight font-semibold tracking-[-0.035em] text-[#F8F8F5] leading-[0.98] text-balance">
+          {/* Hero Headline (Larger font size as requested) */}
+          <h1 className="text-5xl sm:text-7xl lg:text-[88px] xl:text-[98px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.93] text-balance">
             Your business,
             <br />
             running <span className="text-[#D4F542]">itself.</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-sm sm:text-base text-[#F8F8F5]/75 font-normal max-w-lg leading-relaxed font-sans">
+          <p className="text-base sm:text-lg text-[#F8F8F5]/80 font-normal max-w-lg leading-relaxed font-sans">
             We wire your CRM, invoicing, onboarding and support into workflows that run while the
             office sleeps.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-3.5 pt-2">
+          <div className="flex flex-wrap items-center gap-3.5 pt-1">
             <Button href="/book" variant="solid">
               Book a call
             </Button>
@@ -296,7 +274,7 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Bottom Right: ONLY 31h Back per week (Removed "tasks run tonight") */}
+        {/* Bottom Right: 31h Back per week */}
         <div className="flex flex-col items-start lg:items-end pb-2">
           <span className="text-4xl sm:text-5xl lg:text-6xl font-tight font-semibold tracking-tight text-[#F8F8F5] leading-none">
             31h

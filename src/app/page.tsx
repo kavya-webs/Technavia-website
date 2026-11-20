@@ -1,6 +1,7 @@
 import React from "react";
 import { Hero } from "@/components/sections/Hero";
 import { WhyRunbook } from "@/components/sections/WhyRunbook";
+import { WorksWithStrip } from "@/components/sections/WorksWithStrip";
 import { WorkflowsAccordion } from "@/components/sections/WorkflowsAccordion";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { ToolsStack } from "@/components/sections/ToolsStack";
@@ -17,6 +18,7 @@ export default function Home() {
     <div className="flex flex-col w-full">
       <Hero />
       <WhyRunbook />
+      <WorksWithStrip />
       <WorkflowsAccordion />
       <ProcessSection />
       <ToolsStack />

@@ -29,6 +29,27 @@
   --w: cubic-bezier(0.7, 0, 0.2, 1);
 }
 
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
 body {
   background-color: var(--rb-night);
   color: var(--rb-cloud);
@@ -206,6 +227,15 @@ body {
 
 .rb-btn.rb-quiet.rb-has-a .rb-btn-face {
   padding: 0px 5px 0px 14px;
+}
+
+.rb-btn.rb-quiet.rb-has-a .rb-btn-face::before {
+  clip-path: inset(5px 5px 5px calc(100% - 37px) round 999px);
+}
+
+.rb-btn.rb-quiet.rb-has-a:hover .rb-btn-face::before,
+.rb-btn.rb-quiet.rb-has-a:focus-visible .rb-btn-face::before {
+  clip-path: inset(0px round 999px);
 }
 
 .rb-btn.rb-quiet .rb-btn-a {

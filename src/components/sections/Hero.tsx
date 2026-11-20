@@ -115,10 +115,10 @@ export function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0B0D10] to-transparent pointer-events-none" />
       </div>
 
-      {/* The Cursor as the "AUTOMATE THIS" Button (Acts as mouse cursor within Hero) */}
+      {/* The Cursor as the "AUTOMATE THIS" Button (Acts as mouse cursor within Hero with subtle lime glow) */}
       {isInsideHero && cursorPos && (
         <div
-          className="fixed pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center justify-center px-4 py-1.5 rounded-full bg-[#D4F542] text-black font-mono text-[11px] font-bold uppercase tracking-wider shadow-[0_4px_16px_rgba(0,0,0,0.4)] whitespace-nowrap will-change-transform"
+          className="fixed pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center justify-center px-4 py-1.5 rounded-full bg-[#D4F542] text-black font-mono text-[11px] font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(212,245,66,0.45),0_0_8px_rgba(212,245,66,0.6),0_4px_16px_rgba(0,0,0,0.4)] whitespace-nowrap will-change-transform"
           style={{
             left: cursorPos.x,
             top: cursorPos.y,
@@ -272,10 +272,10 @@ export function Hero() {
 
           {/* CTAs */}
           <div className="flex flex-wrap items-center gap-3.5 pt-1">
-            <Button href="/book" variant="solid">
+            <Button href="/book" variant="solid" className="!h-[48px] !text-[13px]">
               Book a call
             </Button>
-            <Button href="/workflows" variant="ghost" hasArrow={false} hasLamp={true}>
+            <Button href="/workflows" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[48px] !text-[13px]">
               See the workflows
             </Button>
           </div>

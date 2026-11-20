@@ -85,7 +85,7 @@ export function Navbar() {
 
         {/* CTA Button & Mobile Toggle */}
         <div className="flex items-center gap-3">
-          <Button href="/book" variant="solid" className="hidden sm:inline-flex">
+          <Button href="/book" variant="quiet" className="hidden sm:inline-flex">
             Book a call
           </Button>
 

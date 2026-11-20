@@ -109,7 +109,9 @@ export function WorkflowsAccordion() {
           return (
             <div
               key={item.id}
-              className={`relative border-b border-white/[0.12] transition-colors duration-500 overflow-hidden ${
+              onMouseEnter={() => setOpenIndex(idx)}
+              onClick={() => setOpenIndex(idx)}
+              className={`relative border-b border-white/[0.12] transition-colors duration-400 overflow-hidden cursor-pointer ${
                 isOpen ? "bg-black/50" : "hover:bg-white/[0.02]"
               }`}
             >

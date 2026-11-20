@@ -20,10 +20,10 @@ interface HeroPin {
   lampY: number;
 }
 
-// Exactly 3 functional workflow pins shifted leftwards with generous, balanced spacing:
-// 1. Invoicing at (50%, 14%)
-// 2. Lead routing at (34%, 32%)
-// 3. Support at (66%, 26%)
+// Exactly 3 functional workflow pins moved a lot towards the right with a comfortable right margin:
+// 1. Invoicing at the upper right (92%, 16%)
+// 2. Lead routing at middle right (87%, 34%)
+// 3. Support at lower-middle right (93%, 52%)
 const HERO_PINS: HeroPin[] = [
   {
     id: "invoicing",
@@ -32,10 +32,10 @@ const HERO_PINS: HeroPin[] = [
     title: "Invoicing",
     desc: "Invoices out the minute a job closes, chased until paid.",
     href: "/workflows/invoicing",
-    left: "50%",
-    top: "14%",
-    side: "r",
-    lampX: 47,
+    left: "92%",
+    top: "16%",
+    side: "l",
+    lampX: 92,
     lampY: 0,
   },
   {
@@ -45,10 +45,10 @@ const HERO_PINS: HeroPin[] = [
     title: "Lead routing",
     desc: "Every enquiry scored, assigned and in the CRM in seconds.",
     href: "/workflows/lead-routing",
-    left: "34%",
-    top: "32%",
-    side: "r",
-    lampX: 32,
+    left: "87%",
+    top: "34%",
+    side: "l",
+    lampX: 87,
     lampY: 0,
   },
   {
@@ -58,16 +58,16 @@ const HERO_PINS: HeroPin[] = [
     title: "Support",
     desc: "Tickets answered, tagged and escalated without a queue.",
     href: "/workflows/support",
-    left: "66%",
-    top: "26%",
+    left: "93%",
+    top: "52%",
     side: "l",
-    lampX: 68,
+    lampX: 93,
     lampY: 0,
   },
 ];
 
 export function Hero() {
-  const [activePin, setActivePin] = useState<string>("lead-routing");
+  const [activePin, setActivePin] = useState<string | null>(null);
   const [hoveredPin, setHoveredPin] = useState<string | null>(null);
   const [cursorPos, setCursorPos] = useState<{ x: number; y: number } | null>(null);
   const [isInsideHero, setIsInsideHero] = useState<boolean>(false);
@@ -81,10 +81,11 @@ export function Hero() {
   const handleMouseLeave = () => {
     setIsInsideHero(false);
     setCursorPos(null);
+    setHoveredPin(null);
   };
 
-  // Determine currently displayed pin (hovered takes precedence over active)
-  const displayedPinId = hoveredPin || activePin;
+  // Currently focused pin for wire anchor
+  const displayedPinId = hoveredPin || activePin || "lead-routing";
   const currentPin = HERO_PINS.find((p) => p.id === displayedPinId) || HERO_PINS[1];
 
   return (
@@ -135,7 +136,7 @@ export function Hero() {
       >
         <motion.path
           key={displayedPinId}
-          d={`M ${currentPin.lampX} ${currentPin.lampY} Q ${(currentPin.lampX + parseFloat(currentPin.left)) / 2 + (currentPin.side === 'l' ? 4 : -4)} ${(currentPin.lampY + parseFloat(currentPin.top)) / 2 - 5} ${parseFloat(currentPin.left)} ${parseFloat(currentPin.top)}`}
+          d={`M ${currentPin.lampX} ${currentPin.lampY} Q ${(currentPin.lampX + parseFloat(currentPin.left)) / 2 + (currentPin.side === 'l' ? 3 : -3)} ${(currentPin.lampY + parseFloat(currentPin.top)) / 2 - 4} ${parseFloat(currentPin.left)} ${parseFloat(currentPin.top)}`}
           fill="none"
           stroke="#D4F542"
           strokeWidth="0.25"
@@ -146,21 +147,24 @@ export function Hero() {
         />
       </svg>
 
-      {/* 3 Interactive Workflow Pins (All 3 working with hover expansion, click selection, and direct links) */}
-      <div className="absolute inset-0 z-20 pointer-events-none hidden lg:block">
+      {/* 3 Interactive Workflow Pins - All 3 have full hover expansion, click activation, and direct links */}
+      <div className="absolute inset-0 z-30 pointer-events-none hidden lg:block">
         {HERO_PINS.map((pin) => {
-          const isExpanded = displayedPinId === pin.id;
+          const isExpanded = hoveredPin === pin.id || activePin === pin.id;
           const isLeft = pin.side === "l";
 
           return (
             <div
               key={pin.id}
+              data-testid={`hero-pin-${pin.id}`}
               style={{ left: pin.left, top: pin.top }}
               onMouseEnter={() => setHoveredPin(pin.id)}
               onMouseLeave={() => setHoveredPin(null)}
-              onClick={() => setActivePin(pin.id)}
-              className={`absolute pointer-events-auto flex items-center gap-2.5 cursor-none -translate-x-[7px] -translate-y-[7px] ${
-                isLeft ? "flex-row-reverse -translate-x-[calc(100%-7px)]" : ""
+              onClick={() => setActivePin(activePin === pin.id ? null : pin.id)}
+              className={`absolute pointer-events-auto flex items-center gap-2.5 -translate-y-1/2 transition-opacity duration-200 select-none ${
+                isLeft
+                  ? "flex-row-reverse -translate-x-[calc(100%-7px)]"
+                  : "flex-row -translate-x-[7px]"
               }`}
             >
               {/* Lamp Connection Dot */}
@@ -242,9 +246,9 @@ export function Hero() {
         })}
       </div>
 
-      {/* Main Copy & Headlines - Shifted leftwards so it never collides with center card */}
-      <div className="relative z-20 max-w-[1280px] w-full mx-auto mt-auto pt-24 pb-4 flex flex-col lg:flex-row lg:items-end justify-between gap-10">
-        <div className="max-w-[480px] sm:max-w-[520px] flex flex-col gap-5">
+      {/* Main Copy & Headlines - Anchored to bottom-left with ample space */}
+      <div className="relative z-20 max-w-[1280px] w-full mx-auto mt-auto pt-24 pb-4 flex flex-col lg:flex-row lg:items-end justify-between gap-10 pointer-events-none">
+        <div className="max-w-[480px] sm:max-w-[520px] flex flex-col gap-5 pointer-events-auto">
           {/* Eyebrow Label */}
           <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.12] w-fit">
             <LitDot />
@@ -253,7 +257,7 @@ export function Hero() {
             </span>
           </div>
 
-          {/* Hero Headline (Shifted leftwards, clean wrap) */}
+          {/* Hero Headline */}
           <h1 className="text-5xl sm:text-7xl lg:text-[84px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.93]">
             Your business,
             <br />
@@ -278,7 +282,7 @@ export function Hero() {
         </div>
 
         {/* Bottom Right: 31h Back per week */}
-        <div className="flex flex-col items-start lg:items-end pb-2">
+        <div className="flex flex-col items-start lg:items-end pb-2 pointer-events-auto">
           <span className="text-4xl sm:text-5xl lg:text-6xl font-tight font-semibold tracking-tight text-[#F8F8F5] leading-none">
             31h
           </span>

@@ -20,7 +20,10 @@ interface HeroPin {
   lampY: number;
 }
 
-// Exactly 3 pins in total, all functional with hover expand and direct links
+// Exactly 3 functional workflow pins positioned matching the user's annotations:
+// 1. Invoicing at the upper right lamp (78%, 15%)
+// 2. Lead routing in the center (41%, 32%)
+// 3. Ticket closed at the middle right (75%, 48%)
 const HERO_PINS: HeroPin[] = [
   {
     id: "invoicing",
@@ -29,10 +32,10 @@ const HERO_PINS: HeroPin[] = [
     title: "Invoicing",
     desc: "Invoices out the minute a job closes, chased until paid.",
     href: "/workflows/invoicing",
-    left: "56%",
+    left: "78%",
     top: "15%",
-    side: "r",
-    lampX: 53,
+    side: "l",
+    lampX: 86,
     lampY: 0,
   },
   {
@@ -56,9 +59,9 @@ const HERO_PINS: HeroPin[] = [
     desc: "Tickets answered, tagged and escalated without a queue.",
     href: "/workflows/support",
     left: "75%",
-    top: "22%",
+    top: "48%",
     side: "l",
-    lampX: 72,
+    lampX: 74,
     lampY: 0,
   },
 ];
@@ -132,7 +135,7 @@ export function Hero() {
       >
         <motion.path
           key={displayedPinId}
-          d={`M ${currentPin.lampX} ${currentPin.lampY} Q ${(currentPin.lampX + parseFloat(currentPin.left)) / 2 + 2} ${(currentPin.lampY + parseFloat(currentPin.top)) / 2 - 5} ${parseFloat(currentPin.left)} ${parseFloat(currentPin.top)}`}
+          d={`M ${currentPin.lampX} ${currentPin.lampY} Q ${(currentPin.lampX + parseFloat(currentPin.left)) / 2 + (currentPin.side === 'l' ? 4 : -4)} ${(currentPin.lampY + parseFloat(currentPin.top)) / 2 - 5} ${parseFloat(currentPin.left)} ${parseFloat(currentPin.top)}`}
           fill="none"
           stroke="#D4F542"
           strokeWidth="0.25"
@@ -239,9 +242,9 @@ export function Hero() {
         })}
       </div>
 
-      {/* Main Copy & Headlines (Larger font size, comfortable bottom-left margin) */}
+      {/* Main Copy & Headlines - Shifted leftwards so it never collides with center card */}
       <div className="relative z-20 max-w-[1280px] w-full mx-auto mt-auto pt-24 pb-4 flex flex-col lg:flex-row lg:items-end justify-between gap-10">
-        <div className="max-w-2xl flex flex-col gap-5">
+        <div className="max-w-[480px] sm:max-w-[520px] flex flex-col gap-5">
           {/* Eyebrow Label */}
           <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.12] w-fit">
             <LitDot />
@@ -250,15 +253,15 @@ export function Hero() {
             </span>
           </div>
 
-          {/* Hero Headline (Larger font size as requested) */}
-          <h1 className="text-5xl sm:text-7xl lg:text-[88px] xl:text-[98px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.93] text-balance">
+          {/* Hero Headline (Shifted leftwards, clean wrap) */}
+          <h1 className="text-5xl sm:text-7xl lg:text-[84px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.93]">
             Your business,
             <br />
             running <span className="text-[#D4F542]">itself.</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg text-[#F8F8F5]/80 font-normal max-w-lg leading-relaxed font-sans">
+          <p className="text-sm sm:text-base text-[#F8F8F5]/80 font-normal max-w-md leading-relaxed font-sans">
             We wire your CRM, invoicing, onboarding and support into workflows that run while the
             office sleeps.
           </p>

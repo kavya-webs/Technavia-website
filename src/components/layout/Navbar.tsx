@@ -61,18 +61,18 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1.5 p-1 rounded-full bg-black/30 border border-white/[0.08] backdrop-blur-md">
+        {/* Desktop Navigation Links - Clean text without pill background matching image 3 */}
+        <nav className="hidden md:flex items-center gap-8 lg:gap-10">
           {navLinks.map((item) => {
             const isActive = pathname.startsWith(item.href);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                className={`text-sm font-medium transition-colors ${
                   isActive
-                    ? "bg-white/[0.12] text-[#F8F8F5]"
-                    : "text-[#F8F8F5]/80 hover:text-[#F8F8F5] hover:bg-white/[0.06]"
+                    ? "text-[#F8F8F5]"
+                    : "text-[#F8F8F5]/80 hover:text-[#F8F8F5]"
                 }`}
               >
                 {item.name}

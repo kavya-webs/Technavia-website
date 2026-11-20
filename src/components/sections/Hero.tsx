@@ -2,9 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "../ui/Button";
-import { RollingCounter } from "../ui/RollingCounter";
 import { LitDot } from "../ui/LitDot";
 
 interface HeroPin {
@@ -17,7 +16,7 @@ interface HeroPin {
   left: string;
   top: string;
   side: "r" | "l";
-  lampX: number; // percentage coordinate
+  lampX: number;
   lampY: number;
 }
 
@@ -25,64 +24,64 @@ const HERO_PINS: HeroPin[] = [
   {
     id: "invoicing",
     time: "02:14",
-    event: "Invoice #4821 sent",
+    event: "INVOICE #4821 SENT",
     title: "Invoicing",
     desc: "Invoices out the minute a job closes, chased until paid.",
     href: "/workflows/invoicing",
-    left: "40%",
-    top: "13%",
+    left: "41%",
+    top: "14%",
     side: "r",
-    lampX: 38,
+    lampX: 39.5,
     lampY: 0,
   },
   {
     id: "lead-routing",
     time: "02:15",
-    event: "Lead qualified · CRM updated",
+    event: "LEAD QUALIFIED · CRM UPDATED",
     title: "Lead routing",
     desc: "Every enquiry scored, assigned and in the CRM in seconds.",
     href: "/workflows/lead-routing",
-    left: "40%",
+    left: "41%",
     top: "31%",
     side: "r",
-    lampX: 39,
-    lampY: 13,
+    lampX: 39.5,
+    lampY: 0,
   },
   {
     id: "support",
     time: "02:16",
-    event: "Ticket #772 closed",
+    event: "TICKET #772 CLOSED",
     title: "Support",
     desc: "Tickets answered, tagged and escalated without a queue.",
     href: "/workflows/support",
-    left: "92%",
-    top: "20%",
+    left: "74%",
+    top: "21%",
     side: "l",
-    lampX: 55,
+    lampX: 58,
     lampY: 0,
   },
   {
     id: "onboarding",
     time: "02:18",
-    event: "Client folder created",
+    event: "CLIENT FOLDER CREATED",
     title: "Onboarding",
     desc: "Contracts, accounts and welcome sequences from one form.",
     href: "/workflows/onboarding",
-    left: "57%",
-    top: "66%",
+    left: "58%",
+    top: "68%",
     side: "r",
-    lampX: 58,
+    lampX: 55,
     lampY: 20,
   },
   {
     id: "reporting",
     time: "02:20",
-    event: "Monday report sent",
+    event: "MONDAY REPORT SENT",
     title: "Reporting",
     desc: "The numbers on the desk every morning, nobody builds them.",
     href: "/workflows/reporting",
-    left: "92%",
-    top: "44%",
+    left: "74%",
+    top: "45%",
     side: "l",
     lampX: 88,
     lampY: 0,
@@ -91,137 +90,151 @@ const HERO_PINS: HeroPin[] = [
 
 export function Hero() {
   const [activePin, setActivePin] = useState<string>("lead-routing");
-  const [taskCount, setTaskCount] = useState<number>(1287);
-  const [mousePos, setMousePos] = useState<{ x: number; y: number } | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [hoveredPin, setHoveredPin] = useState<string | null>(null);
+  const [cursorPos, setCursorPos] = useState<{ x: number; y: number } | null>(null);
+  const [isInsideHero, setIsInsideHero] = useState<boolean>(false);
+  const heroRef = useRef<HTMLElement>(null);
 
-  // Live real-time counter increment (as seen in video: 1287 -> 1290 -> 1293 -> 1296)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTaskCount((prev) => prev + 1);
-    }, 2800);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Track mouse within hero container for trailing cursor pill
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    setCursorPos({ x: e.clientX, y: e.clientY });
+    if (!isInsideHero) setIsInsideHero(true);
   };
 
-  const currentPin = HERO_PINS.find((p) => p.id === activePin) || HERO_PINS[1];
+  const handleMouseLeave = () => {
+    setIsInsideHero(false);
+    setCursorPos(null);
+  };
+
+  // Determine currently displayed pin (hovered takes precedence over active)
+  const displayedPinId = hoveredPin || activePin;
+  const currentPin = HERO_PINS.find((p) => p.id === displayedPinId) || HERO_PINS[1];
 
   return (
     <section
-      ref={containerRef}
+      ref={heroRef}
       onMouseMove={handleMouseMove}
-      onMouseLeave={() => setMousePos(null)}
-      className="relative w-full min-h-[100svh] flex flex-col justify-between pt-[100px] pb-12 px-6 md:px-14 overflow-hidden bg-[#0B0D10]"
+      onMouseEnter={() => setIsInsideHero(true)}
+      onMouseLeave={handleMouseLeave}
+      className="relative w-full min-h-[100svh] flex flex-col justify-between pt-[100px] pb-12 px-6 md:px-14 overflow-hidden bg-[#0B0D10] select-none cursor-none"
     >
-      {/* Background Dusk Office Photography with dynamic parallax */}
+      {/* Background Dusk Office Photography */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
           src="https://framerusercontent.com/images/kltvaH90N1EBZgMRovsYhy45bk0.webp?scale-down-to=2048"
           alt="An open-plan office at dusk, screens still lit"
-          className="absolute inset-0 w-full h-full object-cover object-[50%_42%] select-none scale-105"
+          className="absolute inset-0 w-full h-full object-cover object-[50%_42%] scale-105"
         />
-        {/* Layered Lighting Scrims matching Framer .rbh-scrim */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D10]/60 via-transparent to-[#0B0D10]/95" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/70 via-black/20 to-transparent" />
-        <div className="absolute inset-0 bg-[#0B0D10]/20" />
+
+        {/* Perimeter Vignette Only: clear and light in the center, dark at outer edges */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(11,13,16,0.45)_75%,rgba(11,13,16,0.92)_100%)]" />
+
+        {/* Gentle top and bottom section transitions */}
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0B0D10]/80 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0B0D10] to-transparent pointer-events-none" />
       </div>
 
-      {/* Animated SVG Electrical Cable / Wire drawn to active pin */}
+      {/* The Cursor as the "AUTOMATE THIS" Button (Hidden outside hero, acts as the mouse pointer inside) */}
+      {isInsideHero && cursorPos && (
+        <div
+          className="fixed pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center justify-center px-4 py-1.5 rounded-full bg-[#D4F542] text-black font-mono text-[11px] font-bold uppercase tracking-wider shadow-[0_4px_16px_rgba(0,0,0,0.4)] whitespace-nowrap will-change-transform"
+          style={{
+            left: cursorPos.x,
+            top: cursorPos.y,
+          }}
+        >
+          AUTOMATE THIS
+        </div>
+      )}
+
+      {/* Animated SVG Electrical Cable / Wire connected dynamically to active pin */}
       <svg
         className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible"
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >
         <motion.path
-          key={activePin}
-          d={`M ${currentPin.lampX} ${currentPin.lampY} Q ${(currentPin.lampX + parseFloat(currentPin.left)) / 2 + 5} ${(currentPin.lampY + parseFloat(currentPin.top)) / 2 - 8} ${parseFloat(currentPin.left)} ${parseFloat(currentPin.top)}`}
+          key={displayedPinId}
+          d={`M ${currentPin.lampX} ${currentPin.lampY} Q ${(currentPin.lampX + parseFloat(currentPin.left)) / 2 + 3} ${(currentPin.lampY + parseFloat(currentPin.top)) / 2 - 6} ${parseFloat(currentPin.left)} ${parseFloat(currentPin.top)}`}
           fill="none"
           stroke="#D4F542"
           strokeWidth="0.25"
           strokeDasharray="0.8 0.6"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ pathLength: 1, opacity: 0.9 }}
-          transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
+          transition={{ duration: 0.7, ease: [0.2, 0.8, 0.2, 1] }}
         />
       </svg>
 
-      {/* Floating Cursor Tag "AUTOMATE THIS" */}
-      {mousePos && (
-        <motion.div
-          className="absolute z-30 pointer-events-none hidden md:block"
-          animate={{ x: mousePos.x + 18, y: mousePos.y - 14 }}
-          transition={{ type: "spring", stiffness: 350, damping: 25, mass: 0.5 }}
-        >
-          <div className="px-3 py-1 rounded-full bg-[#D4F542] text-black font-mono text-xs font-semibold uppercase tracking-wider shadow-[0_4px_16px_rgba(212,245,66,0.4)] whitespace-nowrap">
-            Automate this
-          </div>
-        </motion.div>
-      )}
-
-      {/* Floating Interactive Workflow Pins */}
+      {/* Floating Interactive Workflow Pins (Expand on hover/click) */}
       <div className="absolute inset-0 z-20 pointer-events-none hidden lg:block">
         {HERO_PINS.map((pin) => {
-          const isOn = activePin === pin.id;
+          const isExpanded = displayedPinId === pin.id;
           const isLeft = pin.side === "l";
 
           return (
             <div
               key={pin.id}
               style={{ left: pin.left, top: pin.top }}
-              className={`absolute pointer-events-auto flex items-center gap-2.5 cursor-pointer -translate-x-[7px] -translate-y-[7px] ${
+              onMouseEnter={() => setHoveredPin(pin.id)}
+              onMouseLeave={() => setHoveredPin(null)}
+              onClick={() => setActivePin(pin.id)}
+              className={`absolute pointer-events-auto flex items-center gap-2 cursor-none -translate-x-[7px] -translate-y-[7px] ${
                 isLeft ? "flex-row-reverse -translate-x-[calc(100%-7px)]" : ""
               }`}
-              onClick={() => setActivePin(pin.id)}
             >
-              {/* Lamp Dot with Glow / Ping */}
+              {/* Lamp Connection Dot */}
               <div className="relative flex-shrink-0">
                 <div
-                  className={`w-3.5 h-3.5 rounded-full transition-all duration-400 ${
-                    isOn
-                      ? "bg-[#D4F542] shadow-[0_0_0_6px_rgba(212,245,66,0.24),0_0_22px_#D4F542]"
-                      : "bg-white/70 shadow-[0_0_0_5px_rgba(255,255,255,0.14)] hover:bg-white"
+                  className={`w-3.5 h-3.5 rounded-full transition-all duration-300 ${
+                    isExpanded
+                      ? "bg-[#D4F542] shadow-[0_0_0_6px_rgba(212,245,66,0.25),0_0_20px_#D4F542]"
+                      : "bg-white/70 shadow-[0_0_0_4px_rgba(255,255,255,0.12)] hover:bg-white hover:scale-110"
                   }`}
                 />
-                {isOn && (
+                {isExpanded && (
                   <span className="absolute -inset-1.5 rounded-full border border-[#D4F542] animate-ping opacity-60" />
                 )}
               </div>
 
-              {/* Glass Info Plate */}
+              {/* Pin Plate (Expands with details on hover) */}
               <div
-                className={`flex flex-col rounded-lg p-2.5 transition-all duration-400 backdrop-blur-md max-w-[320px] ${
-                  isOn
-                    ? "bg-[#0B0D10]/90 border border-[#D4F542]/70 shadow-[0_12px_32px_-10px_rgba(0,0,0,0.8)]"
-                    : "bg-[#0B0D10]/70 border border-white/[0.18] hover:border-white/40"
+                className={`flex flex-col rounded-xl transition-all duration-300 backdrop-blur-md overflow-hidden ${
+                  isExpanded
+                    ? "bg-[#0B0D10]/95 border border-[#D4F542]/70 p-3.5 shadow-[0_16px_36px_-10px_rgba(0,0,0,0.85)] min-w-[280px] max-w-[340px]"
+                    : "bg-[#0B0D10]/80 border border-white/[0.18] px-3 py-1.5 hover:border-white/40 hover:bg-[#0B0D10]/90"
                 }`}
               >
-                <div className="flex items-center gap-2 text-xs font-mono tracking-wider uppercase whitespace-nowrap">
-                  <span className="text-[#D4F542] font-semibold">{pin.time}</span>
-                  <span className="text-white/80">{pin.event}</span>
+                {/* Header Row */}
+                <div className="flex items-center justify-between gap-3 text-xs font-mono tracking-wider uppercase whitespace-nowrap">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[#D4F542] font-semibold">{pin.time}</span>
+                    <span className={isExpanded ? "text-white font-medium text-[11px]" : "text-white/80 text-[11px]"}>
+                      {pin.event}
+                    </span>
+                  </div>
+
+                  {/* Top green accent pill when expanded matching image 1 */}
+                  {isExpanded && (
+                    <span className="w-6 h-1 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542] flex-shrink-0" />
+                  )}
                 </div>
 
-                {isOn && (
+                {/* Expanded Details on Hover */}
+                {isExpanded && (
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
-                    transition={{ duration: 0.35, ease: [0.2, 0.8, 0.2, 1] }}
-                    className="mt-2.5 pt-2 border-t border-white/[0.1] grid grid-cols-[1fr_auto] gap-x-3 gap-y-1 items-center"
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="mt-3 pt-2.5 border-t border-white/[0.1] grid grid-cols-[1fr_auto] gap-x-3 gap-y-1 items-center"
                   >
                     <span className="text-base font-tight font-semibold tracking-tight text-white leading-tight">
                       {pin.title}
                     </span>
+
                     <Link
                       href={pin.href}
-                      className="row-span-2 w-9 h-9 rounded-full bg-[#D4F542] text-black grid place-items-center hover:scale-105 transition-transform"
+                      className="row-span-2 w-8 h-8 rounded-full bg-[#D4F542] text-black grid place-items-center hover:scale-110 transition-transform shadow-[0_0_12px_rgba(212,245,66,0.35)]"
                       title={`Open ${pin.title}`}
                     >
                       <svg
@@ -236,7 +249,8 @@ export function Hero() {
                         <path d="M5 12h14M13 5l7 7-7 7" />
                       </svg>
                     </Link>
-                    <span className="text-xs text-white/75 leading-snug">
+
+                    <span className="text-xs text-white/70 leading-snug font-sans">
                       {pin.desc}
                     </span>
                   </motion.div>
@@ -247,32 +261,32 @@ export function Hero() {
         })}
       </div>
 
-      {/* Main Copy & Headlines */}
-      <div className="relative z-20 max-w-[1280px] w-full mx-auto mt-auto pt-20 flex flex-col lg:flex-row lg:items-end justify-between gap-12">
-        <div className="max-w-3xl flex flex-col gap-6">
+      {/* Main Copy & Headlines (Bottom Left positioned with proper margin matching image 1) */}
+      <div className="relative z-20 max-w-[1280px] w-full mx-auto mt-auto pt-24 pb-4 flex flex-col lg:flex-row lg:items-end justify-between gap-10">
+        <div className="max-w-xl flex flex-col gap-4">
           {/* Eyebrow Label */}
-          <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.12] w-fit">
+          <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.12] w-fit">
             <LitDot />
-            <span className="text-xs font-mono uppercase tracking-[0.1em] text-[#F8F8F5]/90">
-              Business automation agency · Since 2019
+            <span className="text-[11px] font-mono uppercase tracking-[0.12em] text-[#F8F8F5]/90 font-medium">
+              BUSINESS AUTOMATION AGENCY · SINCE 2019
             </span>
           </div>
 
-          {/* Hero Headline */}
-          <h1 className="text-5xl sm:text-7xl lg:text-[clamp(72px,8.6vw,120px)] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.92] text-balance">
+          {/* Hero Headline (Adjusted font size matching image 1) */}
+          <h1 className="text-4xl sm:text-6xl lg:text-[76px] font-tight font-semibold tracking-[-0.035em] text-[#F8F8F5] leading-[0.98] text-balance">
             Your business,
             <br />
-            running <em className="not-italic text-[#D4F542]">itself.</em>
+            running <span className="text-[#D4F542]">itself.</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg text-[#F8F8F5]/80 font-normal max-w-xl leading-relaxed">
+          <p className="text-sm sm:text-base text-[#F8F8F5]/75 font-normal max-w-lg leading-relaxed font-sans">
             We wire your CRM, invoicing, onboarding and support into workflows that run while the
             office sleeps.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-4 pt-2">
+          <div className="flex flex-wrap items-center gap-3.5 pt-2">
             <Button href="/book" variant="solid">
               Book a call
             </Button>
@@ -282,27 +296,14 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Live Counters Bottom Right */}
-        <div className="flex items-center gap-8 md:gap-12 pb-2">
-          <div className="flex flex-col">
-            <span className="text-4xl md:text-5xl font-tight font-semibold tracking-tight text-[#F8F8F5]">
-              <RollingCounter value={taskCount.toLocaleString()} />
-            </span>
-            <span className="text-xs font-mono uppercase tracking-widest text-[#F8F8F5]/60 mt-1">
-              tasks run tonight
-            </span>
-          </div>
-
-          <div className="w-[1px] h-12 bg-white/20" />
-
-          <div className="flex flex-col">
-            <span className="text-4xl md:text-5xl font-tight font-semibold tracking-tight text-[#F8F8F5]">
-              31h
-            </span>
-            <span className="text-xs font-mono uppercase tracking-widest text-[#F8F8F5]/60 mt-1">
-              back per week
-            </span>
-          </div>
+        {/* Bottom Right: ONLY 31h Back per week (Removed "tasks run tonight") */}
+        <div className="flex flex-col items-start lg:items-end pb-2">
+          <span className="text-4xl sm:text-5xl lg:text-6xl font-tight font-semibold tracking-tight text-[#F8F8F5] leading-none">
+            31h
+          </span>
+          <span className="text-xs font-mono uppercase tracking-widest text-[#F8F8F5]/60 mt-1.5">
+            BACK PER WEEK
+          </span>
         </div>
       </div>
     </section>

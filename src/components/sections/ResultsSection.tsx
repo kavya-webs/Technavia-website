@@ -24,12 +24,12 @@ export function ResultsSection() {
   });
 
   // Slanted white line animation matching Image 4 (starts flat at bottom, right end rises up on scroll)
-  const whiteLineY2 = useTransform(scrollYProgress, [0.4, 0.95], ["98%", "20%"]);
+  const whiteLineY2 = useTransform(scrollYProgress, [0.35, 0.9], ["98%", "15%"]);
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-32 px-6 md:px-14 border-t border-white/[0.08] overflow-hidden"
+      className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-32 px-6 md:px-14 border-t border-white/[0.08]"
     >
       <div className="max-w-[1280px] mx-auto flex flex-col gap-16">
         {/* Header */}
@@ -52,20 +52,20 @@ export function ResultsSection() {
           </div>
         </div>
 
-        {/* Stacking Card Deck */}
+        {/* Stacking Card Deck - Sticky stack restored */}
         <div className="relative flex flex-col gap-12 pb-16">
           {RESULTS.map((res, idx) => {
             const imgSrc =
               RESULT_IMAGES[res.id] || "/images/results/card_01.jpg";
 
-            // Stacking offset: each card sticks slightly lower to create depth
-            const topOffset = 100 + idx * 16;
+            // Stacking offset: each card sticks slightly lower to create realistic depth stacking
+            const topOffset = 110 + idx * 24;
 
             return (
               <div
                 key={res.id}
                 style={{ top: `${topOffset}px` }}
-                className="sticky rounded-3xl overflow-hidden border border-white/[0.14] bg-zinc-950 shadow-[0_-12px_45px_rgba(0,0,0,0.85)] min-h-[460px] sm:min-h-[520px] flex flex-col justify-between p-6 sm:p-12 transition-all group"
+                className="sticky rounded-3xl overflow-hidden border border-white/[0.14] bg-zinc-950 shadow-[0_-16px_50px_rgba(0,0,0,0.95)] min-h-[460px] sm:min-h-[520px] flex flex-col justify-between p-6 sm:p-12 transition-all group"
               >
                 {/* Background Photo with Scrim - reduced black tint for clear visibility */}
                 <div className="absolute inset-0 z-0">
@@ -165,9 +165,9 @@ export function ResultsSection() {
             y1="98%"
             x2="100%"
             y2={whiteLineY2}
-            stroke="rgba(255, 255, 255, 0.45)"
+            stroke="rgba(255, 255, 255, 0.75)"
             strokeWidth="1.5"
-            className="drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+            className="drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] drop-shadow-[0_0_16px_rgba(255,255,255,0.4)]"
           />
         </svg>
       </div>

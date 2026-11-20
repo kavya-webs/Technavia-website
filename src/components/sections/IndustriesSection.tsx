@@ -1,14 +1,89 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
-import { INDUSTRIES } from "@/lib/data";
+
+interface IndustryItem {
+  id: string;
+  num: string;
+  name: string;
+  share: string;
+  typicalWorkflows: string;
+  img: string;
+}
+
+const INDUSTRY_ITEMS: IndustryItem[] = [
+  {
+    id: "clinics",
+    num: "01",
+    name: "Clinics",
+    share: "24 %",
+    typicalWorkflows: "Appointment reminders, intake forms, recall lists",
+    img: "/images/industries/clinics.jpg",
+  },
+  {
+    id: "agencies",
+    num: "02",
+    name: "Agencies",
+    share: "21 %",
+    typicalWorkflows: "Proposal to contract, client onboarding, timesheet to invoice",
+    img: "/images/industries/agencies.jpg",
+  },
+  {
+    id: "ecommerce",
+    num: "03",
+    name: "E-commerce",
+    share: "18 %",
+    typicalWorkflows: "Order updates, returns, low-stock alerts",
+    img: "/images/industries/ecommerce.jpg",
+  },
+  {
+    id: "logistics",
+    num: "04",
+    name: "Logistics",
+    share: "14 %",
+    typicalWorkflows: "Job dispatch, proof of delivery, customer updates",
+    img: "/images/industries/logistics.jpg",
+  },
+  {
+    id: "legal",
+    num: "05",
+    name: "Legal",
+    share: "13 %",
+    typicalWorkflows: "Matter intake, conflict checks, time to bill",
+    img: "/images/industries/legal.jpg",
+  },
+  {
+    id: "real-estate",
+    num: "06",
+    name: "Real estate",
+    share: "10 %",
+    typicalWorkflows: "Viewing bookings, valuation follow-ups, vendor updates",
+    img: "/images/industries/real_estate.jpg",
+  },
+];
 
 export function IndustriesSection() {
   const [hoveredIdx, setHoveredIdx] = useState<number>(0);
+  const [isHoveringList, setIsHoveringList] = useState<boolean>(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  // Mouse tracking for floating preview card attached to cursor
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 180, damping: 22 });
+  const springY = useSpring(mouseY, { stiffness: 180, damping: 22 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!listRef.current) return;
+    const rect = listRef.current.getBoundingClientRect();
+    mouseX.set(e.clientX - rect.left);
+    mouseY.set(e.clientY - rect.top);
+  };
 
   // Animated slant green thread line beneath "All industries" button
   const { scrollYProgress } = useScroll({
@@ -16,7 +91,7 @@ export function IndustriesSection() {
     offset: ["start end", "end start"],
   });
 
-  const greenLineY2 = useTransform(scrollYProgress, [0.3, 0.9], ["98%", "20%"]);
+  const greenLineY2 = useTransform(scrollYProgress, [0.25, 0.85], ["98%", "15%"]);
 
   return (
     <section
@@ -28,94 +103,134 @@ export function IndustriesSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
             <SectionLabel>Industries</SectionLabel>
-            <h2 className="text-3xl sm:text-5xl font-tight font-semibold tracking-tight text-[#F8F8F5]">
+            <h2 className="text-3xl sm:text-5xl lg:text-[62px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.05]">
               Six sectors, <br className="hidden sm:block" />
               <span className="text-[#D4F542]">the same ten jobs.</span>
             </h2>
           </div>
           <div className="flex flex-col items-start md:items-end gap-4 max-w-md">
-            <p className="text-sm text-white/70 leading-relaxed md:text-right">
+            <p className="text-sm sm:text-base text-white/70 leading-relaxed md:text-right font-sans">
               Every sector has its own version of the work that repeats every day. We have wired
-              most of it before, so your build starts from a running workflow.
+              most of it before, so your build starts from a running workflow, not a blank page.
             </p>
           </div>
         </div>
 
-        {/* Sectors List with Floating Preview Card */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-t border-white/[0.1] pt-6">
-          {/* Left Sector Rows */}
-          <div className="lg:col-span-8 flex flex-col divide-y divide-white/[0.08]">
-            {INDUSTRIES.map((ind, idx) => (
-              <div
+        {/* Sectors Interactive List with Cursor-Attached Floating Image Container */}
+        <div
+          ref={listRef}
+          onMouseMove={handleMouseMove}
+          onMouseEnter={() => setIsHoveringList(true)}
+          onMouseLeave={() => setIsHoveringList(false)}
+          className="relative w-full flex flex-col divide-y divide-white/[0.08] border-t border-b border-white/[0.08]"
+        >
+          {/* Floating Image Card Attached to Cursor (Video Reference Match) */}
+          <motion.div
+            style={{
+              x: springX,
+              y: springY,
+              translateX: "-50%",
+              translateY: "-50%",
+            }}
+            animate={{
+              opacity: isHoveringList ? 1 : 0,
+              scale: isHoveringList ? 1 : 0.85,
+            }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="absolute z-30 pointer-events-none w-[310px] sm:w-[350px] h-[400px] sm:h-[450px] rounded-3xl overflow-hidden border border-white/20 bg-zinc-950 shadow-[0_25px_60px_rgba(0,0,0,0.85)] hidden lg:block"
+          >
+            {/* Top-Left Pill */}
+            <div className="absolute top-4 left-4 z-20 px-3.5 py-1.5 rounded-full bg-white/95 text-black font-mono font-semibold text-xs tracking-wider shadow-md">
+              {INDUSTRY_ITEMS[hoveredIdx].num} / 06
+            </div>
+
+            {/* Background Image corresponding to hovered industry */}
+            <div className="absolute inset-0 z-0">
+              <img
+                src={INDUSTRY_ITEMS[hoveredIdx].img}
+                alt={INDUSTRY_ITEMS[hoveredIdx].name}
+                className="w-full h-full object-cover transition-all duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+            </div>
+
+            {/* Bottom Dark Overlay Box */}
+            <div className="absolute bottom-4 left-4 right-4 z-20 p-3.5 rounded-2xl bg-black/85 backdrop-blur-md border border-white/10 flex flex-col gap-1 shadow-xl">
+              <span className="text-[11px] font-mono font-bold text-[#D4F542] uppercase tracking-wider">
+                TYPICAL WORKFLOWS
+              </span>
+              <span className="text-xs font-mono text-white/90 leading-snug">
+                {INDUSTRY_ITEMS[hoveredIdx].typicalWorkflows}
+              </span>
+            </div>
+          </motion.div>
+
+          {/* Industry Rows */}
+          {INDUSTRY_ITEMS.map((ind, idx) => {
+            const isHovered = hoveredIdx === idx && isHoveringList;
+
+            return (
+              <Link
                 key={ind.id}
+                href="/industries"
                 onMouseEnter={() => setHoveredIdx(idx)}
-                className="py-6 md:py-8 flex items-center justify-between group cursor-pointer"
+                className="group py-7 sm:py-9 md:py-10 flex items-center justify-between transition-colors duration-200 cursor-pointer"
               >
-                <div className="flex items-center gap-6 md:gap-10">
-                  <span className="text-sm font-mono text-white/40 group-hover:text-[#D4F542] transition-colors">
+                {/* Left: Number + Title + Arrow Button */}
+                <div className="flex items-center gap-6 sm:gap-10 md:gap-14">
+                  <span
+                    className={`text-sm sm:text-base font-mono transition-colors duration-200 ${
+                      isHovered ? "text-[#D4F542]" : "text-white/40"
+                    }`}
+                  >
                     {ind.num}
                   </span>
-                  <h3 className="text-2xl sm:text-4xl font-tight font-semibold text-white group-hover:text-[#D4F542] group-hover:translate-x-2 transition-all duration-300">
-                    {ind.name}
-                  </h3>
-                </div>
 
-                <div className="flex items-center gap-4 text-xs font-mono">
-                  <span className="text-[#D4F542] font-semibold">{ind.share}</span>
-                  <span className="text-white/40 hidden sm:inline">of our clients</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Right Hover Preview Card (Sticky) */}
-          <div className="lg:col-span-4 sticky top-28 hidden lg:block">
-            <div className="p-8 rounded-2xl bg-zinc-900/80 border border-white/[0.1] backdrop-blur-xl flex flex-col gap-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-              <div className="flex items-center justify-between text-xs font-mono text-white/50">
-                <span>{INDUSTRIES[hoveredIdx].num} / 06</span>
-                <span className="text-[#D4F542]">{INDUSTRIES[hoveredIdx].share}</span>
-              </div>
-
-              <h4 className="text-2xl font-tight font-semibold text-white">
-                {INDUSTRIES[hoveredIdx].name}
-              </h4>
-
-              <p className="text-xs text-white/70 leading-relaxed">
-                {INDUSTRIES[hoveredIdx].description}
-              </p>
-
-              <div className="flex flex-col gap-2 pt-3 border-t border-white/[0.08]">
-                <span className="text-[11px] font-mono text-[#D4F542] uppercase tracking-wider">
-                  Typical workflows:
-                </span>
-                <div className="flex flex-wrap gap-1.5">
-                  {INDUSTRIES[hoveredIdx].workflows.map((wf) => (
-                    <span
-                      key={wf}
-                      className="text-xs px-2.5 py-1 rounded-full bg-white/[0.06] text-white/90 border border-white/[0.08]"
+                  <div className="flex items-center gap-4">
+                    <h3
+                      className={`text-4xl sm:text-6xl md:text-[68px] font-tight font-bold tracking-tight transition-colors duration-200 leading-none ${
+                        isHovered ? "text-white" : "text-white/40 group-hover:text-white"
+                      }`}
                     >
-                      {wf}
-                    </span>
-                  ))}
-                </div>
-              </div>
+                      {ind.name}
+                    </h3>
 
-              <div className="text-[11px] font-mono text-white/50 pt-2">
-                Example client: <span className="text-white">{INDUSTRIES[hoveredIdx].exampleClient}</span>
-              </div>
-            </div>
-          </div>
+                    {/* Arrow Button pill appearing on hover matching video */}
+                    <span
+                      className={`w-8 h-8 rounded-full bg-[#D4F542] text-black font-bold text-sm flex items-center justify-center transition-all duration-300 ${
+                        isHovered
+                          ? "opacity-100 scale-100 translate-x-0"
+                          : "opacity-0 scale-75 -translate-x-2 pointer-events-none"
+                      }`}
+                    >
+                      →
+                    </span>
+                  </div>
+                </div>
+
+                {/* Right: Percentage Share */}
+                <div className="flex items-center gap-2 sm:gap-3 text-right">
+                  <span className="text-xl sm:text-2xl font-mono font-semibold text-[#D4F542]">
+                    {ind.share}
+                  </span>
+                  <span className="text-xs sm:text-sm font-mono uppercase tracking-widest text-white/40 hidden sm:inline">
+                    OF OUR CLIENTS
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
         {/* Bottom Bar: All industries Button moved after sectors list */}
-        <div className="relative w-full pt-6 flex justify-end">
+        <div className="relative w-full pt-4 flex justify-end">
           <Button href="/industries" variant="solid" className="!h-[44px] !text-xs">
             All industries
           </Button>
         </div>
       </div>
 
-      {/* Animated Slanted Green Line after "All industries" button matching Image 3 */}
+      {/* Animated Slanted Green Line after "All industries" button matching Image 3 & Video */}
       <div className="relative w-full h-16 mt-4 overflow-hidden pointer-events-none">
         <svg
           className="absolute inset-0 w-full h-full overflow-visible"
@@ -128,7 +243,7 @@ export function IndustriesSection() {
             y2={greenLineY2}
             stroke="#D4F542"
             strokeWidth="1.5"
-            className="drop-shadow-[0_0_8px_rgba(212,245,66,0.7)]"
+            className="drop-shadow-[0_0_8px_#D4F542] drop-shadow-[0_0_16px_rgba(212,245,66,0.8)]"
           />
         </svg>
       </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from "framer-motion";
 import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
 
@@ -83,24 +83,31 @@ export function ProcessSection() {
     offset: ["start start", "end end"],
   });
 
+  // Smooth scroll spring for luxurious, fluid inertia when scrolling between slides
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 80,
+    damping: 26,
+    restDelta: 0.0005,
+  });
+
   // Intro left header: Fades out and slides left as scrolling starts (Image 1 -> Image 2)
-  const introOpacity = useTransform(scrollYProgress, [0, 0.04], [1, 0]);
-  const introX = useTransform(scrollYProgress, [0, 0.05], ["0px", "-60px"]);
+  const introOpacity = useTransform(smoothProgress, [0, 0.05], [1, 0]);
+  const introX = useTransform(smoothProgress, [0, 0.05], ["0px", "-60px"]);
 
   // Horizontal motion:
-  // At progress 0: Slide 01 starts at "38vw" (on the right half, matching Image 1)
+  // At progress 0: Slide 01 starts at "40vw" (on the right half, matching Image 1)
   // At progress 0.08: Slide 01 glides to "0vw" (matching Image 2) and stays centered until ~0.20
-  // Then progressively moves left to center slides 02, 03, 04, 05
+  // Then progressively moves left to center slides 02, 03, 04, 05 with box proportions
   const trackX = useTransform(
-    scrollYProgress,
+    smoothProgress,
     [0, 0.08, 0.20, 0.38, 0.56, 0.76, 0.95],
-    ["38vw", "0vw", "0vw", "-58vw", "-116vw", "-174vw", "-232vw"]
+    ["40vw", "0vw", "0vw", "-50vw", "-100vw", "-150vw", "-200vw"]
   );
 
   // Timeline progress bar
-  const fillWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const fillWidth = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  useMotionValueEvent(smoothProgress, "change", (latest) => {
     // Map scroll progress to active step 0..4
     if (latest < 0.22) {
       setActiveStep(0);
@@ -172,7 +179,7 @@ export function ProcessSection() {
                 return (
                   <div
                     key={s.step}
-                    className="relative w-[56vw] max-w-[860px] min-w-[320px] h-[60vh] max-h-[560px] min-h-[420px] shrink-0 rounded-3xl overflow-hidden border border-white/[0.12] bg-zinc-950 shadow-2xl transition-all duration-500"
+                    className="relative w-[48vw] max-w-[620px] min-w-[340px] aspect-square shrink-0 rounded-3xl overflow-hidden border border-white/[0.12] bg-zinc-950 shadow-2xl transition-all duration-500"
                   >
                     {/* Background Photography */}
                     <div className="absolute inset-0 z-0">
@@ -210,16 +217,16 @@ export function ProcessSection() {
                       {s.step}
                     </div>
 
-                    {/* Slide Details (Title, Description, Badge) - Only visible when slide is active/centered */}
+                    {/* Slide Details (Title, Description, Badge) - Only visible when slide is active/centered with generous box spacing */}
                     <div
-                      className={`relative z-20 h-full flex flex-col justify-end p-6 sm:p-10 md:p-12 transition-all duration-500 ${
+                      className={`relative z-20 h-full flex flex-col justify-end p-8 sm:p-12 md:p-14 transition-all duration-500 ${
                         isCurrent
                           ? "opacity-100 translate-y-0"
                           : "opacity-0 translate-y-4 pointer-events-none"
                       }`}
                     >
                       {/* Content Bottom / Left */}
-                      <div className="max-w-xl flex flex-col gap-3">
+                      <div className="max-w-xl flex flex-col gap-3.5">
                         <div className="flex items-center gap-3">
                           <span className="px-3.5 py-1 rounded-full bg-[#D4F542] text-black font-mono text-xs font-semibold shadow-[0_0_12px_rgba(212,245,66,0.3)]">
                             {s.week}

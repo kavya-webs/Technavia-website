@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
 import { RESULTS } from "@/lib/data";
@@ -17,8 +17,20 @@ const RESULT_IMAGES: Record<string, string> = {
 };
 
 export function ResultsSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Slanted white line animation matching Image 4 (starts flat at bottom, right end rises up on scroll)
+  const whiteLineY2 = useTransform(scrollYProgress, [0.4, 0.95], ["98%", "20%"]);
+
   return (
-    <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-32 px-6 md:px-14 border-t border-white/[0.08]">
+    <section
+      ref={sectionRef}
+      className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-32 px-6 md:px-14 border-t border-white/[0.08] overflow-hidden"
+    >
       <div className="max-w-[1280px] mx-auto flex flex-col gap-16">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
@@ -55,15 +67,15 @@ export function ResultsSection() {
                 style={{ top: `${topOffset}px` }}
                 className="sticky rounded-3xl overflow-hidden border border-white/[0.14] bg-zinc-950 shadow-[0_-12px_45px_rgba(0,0,0,0.85)] min-h-[460px] sm:min-h-[520px] flex flex-col justify-between p-6 sm:p-12 transition-all group"
               >
-                {/* Background Photo with Scrim */}
+                {/* Background Photo with Scrim - reduced black tint for clear visibility */}
                 <div className="absolute inset-0 z-0">
                   <img
                     src={imgSrc}
                     alt={res.client}
                     className="w-full h-full object-cover object-[50%_40%] group-hover:scale-[1.02] transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/30" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/40" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-transparent to-black/20" />
                 </div>
 
                 {/* Top Bar inside Card */}
@@ -140,6 +152,24 @@ export function ResultsSection() {
             All results
           </Button>
         </div>
+      </div>
+
+      {/* Animated Slanted White Line after "All results" button matching Image 4 */}
+      <div className="relative w-full h-16 mt-6 overflow-hidden pointer-events-none">
+        <svg
+          className="absolute inset-0 w-full h-full overflow-visible"
+          preserveAspectRatio="none"
+        >
+          <motion.line
+            x1="0%"
+            y1="98%"
+            x2="100%"
+            y2={whiteLineY2}
+            stroke="rgba(255, 255, 255, 0.45)"
+            strokeWidth="1.5"
+            className="drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+          />
+        </svg>
       </div>
     </section>
   );

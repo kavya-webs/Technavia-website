@@ -77,19 +77,42 @@ export function ProcessSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState<number>(0);
 
-  // Vertical scroll tracking: As user scrolls down 400vh, the carousel glides sideways
+  // Vertical scroll tracking: As user scrolls down 450vh, the carousel glides sideways
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  // 5 slides total: Translate horizontal track from 0% to -80%
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
+  // Intro left header: Fades out and slides left as scrolling starts (Image 1 -> Image 2)
+  const introOpacity = useTransform(scrollYProgress, [0, 0.04], [1, 0]);
+  const introX = useTransform(scrollYProgress, [0, 0.05], ["0px", "-60px"]);
+
+  // Horizontal motion:
+  // At progress 0: Slide 01 starts at "38vw" (on the right half, matching Image 1)
+  // At progress 0.08: Slide 01 glides to "0vw" (matching Image 2) and stays centered until ~0.20
+  // Then progressively moves left to center slides 02, 03, 04, 05
+  const trackX = useTransform(
+    scrollYProgress,
+    [0, 0.08, 0.20, 0.38, 0.56, 0.76, 0.95],
+    ["38vw", "0vw", "0vw", "-58vw", "-116vw", "-174vw", "-232vw"]
+  );
+
+  // Timeline progress bar
   const fillWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const step = Math.min(STEPS.length - 1, Math.floor(latest * STEPS.length));
-    setActiveStep(step);
+    // Map scroll progress to active step 0..4
+    if (latest < 0.22) {
+      setActiveStep(0);
+    } else if (latest < 0.44) {
+      setActiveStep(1);
+    } else if (latest < 0.64) {
+      setActiveStep(2);
+    } else if (latest < 0.84) {
+      setActiveStep(3);
+    } else {
+      setActiveStep(4);
+    }
   });
 
   const scrollToStep = (idx: number) => {
@@ -102,76 +125,101 @@ export function ProcessSection() {
   };
 
   return (
-    <section ref={containerRef} className="relative w-full bg-[#0B0D10] text-[#F8F8F5] h-[400vh]">
+    <section ref={containerRef} className="relative w-full bg-[#0B0D10] text-[#F8F8F5] h-[450vh]">
       {/* Pinned Sticky Screen Wrapper */}
-      <div className="sticky top-0 h-screen w-full flex flex-col justify-between pt-8 pb-10 px-6 md:px-14 overflow-hidden border-t border-white/[0.08] select-none">
-        <div className="max-w-[1340px] mx-auto w-full h-full flex flex-col justify-between gap-6">
-          {/* Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 flex-shrink-0 pt-2">
-            <div className="max-w-2xl">
-              <SectionLabel>How it runs</SectionLabel>
-              <h2 className="text-3xl sm:text-5xl lg:text-[64px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1]">
-                From audit <span className="text-[#D4F542]">to autopilot.</span>
+      <div className="sticky top-0 h-screen w-full flex flex-col justify-between pt-6 md:pt-10 pb-8 md:pb-12 px-6 md:px-14 overflow-hidden border-t border-white/[0.08]">
+        <div className="max-w-[1360px] mx-auto w-full h-full flex flex-col justify-between relative">
+          
+          {/* Main Content Area (Intro Column on left + Horizontal Slide Track) */}
+          <div className="relative w-full flex-1 flex items-center overflow-hidden my-auto">
+            {/* Left Intro Pitch Column - Fades and slides out on scroll (matching Image 1 -> Image 2) */}
+            <motion.div
+              style={{ opacity: introOpacity, x: introX }}
+              className="absolute left-0 z-10 w-[36vw] max-w-[440px] flex flex-col gap-5 pr-8 pointer-events-auto"
+            >
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
+                <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-white/80 font-medium">
+                  HOW IT RUNS
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-5xl lg:text-[58px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.04]">
+                From audit <br />
+                <span className="text-[#D4F542]">to autopilot.</span>
               </h2>
-            </div>
-            <div className="flex flex-col items-start md:items-end gap-3 max-w-md">
-              <p className="text-sm sm:text-base text-white/60 leading-relaxed font-sans md:text-right">
+
+              <p className="text-sm sm:text-base text-white/70 leading-relaxed font-sans max-w-sm">
                 Five steps from the first call to a business that runs itself. One
                 person on your side, and a morning report from then on.
               </p>
-              <Button href="/process" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[42px] !text-xs">
-                See the full process
-              </Button>
-            </div>
-          </div>
 
-          {/* Horizontal Slides Viewport */}
-          <div className="relative w-full flex-1 max-h-[560px] min-h-[380px] rounded-3xl overflow-hidden border border-white/[0.12] bg-zinc-950 shadow-2xl">
-            <div className="relative w-full h-full overflow-hidden">
-              {/* Sideways Sliding Track driven by downward scroll */}
-              <motion.div
-                style={{ x }}
-                className="flex h-full w-[500%] will-change-transform"
-              >
-                {STEPS.map((s, idx) => {
-                  const isActive = activeStep === idx;
-                  return (
+              <div className="pt-2">
+                <Button href="/process" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[44px] !text-xs">
+                  See the full process
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Horizontal Slides Track */}
+            <motion.div
+              style={{ x: trackX }}
+              className="relative z-20 flex items-center gap-8 pl-0 will-change-transform"
+            >
+              {STEPS.map((s, idx) => {
+                const isCurrent = activeStep === idx;
+
+                return (
+                  <div
+                    key={s.step}
+                    className="relative w-[56vw] max-w-[860px] min-w-[320px] h-[60vh] max-h-[560px] min-h-[420px] shrink-0 rounded-3xl overflow-hidden border border-white/[0.12] bg-zinc-950 shadow-2xl transition-all duration-500"
+                  >
+                    {/* Background Photography */}
+                    <div className="absolute inset-0 z-0">
+                      <img
+                        src={s.img}
+                        alt={s.title}
+                        className="w-full h-full object-cover object-[50%_35%] scale-100"
+                        loading="lazy"
+                      />
+                      {/* Gradient scrims for readability */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/95 via-[#0B0D10]/70 to-[#0B0D10]/30" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-transparent to-[#0B0D10]/70" />
+                    </div>
+
+                    {/* Dark Tint Overlay to highlight center slide: Non-active slides get dark black scrim */}
                     <div
-                      key={s.step}
-                      className="relative w-[20%] h-full flex-shrink-0 flex flex-col justify-between p-8 sm:p-12 md:p-14 select-none overflow-hidden"
+                      className={`absolute inset-0 z-10 transition-opacity duration-500 pointer-events-none ${
+                        isCurrent ? "opacity-0" : "opacity-60 bg-black"
+                      }`}
+                    />
+
+                    {/* Giant Neon Stroke Outline Number - Always visible, lime when current, white/scrim when inactive */}
+                    <div
+                      className="absolute left-6 sm:left-12 top-6 sm:top-10 z-20 text-[110px] sm:text-[170px] lg:text-[210px] font-tight font-extrabold pointer-events-none leading-none tracking-tighter transition-all duration-500"
+                      style={{
+                        WebkitTextStroke: isCurrent
+                          ? "2px #D4F542"
+                          : "1.5px rgba(255, 255, 255, 0.35)",
+                        color: "transparent",
+                        textShadow: isCurrent
+                          ? "0 0 35px rgba(212, 245, 66, 0.3)"
+                          : "none",
+                      }}
                     >
-                      {/* Background Photography */}
-                      <div className="absolute inset-0 z-0">
-                        <img
-                          src={s.img}
-                          alt={s.title}
-                          className="w-full h-full object-cover object-[50%_35%] scale-100"
-                          loading="lazy"
-                        />
-                        {/* Gradient scrims for readability */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/95 via-[#0B0D10]/75 to-[#0B0D10]/40" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-transparent to-[#0B0D10]/70" />
-                      </div>
+                      {s.step}
+                    </div>
 
-                      {/* Giant Neon Stroke Outline Number */}
-                      <div
-                        className="absolute left-8 sm:left-14 top-6 sm:top-10 z-10 text-[120px] sm:text-[180px] lg:text-[220px] font-tight font-extrabold select-none pointer-events-none leading-none tracking-tighter"
-                        style={{
-                          WebkitTextStroke: isActive
-                            ? "2px #D4F542"
-                            : "1.5px rgba(255, 255, 255, 0.22)",
-                          color: "transparent",
-                          textShadow: isActive
-                            ? "0 0 35px rgba(212, 245, 66, 0.25)"
-                            : "none",
-                          transition: "all 0.3s ease",
-                        }}
-                      >
-                        {s.step}
-                      </div>
-
-                      {/* Content on Bottom / Left */}
-                      <div className="relative z-20 mt-auto max-w-2xl flex flex-col gap-3.5">
+                    {/* Slide Details (Title, Description, Badge) - Only visible when slide is active/centered */}
+                    <div
+                      className={`relative z-20 h-full flex flex-col justify-end p-6 sm:p-10 md:p-12 transition-all duration-500 ${
+                        isCurrent
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 translate-y-4 pointer-events-none"
+                      }`}
+                    >
+                      {/* Content Bottom / Left */}
+                      <div className="max-w-xl flex flex-col gap-3">
                         <div className="flex items-center gap-3">
                           <span className="px-3.5 py-1 rounded-full bg-[#D4F542] text-black font-mono text-xs font-semibold shadow-[0_0_12px_rgba(212,245,66,0.3)]">
                             {s.week}
@@ -185,43 +233,15 @@ export function ProcessSection() {
                           {s.title}
                         </h3>
 
-                        <p className="text-sm sm:text-lg text-white/80 leading-relaxed font-sans max-w-xl">
+                        <p className="text-sm sm:text-base text-white/80 leading-relaxed font-sans max-w-lg">
                           {s.description}
                         </p>
                       </div>
-
-                      {/* Bottom Right Client Role Pill */}
-                      <div className="relative z-20 self-start sm:self-end mt-4 p-3.5 sm:p-4 rounded-xl bg-black/75 border border-white/[0.12] text-xs font-mono text-white/80 backdrop-blur-md max-w-md">
-                        <span className="text-[#D4F542] uppercase font-semibold mr-2">
-                          Your part:
-                        </span>
-                        {s.clientRole}
-                      </div>
                     </div>
-                  );
-                })}
-              </motion.div>
-
-              {/* Side Navigation Arrow Overlays for direct jump */}
-              <div className="absolute bottom-6 right-6 z-30 flex items-center gap-2">
-                <button
-                  onClick={() => scrollToStep(Math.max(activeStep - 1, 0))}
-                  disabled={activeStep === 0}
-                  className="w-10 h-10 rounded-full bg-black/75 border border-white/20 text-white flex items-center justify-center hover:bg-[#D4F542] hover:text-black transition-colors disabled:opacity-30 disabled:pointer-events-none cursor-pointer backdrop-blur-md"
-                  aria-label="Previous step"
-                >
-                  ←
-                </button>
-                <button
-                  onClick={() => scrollToStep(Math.min(activeStep + 1, STEPS.length - 1))}
-                  disabled={activeStep === STEPS.length - 1}
-                  className="w-10 h-10 rounded-full bg-black/75 border border-white/20 text-white flex items-center justify-center hover:bg-[#D4F542] hover:text-black transition-colors disabled:opacity-30 disabled:pointer-events-none cursor-pointer backdrop-blur-md"
-                  aria-label="Next step"
-                >
-                  →
-                </button>
-              </div>
-            </div>
+                  </div>
+                );
+              })}
+            </motion.div>
           </div>
 
           {/* Bottom Interactive Timeline Rail */}

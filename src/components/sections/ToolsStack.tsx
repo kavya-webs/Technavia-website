@@ -188,16 +188,16 @@ export function ToolsStack() {
   }, []);
 
   return (
-    <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-36 px-6 md:px-14 border-t border-white/[0.08] overflow-hidden select-none">
-      {/* Background Photography: team in glass meeting room */}
+    <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-36 px-6 md:px-14 border-t border-white/[0.08] overflow-hidden">
+      {/* Background Photography: team in glass meeting room with lighter tint */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src="https://framerusercontent.com/images/1RRozVJo6j9BUUQiWVOOruiGIKg.webp?scale-down-to=2048"
           alt="A team talking in a glass-walled office at dusk, the city lit behind them"
-          className="w-full h-full object-cover object-[50%_50%] opacity-20"
+          className="w-full h-full object-cover object-[50%_50%] opacity-55"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D10] via-transparent to-[#0B0D10]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10] via-[#0B0D10]/80 to-[#0B0D10]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D10]/80 via-transparent to-[#0B0D10]/85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/75 via-transparent to-[#0B0D10]/75" />
       </div>
 
       <div className="relative z-10 max-w-[1340px] mx-auto flex flex-col gap-16">
@@ -326,7 +326,7 @@ export function ToolsStack() {
             <div className="lg:col-span-4 flex items-center justify-center py-6">
               <div
                 ref={hubRef}
-                className="relative w-full max-w-[320px] h-[165px] rounded-2xl bg-[#0B0D10]/95 border border-[#D4F542] shadow-[0_0_28px_rgba(212,245,66,0.25)] flex flex-col items-center justify-center p-6 text-center backdrop-blur-2xl select-none"
+                className="relative w-full max-w-[320px] h-[165px] rounded-2xl bg-[#0B0D10]/95 border border-[#D4F542] shadow-[0_0_28px_rgba(212,245,66,0.25)] flex flex-col items-center justify-center p-6 text-center backdrop-blur-2xl"
               >
                 {/* Glowing neon green center bulb */}
                 <span className="relative flex items-center justify-center mb-2.5">

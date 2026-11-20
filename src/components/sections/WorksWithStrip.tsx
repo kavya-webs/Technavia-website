@@ -31,7 +31,7 @@ export function WorksWithStrip() {
   return (
     <section
       ref={stripRef}
-      className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-12 md:py-16 border-t border-b border-white/[0.08] overflow-hidden select-none"
+      className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-12 md:py-16 border-t border-b border-white/[0.08] overflow-hidden"
     >
       {/* Animated slanted green thread line */}
       <svg

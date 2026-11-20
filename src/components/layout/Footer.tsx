@@ -195,7 +195,7 @@ export function Footer() {
           {/* Top of reveal drawer: Huge Watermark + Live Office card */}
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
             {/* Watermark Logo */}
-            <div className="flex items-center gap-4 select-none pointer-events-none">
+            <div className="flex items-center gap-4 pointer-events-none">
               <span className="w-8 h-8 sm:w-14 sm:h-14 rounded-full bg-[#D4F542] shadow-[0_0_30px_#D4F542]" />
               <span className="text-6xl sm:text-8xl lg:text-[140px] font-tight font-extrabold text-white/20 tracking-tighter leading-none">
                 Runbook

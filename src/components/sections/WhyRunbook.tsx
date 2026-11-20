@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function WhyRunbook() {
   return (
-    <section className="relative w-full min-h-[100svh] flex flex-col justify-between bg-[#0B0D10] text-[#F8F8F5] pt-12 md:pt-16 pb-12 md:pb-16 px-6 md:px-14 border-t border-white/[0.08] select-none">
+    <section className="relative w-full min-h-[100svh] flex flex-col justify-between bg-[#0B0D10] text-[#F8F8F5] pt-12 md:pt-16 pb-12 md:pb-16 px-6 md:px-14 border-t border-white/[0.08]">
       <div className="max-w-[1340px] mx-auto w-full flex-1 flex flex-col justify-between gap-10 lg:gap-14">
         {/* Top 2-Column: Pitch Headline + Dusk Office Desk Photo */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pt-2">

@@ -94,7 +94,7 @@ export function Hero() {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsInsideHero(true)}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full min-h-[100svh] flex flex-col justify-between pt-[104px] pb-12 px-6 md:px-14 overflow-hidden bg-[#0B0D10] select-none cursor-none"
+      className="relative w-full min-h-[100svh] flex flex-col justify-between pt-[104px] pb-12 px-6 md:px-14 overflow-hidden bg-[#0B0D10] cursor-none"
     >
       {/* Background Dusk Office Photography */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -161,7 +161,7 @@ export function Hero() {
               onMouseEnter={() => setHoveredPin(pin.id)}
               onMouseLeave={() => setHoveredPin(null)}
               onClick={() => setActivePin(activePin === pin.id ? null : pin.id)}
-              className={`absolute pointer-events-auto flex items-center gap-2.5 -translate-y-1/2 transition-opacity duration-200 select-none ${
+              className={`absolute pointer-events-auto flex items-center gap-2.5 -translate-y-1/2 transition-opacity duration-200 ${
                 isLeft
                   ? "flex-row-reverse -translate-x-[calc(100%-7px)]"
                   : "flex-row -translate-x-[7px]"

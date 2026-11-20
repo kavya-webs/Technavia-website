@@ -1,17 +1,29 @@
 "use client";
 
-import React, { useState } from "react";
-import Link from "next/link";
+import React, { useState, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
 import { INDUSTRIES } from "@/lib/data";
 
 export function IndustriesSection() {
   const [hoveredIdx, setHoveredIdx] = useState<number>(0);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Animated slant green thread line beneath "All industries" button
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const greenLineY2 = useTransform(scrollYProgress, [0.3, 0.9], ["98%", "20%"]);
 
   return (
-    <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-32 px-6 md:px-14 border-t border-white/[0.08]">
-      <div className="max-w-[1280px] mx-auto flex flex-col gap-16">
+    <section
+      ref={sectionRef}
+      className="relative w-full bg-[#0B0D10] text-[#F8F8F5] pt-24 md:pt-32 pb-16 md:pb-24 px-6 md:px-14 border-t border-white/[0.08] overflow-hidden"
+    >
+      <div className="max-w-[1280px] mx-auto flex flex-col gap-14">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
@@ -22,13 +34,10 @@ export function IndustriesSection() {
             </h2>
           </div>
           <div className="flex flex-col items-start md:items-end gap-4 max-w-md">
-            <p className="text-sm text-white/70 leading-relaxed">
+            <p className="text-sm text-white/70 leading-relaxed md:text-right">
               Every sector has its own version of the work that repeats every day. We have wired
               most of it before, so your build starts from a running workflow.
             </p>
-            <Button href="/industries" variant="ghost">
-              All industries
-            </Button>
           </div>
         </div>
 
@@ -97,6 +106,31 @@ export function IndustriesSection() {
             </div>
           </div>
         </div>
+
+        {/* Bottom Bar: All industries Button moved after sectors list */}
+        <div className="relative w-full pt-6 flex justify-end">
+          <Button href="/industries" variant="solid" className="!h-[44px] !text-xs">
+            All industries
+          </Button>
+        </div>
+      </div>
+
+      {/* Animated Slanted Green Line after "All industries" button matching Image 3 */}
+      <div className="relative w-full h-16 mt-4 overflow-hidden pointer-events-none">
+        <svg
+          className="absolute inset-0 w-full h-full overflow-visible"
+          preserveAspectRatio="none"
+        >
+          <motion.line
+            x1="0%"
+            y1="98%"
+            x2="100%"
+            y2={greenLineY2}
+            stroke="#D4F542"
+            strokeWidth="1.5"
+            className="drop-shadow-[0_0_8px_rgba(212,245,66,0.7)]"
+          />
+        </svg>
       </div>
     </section>
   );

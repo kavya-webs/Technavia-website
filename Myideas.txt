@@ -1,0 +1,16 @@
+prompt for loading screen:
+
+Recreate the attached Runbook loading screen in my existing Next.js website using Motion for React.
+
+Preserve the near-black background, lime-green glowing loading bar, typography, and layout. Make it responsive.
+
+Entrance: Reveal the text word by word, dropping down from above with a springy, jelly-like bounce. Add subtle squash and stretch to the Runbook title. Let the text settle and stay visible.
+
+Loading: Fill the bar from left to right over a minimum of two seconds. Keep the glow. If the home page isn’t ready, hold below full rather than falsely showing completion.
+
+Exit: Once loading is complete, briefly hold the full bar, then scale the entire loading overlay from 1 to 1.65 while fading its opacity to zero over roughly 0.9 seconds.
+
+Keep the actual home page rendered underneath throughout, so the fade reveals it without a white flash. Remove the overlay after the exit finishes and restore scrolling and interaction.
+
+Use a client-side component compatible with my existing Next.js setup. Preserve the home page. Respect reduced-motion preferences with a simple fade instead of bouncing and zooming.
+

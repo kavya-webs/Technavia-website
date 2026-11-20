@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-inter-tight: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-jetbrains-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --rb-night: #0B0D10;
+  --rb-cloud: #F8F8F5;
+  --rb-brass: #D4F542;
+  --rb-pine: #475B0D;
+  --rb-stone: #8C9088;
+  --rb-bone: #F2F3EE;
+  --rb-bone2: #E8E9E3;
+  --rb-ink: #14161A;
+
+  --rb-mut: color-mix(in srgb, var(--rb-stone) 36%, var(--rb-cloud));
+  --rb-acc: color-mix(in srgb, var(--rb-brass) 78%, var(--rb-cloud));
+  --rb-ok: color-mix(in srgb, var(--rb-pine) 45%, var(--rb-cloud));
+  --rb-hair: color-mix(in srgb, var(--rb-cloud) 16%, transparent);
+  --rb-hair2: color-mix(in srgb, var(--rb-cloud) 30%, transparent);
+
+  --e: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --io: cubic-bezier(0.76, 0, 0.24, 1);
+  --w: cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+body {
+  background-color: var(--rb-night);
+  color: var(--rb-cloud);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Helpers */
+.rb-mono {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+
+.rb-num {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.rb-lbl {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rb-mut);
+}
+
+.rb-amb {
+  font-style: normal;
+  color: var(--rb-brass);
+}
+
+/* Pulsing Dot & Lamp */
+.rb-lit-dot {
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--rb-brass);
+  box-shadow: 0 0 10px var(--rb-brass);
+}
+
+.rb-lit-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1.5px var(--rb-brass);
+  opacity: 0;
+  animation: 2.6s ease-out 0s infinite normal none running rb-glow;
+}
+
+@keyframes rb-glow {
+  0% { opacity: 0.7; transform: scale(0.5); }
+  100% { opacity: 0; transform: scale(1.5); }
+}
+
+@keyframes rb-ping {
+  0% { opacity: 0.9; transform: scale(0.5); }
+  70%, 100% { opacity: 0; transform: scale(1.5); }
+}
+
+/* Morphing Button System */
+.rb-btn {
+  position: relative;
+  display: inline-flex;
+  height: 56px;
+  padding: 0px;
+  border: 0px;
+  border-radius: 999px;
+  background: none;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  color: inherit;
+}
+
+.rb-btn-face {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+  padding: 0px 22px;
+  border-radius: 999px;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--rb-cloud);
+  color: var(--rb-ink);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  transition: background 0.4s, color 0.4s, box-shadow 0.4s, transform 0.18s;
+}
+
+.rb-btn:active .rb-btn-face {
+  transform: scale(0.965);
+  transition-duration: 0.06s;
+}
+
+.rb-btn.rb-has-a .rb-btn-face {
+  padding: 0px 8px 0px 22px;
+}
+
+.rb-btn.rb-has-a .rb-btn-face::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  z-index: 0;
+  background: var(--rb-brass);
+  clip-path: inset(8px 8px 8px calc(100% - 48px) round 999px);
+  transition: clip-path 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.rb-btn.rb-has-a:hover .rb-btn-face::before,
+.rb-btn.rb-has-a:focus-visible .rb-btn-face::before {
+  clip-path: inset(0px round 999px);
+}
+
+.rb-btn .rb-btn-a {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  color: var(--rb-ink);
+}
+
+.rb-btn .rb-btn-a svg {
+  display: block;
+  width: 15px;
+  height: 15px;
+  transform: rotate(-45deg);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.rb-btn:hover .rb-btn-a svg,
+.rb-btn:focus-visible .rb-btn-a svg {
+  transform: none;
+}
+
+.rb-btn.rb-ghost .rb-btn-face {
+  background: color-mix(in srgb, color-mix(in srgb, var(--rb-night) 90%, #000) 45%, transparent);
+  color: var(--rb-cloud);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--rb-cloud) 35%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.rb-btn.rb-ghost:hover .rb-btn-face {
+  box-shadow: inset 0 0 0 1px var(--rb-cloud);
+}
+
+.rb-btn.rb-quiet {
+  height: 42px;
+}
+
+.rb-btn.rb-quiet .rb-btn-face {
+  padding: 0px 16px;
+  font-size: 12.5px;
+}
+
+.rb-btn.rb-quiet.rb-has-a .rb-btn-face {
+  padding: 0px 5px 0px 14px;
+}
+
+.rb-btn.rb-quiet .rb-btn-a {
+  width: 32px;
+  height: 32px;
+}
+
+.rb-btn.rb-quiet .rb-btn-a svg {
+  width: 13px;
+  height: 13px;
+}
+
+.rb-btn.rb-quiet.rb-has-a .rb-btn-face::before {
+  clip-path: inset(5px 5px 5px calc(100% - 37px) round 999px);
+}
+
+/* Glass Plate Cards */
+.rb-plate {
+  position: relative;
+  border-radius: 10px;
+  background: color-mix(in srgb, color-mix(in srgb, var(--rb-night) 90%, #000) 78%, transparent);
+  color: var(--rb-cloud);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--rb-cloud) 18%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+/* Chips / Badges */
+.rb-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 26px;
+  padding: 0px 11px;
+  border-radius: 999px;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: inset 0 0 0 1px var(--rb-hair2);
+  color: inherit;
+}
+
+button.rb-chip, a.rb-chip {
+  height: 34px;
+  padding: 0px 14px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+button.rb-chip:hover, a.rb-chip:hover {
+  background: var(--rb-cloud);
+  color: var(--rb-ink);
+  box-shadow: none;
+}
+
+button.rb-chip.is-on, a.rb-chip.is-on {
+  background: var(--rb-brass);
+  color: var(--rb-ink);
+  box-shadow: none;
+}
+
+/* Rolling Tumbler Digit Columns */
+.rb-roll {
+  display: inline-flex;
+  align-items: flex-start;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.rb-dg {
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.rb-dg-c {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.rb-dg-c span {
+  display: block;
+  height: 1em;
+  line-height: 1em;
+  text-align: center;
+}
+
+/* Horizontal & Vertical Rules */
+.rb-rule-x {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--rb-hair);
+}
+
+/* Marquee Animation */
+@keyframes rbpf-tick {
+  0% { transform: translateX(0px); }
+  100% { transform: translateX(-50%); }
+}
+
+.rb-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: rbpf-tick 36s linear infinite;
+}
+
+.rb-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

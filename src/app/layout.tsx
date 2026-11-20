@@ -30,7 +30,9 @@ export default function RootLayout({
         <SmoothScroll />
         <LoadingScreen />
         <Navbar />
-        <main className="flex-1 w-full">{children}</main>
+        <main className="flex-1 w-full relative z-10 bg-[#0B0D10] shadow-[0_40px_80px_rgba(0,0,0,0.95)]">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

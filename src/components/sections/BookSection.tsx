@@ -46,10 +46,10 @@ export function BookSection() {
         <img
           src="https://framerusercontent.com/images/o9ITAJgXIoSkR7WSBLyUKwhA1PI.webp?scale-down-to=2048"
           alt="A logistics depot at dusk, the loading doors still lit"
-          className="w-full h-full object-cover object-[50%_50%] opacity-20"
+          className="w-full h-full object-cover object-[50%_50%] opacity-65"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10] via-[#0B0D10]/80 to-[#0B0D10]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-transparent to-[#0B0D10]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/80 via-[#0B0D10]/25 to-[#0B0D10]/75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-transparent to-[#0B0D10]/40" />
       </div>
 
       <div className="relative z-10 max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -67,7 +67,7 @@ export function BookSection() {
         </div>
 
         {/* Right Interactive Brief Card */}
-        <div className="lg:col-span-6 p-8 md:p-10 rounded-3xl bg-[#0B0D10]/90 border border-white/[0.14] backdrop-blur-2xl shadow-[0_24px_50px_rgba(0,0,0,0.7)] flex flex-col gap-8">
+        <div className="lg:col-span-6 p-8 md:p-10 rounded-3xl bg-[#0B0D10]/95 border border-white/[0.16] backdrop-blur-2xl shadow-[0_24px_50px_rgba(0,0,0,0.85)] flex flex-col gap-8">
           {/* Card Header with Counter */}
           <div className="flex items-center justify-between pb-4 border-b border-white/[0.1]">
             <span className="text-sm font-semibold font-tight text-white uppercase tracking-wider">

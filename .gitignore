@@ -39,3 +39,6 @@ next-env.d.ts
 # large media / reference recordings
 *.mp4
 
+# Next 16 agents rules
+AGENTS.md
+

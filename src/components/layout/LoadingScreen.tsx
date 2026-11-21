@@ -80,7 +80,7 @@ export function LoadingScreen() {
               <div className="flex items-center gap-1.5 text-white/80">
                 {words.map((w, i) => (
                   <motion.span
-                    key={w}
+                    key={`${w}-${i}`}
                     initial={{ y: -15, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{

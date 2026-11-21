@@ -18,21 +18,20 @@ export function InsightsGrid() {
   const secondary = ARTICLES.slice(1, 4);
 
   return (
-    <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-36 px-6 md:px-14 border-t border-white/[0.08]">
+    <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-36 px-6 md:px-8 lg:px-14 border-t border-white/[0.08]">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-16">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
             <SectionLabel>Insights</SectionLabel>
             <h2 className="text-4xl sm:text-6xl lg:text-[76px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1]">
-              Notes from <br />
-              <span className="text-[#D4F542]">the night shift.</span>
+              Engineering notes <br />
+              <span className="text-[#D4F542]">for web & AI dominance.</span>
             </h2>
           </div>
           <div className="flex flex-col items-start md:items-end gap-6 max-w-md">
             <p className="text-base text-white/60 leading-relaxed font-sans md:text-right">
-              What we learn wiring companies together, written so your next
-              workflow runs sooner.
+              Actionable blueprints on high-speed web architecture, LLM citation algorithms, and autonomous business workflows.
             </p>
             <Button href="/blogs" variant="ghost" hasArrow={false} hasLamp={true}>
               All blogs & blueprints

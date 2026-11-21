@@ -39,7 +39,7 @@ export function Footer() {
       <div className="hidden lg:block relative w-full h-[720px] pointer-events-none opacity-0" />
 
       {/* Footer Body: Static on mobile, fixed at bottom behind <main> on desktop for the curtain reveal */}
-      <div className="lg:fixed lg:bottom-0 lg:left-0 w-full lg:h-[720px] bg-[#07080A] text-[#F8F8F5] flex flex-col justify-between pt-16 pb-10 px-6 md:px-14 z-0">
+      <div className="lg:fixed lg:bottom-0 lg:left-0 w-full lg:h-[720px] bg-[#07080A] text-[#F8F8F5] flex flex-col justify-between pt-16 pb-10 px-6 md:px-8 lg:px-14 z-0">
         <div className="max-w-[1280px] w-full mx-auto flex flex-col justify-between h-full gap-12">
           {/* Top Row: Headline & Navigation Columns */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -156,10 +156,10 @@ export function Footer() {
                 </span>
                 <div className="flex flex-col gap-2.5 text-sm text-white/80 font-sans">
                   <a
-                    href="mailto:contact@technavia.com"
+                    href="mailto:contact@technaviatechnology.com"
                     className="hover:text-[#D4F542] transition-colors break-all font-medium"
                   >
-                    contact@technavia.com
+                    contact@technaviatechnology.com
                   </a>
                   <span className="text-xs font-mono text-white/50">
                     London & San Francisco · remote-first
@@ -182,15 +182,6 @@ export function Footer() {
                     >
                       X
                     </a>
-                    <span>·</span>
-                    <a
-                      href="https://github.com/kavya-webs/Technavia-website"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-[#D4F542] transition-colors"
-                    >
-                      GITHUB
-                    </a>
                   </div>
                 </div>
               </div>
@@ -203,21 +194,28 @@ export function Footer() {
             <div
               onMouseEnter={() => setLogoHovered(true)}
               onMouseLeave={() => setLogoHovered(false)}
-              className="lg:col-span-8 relative overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/[0.12] bg-[#0E1116] px-8 sm:px-12 py-6 sm:py-8 flex items-center cursor-pointer select-none group"
+              onClick={() => setLogoHovered(!logoHovered)}
+              className="lg:col-span-8 relative overflow-hidden rounded-[24px] sm:rounded-[36px] border border-white/[0.12] bg-[#0E1116] px-5 sm:px-8 lg:px-12 py-5 sm:py-7 lg:py-8 flex items-center cursor-pointer select-none group"
             >
               {/* Base Layer: White text & Lime 6-node network icon */}
-              <div className="flex items-center select-none py-2">
+              <div className="flex items-center select-none py-1 sm:py-2">
+                <TechnaviaLogo
+                  variant="horizontal"
+                  symbolSize={42}
+                  wordmarkHeight={26}
+                  className="max-w-full sm:hidden"
+                />
                 <TechnaviaLogo
                   variant="horizontal"
                   symbolSize={58}
                   wordmarkHeight={38}
-                  className="max-w-full"
+                  className="max-w-full hidden sm:flex"
                 />
               </div>
 
               {/* Sliding Neon Lime Green Box Overlay Layer */}
               <motion.div
-                className="absolute inset-0 bg-[#D4F542] flex items-center px-8 sm:px-12 py-6 sm:py-8 overflow-hidden pointer-events-none"
+                className="absolute inset-0 bg-[#D4F542] flex items-center px-5 sm:px-8 lg:px-12 py-5 sm:py-7 lg:py-8 overflow-hidden pointer-events-none"
                 initial={false}
                 animate={{
                   clipPath: logoHovered
@@ -226,14 +224,22 @@ export function Footer() {
                 }}
                 transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="flex items-center select-none py-2">
+                <div className="flex items-center select-none py-1 sm:py-2">
+                  <TechnaviaLogo
+                    variant="horizontal"
+                    symbolSize={42}
+                    wordmarkHeight={26}
+                    symbolColor="#000000"
+                    wordmarkColor="#000000"
+                    className="max-w-full sm:hidden"
+                  />
                   <TechnaviaLogo
                     variant="horizontal"
                     symbolSize={58}
                     wordmarkHeight={38}
                     symbolColor="#000000"
                     wordmarkColor="#000000"
-                    className="max-w-full"
+                    className="max-w-full hidden sm:flex"
                   />
                 </div>
               </motion.div>

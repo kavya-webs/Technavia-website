@@ -28,7 +28,7 @@ export default function ContactPage() {
       />
 
       {/* Main Content Area: Left Details Card & Right Upgraded Glassmorphic Form */}
-      <section className="py-20 md:py-28 px-6 md:px-14 max-w-[1280px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <section className="py-20 md:py-28 px-6 md:px-8 lg:px-14 max-w-[1280px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Left Information Cards */}
         <div className="lg:col-span-5 flex flex-col gap-6">
           <div className="p-8 sm:p-10 rounded-3xl bg-zinc-950/80 border border-white/[0.12] backdrop-blur-xl flex flex-col gap-8 shadow-[0_16px_40px_rgba(0,0,0,0.6)]">
@@ -41,10 +41,10 @@ export default function ContactPage() {
                 </span>
               </div>
               <a
-                href="mailto:contact@technavia.com"
-                className="text-2xl font-tight font-semibold text-white hover:text-[#D4F542] transition-colors"
+                href="mailto:contact@technaviatechnology.com"
+                className="text-xl sm:text-2xl font-tight font-semibold text-white hover:text-[#D4F542] transition-colors break-all"
               >
-                contact@technavia.com
+                contact@technaviatechnology.com
               </a>
             </div>
 

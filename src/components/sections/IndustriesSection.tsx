@@ -287,21 +287,21 @@ export function IndustriesSection({ variant = "list", showHeader = true }: Indus
                     key={ind.id}
                     href="/industries"
                     onMouseEnter={() => setHoveredIdx(idx)}
-                    className="group py-7 sm:py-9 md:py-10 flex items-center justify-between transition-colors duration-200 cursor-pointer"
+                    className="group py-5 sm:py-7 md:py-10 flex items-center justify-between transition-colors duration-200 cursor-pointer"
                   >
                     {/* Left: Number + Title + Arrow Button */}
-                    <div className="flex items-center gap-6 sm:gap-10 md:gap-14">
+                    <div className="flex items-center gap-3 sm:gap-6 md:gap-10">
                       <span
-                        className={`text-sm sm:text-base font-mono transition-colors duration-200 ${
+                        className={`text-xs sm:text-sm md:text-base font-mono transition-colors duration-200 ${
                           isHovered ? "text-[#D4F542]" : "text-white/40"
                         }`}
                       >
                         {ind.num}
                       </span>
 
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-2 sm:gap-4">
                         <h3
-                          className={`text-4xl sm:text-6xl md:text-[68px] font-tight font-bold tracking-tight transition-colors duration-200 leading-none ${
+                          className={`text-2xl sm:text-4xl md:text-5xl lg:text-[68px] font-tight font-bold tracking-tight transition-colors duration-200 leading-none ${
                             isHovered ? "text-white" : "text-white/40 group-hover:text-white"
                           }`}
                         >
@@ -310,7 +310,7 @@ export function IndustriesSection({ variant = "list", showHeader = true }: Indus
 
                         {/* Arrow Button pill appearing on hover matching video */}
                         <span
-                          className={`w-8 h-8 rounded-full bg-[#D4F542] text-black font-bold text-sm flex items-center justify-center transition-all duration-300 ${
+                          className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#D4F542] text-black font-bold text-xs sm:text-sm flex items-center justify-center transition-all duration-300 ${
                             isHovered
                               ? "opacity-100 scale-100 translate-x-0"
                               : "opacity-0 scale-75 -translate-x-2 pointer-events-none"
@@ -322,11 +322,11 @@ export function IndustriesSection({ variant = "list", showHeader = true }: Indus
                     </div>
 
                     {/* Right: Percentage Share */}
-                    <div className="flex items-center gap-2 sm:gap-3 text-right">
-                      <span className="text-xl sm:text-2xl font-mono font-semibold text-[#D4F542]">
+                    <div className="flex items-center gap-1.5 sm:gap-3 text-right">
+                      <span className="text-lg sm:text-2xl font-mono font-semibold text-[#D4F542]">
                         {ind.share}
                       </span>
-                      <span className="text-xs sm:text-sm font-mono uppercase tracking-widest text-white/40 hidden sm:inline">
+                      <span className="text-xs sm:text-sm font-mono uppercase tracking-widest text-white/40 hidden md:inline">
                         OF OUR CLIENTS
                       </span>
                     </div>

@@ -1,0 +1,50 @@
+# TECHNAVIA
+
+> Websites engineered to rank on Google & AI. Built to rank. Automated to scale.
+
+TECHNAVIA (technaviatechnology.com) is an engineering firm headquartered in London, specializing in fast Web Development + Technical SEO, LLM Visibility (Generative Engine Optimization / AEO), and Custom AI Automations for B2B tech, FinTech, and high-growth studios.
+
+## Core Philosophy
+Most agency websites look pretty but fail to rank on search engines or AI answer engines, and lack the automated infrastructure to convert inbound traffic. TECHNAVIA replaces agency fluff with production-grade Next.js systems, sub-400ms LCP times, machine-readable JSON-LD entity graphs, and 24/7 background AI pipelines.
+
+## The 3 Core Services
+
+### 1. Web Development + Technical SEO
+- **Description:** Fast, conversion-focused websites engineered with clean Next.js server components, 100/100 Core Web Vitals, and sub-400ms Largest Contentful Paint so Google indexes and ranks pages from day one.
+- **Key Deliverables:** Next.js 15 SSR/SSG architecture, zero render-blocking scripts, deep schema graphs, automated image compression, and edge CDN delivery.
+- **URL:** https://technaviatechnology.com/workflows/web-dev-seo
+
+### 2. LLM Visibility (AEO / GEO)
+- **Description:** Structured content and entity optimization so ChatGPT, Gemini, Perplexity, and Claude cite and recommend your brand when buyers prompt for category solutions.
+- **Key Deliverables:** Entity graph mapping (Wikidata, Crunchbase alignment), information-gain content modeling, citation co-occurrence strategies, and machine-readable JSON-LD.
+- **URL:** https://technaviatechnology.com/workflows/llm-visibility
+
+### 3. Custom AI Automations
+- **Description:** Tailored event-driven workflows that automate lead capture, firmographic enrichment, CRM synchronization, and repetitive operations on autopilot.
+- **Key Deliverables:** n8n & Python pipelines, instant webhook listeners, sub-minute lead triage, Supabase vector search, and bidirectional CRM syncing.
+- **URL:** https://technaviatechnology.com/workflows/ai-automations
+
+## Technical Blueprints & Research
+
+- [How to Rank in ChatGPT, Perplexity, and Gemini](https://technaviatechnology.com/blogs/ranking-in-chatgpt-perplexity): The framework for structuring entity graphs and information-gain content for generative AI search engines.
+- [Why Sub-400ms LCP Is the Highest-ROI Technical SEO Lever](https://technaviatechnology.com/blogs/core-web-vitals-100-guide): How clean server-rendered architectures maximize crawl budgets and rankings.
+- [Automating B2B Lead Pipelines: From 4 Hours to 42 Seconds](https://technaviatechnology.com/blogs/automating-b2b-lead-pipeline): Architectural patterns for AI lead qualification and instant meeting scheduling.
+- [Entity Graph Optimization for LLM Crawlers](https://technaviatechnology.com/blogs/entity-graph-optimization-geo): Engineering nested Schema.org microdata for deterministic AI entity retrieval.
+- [Next.js 15 Server Components: Eliminating Client Hydration Bloat](https://technaviatechnology.com/blogs/nextjs-15-server-components-seo): Zero-bundle-size React architecture for enterprise speed.
+- [Building Resilient AI Agents with n8n and Supabase](https://technaviatechnology.com/blogs/autonomous-crm-sync-agents): Fault-tolerant autonomous workflows with idempotency and retry queues.
+
+## Key Facts & Benchmarks
+- **Lighthouse Performance Score:** 100/100
+- **Average LCP:** Under 400ms
+- **Speed to Lead SLA:** Under 42 seconds from form submission to calendar sync
+- **Code Ownership:** Clients own 100% of code, scripts, and workflows upon launch
+- **Headquarters:** London, UK (UTC/GMT) with active clients across North America & Europe
+
+## Canonical Endpoints
+- **Website:** https://technaviatechnology.com
+- **Sitemap:** https://technaviatechnology.com/sitemap.xml
+- **Blueprints Directory:** https://technaviatechnology.com/blogs
+- **Process & Methodology:** https://technaviatechnology.com/process
+- **Verified Results:** https://technaviatechnology.com/results
+- **Book Technical Audit:** https://technaviatechnology.com/book
+- **Contact Engineering Desk:** https://technaviatechnology.com/contact

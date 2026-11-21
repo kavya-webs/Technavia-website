@@ -7,7 +7,7 @@ import { Button } from "../ui/Button";
 
 export function ServicesHero() {
   return (
-    <section className="relative w-full min-h-[92vh] flex flex-col justify-between pt-36 pb-16 px-6 md:px-14 bg-[#0B0D10] text-[#F8F8F5] overflow-hidden border-b border-white/[0.08]">
+    <section className="relative w-full min-h-[92vh] flex flex-col justify-between pt-36 pb-16 px-6 md:px-8 lg:px-14 bg-[#0B0D10] text-[#F8F8F5] overflow-hidden border-b border-white/[0.08]">
       {/* Background Photography: Tech Engineering Lab */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img

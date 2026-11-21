@@ -18,7 +18,7 @@ export function ReviewsSection() {
   const current = reviews[activeReview] || reviews[0];
 
   return (
-    <section className="relative w-full bg-[#F2F3EE] text-[#14161A] py-24 md:py-36 px-6 md:px-14 border-t border-[#14161A]/10">
+    <section className="relative w-full bg-[#F2F3EE] text-[#14161A] py-24 md:py-36 px-6 md:px-8 lg:px-14 border-t border-[#14161A]/10">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-14">
         {/* Header Label */}
         <div className="flex items-center gap-2.5 text-xs font-mono font-semibold uppercase tracking-[0.16em] text-[#14161A]/60">

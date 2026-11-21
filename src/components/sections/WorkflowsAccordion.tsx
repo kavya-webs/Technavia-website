@@ -60,7 +60,7 @@ export function WorkflowsAccordion() {
   return (
     <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] pt-24 md:pt-32 pb-28 md:pb-36 overflow-visible border-t border-white/[0.08]">
       {/* Angled Edge Header Accent */}
-      <div className="max-w-[1280px] mx-auto px-6 md:px-14 flex flex-col gap-16">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-14 flex flex-col gap-16">
         {/* Top Header Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-7 flex flex-col gap-4">
@@ -115,7 +115,7 @@ export function WorkflowsAccordion() {
               {/* Main Trigger Button */}
               <button
                 onClick={() => toggle(idx)}
-                className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-14 py-7 md:py-9 flex items-center justify-between text-left group cursor-pointer"
+                className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-8 lg:px-14 py-7 md:py-9 flex items-center justify-between text-left group cursor-pointer"
               >
                 <div className="flex items-center gap-8 md:gap-20">
                   <span
@@ -182,9 +182,9 @@ export function WorkflowsAccordion() {
                     className="relative z-10 overflow-hidden"
                   >
                     <div className="pb-10 pt-2">
-                      <div className="max-w-[1400px] mx-auto px-6 md:px-14 pl-16 sm:pl-28 md:pl-44 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+                      <div className="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-14 pl-6 sm:pl-16 md:pl-28 lg:pl-44 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
                         <div className="flex flex-col gap-4 max-w-xl">
-                          <p className="text-lg md:text-xl text-[#F8F8F5]/90 font-normal leading-relaxed font-sans">
+                          <p className="text-base sm:text-lg md:text-xl text-[#F8F8F5]/90 font-normal leading-relaxed font-sans">
                             {item.tagline}
                           </p>
                           <div className="flex flex-wrap items-center gap-2 pt-1">
@@ -199,7 +199,7 @@ export function WorkflowsAccordion() {
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-4 flex-shrink-0">
+                        <div className="flex flex-wrap sm:flex-nowrap items-center gap-4 flex-shrink-0">
                           <div className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-[#0B0D10]/80 border border-[#D4F542]/50 backdrop-blur-md">
                             <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
                             <span className="text-xs font-mono text-[#D4F542] font-semibold">
@@ -211,7 +211,7 @@ export function WorkflowsAccordion() {
                           </div>
                           <Link
                             href={`/workflows/${item.id}`}
-                            className="w-10 h-10 rounded-full bg-[#D4F542] text-black grid place-items-center hover:scale-105 transition-transform"
+                            className="w-10 h-10 rounded-full bg-[#D4F542] text-black grid place-items-center hover:scale-105 transition-transform flex-shrink-0"
                             title={`Open ${item.title}`}
                           >
                             <svg

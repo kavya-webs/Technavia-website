@@ -36,7 +36,7 @@ export default function ProcessPage() {
       <ProcessWidget />
 
       {/* Week by Week Detailed Roadmap */}
-      <section className="py-24 px-6 md:px-14 max-w-[1280px] mx-auto w-full flex flex-col gap-12">
+      <section className="py-24 px-6 md:px-8 lg:px-14 max-w-[1280px] mx-auto w-full flex flex-col gap-12">
         <div className="flex flex-col gap-3">
           <SectionLabel>Week by week</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-tight font-semibold text-white">

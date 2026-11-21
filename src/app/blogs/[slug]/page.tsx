@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { BookSection } from "@/components/sections/BookSection";
+import { ArticleJsonLd } from "@/components/seo/JsonLd";
 import { ARTICLES } from "@/lib/data";
 
 export function generateStaticParams() {
@@ -16,6 +17,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${post.title} — TECHNAVIA Blueprints`,
     description: post.excerpt,
+    alternates: {
+      canonical: `https://technaviatechnology.com/blogs/${slug}`,
+    },
+    openGraph: {
+      title: `${post.title} — TECHNAVIA Blueprints`,
+      description: post.excerpt,
+      url: `https://technaviatechnology.com/blogs/${slug}`,
+      type: "article",
+      images: [post.coverImage],
+    },
   };
 }
 
@@ -36,8 +47,16 @@ export default async function BlogDetailPage({
 
   return (
     <div className="flex flex-col w-full bg-[#0B0D10] text-[#F8F8F5] pt-[92px]">
+      <ArticleJsonLd
+        title={post.title}
+        excerpt={post.excerpt}
+        datePublished={post.date}
+        slug={post.slug}
+        coverImage={post.coverImage}
+        authorName={post.author.name}
+      />
       {/* Header & Meta */}
-      <section className="py-16 md:py-24 px-6 md:px-14 border-b border-white/[0.08] max-w-[1000px] mx-auto w-full">
+      <section className="py-16 md:py-24 px-6 md:px-8 lg:px-14 border-b border-white/[0.08] max-w-[1000px] mx-auto w-full">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-xs font-mono text-white/50 mb-6 uppercase tracking-wider">
           <Link href="/" className="hover:text-white transition-colors">
@@ -101,7 +120,7 @@ export default async function BlogDetailPage({
       </section>
 
       {/* Featured Cover Image */}
-      <div className="max-w-[1000px] mx-auto w-full px-6 md:px-14 pt-10">
+      <div className="max-w-[1000px] mx-auto w-full px-6 md:px-8 lg:px-14 pt-10">
         <div className="relative w-full h-[320px] sm:h-[420px] rounded-3xl overflow-hidden border border-white/[0.1] shadow-2xl">
           <img
             src={post.coverImage}
@@ -113,7 +132,7 @@ export default async function BlogDetailPage({
       </div>
 
       {/* Main Prose Article */}
-      <article className="py-14 px-6 md:px-14 max-w-[840px] mx-auto w-full flex flex-col gap-8 text-base md:text-lg text-white/80 leading-relaxed font-sans">
+      <article className="py-14 px-6 md:px-8 lg:px-14 max-w-[840px] mx-auto w-full flex flex-col gap-8 text-base md:text-lg text-white/80 leading-relaxed font-sans">
         {/* Key Takeaways Box */}
         <div className="p-6 sm:p-8 rounded-2xl bg-[#14161A] border border-[#D4F542]/40 shadow-xl flex flex-col gap-3">
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#D4F542]">
@@ -149,7 +168,7 @@ export default async function BlogDetailPage({
       </article>
 
       {/* Two Related Blueprints */}
-      <section className="py-20 px-6 md:px-14 border-t border-white/[0.08] max-w-[1280px] mx-auto w-full">
+      <section className="py-20 px-6 md:px-8 lg:px-14 border-t border-white/[0.08] max-w-[1280px] mx-auto w-full">
         <div className="flex flex-col gap-8">
           <div className="flex items-center justify-between">
             <h3 className="text-2xl sm:text-3xl font-tight font-semibold text-white">

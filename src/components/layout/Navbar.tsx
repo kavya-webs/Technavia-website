@@ -48,7 +48,7 @@ export function Navbar() {
       }`}
     >
       <div
-        className={`w-full h-full px-6 md:px-14 flex items-center justify-between transition-all duration-400 ${
+        className={`w-full h-full px-6 md:px-8 lg:px-14 flex items-center justify-between transition-all duration-400 ${
           scrolled
             ? "bg-[#0B0D10]/80 backdrop-blur-md border-b border-white/[0.08]"
             : "bg-transparent"
@@ -64,15 +64,15 @@ export function Navbar() {
           />
         </Link>
 
-        {/* Desktop Navigation Links - Hover effect with white pill shape & black text, active marked by green dot */}
-        <nav className="hidden md:flex items-center gap-2 lg:gap-3">
+        {/* Desktop & iPad Navigation Links - Hover effect with white pill shape & black text, active marked by green dot */}
+        <nav className="hidden md:flex items-center gap-1 lg:gap-3">
           {navLinks.map((item) => {
             const isActive = pathname.startsWith(item.href);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 text-[#F8F8F5] hover:bg-white hover:text-black group flex flex-col items-center"
+                className="relative px-3 lg:px-4 py-1.5 rounded-full text-xs lg:text-sm font-medium transition-all duration-200 text-[#F8F8F5] hover:bg-white hover:text-black group flex flex-col items-center"
               >
                 <span>{item.name}</span>
                 {isActive && (
@@ -85,14 +85,14 @@ export function Navbar() {
 
         {/* CTA Button & Mobile Toggle */}
         <div className="flex items-center gap-3">
-          <Button href="/book" variant="quiet" className="hidden sm:inline-flex">
+          <Button href="/book" variant="quiet" className="hidden sm:inline-flex !h-[40px] !px-4 !text-xs lg:!text-sm">
             Book a call
           </Button>
 
-          {/* Mobile hamburger button */}
+          {/* Mobile hamburger button - 44px touch target */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2.5 rounded-full bg-white/[0.08] text-white border border-white/[0.1]"
+            className="md:hidden min-w-[44px] min-h-[44px] p-2.5 rounded-full bg-white/[0.08] text-white border border-white/[0.1] flex items-center justify-center transition-colors hover:bg-white/[0.15]"
             aria-label="Toggle menu"
           >
             <svg
@@ -123,21 +123,35 @@ export function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[88px] bg-[#0B0D10]/95 backdrop-blur-xl border-b border-white/[0.1] p-6 flex flex-col gap-4 animate-in fade-in slide-in-from-top-4 duration-300">
-          {navLinks.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-medium text-white/90 hover:text-[#D4F542] py-2 border-b border-white/[0.05]"
-            >
-              {item.name}
-            </Link>
-          ))}
-          <div className="pt-2">
-            <Button href="/book" className="w-full">
+        <div className="md:hidden fixed inset-x-0 top-[88px] bg-[#0B0D10]/98 backdrop-blur-2xl border-b border-white/[0.12] p-6 sm:p-8 flex flex-col gap-5 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300">
+          <div className="flex flex-col gap-1">
+            {navLinks.map((item) => {
+              const isActive = pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`flex items-center justify-between text-xl font-tight font-medium py-3 border-b border-white/[0.06] transition-colors ${
+                    isActive ? "text-[#D4F542]" : "text-white/85 hover:text-white"
+                  }`}
+                >
+                  <span>{item.name}</span>
+                  {isActive && (
+                    <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
+                  )}
+                </Link>
+              );
+            })}
+          </div>
+          <div className="flex flex-col gap-4 pt-2">
+            <Button href="/book" className="w-full justify-center !h-[48px] !text-sm">
               Book a call
             </Button>
+            <div className="flex items-center justify-between text-xs font-mono text-white/50 pt-2 border-t border-white/[0.08]">
+              <span>LONDON & SF · UTC/GMT</span>
+              <span className="text-[#D4F542] font-semibold">3 SERVICES ACTIVE</span>
+            </div>
           </div>
         </div>
       )}

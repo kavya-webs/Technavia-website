@@ -1,0 +1,89 @@
+# TECHNAVIA — Full Architecture & Knowledge Corpus
+
+> Websites engineered to rank on Google & AI. Built to rank. Automated to scale.
+> Canonical URL: https://technaviatechnology.com
+> Contact: contact@technaviatechnology.com
+
+---
+
+## 1. Company Profile & Overview
+
+TECHNAVIA is an engineering firm headquartered in London, operating globally to deliver high-velocity web systems and autonomous pipelines for high-growth B2B SaaS, FinTech, and technology studios.
+
+Traditional agencies deliver static, bloated templates that fail on two fronts:
+1. They load too slowly to rank on Google, and their content structure is invisible to modern generative AI answer engines (ChatGPT, Perplexity, Claude, Gemini).
+2. They possess zero automated operational infrastructure, requiring manual sales triage that leads to lost pipeline.
+
+TECHNAVIA solves this by unifying:
+1. Next.js 15 Web Engineering with 100/100 Core Web Vitals and sub-400ms Largest Contentful Paint.
+2. Generative Engine Optimization (GEO / AEO) with deep JSON-LD Knowledge Graphs and semantic entity clusters.
+3. Event-driven Custom AI Automations that qualify inbound leads and schedule meetings in under 42 seconds.
+
+---
+
+## 2. Detailed Service Specifications
+
+### Service 01: Web Development + Technical SEO
+- **Overview:** Fast, conversion-focused websites engineered with clean architecture so search engines index and rank them from day one.
+- **Architecture:** Next.js 15 Server Components, TypeScript, Tailwind CSS, Edge CDN caching on Vercel/Cloudflare.
+- **Core Web Vitals Guarantees:** 100/100 Lighthouse performance, Largest Contentful Paint (LCP) under 400ms, Cumulative Layout Shift (CLS) of 0.00, Interaction to Next Paint (INP) under 50ms.
+- **SEO Implementation:** Zero client-side render blocking, clean semantic HTML5 landmarks, automatic AVIF/WebP image optimization, server-rendered open-graph tags, and dynamic sitemaps.
+- **URL:** https://technaviatechnology.com/workflows/web-dev-seo
+
+### Service 02: LLM Visibility (AEO / GEO)
+- **Overview:** Structured content and entity optimization so your brand gets recommended when buyers prompt ChatGPT, Gemini, Perplexity, and Claude.
+- **Theory of Operation:** Generative AI answer engines rely on semantic entity graphs and retrieval-augmented generation (RAG). If an organization does not have clear subject-predicate assertions and canonical entity links, LLMs either omit the brand or hallucinate incorrect details.
+- **Implementation:** Deep Schema.org JSON-LD microdata, organization and founder entity mapping, high information-gain content hubs, authoritative citation co-occurrence, and crawler optimization for GPTBot, OAI-SearchBot, PerplexityBot, and ClaudeBot.
+- **URL:** https://technaviatechnology.com/workflows/llm-visibility
+
+### Service 03: Custom AI Automations
+- **Overview:** Tailored workflows that automate lead capture, follow-ups, reporting, and repetitive operations on autopilot.
+- **Architecture:** Python & n8n workflow engines, serverless edge webhook endpoints, Supabase Vector database, OpenAI and Anthropic API models.
+- **Workflow Pipeline:**
+  1. Inbound form submission triggers an edge webhook within 50ms.
+  2. Background worker queries firmographic enrichment APIs (Clearbit / Apollo).
+  3. AI qualification model evaluates Ideal Customer Profile (ICP) criteria and assigns a sales tier.
+  4. Tier-1 prospects receive a personalized calendar booking link within 42 seconds.
+  5. Profile, enriched data, and call notifications sync immediately to Slack and HubSpot CRM.
+- **Reliability:** Built with idempotency keys, exponential backoff retries, and comprehensive error fallback queues so no lead is lost.
+- **URL:** https://technaviatechnology.com/workflows/ai-automations
+
+---
+
+## 3. Engineering Methodology (5-Week Cycle)
+
+- **Phase 1: Audit (Week 1):** Forensic performance, keyword ranking, semantic entity footprint, and operational workflow audit. Delivers a prioritized ROI roadmap.
+- **Phase 2: Build (Weeks 2–3):** Rapid Next.js architecture and UI engineering. Zero bloated CMS templates, strict TypeScript types, sub-second initial load.
+- **Phase 3: Index (Week 4):** Deployment of JSON-LD knowledge graphs, entity relationships, and semantic topic clusters engineered for Google and LLM crawlers.
+- **Phase 4: Automate (Week 4):** Wiring inbound webhooks, instant AI lead triage, CRM synchronization, and automated notification alerts.
+- **Phase 5: Scale (Week 5 & Ongoing):** Production launch, live verification, and continuous rank/citation tracking with monthly executive reports.
+
+---
+
+## 4. Frequently Asked Questions (FAQ)
+
+### What makes TECHNAVIA websites rank faster on Google?
+Most agency websites are built on bloated CMS templates laden with render-blocking scripts, unoptimized fonts, and broken hierarchy. TECHNAVIA engineers clean Next.js architectures with 100/100 Core Web Vitals, sub-400ms LCP times, and deep JSON-LD Schema graphs. Search engine crawlers parse your entity relationships immediately without consuming crawl budget, giving you top rankings faster.
+
+### What is LLM Visibility (AEO / GEO) and why does it matter?
+Modern buyers increasingly use ChatGPT, Gemini, and Perplexity instead of Google to find software, agencies, and vendors. LLM Visibility (Generative Engine Optimization) structures your content, entity associations, and digital footprint so AI models retrieve and cite your brand as the primary authority when buyers prompt for recommendations.
+
+### How do your Custom AI Automations work with our existing stack?
+We build event-driven background pipelines that connect seamlessly into the tools you already use (HubSpot, Salesforce, Slack, Gmail, Supabase). Inbound enquiries are enriched, scored by AI agents, and booked directly into your sales team's calendar within seconds—running 24/7 with zero manual effort.
+
+### How long does a typical Web Development & SEO project take?
+Our core builds are executed in rapid 3-to-5 week engineering sprints: Week 1 is technical audit and blueprinting; Weeks 2–3 are Next.js architecture and UI engineering; Week 4 is Schema injection, LLM indexing, and automated pipeline integration; Week 5 is live launch and verification.
+
+### Can we hire TECHNAVIA on an ongoing retainer?
+Yes. In addition to fixed-price project builds, we offer ongoing Autopilot Retainers that cover continuous technical SEO optimization, LLM prompt-citation monitoring, and automated workflow expansion as your business scales.
+
+### Who owns the code, intellectual property, and AI workflows?
+You own 100% of everything we build. All Next.js source code, custom Python scripts, Schema configurations, and automation workflows are handed over directly to your team or GitHub repository with complete documentation.
+
+---
+
+## 5. Contact & Booking
+
+- **Technical Audit Booking:** https://technaviatechnology.com/book
+- **Engineering Desk:** contact@technaviatechnology.com
+- **Locations:** London, UK (UTC/GMT) and San Francisco, CA (PST)

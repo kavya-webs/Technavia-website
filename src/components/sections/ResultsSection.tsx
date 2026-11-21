@@ -26,7 +26,7 @@ export function ResultsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-32 px-6 md:px-14 border-t border-white/[0.08]"
+      className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-32 px-6 md:px-8 lg:px-14 border-t border-white/[0.08]"
     >
       <div className="max-w-[1280px] mx-auto flex flex-col gap-16">
         {/* Header */}
@@ -80,7 +80,7 @@ export function ResultsSection() {
                   <div className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/[0.1] text-xs font-mono">
                     <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
                     <span className="text-white/90 font-medium tracking-wider uppercase">
-                      RESULT {res.num} / 06
+                      RESULT {res.num} / 03
                     </span>
                   </div>
 

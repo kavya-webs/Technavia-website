@@ -28,7 +28,7 @@ export default function BookPage() {
       />
 
       {/* Booking Form Interface wrapped in Suspense boundary for Next.js 15 App Router */}
-      <section className="py-20 md:py-28 px-6 md:px-14 max-w-[1280px] mx-auto w-full flex flex-col items-center">
+      <section className="py-20 md:py-28 px-6 md:px-8 lg:px-14 max-w-[1280px] mx-auto w-full flex flex-col items-center">
         <Suspense
           fallback={
             <div className="py-24 max-w-[800px] mx-auto w-full text-center text-xs font-mono text-white/50 flex items-center justify-center gap-2">

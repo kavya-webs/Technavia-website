@@ -19,21 +19,21 @@ export default function AboutPage() {
         titleLine1="The night shift"
         titleLine2="since 2019."
         highlightLine2={true}
-        subtitle="We are an automation engineering firm headquartered in London, dedicated to eliminating manual operations for high-growth businesses."
+        subtitle="We engineer websites built to rank on Google & AI, powered by custom automations that run your growth on autopilot."
         primaryCta={{ label: "Book a call", href: "/book" }}
         secondaryCta={{ label: "See results", href: "/results" }}
         backgroundImage="/images/questions/base_office.jpg"
         wireframeNumber="19"
         statusPills={[
-          { text: "BUSINESS AUTOMATION AGENCY", variant: "brass" },
-          { text: "FOUNDED 2019 · LONDON", variant: "ghost" },
-          { text: "48,200+ TASKS / MO", variant: "outline" },
-          { text: "ZERO NEW APPS", variant: "ghost" },
+          { text: "WEB & AI ENGINEERING", variant: "brass" },
+          { text: "FOUNDED 2019", variant: "ghost" },
+          { text: "100/100 CORE WEB VITALS", variant: "outline" },
+          { text: "BUILT TO RANK", variant: "ghost" },
         ]}
       />
 
       {/* The Story & Principles */}
-      <section className="py-24 px-6 md:px-14 max-w-[1280px] mx-auto w-full flex flex-col gap-20">
+      <section className="py-24 px-6 md:px-8 lg:px-14 max-w-[1280px] mx-auto w-full flex flex-col gap-20">
         {/* Story Block with Photography */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center border-t border-white/[0.1] pt-12">
           <div className="lg:col-span-7 flex flex-col gap-6">

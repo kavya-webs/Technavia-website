@@ -285,9 +285,31 @@ export function ToolsStack() {
           </svg>
 
           {/* Grid Layout: Left 3 Cards | Center Rectangle Hub | Right 3 Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
+            {/* Center Hub on Mobile & Tablet: Shown prominently at top; On Desktop: centered in col-span-4 */}
+            <div className="md:col-span-2 lg:col-span-4 flex items-center justify-center py-4 lg:py-6 order-first lg:order-none">
+              <div
+                ref={hubRef}
+                className="relative w-full max-w-[340px] h-[155px] sm:h-[165px] rounded-2xl bg-[#0B0D10]/95 border border-[#D4F542] shadow-[0_0_28px_rgba(212,245,66,0.25)] flex flex-col items-center justify-center p-6 text-center backdrop-blur-2xl"
+              >
+                {/* Glowing neon green center bulb */}
+                <span className="relative flex items-center justify-center mb-2.5">
+                  <span className="w-3.5 h-3.5 rounded-full bg-[#D4F542] shadow-[0_0_12px_#D4F542,0_0_24px_rgba(212,245,66,0.85)]" />
+                  <span className="absolute -inset-1.5 rounded-full border border-[#D4F542] animate-ping opacity-60" />
+                </span>
+
+                <div className="text-3xl sm:text-[34px] font-tight font-bold text-white tracking-tight leading-none mb-1">
+                  TECHNAVIA
+                </div>
+
+                <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.16em] text-[#D4F542] font-semibold">
+                  NAVIGATING THE FUTURE OF TECHNOLOGY
+                </span>
+              </div>
+            </div>
+
             {/* Left Column (01 CRM, 03 Inbox, 05 Docs) */}
-            <div className="lg:col-span-4 flex flex-col gap-6">
+            <div className="md:col-span-1 lg:col-span-4 flex flex-col gap-6">
               {LEFT_TOOLS.map((tool) => (
                 <div
                   key={tool.id}
@@ -325,30 +347,8 @@ export function ToolsStack() {
               ))}
             </div>
 
-            {/* Center Hub: Horizontal Rectangle matching reference image */}
-            <div className="lg:col-span-4 flex items-center justify-center py-6">
-              <div
-                ref={hubRef}
-                className="relative w-full max-w-[320px] h-[165px] rounded-2xl bg-[#0B0D10]/95 border border-[#D4F542] shadow-[0_0_28px_rgba(212,245,66,0.25)] flex flex-col items-center justify-center p-6 text-center backdrop-blur-2xl"
-              >
-                {/* Glowing neon green center bulb */}
-                <span className="relative flex items-center justify-center mb-2.5">
-                  <span className="w-3.5 h-3.5 rounded-full bg-[#D4F542] shadow-[0_0_12px_#D4F542,0_0_24px_rgba(212,245,66,0.85)]" />
-                  <span className="absolute -inset-1.5 rounded-full border border-[#D4F542] animate-ping opacity-60" />
-                </span>
-
-                <div className="text-3xl sm:text-[34px] font-tight font-bold text-white tracking-tight leading-none mb-1">
-                  TECHNAVIA
-                </div>
-
-                <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.16em] text-[#D4F542] font-semibold">
-                  NAVIGATING THE FUTURE OF TECHNOLOGY
-                </span>
-              </div>
-            </div>
-
             {/* Right Column (02 Invoicing, 04 Helpdesk, 06 Reporting) */}
-            <div className="lg:col-span-4 flex flex-col gap-6">
+            <div className="md:col-span-1 lg:col-span-4 flex flex-col gap-6">
               {RIGHT_TOOLS.map((tool) => (
                 <div
                   key={tool.id}

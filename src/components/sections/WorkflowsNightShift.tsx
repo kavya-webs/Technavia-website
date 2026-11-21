@@ -94,7 +94,7 @@ export function WorkflowsNightShift() {
   return (
     <div className="w-full flex flex-col bg-[#0B0D10] text-[#F8F8F5]">
       {/* Intro Header */}
-      <section className="py-20 md:py-28 px-6 md:px-14 max-w-[1280px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+      <section className="py-20 md:py-28 px-6 md:px-8 lg:px-14 max-w-[1280px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
         <div className="lg:col-span-7 flex flex-col gap-4">
           <SectionLabel>Engineered Capabilities</SectionLabel>
           <h2 className="text-4xl sm:text-6xl lg:text-[76px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.98]">
@@ -110,7 +110,7 @@ export function WorkflowsNightShift() {
       </section>
 
       {/* Un-sticky Subnav Strip as requested in Item 3 */}
-      <div className="relative w-full bg-[#0B0D10] border-y border-white/[0.08] py-5 px-6 md:px-14">
+      <div className="relative w-full bg-[#0B0D10] border-y border-white/[0.08] py-5 px-6 md:px-8 lg:px-14">
         <div className="max-w-[1280px] mx-auto flex items-center justify-between gap-6 overflow-x-auto no-scrollbar">
           <span className="text-xs font-mono font-semibold tracking-widest uppercase text-white/40 flex-shrink-0">
             WORKFLOWS
@@ -152,7 +152,7 @@ export function WorkflowsNightShift() {
             <section
               key={wf.id}
               id={wf.id}
-              className="relative w-full min-h-[88vh] lg:min-h-[94vh] flex items-center py-20 lg:py-28 px-6 md:px-14 border-b border-white/[0.08] overflow-hidden"
+              className="relative w-full min-h-[88vh] lg:min-h-[94vh] flex items-center py-20 lg:py-28 px-6 md:px-8 lg:px-14 border-b border-white/[0.08] overflow-hidden"
             >
               {/* Background Photography with Reveal Slider Effect on Scroll (Item 4) */}
               <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -222,7 +222,7 @@ export function WorkflowsNightShift() {
                     <span>WORKFLOW</span>
                     <span className="text-[#D4F542] font-semibold">{wf.num}</span>
                     <span>/</span>
-                    <span>05</span>
+                    <span>03</span>
                   </div>
 
                   {/* Title */}

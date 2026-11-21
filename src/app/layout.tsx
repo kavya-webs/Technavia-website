@@ -5,15 +5,30 @@ import { Footer } from "@/components/layout/Footer";
 import { LoadingScreen } from "@/components/layout/LoadingScreen";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { PageTransition } from "@/components/layout/PageTransition";
+import { OrganizationJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://technavia.com"),
+  metadataBase: new URL("https://technaviatechnology.com"),
   title: {
     default: "TECHNAVIA — Websites Engineered to Rank on Google & AI",
     template: "%s | TECHNAVIA",
   },
   description:
     "Fast, conversion-focused Web Development + Technical SEO, LLM Visibility (AEO / GEO), and Custom AI Automations on autopilot.",
+  alternates: {
+    canonical: "https://technaviatechnology.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",
@@ -23,7 +38,7 @@ export const metadata: Metadata = {
     title: "TECHNAVIA — Websites Engineered to Rank on Google & AI",
     description:
       "Websites engineered to rank on Google & AI. Web Dev + SEO, LLM Visibility, and Custom AI Automations.",
-    url: "https://miraculous-beet-889424.framer.app",
+    url: "https://technaviatechnology.com",
     siteName: "TECHNAVIA",
     type: "website",
     images: [
@@ -52,6 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-[#0B0D10] text-[#F8F8F5] min-h-screen flex flex-col font-sans selection:bg-[#D4F542] selection:text-black">
+        <OrganizationJsonLd />
         <SmoothScroll />
         <LoadingScreen />
         <PageTransition />

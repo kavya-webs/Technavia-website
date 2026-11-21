@@ -122,7 +122,7 @@ export function NightLog() {
   }, []);
 
   return (
-    <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-36 px-6 md:px-14 border-t border-white/[0.08] overflow-hidden">
+    <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-36 px-6 md:px-8 lg:px-14 border-t border-white/[0.08] overflow-hidden">
       {/* Background Photography: desk with lit monitors */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img

@@ -146,7 +146,7 @@ export function BlogExplorer({ articles }: BlogExplorerProps) {
 
         {/* Bottom Row: Category Filter Tabs */}
         <div className="flex items-center justify-between flex-wrap gap-3 pt-4 border-t border-white/[0.06]">
-          <div className="flex items-center flex-wrap gap-2">
+          <div className="flex items-center overflow-x-auto scrollbar-none pb-1 sm:pb-0 gap-2 max-w-full">
             {CATEGORIES.map((cat) => {
               const isSelected = selectedCategory === cat;
               const count = categoryCounts[cat] || 0;
@@ -154,7 +154,7 @@ export function BlogExplorer({ articles }: BlogExplorerProps) {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-4 py-1.5 rounded-full text-xs font-mono transition-all flex items-center gap-2 ${
+                  className={`px-3.5 sm:px-4 py-2 sm:py-1.5 rounded-full text-xs font-mono transition-all flex items-center gap-2 whitespace-nowrap min-h-[36px] ${
                     isSelected
                       ? "bg-[#D4F542] text-black font-semibold shadow-[0_0_12px_rgba(212,245,66,0.35)]"
                       : "bg-[#0B0D10] text-white/70 hover:text-white border border-white/[0.08] hover:border-white/20"

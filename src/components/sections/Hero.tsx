@@ -281,11 +281,11 @@ export function Hero() {
         </div>
 
         {/* Bottom Right: 100/100 Core Web Vitals */}
-        <div className="flex flex-col items-start lg:items-end pb-2 pointer-events-auto">
-          <span className="text-4xl sm:text-5xl lg:text-6xl font-tight font-semibold tracking-tight text-[#F8F8F5] leading-none">
+        <div className="flex flex-row lg:flex-col items-baseline lg:items-end gap-3 lg:gap-1 pb-1 sm:pb-2 pointer-events-auto">
+          <span className="text-3xl sm:text-4xl lg:text-6xl font-tight font-semibold tracking-tight text-[#F8F8F5] leading-none">
             100
           </span>
-          <span className="text-xs font-mono uppercase tracking-widest text-[#F8F8F5]/60 mt-1.5">
+          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#F8F8F5]/60">
             PERFECT LIGHTHOUSE SCORE
           </span>
         </div>

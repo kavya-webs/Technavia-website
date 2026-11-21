@@ -134,7 +134,7 @@ export function ProcessSection() {
   return (
     <section ref={containerRef} className="relative w-full bg-[#0B0D10] text-[#F8F8F5] h-[450vh]">
       {/* Pinned Sticky Screen Wrapper */}
-      <div className="sticky top-0 h-screen w-full flex flex-col justify-between pt-6 md:pt-10 pb-8 md:pb-12 px-6 md:px-14 overflow-hidden border-t border-white/[0.08]">
+      <div className="sticky top-0 h-screen w-full flex flex-col justify-between pt-6 md:pt-10 pb-8 md:pb-12 px-6 md:px-8 lg:px-14 overflow-hidden border-t border-white/[0.08]">
         <div className="max-w-[1360px] mx-auto w-full h-full flex flex-col justify-between relative">
           
           {/* Main Content Area (Intro Column on left + Horizontal Slide Track) */}
@@ -142,7 +142,7 @@ export function ProcessSection() {
             {/* Left Intro Pitch Column - Fades and slides out on scroll (matching Image 1 -> Image 2) */}
             <motion.div
               style={{ opacity: introOpacity, x: introX }}
-              className="absolute left-0 z-10 w-[36vw] max-w-[440px] flex flex-col gap-5 pr-8 pointer-events-auto"
+              className="absolute left-0 z-10 w-[85vw] sm:w-[50vw] md:w-[36vw] max-w-[440px] flex flex-col gap-4 sm:gap-5 pr-4 sm:pr-8 pointer-events-auto"
             >
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />

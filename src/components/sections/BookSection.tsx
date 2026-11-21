@@ -95,7 +95,7 @@ export function BookSection() {
             <span className="text-xs font-mono text-white/60 uppercase tracking-widest">
               01 · Team size
             </span>
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {teamSizes.map((size) => {
                 const isSelected = teamSize === size;
                 return (
@@ -103,7 +103,7 @@ export function BookSection() {
                     key={size}
                     type="button"
                     onClick={() => setTeamSize(size)}
-                    className={`py-2.5 rounded-full text-xs font-mono transition-all cursor-pointer ${
+                    className={`py-3 rounded-full text-xs font-mono transition-all cursor-pointer min-h-[44px] flex items-center justify-center ${
                       isSelected
                         ? "bg-[#D4F542] text-black font-semibold shadow-[0_0_12px_rgba(212,245,66,0.3)]"
                         : "bg-white/[0.06] text-white/70 hover:bg-white/[0.12] hover:text-white"
@@ -129,7 +129,7 @@ export function BookSection() {
                     key={wf}
                     type="button"
                     onClick={() => toggleWorkflow(wf)}
-                    className={`px-4 py-2 rounded-full text-xs font-mono transition-all cursor-pointer ${
+                    className={`px-4 py-2.5 rounded-full text-xs font-mono transition-all cursor-pointer min-h-[44px] flex items-center ${
                       isSelected
                         ? "bg-[#D4F542] text-black font-semibold shadow-[0_0_12px_rgba(212,245,66,0.3)]"
                         : "bg-white/[0.06] text-white/70 hover:bg-white/[0.12] hover:text-white"

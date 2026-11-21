@@ -3,16 +3,22 @@ import { Metadata } from "next";
 import { SubpageHero } from "@/components/sections/SubpageHero";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { BookSection } from "@/components/sections/BookSection";
+import { FaqJsonLd } from "@/components/seo/JsonLd";
+import { FAQS } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "TECHNAVIA — FAQ: Web Dev, SEO, LLM Visibility & AI Automations",
   description:
     "Everything about how we engineer websites, optimize for LLMs and answer engines, and deploy autonomous growth pipelines.",
+  alternates: {
+    canonical: "https://technaviatechnology.com/faq",
+  },
 };
 
 export default function FaqPage() {
   return (
     <div className="flex flex-col w-full">
+      <FaqJsonLd faqs={FAQS} />
       {/* Subpage Hero with Photographic Background & Split-Line Animation */}
       <SubpageHero
         pageName="FAQ"
@@ -27,7 +33,7 @@ export default function FaqPage() {
           { text: "REPLY < 24H", variant: "outline" },
         ]}
         primaryCta={{ label: "BOOK A CALL", href: "/book" }}
-        secondaryCta={{ label: "EMAIL AN ARCHITECT", href: "mailto:contact@technavia.com" }}
+        secondaryCta={{ label: "EMAIL AN ARCHITECT", href: "mailto:contact@technaviatechnology.com" }}
       />
 
       {/* Embedded FAQ Component with De-duplicated Heading */}

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionLabel } from "../ui/SectionLabel";
+import { FaqJsonLd } from "../seo/JsonLd";
 import { FAQS } from "@/lib/data";
 
 export interface FaqSectionProps {
@@ -22,6 +23,7 @@ export function FaqSection({ showHeader = true }: FaqSectionProps = {}) {
 
   return (
     <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-20 md:py-32 px-6 md:px-14 border-t border-white/[0.08]">
+      <FaqJsonLd faqs={FAQS} />
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column: Sticky Question Image Card with Laser Line Animation */}
         <div className="lg:col-span-5 sticky top-28 hidden lg:block">

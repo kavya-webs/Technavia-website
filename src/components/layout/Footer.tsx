@@ -124,18 +124,18 @@ export function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="/insights"
+                      href="/process"
                       className="hover:text-[#D4F542] transition-colors"
                     >
-                      Insights
+                      Process
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/pricing"
+                      href="/blogs"
                       className="hover:text-[#D4F542] transition-colors"
                     >
-                      Pricing
+                      Blogs
                     </Link>
                   </li>
                   <li>

@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export function PageTransition() {
   const router = useRouter();
   const pathname = usePathname();
-  const [phase, setPhase] = useState<"idle" | "covering" | "revealing">("idle");
+  const [phase, setPhase] = useState<"idle" | "covering" | "covered" | "revealing">("idle");
   const targetUrlRef = useRef<string | null>(null);
 
   // Global event delegation to intercept internal link clicks
@@ -51,16 +51,37 @@ export function PageTransition() {
     return () => document.removeEventListener("click", handleClick, { capture: true });
   }, [pathname]);
 
-  // When covering finishes, navigate to the target route
+  // When wipe-in finishes, mark as covered and trigger route navigation
   const handleCoverComplete = () => {
+    setPhase("covered");
     if (targetUrlRef.current) {
       router.push(targetUrlRef.current);
-      // Give Next.js a short moment to render the new route, then reveal
-      setTimeout(() => {
-        setPhase("revealing");
-      }, 50);
     }
   };
+
+  // Watch for pathname to change to target route when covered
+  useEffect(() => {
+    if (phase === "covered") {
+      const targetPath = targetUrlRef.current?.split("?")[0].split("#")[0];
+      // When the target pathname matches the current pathname, the new page has mounted in the DOM
+      if (targetPath && pathname === targetPath) {
+        const timer = setTimeout(() => {
+          setPhase("revealing");
+        }, 70);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [pathname, phase]);
+
+  // Safety fallback timeout in case pathname does not change (e.g. redirected or identical path)
+  useEffect(() => {
+    if (phase === "covered") {
+      const fallbackTimer = setTimeout(() => {
+        setPhase("revealing");
+      }, 1600);
+      return () => clearTimeout(fallbackTimer);
+    }
+  }, [phase]);
 
   // When reveal finishes, return to idle
   const handleRevealComplete = () => {
@@ -68,16 +89,24 @@ export function PageTransition() {
     targetUrlRef.current = null;
   };
 
+  if (phase === "idle") {
+    return null;
+  }
+
   return (
-    <div className="pointer-events-none fixed inset-0 z-[99999] overflow-hidden">
+    <div className="fixed inset-0 z-[99999] overflow-hidden pointer-events-auto">
       <AnimatePresence mode="wait">
-        {phase === "covering" && (
+        {(phase === "covering" || phase === "covered") && (
           <motion.div
             key="wipe-in"
             initial={{ x: "100%" }}
             animate={{ x: "0%" }}
             transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-            onAnimationComplete={handleCoverComplete}
+            onAnimationComplete={() => {
+              if (phase === "covering") {
+                handleCoverComplete();
+              }
+            }}
             className="absolute inset-0 bg-[#0B0D10] w-full h-full"
           >
             {/* Leading Green Line on the Left edge */}

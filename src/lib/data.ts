@@ -62,11 +62,15 @@ export interface ToolItem {
 
 export interface ArticleItem {
   slug: string;
-  type: "Guide" | "Insight" | "Report";
+  type: string;
+  category: "Web Engineering" | "AI Visibility" | "AI Automations";
   date: string;
   readTime: string;
   title: string;
   excerpt: string;
+  coverImage: string;
+  tags: string[];
+  featured?: boolean;
   author: {
     name: string;
     role: string;
@@ -385,7 +389,7 @@ export const FAQS: FaqItem[] = [
   },
   {
     num: "05",
-    category: "PRICING",
+    category: "INVESTMENT",
     question: "Can we hire TECHNAVIA on an ongoing retainer?",
     answer:
       "Yes. In addition to fixed-price project builds, we offer ongoing Autopilot Retainers that cover continuous technical SEO optimization, LLM prompt-citation monitoring, and automated workflow expansion as your business scales.",
@@ -406,11 +410,15 @@ export const ARTICLES: ArticleItem[] = [
   {
     slug: "ranking-in-chatgpt-perplexity",
     type: "Guide",
+    category: "AI Visibility",
     date: "November 2025",
     readTime: "6 min read",
     title: "How to rank your brand in ChatGPT, Perplexity, and Gemini (AEO/GEO)",
     excerpt:
       "The definitive framework for structuring your company's entity graph and content so generative AI search engines cite you as the primary category authority.",
+    coverImage: "/images/tech/llm_visibility.jpg",
+    tags: ["AEO", "GEO", "Schema", "ChatGPT", "Perplexity"],
+    featured: true,
     author: {
       name: "TECHNAVIA Engineering",
       role: "AI & Search Architecture",
@@ -419,16 +427,22 @@ export const ARTICLES: ArticleItem[] = [
       "Generative AI has fundamentally shifted how B2B buyers discover solutions. Instead of scrolling through 10 Google links, buyers ask: 'What are the top web engineering studios for AI startups?'",
       "If your brand isn't structured into the training weights, retrieval corpora, or live search indexes of Perplexity and ChatGPT Search, you are effectively invisible to the highest-intent buyers.",
       "In this guide, we break down the 3 layers of Generative Engine Optimization: Entity Graph Mapping, Information Gain Content Structuring, and Digital Authority Co-occurrence.",
+      "Layer 1: Semantic Entity Mapping — Connecting your organization to authoritative nodes on Wikidata, Crunchbase, and Schema.org using exact SameAs references.",
+      "Layer 2: High Information-Gain Content — Structuring answers in direct, definitive subject-predicate syntax so retrieval-augmented generation (RAG) models quote your site as the canonical source.",
+      "Layer 3: Cross-Corpus Co-occurrence — Ensuring your brand is discussed alongside adjacent industry leaders across podcasts, GitHub repos, technical publications, and press releases.",
     ],
   },
   {
     slug: "core-web-vitals-100-guide",
-    type: "Insight",
+    type: "Benchmark",
+    category: "Web Engineering",
     date: "October 2025",
     readTime: "5 min read",
     title: "Why sub-400ms LCP is the highest-ROI technical SEO lever",
     excerpt:
       "How clean Next.js architecture and zero-render-blocking engineering directly translate into higher organic crawl frequency and top Google rankings.",
+    coverImage: "/images/tech/web_dev_seo.jpg",
+    tags: ["Next.js", "Core Web Vitals", "LCP", "Page Speed"],
     author: {
       name: "TECHNAVIA Engineering",
       role: "Frontend Systems",
@@ -436,17 +450,22 @@ export const ARTICLES: ArticleItem[] = [
     content: [
       "Page speed is not just a vanity metric—it dictates Google's crawl budget allocation and mobile ranking indexation.",
       "When your Largest Contentful Paint loads in under 400ms, search engine spiders can render 10x more pages per second, indexing new commercial content within hours instead of weeks.",
-      "Here is how we eliminate hydration bloat and leverage edge caching to achieve consistent 100/100 Lighthouse performance.",
+      "Here is how we eliminate hydration bloat and leverage edge caching to achieve consistent 100/100 Lighthouse performance across mobile and desktop devices.",
+      "By stripping out third-party tag managers that block the main thread and deferring non-critical telemetry, the browser engine executes first paint instantly.",
+      "Combine Next.js Server Components with automatic AVIF image compression and self-hosted fonts, and every interaction responds under 50 milliseconds.",
     ],
   },
   {
     slug: "automating-b2b-lead-pipeline",
-    type: "Report",
+    type: "Architecture",
+    category: "AI Automations",
     date: "September 2025",
     readTime: "7 min read",
     title: "Automating B2B lead capture: From 4 hours to 42 seconds",
     excerpt:
       "How event-driven AI pipelines qualify inbound enquiries, enrich firmographics, and schedule meetings while the sales team sleeps.",
+    coverImage: "/images/tech/ai_automations.jpg",
+    tags: ["AI Agents", "Webhooks", "Lead Triage", "HubSpot"],
     author: {
       name: "TECHNAVIA Engineering",
       role: "Autonomous Operations",
@@ -454,6 +473,72 @@ export const ARTICLES: ArticleItem[] = [
     content: [
       "Speed-to-lead is the single highest predictor of deal closure. A lead contacted within 5 minutes is 21 times more likely to enter the sales cycle than one contacted after 30 minutes.",
       "By connecting web forms to LLM agents and webhook triggers, TECHNAVIA customers enrich company revenue and tech stack data instantly, booking qualified calls without any human overhead.",
+      "The incoming payload triggers a serverless background worker that queries Apollo and Clearbit APIs, computes an ICP match score, and assigns a sales tier in real time.",
+      "If the lead meets Tier-1 threshold, a personalized calendar link is dispatched within 42 seconds, and the prospect's profile is synced straight to Slack and HubSpot.",
+    ],
+  },
+  {
+    slug: "entity-graph-optimization-geo",
+    type: "Blueprint",
+    category: "AI Visibility",
+    date: "August 2025",
+    readTime: "8 min read",
+    title: "Entity Graph Optimization: Structuring Schema for LLM Crawlers",
+    excerpt:
+      "How to build machine-readable JSON-LD entity graphs that establish your organization as the definitive authority in your niche.",
+    coverImage: "/images/tech/process_indexing.jpg",
+    tags: ["Entity Graphs", "Knowledge Base", "Wikidata", "JSON-LD"],
+    author: {
+      name: "TECHNAVIA Engineering",
+      role: "Knowledge Engineering",
+    },
+    content: [
+      "Standard meta tags are no longer sufficient. When search algorithms like Google Gemini or OpenAI O1 crawl your website, they do not just read text—they construct knowledge graphs.",
+      "An entity graph is a structured network of nodes representing your organization, its founders, founders' credentials, trademarks, offerings, and parent categories.",
+      "By implementing deeply nested JSON-LD schema with exact @id references, you give LLMs mathematically unambiguous proof of who you are, what you deliver, and why you should be recommended.",
+      "In this blueprint, we outline the exact Schema architecture TECHNAVIA injects into every client build to dominate entity extraction pipelines.",
+    ],
+  },
+  {
+    slug: "nextjs-15-server-components-seo",
+    type: "Deep Dive",
+    category: "Web Engineering",
+    date: "July 2025",
+    readTime: "6 min read",
+    title: "Next.js 15 Server Components: Eliminating Client Hydration Bloat",
+    excerpt:
+      "A deep dive into zero-bundle-size React Server Components and how they enable blisteringly fast rendering for enterprise B2B websites.",
+    coverImage: "/images/tech/process_build.jpg",
+    tags: ["React Server Components", "SSR", "TypeScript", "Performance"],
+    author: {
+      name: "TECHNAVIA Engineering",
+      role: "Fullstack Architecture",
+    },
+    content: [
+      "For years, modern JavaScript frameworks suffered from the client-side hydration penalty: shipping megabytes of JavaScript that froze mobile CPUs before users could click.",
+      "Next.js 15 Server Components completely solve this paradigm. By rendering the markup on edge servers and shipping pure HTML to the client, initial JavaScript execution drops by over 80%.",
+      "We explain how to isolate client interactivity into tiny leaves at the edges of your component tree while keeping the entire document structure server-rendered for instant indexing.",
+    ],
+  },
+  {
+    slug: "autonomous-crm-sync-agents",
+    type: "Case Study",
+    category: "AI Automations",
+    date: "June 2025",
+    readTime: "9 min read",
+    title: "Building Resilient AI Agents with n8n, Supabase Vector & Webhooks",
+    excerpt:
+      "Architectural patterns for running multi-step AI agents that never fail silently and automatically recover from external API timeouts.",
+    coverImage: "/images/tech/process_automate.jpg",
+    tags: ["n8n", "Vector Search", "Supabase", "Autonomous Ops"],
+    author: {
+      name: "TECHNAVIA Engineering",
+      role: "AI Infrastructure",
+    },
+    content: [
+      "When automation workflows break, deals fall through the cracks. Most naive AI automations fail because they lack idempotency keys, rate limiters, and retry queues.",
+      "At TECHNAVIA, we deploy mission-critical workflows with defensive engineering: every webhook payload is stored immediately in Supabase before processing.",
+      "If OpenAI rate-limits or a third-party CRM returns a 502, our queue scheduler backs off exponentially and retries automatically without losing a single client record.",
     ],
   },
 ];

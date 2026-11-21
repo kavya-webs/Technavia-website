@@ -22,7 +22,7 @@ export default function ProcessPage() {
         highlightLine2={true}
         subtitle="From deep technical audit to fast web engineering, LLM indexing, and autonomous operations."
         primaryCta={{ label: "Book an audit", href: "/book" }}
-        secondaryCta={{ label: "See pricing", href: "/pricing" }}
+        secondaryCta={{ label: "Read our blogs", href: "/blogs" }}
         backgroundImage="/images/tech/process_build.jpg"
         wireframeNumber="05"
         statusPills={[

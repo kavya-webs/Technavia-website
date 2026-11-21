@@ -34,8 +34,8 @@ export function InsightsGrid() {
               What we learn wiring companies together, written so your next
               workflow runs sooner.
             </p>
-            <Button href="/insights" variant="ghost" hasArrow={false} hasLamp={true}>
-              All insights
+            <Button href="/blogs" variant="ghost" hasArrow={false} hasLamp={true}>
+              All blogs & blueprints
             </Button>
           </div>
         </div>
@@ -44,7 +44,7 @@ export function InsightsGrid() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Big Featured Card Left */}
           <Link
-            href={`/insights/${featured.slug}`}
+            href={`/blogs/${featured.slug}`}
             className="lg:col-span-7 p-8 md:p-12 rounded-3xl bg-zinc-950 border border-white/[0.12] hover:border-[#D4F542]/50 transition-all duration-400 flex flex-col justify-between gap-8 group backdrop-blur-md relative overflow-hidden shadow-2xl"
           >
             {/* Featured Article Background Image with subtle scrim */}
@@ -87,7 +87,7 @@ export function InsightsGrid() {
             {secondary.map((post, idx) => (
               <Link
                 key={post.slug}
-                href={`/insights/${post.slug}`}
+                href={`/blogs/${post.slug}`}
                 className="p-6 md:p-7 rounded-2xl bg-zinc-950/70 border border-white/[0.1] hover:border-white/30 hover:bg-zinc-900/60 transition-all flex flex-col gap-3 group relative overflow-hidden"
               >
                 <div className="flex items-center gap-3 text-[11px] font-mono text-white/40">

@@ -24,15 +24,15 @@ export function TechnaviaLogo({
   symbolColor = "#D4F542",
   wordmarkColor = "#F8F8F5",
 }: TechnaviaLogoProps) {
-  // Pure 6-Node Triangular Network Symbol (viewBox: 200 40 270 175)
+  // Pure 6-Node Triangular Network Symbol (viewBox centered on 336.4, with ample padding so outer circles are never cut off)
   const SymbolSVG = (
     <svg
-      viewBox="200 40 270 175"
+      viewBox="178 18 316.8 220"
       fill="none"
       stroke={symbolColor}
       strokeWidth="13.60"
-      className="shrink-0 transition-transform duration-300 group-hover:scale-105"
-      style={{ width: symbolSize, height: symbolSize * (175 / 270) }}
+      className="shrink-0 transition-transform duration-300 group-hover:scale-105 overflow-visible"
+      style={{ width: symbolSize, height: symbolSize * (220 / 316.8), maxWidth: "100%" }}
       aria-hidden="true"
     >
       {/* Connecting bars */}
@@ -59,8 +59,8 @@ export function TechnaviaLogo({
     <svg
       viewBox="25 275 625 85"
       fill={wordmarkColor}
-      className="shrink-0 transition-colors"
-      style={{ height: wordmarkHeight, width: wordmarkHeight * (625 / 85), color: wordmarkColor }}
+      className="shrink-0 transition-colors max-w-full"
+      style={{ height: wordmarkHeight, width: wordmarkHeight * (625 / 85), maxWidth: "100%", color: wordmarkColor }}
       aria-label="TECHNAVIA"
     >
       {/* T */}

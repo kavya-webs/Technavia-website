@@ -21,9 +21,9 @@ interface HeroPin {
 }
 
 // Exactly 3 functional service pins moved towards the right with a comfortable right margin:
-// 1. Web Dev + Technical SEO at the upper right (92%, 16%)
-// 2. LLM Visibility (AEO/GEO) at middle right (87%, 34%)
-// 3. Custom AI Automations at lower-middle right (93%, 52%)
+// 1. Web Dev + Technical SEO at the upper right (92%, 14%)
+// 2. LLM Visibility (AEO/GEO) at middle right (87%, 29%)
+// 3. Custom AI Automations at lower-middle right (93%, 45%)
 const HERO_PINS: HeroPin[] = [
   {
     id: "web-dev-seo",
@@ -33,7 +33,7 @@ const HERO_PINS: HeroPin[] = [
     desc: "Fast, conversion-focused websites engineered with clean architecture to rank from day one.",
     href: "/workflows/web-dev-seo",
     left: "92%",
-    top: "16%",
+    top: "14%",
     side: "l",
     lampX: 92,
     lampY: 0,
@@ -46,7 +46,7 @@ const HERO_PINS: HeroPin[] = [
     desc: "Structured content and entity optimization so ChatGPT, Gemini & Perplexity recommend you.",
     href: "/workflows/llm-visibility",
     left: "87%",
-    top: "34%",
+    top: "29%",
     side: "l",
     lampX: 87,
     lampY: 0,
@@ -59,7 +59,7 @@ const HERO_PINS: HeroPin[] = [
     desc: "Tailored workflows that automate lead capture, follow-ups, and repetitive operations on autopilot.",
     href: "/workflows/ai-automations",
     left: "93%",
-    top: "52%",
+    top: "45%",
     side: "l",
     lampX: 93,
     lampY: 0,
@@ -94,7 +94,7 @@ export function Hero() {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsInsideHero(true)}
       onMouseLeave={handleMouseLeave}
-      className="relative w-full min-h-[100svh] flex flex-col justify-between pt-[104px] pb-12 px-6 md:px-14 overflow-hidden bg-[#0B0D10] cursor-none"
+      className="relative w-full min-h-[100svh] flex flex-col justify-between pt-[54px] md:pt-[58px] pb-4 md:pb-6 px-6 md:px-14 overflow-hidden bg-[#0B0D10] cursor-none"
     >
       {/* Background Tech Studio Photography */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -247,8 +247,8 @@ export function Hero() {
       </div>
 
       {/* Main Copy & Headlines - Anchored to bottom-left with ample space */}
-      <div className="relative z-20 max-w-[1280px] w-full mx-auto mt-auto pt-24 pb-4 flex flex-col lg:flex-row lg:items-end justify-between gap-10 pointer-events-none">
-        <div className="max-w-[500px] sm:max-w-[560px] flex flex-col gap-5 pointer-events-auto">
+      <div className="relative z-20 max-w-[1280px] w-full mx-auto mt-auto pt-2 md:pt-4 pb-1 md:pb-2 flex flex-col lg:flex-row lg:items-end justify-between gap-4 lg:gap-8 pointer-events-none">
+        <div className="max-w-[500px] sm:max-w-[560px] flex flex-col gap-3 sm:gap-3.5 pointer-events-auto">
           {/* Eyebrow Label */}
           <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.12] w-fit">
             <LitDot />
@@ -258,7 +258,7 @@ export function Hero() {
           </div>
 
           {/* Hero Headline */}
-          <h1 className="text-5xl sm:text-7xl lg:text-[84px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.93]">
+          <h1 className="text-4xl sm:text-6xl lg:text-[72px] xl:text-[78px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.94]">
             Websites engineered,
             <br />
             to rank on <span className="text-[#D4F542]">Google & AI.</span>
@@ -270,7 +270,7 @@ export function Hero() {
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-3.5 pt-1">
+          <div className="flex flex-wrap items-center gap-3.5 pt-0.5">
             <Button href="/book" variant="quiet">
               Book a call
             </Button>

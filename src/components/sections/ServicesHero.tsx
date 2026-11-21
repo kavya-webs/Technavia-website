@@ -3,19 +3,20 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Button } from "../ui/Button";
 
 export function ServicesHero() {
   return (
     <section className="relative w-full min-h-[92vh] flex flex-col justify-between pt-36 pb-16 px-6 md:px-14 bg-[#0B0D10] text-[#F8F8F5] overflow-hidden border-b border-white/[0.08]">
-      {/* Background Photography: Man working at monitors in dimmed office at dusk */}
+      {/* Background Photography: Man working at monitors in dimmed office at dusk - Reduced tint to highlight background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src="/images/workflows/clean_hero_120.jpg"
           alt="Workflows hero background"
-          className="w-full h-full object-cover object-[55%_40%] opacity-55"
+          className="w-full h-full object-cover object-[55%_40%] opacity-80"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10] via-[#0B0D10]/85 to-[#0B0D10]/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-transparent to-[#0B0D10]/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/85 via-[#0B0D10]/50 to-[#0B0D10]/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10]/80 via-transparent to-[#0B0D10]/30" />
       </div>
 
       {/* Top Breadcrumb & Hero Copy */}
@@ -79,15 +80,9 @@ export function ServicesHero() {
           transition={{ duration: 0.75, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-wrap items-center gap-4 pt-2"
         >
-          <Link
-            href="/book"
-            className="group inline-flex items-center gap-3 bg-[#F0F2E8] hover:bg-white text-black pl-6 pr-2.5 py-2.5 rounded-full font-tight font-semibold text-sm transition-all shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
-          >
-            <span>Book a call</span>
-            <span className="w-8 h-8 rounded-full bg-[#D4F542] flex items-center justify-center text-black text-xs font-bold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
-              ↗
-            </span>
-          </Link>
+          <Button href="/book" variant="solid">
+            Book a call
+          </Button>
 
           <Link
             href="/results"

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Button } from "../ui/Button";
 
 export function Footer() {
   const [londonTime, setLondonTime] = useState("14:37");
@@ -49,15 +50,9 @@ export function Footer() {
               </h2>
 
               <div>
-                <Link
-                  href="/book"
-                  className="group inline-flex items-center gap-3 bg-[#F0F2E8] hover:bg-white text-black pl-5 pr-2 py-2 rounded-full font-tight font-semibold text-sm transition-all shadow-[0_4px_20px_rgba(0,0,0,0.3)] w-fit"
-                >
-                  <span>Book a call</span>
-                  <span className="w-7 h-7 rounded-full bg-[#D4F542] flex items-center justify-center text-black text-xs font-bold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
-                    ↗
-                  </span>
-                </Link>
+                <Button href="/book" variant="solid">
+                  Book a call
+                </Button>
               </div>
             </div>
 

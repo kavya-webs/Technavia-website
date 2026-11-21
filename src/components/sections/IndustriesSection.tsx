@@ -224,7 +224,7 @@ export function IndustriesSection() {
 
         {/* Bottom Bar: All industries Button moved after sectors list */}
         <div className="relative w-full pt-4 flex justify-end">
-          <Button href="/industries" variant="solid" className="!h-[44px] !text-xs">
+          <Button href="/industries" variant="quiet">
             All industries
           </Button>
         </div>

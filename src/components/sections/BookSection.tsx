@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
 
@@ -53,8 +54,14 @@ export function BookSection() {
       </div>
 
       <div className="relative z-10 max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Left Column Description */}
-        <div className="lg:col-span-6 flex flex-col gap-6">
+        {/* Left Column Description - Phase in from down on scroll */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-6 flex flex-col gap-6"
+        >
           <SectionLabel>Book a call</SectionLabel>
           <h2 className="text-4xl sm:text-6xl lg:text-[76px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.98]">
             Tell us what eats your week. <br />
@@ -64,10 +71,16 @@ export function BookSection() {
             Pick what fits. On the 20-minute call we map the first workflow,
             the tools it touches and the week it goes live.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Right Interactive Brief Card */}
-        <div className="lg:col-span-6 p-8 md:p-10 rounded-3xl bg-[#0B0D10]/95 border border-white/[0.16] backdrop-blur-2xl shadow-[0_24px_50px_rgba(0,0,0,0.85)] flex flex-col gap-8">
+        {/* Right Interactive Brief Card - Phase in from right on scroll */}
+        <motion.div
+          initial={{ opacity: 0, x: 70 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.85, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-6 p-8 md:p-10 rounded-3xl bg-[#0B0D10]/95 border border-white/[0.16] backdrop-blur-2xl shadow-[0_24px_50px_rgba(0,0,0,0.85)] flex flex-col gap-8"
+        >
           {/* Card Header with Counter */}
           <div className="flex items-center justify-between pb-4 border-b border-white/[0.1]">
             <span className="text-sm font-semibold font-tight text-white uppercase tracking-wider">
@@ -143,7 +156,7 @@ export function BookSection() {
               No preparation needed · We screen share the flow live
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -63,7 +63,7 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Navigation Links - Hover effect with white pill shape & black text */}
+        {/* Desktop Navigation Links - Hover effect with white pill shape & black text, active marked by green dot */}
         <nav className="hidden md:flex items-center gap-2 lg:gap-3">
           {navLinks.map((item) => {
             const isActive = pathname.startsWith(item.href);
@@ -71,13 +71,12 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
-                  isActive
-                    ? "bg-white/15 text-[#F8F8F5] hover:bg-white hover:text-black"
-                    : "text-[#F8F8F5]/85 hover:bg-white hover:text-black"
-                }`}
+                className="relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 text-[#F8F8F5] hover:bg-white hover:text-black group flex flex-col items-center"
               >
-                {item.name}
+                <span>{item.name}</span>
+                {isActive && (
+                  <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
+                )}
               </Link>
             );
           })}

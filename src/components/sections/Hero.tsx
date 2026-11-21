@@ -272,10 +272,10 @@ export function Hero() {
 
           {/* CTAs */}
           <div className="flex flex-wrap items-center gap-3.5 pt-1">
-            <Button href="/book" variant="solid" className="!h-[48px] !text-[13px]">
+            <Button href="/book" variant="quiet">
               Book a call
             </Button>
-            <Button href="/workflows" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[48px] !text-[13px]">
+            <Button href="/workflows" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[42px] !text-[12.5px]">
               See the workflows
             </Button>
           </div>

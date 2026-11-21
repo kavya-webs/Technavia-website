@@ -4,57 +4,48 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function LoadingScreen() {
-  const [visible, setVisible] = useState(true);
-  const [progress, setProgress] = useState(0);
+  const [shouldRender, setShouldRender] = useState(false);
   const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
-    // Fill the bar over 2.2 seconds
-    const startTime = Date.now();
-    const duration = 2200;
+    // Only show on first visit in this browser session
+    try {
+      const shown = sessionStorage.getItem("runbook_intro_shown");
+      if (!shown) {
+        setShouldRender(true);
+        sessionStorage.setItem("runbook_intro_shown", "true");
 
-    const timer = setInterval(() => {
-      const elapsed = Date.now() - startTime;
-      const pct = Math.min(100, Math.floor((elapsed / duration) * 100));
-      setProgress(pct);
-
-      if (pct >= 100) {
-        clearInterval(timer);
-        // Briefly hold the full bar, then trigger exit scale + fade
-        setTimeout(() => {
+        // Complete fast & smooth in 1.1s
+        const doneTimer = setTimeout(() => {
           setIsDone(true);
-          setTimeout(() => {
-            setVisible(false);
-          }, 950);
-        }, 300);
-      }
-    }, 25);
+        }, 1100);
 
-    return () => clearInterval(timer);
+        return () => clearTimeout(doneTimer);
+      }
+    } catch {
+      // In case sessionStorage is restricted
+      setShouldRender(false);
+    }
   }, []);
 
   const handleSkip = () => {
-    setProgress(100);
     setIsDone(true);
-    setTimeout(() => {
-      setVisible(false);
-    }, 450);
   };
 
-  if (!visible) return null;
+  if (!shouldRender || isDone) return null;
 
   const words = ["THE", "NIGHT", "SHIFT", "STARTS"];
 
   return (
     <AnimatePresence>
-      {!isDone ? (
+      {!isDone && (
         <motion.div
           key="loader"
-          initial={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 1 }}
           exit={{
-            scale: 1.65,
             opacity: 0,
-            transition: { duration: 0.9, ease: [0.7, 0, 0.2, 1] },
+            scale: 1.05,
+            transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
           }}
           className="fixed inset-0 z-[10000] bg-[#0B0D10] text-[#F8F8F5] flex flex-col justify-between p-8 md:p-14 select-none overflow-hidden"
         >
@@ -70,16 +61,11 @@ export function LoadingScreen() {
 
           {/* Center Brand & Loading Stage */}
           <div className="max-w-xl w-full mx-auto flex flex-col gap-5 my-auto">
-            {/* Title Row with Squash & Stretch */}
+            {/* Title Row */}
             <motion.div
-              initial={{ y: -80, opacity: 0, scaleX: 1.3, scaleY: 0.6 }}
-              animate={{ y: 0, opacity: 1, scaleX: 1, scaleY: 1 }}
-              transition={{
-                type: "spring",
-                stiffness: 350,
-                damping: 22,
-                mass: 1.2,
-              }}
+              initial={{ y: -30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
               className="flex items-center gap-4"
             >
               <div className="w-8 h-8 rounded-full bg-[#D4F542] shadow-[0_0_20px_#D4F542]" />
@@ -90,30 +76,19 @@ export function LoadingScreen() {
 
             {/* Word-by-word dropping subtitle */}
             <div className="flex items-center gap-3 text-xs md:text-sm font-mono tracking-widest uppercase">
-              <motion.span
-                initial={{ y: -30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 450,
-                  damping: 18,
-                  delay: 0.15,
-                }}
-                className="text-[#D4F542] font-semibold text-base md:text-lg"
-              >
+              <span className="text-[#D4F542] font-semibold text-base md:text-lg">
                 02:20
-              </motion.span>
+              </span>
               <div className="flex items-center gap-1.5 text-white/80">
                 {words.map((w, i) => (
                   <motion.span
                     key={w}
-                    initial={{ y: -30, opacity: 0 }}
+                    initial={{ y: -15, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{
-                      type: "spring",
-                      stiffness: 400,
-                      damping: 18,
-                      delay: 0.25 + i * 0.08,
+                      duration: 0.35,
+                      delay: 0.1 + i * 0.06,
+                      ease: [0.16, 1, 0.3, 1],
                     }}
                   >
                     {w}
@@ -122,12 +97,13 @@ export function LoadingScreen() {
               </div>
             </div>
 
-            {/* Glowing Lime Loading Bar */}
+            {/* Glowing Lime Loading Bar - Pure CSS/Framer GPU transition */}
             <div className="w-full h-[3px] bg-white/10 rounded-full overflow-hidden relative mt-2">
               <motion.div
                 className="h-full bg-[#D4F542] rounded-full shadow-[0_0_12px_#D4F542,0_0_24px_#D4F542]"
-                style={{ width: `${progress}%` }}
-                transition={{ ease: "linear" }}
+                initial={{ width: "0%" }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
               />
             </div>
 
@@ -144,7 +120,7 @@ export function LoadingScreen() {
           {/* Bottom Spacer */}
           <div className="h-6" />
         </motion.div>
-      ) : null}
+      )}
     </AnimatePresence>
   );
 }

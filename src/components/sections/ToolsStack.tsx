@@ -215,8 +215,8 @@ export function ToolsStack() {
               them, so a change in one shows up in all the others before anyone
               has to type it twice.
             </p>
-            <Button href="/tools" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[42px] !text-xs">
-              All tools
+            <Button href="/book" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[42px] !text-xs">
+              Book a stack audit
             </Button>
           </div>
         </div>

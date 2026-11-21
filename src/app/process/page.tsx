@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { SubpageHero } from "@/components/sections/SubpageHero";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ProcessSection as ProcessWidget } from "@/components/sections/ProcessSection";
 import { BookSection } from "@/components/sections/BookSection";
@@ -12,23 +13,24 @@ export const metadata = {
 
 export default function ProcessPage() {
   return (
-    <div className="flex flex-col w-full pt-[100px]">
+    <div className="flex flex-col w-full">
       {/* Hero */}
-      <section className="py-20 md:py-28 px-6 md:px-14 border-b border-white/[0.08] max-w-[1280px] mx-auto w-full">
-        <div className="flex items-center gap-2 text-xs font-mono text-white/50 mb-6 uppercase tracking-wider">
-          <Link href="/" className="hover:text-white">Home</Link>
-          <span>/</span>
-          <span className="text-[#D4F542]">Process</span>
-        </div>
-        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-tight font-semibold text-[#F8F8F5] tracking-tight leading-[0.95] max-w-4xl">
-          From audit <br />
-          <span className="text-[#D4F542]">to autopilot.</span>
-        </h1>
-        <p className="mt-8 text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed">
-          The same plan every time: audit, map, build, launch, report. You know what each week needs
-          from you before it starts.
-        </p>
-      </section>
+      <SubpageHero
+        pageName="PROCESS"
+        titleLine1="From audit"
+        titleLine2="to autopilot."
+        highlightLine2={true}
+        subtitle="Five weeks from first conversation to fully automated operations running every night."
+        primaryCta={{ label: "Book an audit", href: "/book" }}
+        secondaryCta={{ label: "See pricing", href: "/pricing" }}
+        backgroundImage="/images/workflows/clean_hero_122.jpg"
+        wireframeNumber="05"
+        statusPills={[
+          { text: "5 STEPS TO AUTOPILOT", variant: "brass" },
+          { text: "AVERAGE 3-4 WEEKS TO LIVE", variant: "ghost" },
+          { text: "ZERO CODE CHANGES", variant: "outline" },
+        ]}
+      />
 
       {/* Interactive Process Widget */}
       <ProcessWidget />
@@ -46,8 +48,19 @@ export default function ProcessPage() {
           {PROCESS_STEPS.map((s) => (
             <div key={s.step} className="py-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               <div className="lg:col-span-3 flex flex-col gap-1">
-                <span className="text-xs font-mono text-[#D4F542]">{s.week}</span>
-                <span className="text-3xl font-tight font-semibold text-white">
+                <div className="flex items-center gap-3">
+                  <span
+                    className="text-4xl sm:text-5xl font-tight font-extralight tracking-tighter select-none pointer-events-none"
+                    style={{
+                      WebkitTextStroke: "1.5px rgba(255, 255, 255, 0.22)",
+                      color: "transparent",
+                    }}
+                  >
+                    {s.step}
+                  </span>
+                  <span className="text-xs font-mono text-[#D4F542]">{s.week}</span>
+                </div>
+                <span className="text-2xl sm:text-3xl font-tight font-semibold text-white mt-1">
                   Step {s.step} · {s.title}
                 </span>
               </div>

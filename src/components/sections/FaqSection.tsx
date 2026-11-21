@@ -6,7 +6,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SectionLabel } from "../ui/SectionLabel";
 import { FAQS } from "@/lib/data";
 
-export function FaqSection() {
+export interface FaqSectionProps {
+  showHeader?: boolean;
+}
+
+export function FaqSection({ showHeader = true }: FaqSectionProps = {}) {
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   const toggle = (idx: number) => {
@@ -17,7 +21,7 @@ export function FaqSection() {
   const currentNum = FAQS[activeIndex]?.num || "01";
 
   return (
-    <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-36 px-6 md:px-14 border-t border-white/[0.08]">
+    <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-20 md:py-32 px-6 md:px-14 border-t border-white/[0.08]">
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column: Sticky Question Image Card with Laser Line Animation */}
         <div className="lg:col-span-5 sticky top-28 hidden lg:block">
@@ -69,19 +73,21 @@ export function FaqSection() {
           </div>
         </div>
 
-        {/* Right Column: Heading, Accordion & Still have a question CTA */}
+        {/* Right Column: Heading (optional), Accordion & Still have a question CTA */}
         <div className="lg:col-span-7 flex flex-col gap-8">
-          {/* Section Heading matching screenshot */}
-          <div className="flex flex-col gap-4">
-            <SectionLabel>Questions</SectionLabel>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-tight font-semibold tracking-[-0.03em] text-[#F8F8F5] leading-[1.05]">
-              Asked before <br />
-              <span className="text-[#D4F542]">every first workflow.</span>
-            </h2>
-            <p className="text-base sm:text-lg text-white/70 leading-relaxed font-sans max-w-xl">
-              Straight answers on tools, access, timelines and what happens when something breaks at 2 a.m.
-            </p>
-          </div>
+          {/* Section Heading — De-duplicated when showHeader is false */}
+          {showHeader && (
+            <div className="flex flex-col gap-4">
+              <SectionLabel>Questions</SectionLabel>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-tight font-semibold tracking-[-0.03em] text-[#F8F8F5] leading-[1.05]">
+                Asked before <br />
+                <span className="text-[#D4F542]">every first workflow.</span>
+              </h2>
+              <p className="text-base sm:text-lg text-white/70 leading-relaxed font-sans max-w-xl">
+                Straight answers on tools, access, timelines and what happens when something breaks at 2 a.m.
+              </p>
+            </div>
+          )}
 
           {/* Accordion List */}
           <div className="flex flex-col border-b border-white/[0.08]">
@@ -177,3 +183,5 @@ export function FaqSection() {
     </section>
   );
 }
+
+export default FaqSection;

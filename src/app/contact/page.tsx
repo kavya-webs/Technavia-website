@@ -1,121 +1,92 @@
-"use client";
+import React from "react";
+import { Metadata } from "next";
+import { SubpageHero } from "@/components/sections/SubpageHero";
+import { ContactForm } from "./ContactForm";
 
-import React, { useState } from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/Button";
+export const metadata: Metadata = {
+  title: "Runbook — Contact: write to the desk",
+  description:
+    "Direct line to senior automation architects in London. Zero SDR layers, zero automated sales funnels. Response within 24 hours.",
+};
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   return (
-    <div className="flex flex-col w-full pt-[100px]">
-      {/* Hero */}
-      <section className="py-20 md:py-28 px-6 md:px-14 border-b border-white/[0.08] max-w-[1280px] mx-auto w-full">
-        <div className="flex items-center gap-2 text-xs font-mono text-white/50 mb-6 uppercase tracking-wider">
-          <Link href="/" className="hover:text-white">Home</Link>
-          <span>/</span>
-          <span className="text-[#D4F542]">Contact</span>
-        </div>
-        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-tight font-semibold text-[#F8F8F5] tracking-tight leading-[0.95] max-w-4xl">
-          Write to <br />
-          <span className="text-[#D4F542]">the desk.</span>
-        </h1>
-        <p className="mt-8 text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed">
-          A question about a running workflow, an invoice, a tool we should know or a role. Every
-          message reaches a human engineer within one working day.
-        </p>
-      </section>
+    <div className="flex flex-col w-full">
+      {/* Subpage Hero with Photographic Background & Split-Line Animation */}
+      <SubpageHero
+        pageName="Contact"
+        titleLine1="Write to"
+        titleLine2="the desk."
+        subtitle="Direct line to senior automation architects in London. Zero SDR layers, zero automated sales funnels."
+        backgroundImage="/images/questions/base_office.jpg"
+        wireframeNumber="24"
+        statusPills={[
+          { text: "DESK ONLINE", variant: "brass" },
+          { text: "< 24H RESPONSE TIME", variant: "ghost" },
+          { text: "LONDON HQ · UTC/GMT", variant: "outline" },
+        ]}
+      />
 
-      {/* Contact Content */}
-      <section className="py-24 px-6 md:px-14 max-w-[1000px] mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12">
-        {/* Left Info */}
-        <div className="md:col-span-5 flex flex-col gap-8">
-          <div>
-            <span className="text-xs font-mono text-white/40 uppercase tracking-widest block mb-2">
-              Email
-            </span>
-            <a
-              href="mailto:hello@runbookops.agency"
-              className="text-xl font-tight font-semibold text-white hover:text-[#D4F542] transition-colors"
-            >
-              hello@runbookops.agency
-            </a>
-          </div>
+      {/* Main Content Area: Left Details Card & Right Upgraded Glassmorphic Form */}
+      <section className="py-20 md:py-28 px-6 md:px-14 max-w-[1280px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        {/* Left Information Cards */}
+        <div className="lg:col-span-5 flex flex-col gap-6">
+          <div className="p-8 sm:p-10 rounded-3xl bg-zinc-950/80 border border-white/[0.12] backdrop-blur-xl flex flex-col gap-8 shadow-[0_16px_40px_rgba(0,0,0,0.6)]">
+            {/* Direct Email */}
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
+                <span className="text-xs font-mono text-white/50 uppercase tracking-widest">
+                  Direct Line
+                </span>
+              </div>
+              <a
+                href="mailto:hello@runbookops.agency"
+                className="text-2xl font-tight font-semibold text-white hover:text-[#D4F542] transition-colors"
+              >
+                hello@runbookops.agency
+              </a>
+            </div>
 
-          <div>
-            <span className="text-xs font-mono text-white/40 uppercase tracking-widest block mb-2">
-              Base
-            </span>
-            <div className="text-sm text-white/80">London · Remote-First</div>
-            <div className="text-xs font-mono text-white/50 mt-1">UTC / GMT timezone</div>
-          </div>
+            {/* Base Location */}
+            <div className="pt-6 border-t border-white/[0.08]">
+              <span className="text-xs font-mono text-white/50 uppercase tracking-widest block mb-2">
+                Base
+              </span>
+              <div className="text-base text-white/90 font-medium">London · Remote-First</div>
+              <div className="text-xs font-mono text-[#D4F542] mt-1 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4F542]" />
+                <span>UTC / GMT timezone (desk active 08:00 – 18:30)</span>
+              </div>
+            </div>
 
-          <div>
-            <span className="text-xs font-mono text-white/40 uppercase tracking-widest block mb-2">
-              Response commitment
-            </span>
-            <p className="text-xs text-white/60 leading-relaxed font-sans">
-              All new enquiries reviewed within 24 hours Monday through Friday. Existing retainer
-              clients have direct on-call Slack channels.
-            </p>
-          </div>
-        </div>
-
-        {/* Right Form */}
-        <div className="md:col-span-7">
-          {submitted ? (
-            <div className="p-8 rounded-2xl bg-zinc-900/60 border border-[#D4F542] text-center flex flex-col items-center gap-3">
-              <span className="text-2xl text-[#D4F542]">✓</span>
-              <h4 className="text-2xl font-tight font-semibold text-white">Message dispatched</h4>
-              <p className="text-xs text-white/70">
-                Thank you. We will get back to your email within one business day.
+            {/* Response Commitment */}
+            <div className="pt-6 border-t border-white/[0.08]">
+              <span className="text-xs font-mono text-white/50 uppercase tracking-widest block mb-2">
+                Response Commitment
+              </span>
+              <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-sans">
+                Every inbound enquiry is answered by a senior automation architect who writes code.
+                No SDR outreach, no automated nurture sequences.
               </p>
             </div>
-          ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="p-8 rounded-2xl bg-zinc-900/50 border border-white/[0.1] flex flex-col gap-6"
-            >
-              <div className="flex flex-col gap-2">
-                <label className="text-xs font-mono text-white/60 uppercase">Your name</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Full name"
-                  className="px-4 py-3 rounded-xl bg-black/40 border border-white/[0.1] text-white text-sm focus:border-[#D4F542] focus:outline-none"
-                />
-              </div>
 
-              <div className="flex flex-col gap-2">
-                <label className="text-xs font-mono text-white/60 uppercase">Work email</label>
-                <input
-                  type="email"
-                  required
-                  placeholder="name@company.com"
-                  className="px-4 py-3 rounded-xl bg-black/40 border border-white/[0.1] text-white text-sm focus:border-[#D4F542] focus:outline-none"
-                />
-              </div>
+            {/* Retainer SLA */}
+            <div className="pt-6 border-t border-white/[0.08] p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+              <span className="text-[11px] font-mono text-[#D4F542] uppercase tracking-wider block mb-1 font-semibold">
+                Existing Retainer Clients
+              </span>
+              <p className="text-xs text-white/60 leading-relaxed font-sans">
+                Use your private Slack Connect channel for immediate incident triage and same-day workflow
+                adjustments.
+              </p>
+            </div>
+          </div>
+        </div>
 
-              <div className="flex flex-col gap-2">
-                <label className="text-xs font-mono text-white/60 uppercase">Message</label>
-                <textarea
-                  required
-                  rows={4}
-                  placeholder="Tell us about the tools you run and what you want to automate..."
-                  className="px-4 py-3 rounded-xl bg-black/40 border border-white/[0.1] text-white text-sm focus:border-[#D4F542] focus:outline-none resize-none"
-                />
-              </div>
-
-              <Button type="submit" variant="solid" className="w-full">
-                Send message
-              </Button>
-            </form>
-          )}
+        {/* Right Glassmorphic Form Plate */}
+        <div className="lg:col-span-7">
+          <ContactForm />
         </div>
       </section>
     </div>

@@ -162,8 +162,8 @@ export function ProcessSection() {
               </p>
 
               <div className="pt-2">
-                <Button href="/process" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[44px] !text-xs">
-                  See the full process
+                <Button href="/book" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[44px] !text-xs">
+                  Book your audit
                 </Button>
               </div>
             </motion.div>

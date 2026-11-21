@@ -1,37 +1,39 @@
 import React from "react";
-import Link from "next/link";
+import { Metadata } from "next";
+import { SubpageHero } from "@/components/sections/SubpageHero";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { BookSection } from "@/components/sections/BookSection";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Runbook — FAQ: what we automate, tools, timing, access",
-  description: "What we automate, which tools, how long, what access, what it costs. If yours is missing, ask it on the call.",
+  description:
+    "What we automate, which tools we connect, how night-shift operations run, and what security fences we build.",
 };
 
 export default function FaqPage() {
   return (
-    <div className="flex flex-col w-full pt-[100px]">
-      {/* Hero */}
-      <section className="py-20 md:py-28 px-6 md:px-14 border-b border-white/[0.08] max-w-[1280px] mx-auto w-full">
-        <div className="flex items-center gap-2 text-xs font-mono text-white/50 mb-6 uppercase tracking-wider">
-          <Link href="/" className="hover:text-white">Home</Link>
-          <span>/</span>
-          <span className="text-[#D4F542]">Questions</span>
-        </div>
-        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-tight font-semibold text-[#F8F8F5] tracking-tight leading-[0.95] max-w-4xl">
-          Asked before <br />
-          <span className="text-[#D4F542]">every first call.</span>
-        </h1>
-        <p className="mt-8 text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed">
-          What we automate, which tools, how long it takes, what credentials we need, and what it
-          costs. If your question is missing, ask it on the screen share.
-        </p>
-      </section>
+    <div className="flex flex-col w-full">
+      {/* Subpage Hero with Photographic Background & Split-Line Animation */}
+      <SubpageHero
+        pageName="FAQ"
+        titleLine1="Straight answers,"
+        titleLine2="before the first call."
+        subtitle="What we automate, which tools we connect, how night-shift operations run, and what security fences we build."
+        backgroundImage="/images/questions/office_clean.jpg"
+        wireframeNumber="08"
+        statusPills={[
+          { text: "8 COMMON QUESTIONS", variant: "brass" },
+          { text: "ZERO TECHNICAL JARGON", variant: "ghost" },
+          { text: "REPLY < 24H", variant: "outline" },
+        ]}
+        primaryCta={{ label: "BOOK A CALL", href: "/book" }}
+        secondaryCta={{ label: "EMAIL AN ARCHITECT", href: "mailto:hello@runbookops.agency" }}
+      />
 
-      {/* Embedded FAQ Component */}
-      <FaqSection />
+      {/* Embedded FAQ Component with De-duplicated Heading */}
+      <FaqSection showHeader={false} />
 
-      {/* Book Call */}
+      {/* Book Call Section */}
       <BookSection />
     </div>
   );

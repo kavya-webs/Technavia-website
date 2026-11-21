@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { SubpageHero } from "@/components/sections/SubpageHero";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -85,36 +86,24 @@ export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState<"once" | "monthly">("once");
 
   return (
-    <div className="flex flex-col w-full pt-[100px] bg-[#0B0D10] text-[#F8F8F5]">
+    <div className="flex flex-col w-full bg-[#0B0D10] text-[#F8F8F5]">
       {/* Hero Header */}
-      <section className="py-20 md:py-28 px-6 md:px-14 border-b border-white/[0.08] max-w-[1280px] mx-auto w-full">
-        <div className="flex items-center gap-2 text-xs font-mono text-white/50 mb-6 uppercase tracking-wider">
-          <Link href="/" className="hover:text-white">
-            Home
-          </Link>
-          <span>/</span>
-          <span className="text-[#D4F542]">Pricing</span>
-        </div>
-
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-2.5 text-xs font-mono font-semibold uppercase tracking-[0.16em] text-white/60 mb-3">
-              <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
-              <span>PRICING</span>
-            </div>
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-tight font-semibold text-[#F8F8F5] tracking-tight leading-[0.95]">
-              Three packages. <br />
-              <span className="text-[#D4F542]">One number each.</span>
-            </h1>
-          </div>
-
-          <p className="text-base sm:text-lg text-white/70 max-w-md leading-relaxed font-sans lg:text-right">
-            A fixed price for the audit, a fixed price per workflow, and a
-            monthly retainer once things run. Pay once, or spread it over the
-            year.
-          </p>
-        </div>
-      </section>
+      <SubpageHero
+        pageName="PRICING"
+        titleLine1="Three packages."
+        titleLine2="One number each."
+        highlightLine2={true}
+        subtitle="Clear pricing. No hourly billing, no surprises. Pick the tier that matches your automation maturity."
+        primaryCta={{ label: "Book an audit", href: "/book" }}
+        secondaryCta={{ label: "See the process", href: "/process" }}
+        backgroundImage="/images/workflows/photo_invoicing.jpg"
+        wireframeNumber="03"
+        statusPills={[
+          { text: "FIXED PRICE GUARANTEE", variant: "brass" },
+          { text: "ROI WITHIN 30 DAYS", variant: "ghost" },
+          { text: "SPREAD OVER 12 MONTHS", variant: "outline" },
+        ]}
+      />
 
       {/* Pricing Toggle Bar */}
       <section className="pt-14 pb-8 px-6 md:px-14 max-w-[1280px] mx-auto w-full">
@@ -165,7 +154,7 @@ export default function PricingPage() {
       {/* 3 Packages Cards */}
       <section className="pb-24 px-6 md:px-14 max-w-[1280px] mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-          {PACKAGES.map((pkg) => {
+          {PACKAGES.map((pkg, index) => {
             const price =
               billingCycle === "once" ? pkg.pricePayOnce : pkg.priceMonthly;
             const cadence =
@@ -197,11 +186,22 @@ export default function PricingPage() {
                 <div className="relative z-10 flex flex-col gap-6">
                   {/* Top Bar with Number and optional Badge */}
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-white/10 text-xs font-mono">
-                      <span className="w-2 h-2 rounded-full bg-[#D4F542]" />
-                      <span className="text-white/80 uppercase font-medium">
-                        {pkg.num} · {pkg.name}
+                    <div className="flex items-center gap-3">
+                      <span
+                        className="text-6xl sm:text-7xl font-tight font-extralight tracking-tighter select-none pointer-events-none"
+                        style={{
+                          WebkitTextStroke: "1.5px rgba(255, 255, 255, 0.22)",
+                          color: "transparent",
+                        }}
+                      >
+                        0{index + 1}
                       </span>
+                      <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 border border-white/10 text-xs font-mono">
+                        <span className="w-2 h-2 rounded-full bg-[#D4F542]" />
+                        <span className="text-white/80 uppercase font-medium">
+                          {pkg.name}
+                        </span>
+                      </div>
                     </div>
 
                     {pkg.badge && (
@@ -263,6 +263,7 @@ export default function PricingPage() {
                   <Button
                     href="/book"
                     variant={pkg.id === "build" ? "solid" : "ghost"}
+                    hasLamp={pkg.id !== "build"}
                     className="w-full text-center justify-center"
                   >
                     Book {pkg.name}

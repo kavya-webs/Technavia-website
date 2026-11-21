@@ -35,3 +35,7 @@ next-env.d.ts
 
 # playwright MCP recordings / temp
 .playwright-mcp/
+
+# large media / reference recordings
+*.mp4
+

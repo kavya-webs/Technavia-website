@@ -8,15 +8,18 @@ import { Button } from "../ui/Button";
 export function ServicesHero() {
   return (
     <section className="relative w-full min-h-[92vh] flex flex-col justify-between pt-36 pb-16 px-6 md:px-14 bg-[#0B0D10] text-[#F8F8F5] overflow-hidden border-b border-white/[0.08]">
-      {/* Background Photography: Man working at monitors in dimmed office at dusk - Reduced tint to highlight background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      {/* Background Photography: Man working at monitors in dimmed office at dusk - Vivid, reduced tint */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
           src="/images/workflows/clean_hero_120.jpg"
           alt="Workflows hero background"
-          className="w-full h-full object-cover object-[55%_40%] opacity-80"
+          className="w-full h-full object-cover object-[55%_40%] opacity-95 contrast-[1.04] brightness-[1.02]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/85 via-[#0B0D10]/50 to-[#0B0D10]/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10]/80 via-transparent to-[#0B0D10]/30" />
+        {/* Directional left scrim focused behind text, clear on the right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/80 via-[#0B0D10]/35 via-42% to-transparent" />
+        {/* Soft top and bottom blending bands */}
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#0B0D10]/60 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0B0D10]/85 via-[#0B0D10]/40 to-transparent" />
       </div>
 
       {/* Top Breadcrumb & Hero Copy */}

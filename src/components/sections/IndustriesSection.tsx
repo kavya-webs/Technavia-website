@@ -201,9 +201,9 @@ export function IndustriesSection({ variant = "list", showHeader = true }: Indus
                       Typical workflows:
                     </span>
                     <div className="flex flex-wrap gap-1.5">
-                      {(ind.workflowsList || ind.typicalWorkflows.split(", ")).map((wf) => (
+                      {(ind.workflowsList || ind.typicalWorkflows.split(", ")).map((wf, wfIdx) => (
                         <span
-                          key={wf}
+                          key={`${wf}-${wfIdx}`}
                           className="text-xs px-2.5 py-1 rounded-full bg-white/[0.06] hover:bg-white/[0.1] text-white/80 border border-white/[0.08] transition-colors"
                         >
                           {wf}

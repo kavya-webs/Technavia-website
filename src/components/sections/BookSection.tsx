@@ -78,24 +78,24 @@ export function BookSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.85, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-6 p-8 md:p-10 rounded-3xl bg-[#0B0D10]/95 border border-white/[0.16] backdrop-blur-2xl shadow-[0_24px_50px_rgba(0,0,0,0.85)] flex flex-col gap-8"
+          className="lg:col-span-6 p-5 sm:p-7 md:p-10 rounded-2xl sm:rounded-3xl bg-[#0B0D10]/95 border border-white/[0.16] backdrop-blur-2xl shadow-[0_24px_50px_rgba(0,0,0,0.85)] flex flex-col gap-5 sm:gap-6 md:gap-8"
         >
           {/* Card Header with Counter */}
-          <div className="flex items-center justify-between pb-4 border-b border-white/[0.1]">
-            <span className="text-sm font-semibold font-tight text-white uppercase tracking-wider">
+          <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/[0.1]">
+            <span className="text-xs sm:text-sm font-semibold font-tight text-white uppercase tracking-wider">
               Your brief
             </span>
-            <span className="text-xs font-mono text-[#D4F542] font-medium">
+            <span className="text-[11px] sm:text-xs font-mono text-[#D4F542] font-medium">
               {pickedCount} / 2 picked
             </span>
           </div>
 
           {/* Question 1: Team Size */}
-          <div className="flex flex-col gap-3">
-            <span className="text-xs font-mono text-white/60 uppercase tracking-widest">
+          <div className="flex flex-col gap-2.5 sm:gap-3">
+            <span className="text-[11px] sm:text-xs font-mono text-white/60 uppercase tracking-widest">
               01 · Team size
             </span>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
               {teamSizes.map((size) => {
                 const isSelected = teamSize === size;
                 return (
@@ -103,10 +103,10 @@ export function BookSection() {
                     key={size}
                     type="button"
                     onClick={() => setTeamSize(size)}
-                    className={`py-3 rounded-full text-xs font-mono transition-all cursor-pointer min-h-[44px] flex items-center justify-center ${
+                    className={`py-2 sm:py-2.5 px-1.5 sm:px-2 rounded-xl text-[11px] sm:text-xs font-mono transition-all cursor-pointer min-h-[38px] sm:min-h-[44px] flex items-center justify-center ${
                       isSelected
                         ? "bg-[#D4F542] text-black font-semibold shadow-[0_0_12px_rgba(212,245,66,0.3)]"
-                        : "bg-white/[0.06] text-white/70 hover:bg-white/[0.12] hover:text-white"
+                        : "bg-white/[0.06] text-white/70 hover:bg-white/[0.12] hover:text-white border border-white/[0.06]"
                     }`}
                   >
                     {size}
@@ -117,11 +117,11 @@ export function BookSection() {
           </div>
 
           {/* Question 2: Workflows */}
-          <div className="flex flex-col gap-3">
-            <span className="text-xs font-mono text-white/60 uppercase tracking-widest">
+          <div className="flex flex-col gap-2.5 sm:gap-3">
+            <span className="text-[11px] sm:text-xs font-mono text-white/60 uppercase tracking-widest">
               02 · Workflows you want to fix
             </span>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {workflowOptions.map((wf) => {
                 const isSelected = selectedWorkflows.includes(wf);
                 return (
@@ -129,10 +129,10 @@ export function BookSection() {
                     key={wf}
                     type="button"
                     onClick={() => toggleWorkflow(wf)}
-                    className={`px-4 py-2.5 rounded-full text-xs font-mono transition-all cursor-pointer min-h-[44px] flex items-center ${
+                    className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-mono transition-all cursor-pointer min-h-[36px] sm:min-h-[42px] flex items-center ${
                       isSelected
                         ? "bg-[#D4F542] text-black font-semibold shadow-[0_0_12px_rgba(212,245,66,0.3)]"
-                        : "bg-white/[0.06] text-white/70 hover:bg-white/[0.12] hover:text-white"
+                        : "bg-white/[0.06] text-white/70 hover:bg-white/[0.12] hover:text-white border border-white/[0.06]"
                     }`}
                   >
                     {wf}
@@ -143,15 +143,15 @@ export function BookSection() {
           </div>
 
           {/* Action Row */}
-          <div className="pt-4 border-t border-white/[0.1] flex flex-col gap-3">
+          <div className="pt-3 sm:pt-4 border-t border-white/[0.1] flex flex-col gap-2.5 sm:gap-3">
             <Button
               onClick={handleBook}
               variant="solid"
-              className="w-full justify-between"
+              className="w-full justify-between !h-[46px] sm:!h-[52px] !text-xs sm:!text-sm"
             >
               <span>Book a 20-minute call</span>
             </Button>
-            <div className="text-[11px] font-mono text-white/40 text-center">
+            <div className="text-[10px] sm:text-[11px] font-mono text-white/40 text-center">
               No preparation needed · We screen share the flow live
             </div>
           </div>

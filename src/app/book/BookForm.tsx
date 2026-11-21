@@ -65,17 +65,17 @@ export function BookForm() {
       ) : (
         <form
           onSubmit={handleSubmit}
-          className="p-8 sm:p-12 rounded-3xl bg-zinc-950/80 border border-white/[0.14] backdrop-blur-2xl shadow-[0_24px_50px_rgba(0,0,0,0.85)] flex flex-col gap-8"
+          className="p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl bg-zinc-950/80 border border-white/[0.14] backdrop-blur-2xl shadow-[0_24px_50px_rgba(0,0,0,0.85)] flex flex-col gap-6 sm:gap-8"
         >
           {/* Step 1: Team Size */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-2.5 sm:gap-3">
             <div className="flex items-center justify-between">
-              <label className="text-xs font-mono text-[#D4F542] uppercase tracking-wider font-semibold">
+              <label className="text-[11px] sm:text-xs font-mono text-[#D4F542] uppercase tracking-wider font-semibold">
                 01 · Team Size
               </label>
-              <span className="text-xs font-mono text-white/40">Select current headcount</span>
+              <span className="text-[10px] sm:text-xs font-mono text-white/40">Select headcount</span>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <div className="grid grid-cols-4 gap-1.5 sm:gap-2.5">
               {teamSizes.map((size) => {
                 const isSelected = teamSize === size;
                 return (
@@ -83,13 +83,13 @@ export function BookForm() {
                     key={size}
                     type="button"
                     onClick={() => setTeamSize(size)}
-                    className={`py-3 px-4 rounded-xl text-xs font-mono transition-all cursor-pointer text-center ${
+                    className={`py-2.5 sm:py-3 px-2 rounded-xl text-[11px] sm:text-xs font-mono transition-all cursor-pointer text-center min-h-[40px] ${
                       isSelected
                         ? "bg-[#D4F542] text-black font-semibold shadow-[0_0_14px_rgba(212,245,66,0.35)]"
                         : "bg-white/[0.05] text-white/75 hover:bg-white/[0.1] hover:text-white border border-white/[0.08]"
                     }`}
                   >
-                    {size} people
+                    {size}
                   </button>
                 );
               })}
@@ -97,16 +97,14 @@ export function BookForm() {
           </div>
 
           {/* Step 2: Workflows */}
-          <div className="flex flex-col gap-3 pt-4 border-t border-white/[0.08]">
+          <div className="flex flex-col gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-white/[0.08]">
             <div className="flex items-center justify-between">
-              <label className="text-xs font-mono text-[#D4F542] uppercase tracking-wider font-semibold">
-                02 · What Eats Your Week
+              <label className="text-[11px] sm:text-xs font-mono text-[#D4F542] uppercase tracking-wider font-semibold">
+                02 · Workflows
               </label>
-              <span className="text-xs font-mono text-white/40">
-                {selectedWfs.length} selected
-              </span>
+              <span className="text-[10px] sm:text-xs font-mono text-white/40">Pick any to prioritize</span>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {workflowOptions.map((wf) => {
                 const isSelected = selectedWfs.includes(wf);
                 return (
@@ -114,10 +112,10 @@ export function BookForm() {
                     key={wf}
                     type="button"
                     onClick={() => toggleWf(wf)}
-                    className={`px-4 py-2 rounded-full text-xs font-mono transition-all cursor-pointer ${
+                    className={`px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs font-mono transition-all cursor-pointer min-h-[36px] flex items-center ${
                       isSelected
                         ? "bg-[#D4F542] text-black font-semibold shadow-[0_0_12px_rgba(212,245,66,0.3)]"
-                        : "bg-white/[0.05] text-white/70 hover:bg-white/[0.1] hover:text-white border border-white/[0.08]"
+                        : "bg-white/[0.05] text-white/75 hover:bg-white/[0.1] hover:text-white border border-white/[0.08]"
                     }`}
                   >
                     {wf}
@@ -128,57 +126,57 @@ export function BookForm() {
           </div>
 
           {/* Step 3: Contact Details */}
-          <div className="flex flex-col gap-4 pt-4 border-t border-white/[0.08]">
-            <label className="text-xs font-mono text-[#D4F542] uppercase tracking-wider font-semibold">
+          <div className="flex flex-col gap-3 sm:gap-4 pt-3 sm:pt-4 border-t border-white/[0.08]">
+            <label className="text-[11px] sm:text-xs font-mono text-[#D4F542] uppercase tracking-wider font-semibold">
               03 · Details for Screen Share
             </label>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex flex-col gap-2">
-                <label className="text-xs font-mono text-white/60 uppercase">Your Name</label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div className="flex flex-col gap-1.5 sm:gap-2">
+                <label className="text-[11px] sm:text-xs font-mono text-white/60 uppercase">Your Name</label>
                 <input
                   type="text"
                   required
                   placeholder="e.g. Alex Miller"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="px-4 py-3.5 rounded-xl bg-black/60 border border-white/[0.12] text-white text-sm focus:border-[#D4F542] focus:ring-1 focus:ring-[#D4F542]/40 focus:outline-none transition-all placeholder:text-white/30 font-sans"
+                  className="px-3.5 py-2.5 sm:py-3.5 rounded-xl bg-black/60 border border-white/[0.12] text-white text-xs sm:text-sm focus:border-[#D4F542] focus:ring-1 focus:ring-[#D4F542]/40 focus:outline-none transition-all placeholder:text-white/30 font-sans"
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
-                <label className="text-xs font-mono text-white/60 uppercase">Work Email</label>
+              <div className="flex flex-col gap-1.5 sm:gap-2">
+                <label className="text-[11px] sm:text-xs font-mono text-white/60 uppercase">Work Email</label>
                 <input
                   type="email"
                   required
                   placeholder="alex@company.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="px-4 py-3.5 rounded-xl bg-black/60 border border-white/[0.12] text-white text-sm focus:border-[#D4F542] focus:ring-1 focus:ring-[#D4F542]/40 focus:outline-none transition-all placeholder:text-white/30 font-sans"
+                  className="px-3.5 py-2.5 sm:py-3.5 rounded-xl bg-black/60 border border-white/[0.12] text-white text-xs sm:text-sm focus:border-[#D4F542] focus:ring-1 focus:ring-[#D4F542]/40 focus:outline-none transition-all placeholder:text-white/30 font-sans"
                 />
               </div>
             </div>
 
-            <div className="flex flex-col gap-2">
-              <label className="text-xs font-mono text-white/60 uppercase">
+            <div className="flex flex-col gap-1.5 sm:gap-2">
+              <label className="text-[11px] sm:text-xs font-mono text-white/60 uppercase">
                 Tools you currently run (optional)
               </label>
               <textarea
-                rows={3}
+                rows={2}
                 placeholder="e.g. HubSpot, Xero, Slack, Notion, Airtable, Make..."
                 value={tools}
                 onChange={(e) => setTools(e.target.value)}
-                className="px-4 py-3.5 rounded-xl bg-black/60 border border-white/[0.12] text-white text-sm focus:border-[#D4F542] focus:ring-1 focus:ring-[#D4F542]/40 focus:outline-none transition-all placeholder:text-white/30 font-sans resize-none"
+                className="px-3.5 py-2.5 sm:py-3.5 rounded-xl bg-black/60 border border-white/[0.12] text-white text-xs sm:text-sm focus:border-[#D4F542] focus:ring-1 focus:ring-[#D4F542]/40 focus:outline-none transition-all placeholder:text-white/30 font-sans resize-none"
               />
             </div>
           </div>
 
           {/* Submit Action */}
-          <Button type="submit" variant="solid" className="w-full justify-center">
+          <Button type="submit" variant="solid" className="w-full justify-center !h-[46px] sm:!h-[52px] !text-xs sm:!text-sm">
             Confirm 20-minute screen share →
           </Button>
 
-          <p className="text-center text-[11px] font-mono text-white/40">
+          <p className="text-center text-[10px] sm:text-[11px] font-mono text-white/40">
             No sales slides · Live workflow mapping · Directly with an engineer
           </p>
         </form>

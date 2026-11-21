@@ -84,19 +84,21 @@ export function Navbar() {
         </nav>
 
         {/* CTA Button & Mobile Toggle */}
-        <div className="flex items-center gap-3">
-          <Button href="/book" variant="quiet" className="hidden sm:inline-flex !h-[40px] !px-4 !text-xs lg:!text-sm">
-            Book a call
-          </Button>
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <div className="hidden sm:inline-flex">
+            <Button href="/book" variant="quiet" className="!h-[40px] !px-4 !text-xs lg:!text-sm">
+              Book a call
+            </Button>
+          </div>
 
           {/* Mobile hamburger button - 44px touch target */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden min-w-[44px] min-h-[44px] p-2.5 rounded-full bg-white/[0.08] text-white border border-white/[0.1] flex items-center justify-center transition-colors hover:bg-white/[0.15]"
+            className="md:hidden min-w-[44px] min-h-[44px] w-11 h-11 p-2.5 rounded-full bg-white/[0.08] text-white border border-white/[0.15] flex items-center justify-center transition-all hover:bg-white/[0.18] hover:border-[#D4F542]/50 active:scale-95"
             aria-label="Toggle menu"
           >
             <svg
-              className="w-5 h-5"
+              className="w-5 h-5 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -105,14 +107,14 @@ export function Navbar() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="2"
+                  strokeWidth="2.2"
                   d="M6 18L18 6M6 6l12 12"
                 />
               ) : (
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="2"
+                  strokeWidth="2.2"
                   d="M4 6h16M4 12h16m-7 6h7"
                 />
               )}

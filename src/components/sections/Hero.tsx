@@ -20,18 +20,18 @@ interface HeroPin {
   lampY: number;
 }
 
-// Exactly 3 functional workflow pins moved a lot towards the right with a comfortable right margin:
-// 1. Invoicing at the upper right (92%, 16%)
-// 2. Lead routing at middle right (87%, 34%)
-// 3. Support at lower-middle right (93%, 52%)
+// Exactly 3 functional service pins moved towards the right with a comfortable right margin:
+// 1. Web Dev + Technical SEO at the upper right (92%, 16%)
+// 2. LLM Visibility (AEO/GEO) at middle right (87%, 34%)
+// 3. Custom AI Automations at lower-middle right (93%, 52%)
 const HERO_PINS: HeroPin[] = [
   {
-    id: "invoicing",
-    time: "02:14",
-    event: "INVOICE #4821 SENT",
-    title: "Invoicing",
-    desc: "Invoices out the minute a job closes, chased until paid.",
-    href: "/workflows/invoicing",
+    id: "web-dev-seo",
+    time: "99/100",
+    event: "CORE WEB VITALS · 0.4s LCP",
+    title: "Web Dev + Technical SEO",
+    desc: "Fast, conversion-focused websites engineered with clean architecture to rank from day one.",
+    href: "/workflows/web-dev-seo",
     left: "92%",
     top: "16%",
     side: "l",
@@ -39,12 +39,12 @@ const HERO_PINS: HeroPin[] = [
     lampY: 0,
   },
   {
-    id: "lead-routing",
-    time: "02:15",
-    event: "LEAD QUALIFIED · CRM UPDATED",
-    title: "Lead routing",
-    desc: "Every enquiry scored, assigned and in the CRM in seconds.",
-    href: "/workflows/lead-routing",
+    id: "llm-visibility",
+    time: "TOP 1",
+    event: "AI ANSWER ENGINE CITATION",
+    title: "LLM Visibility (AEO / GEO)",
+    desc: "Structured content and entity optimization so ChatGPT, Gemini & Perplexity recommend you.",
+    href: "/workflows/llm-visibility",
     left: "87%",
     top: "34%",
     side: "l",
@@ -52,12 +52,12 @@ const HERO_PINS: HeroPin[] = [
     lampY: 0,
   },
   {
-    id: "support",
-    time: "02:16",
-    event: "TICKET #772 CLOSED",
-    title: "Support",
-    desc: "Tickets answered, tagged and escalated without a queue.",
-    href: "/workflows/support",
+    id: "ai-automations",
+    time: "24/7",
+    event: "LEAD CAPTURED · CRM SYNCED",
+    title: "Custom AI Automations",
+    desc: "Tailored workflows that automate lead capture, follow-ups, and repetitive operations on autopilot.",
+    href: "/workflows/ai-automations",
     left: "93%",
     top: "52%",
     side: "l",
@@ -85,8 +85,8 @@ export function Hero() {
   };
 
   // Currently focused pin for wire anchor
-  const displayedPinId = hoveredPin || activePin || "lead-routing";
-  const currentPin = HERO_PINS.find((p) => p.id === displayedPinId) || HERO_PINS[1];
+  const displayedPinId = hoveredPin || activePin || "web-dev-seo";
+  const currentPin = HERO_PINS.find((p) => p.id === displayedPinId) || HERO_PINS[0];
 
   return (
     <section
@@ -96,11 +96,11 @@ export function Hero() {
       onMouseLeave={handleMouseLeave}
       className="relative w-full min-h-[100svh] flex flex-col justify-between pt-[104px] pb-12 px-6 md:px-14 overflow-hidden bg-[#0B0D10] cursor-none"
     >
-      {/* Background Dusk Office Photography */}
+      {/* Background Tech Studio Photography */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
-          src="https://framerusercontent.com/images/kltvaH90N1EBZgMRovsYhy45bk0.webp?scale-down-to=2048"
-          alt="An open-plan office at dusk, screens still lit"
+          src="/images/tech/hero_tech.jpg"
+          alt="Modern tech studio architecture at dusk"
           className="absolute inset-0 w-full h-full object-cover object-[50%_42%] scale-105"
         />
 
@@ -115,7 +115,7 @@ export function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0B0D10] to-transparent pointer-events-none" />
       </div>
 
-      {/* The Cursor as the "AUTOMATE THIS" Button (Acts as mouse cursor within Hero with subtle lime glow) */}
+      {/* The Cursor as the "ENGINEER & RANK" Button (Acts as mouse cursor within Hero with subtle lime glow) */}
       {isInsideHero && cursorPos && (
         <div
           className="fixed pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center justify-center px-4 py-1.5 rounded-full bg-[#D4F542] text-black font-mono text-[11px] font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(212,245,66,0.45),0_0_8px_rgba(212,245,66,0.6),0_4px_16px_rgba(0,0,0,0.4)] whitespace-nowrap will-change-transform"
@@ -124,7 +124,7 @@ export function Hero() {
             top: cursorPos.y,
           }}
         >
-          AUTOMATE THIS
+          ENGINEER & RANK
         </div>
       )}
 
@@ -248,26 +248,25 @@ export function Hero() {
 
       {/* Main Copy & Headlines - Anchored to bottom-left with ample space */}
       <div className="relative z-20 max-w-[1280px] w-full mx-auto mt-auto pt-24 pb-4 flex flex-col lg:flex-row lg:items-end justify-between gap-10 pointer-events-none">
-        <div className="max-w-[480px] sm:max-w-[520px] flex flex-col gap-5 pointer-events-auto">
+        <div className="max-w-[500px] sm:max-w-[560px] flex flex-col gap-5 pointer-events-auto">
           {/* Eyebrow Label */}
           <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.12] w-fit">
             <LitDot />
             <span className="text-[11px] font-mono uppercase tracking-[0.12em] text-[#F8F8F5]/90 font-medium">
-              BUSINESS AUTOMATION AGENCY · SINCE 2019
+              WEB ENGINEERING & AI VISIBILITY · BUILT TO RANK
             </span>
           </div>
 
           {/* Hero Headline */}
           <h1 className="text-5xl sm:text-7xl lg:text-[84px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.93]">
-            Your business,
+            Websites engineered,
             <br />
-            running <span className="text-[#D4F542]">itself.</span>
+            to rank on <span className="text-[#D4F542]">Google & AI.</span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-sm sm:text-base text-[#F8F8F5]/80 font-normal max-w-md leading-relaxed font-sans">
-            We wire your CRM, invoicing, onboarding and support into workflows that run while the
-            office sleeps.
+            Fast, conversion-focused websites engineered with clean architecture, semantic LLM visibility, and automated lead workflows.
           </p>
 
           {/* CTAs */}
@@ -276,18 +275,18 @@ export function Hero() {
               Book a call
             </Button>
             <Button href="/workflows" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[42px] !text-[12.5px]">
-              See the workflows
+              Explore services
             </Button>
           </div>
         </div>
 
-        {/* Bottom Right: 31h Back per week */}
+        {/* Bottom Right: 100/100 Core Web Vitals */}
         <div className="flex flex-col items-start lg:items-end pb-2 pointer-events-auto">
           <span className="text-4xl sm:text-5xl lg:text-6xl font-tight font-semibold tracking-tight text-[#F8F8F5] leading-none">
-            31h
+            100
           </span>
           <span className="text-xs font-mono uppercase tracking-widest text-[#F8F8F5]/60 mt-1.5">
-            BACK PER WEEK
+            PERFECT LIGHTHOUSE SCORE
           </span>
         </div>
       </div>

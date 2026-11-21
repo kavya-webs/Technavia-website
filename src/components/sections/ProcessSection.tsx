@@ -18,58 +18,58 @@ interface ProcessStep {
 const STEPS: ProcessStep[] = [
   {
     step: "01",
-    week: "WEEK 1",
+    week: "PHASE 1",
     title: "Audit",
-    headline: "Finding the lost hours",
+    headline: "Forensic technical & entity analysis",
     description:
-      "We sit with the people who do the work and list every task that repeats. Most teams find thirty; we pick the ten that cost the most hours.",
+      "We perform an in-depth audit of your web performance, semantic entity footprint, search rankings, and operational bottlenecks to build a prioritized roadmap.",
     clientRole:
-      "An 80-minute interview with department leads; read-only access to existing tools.",
-    img: "https://framerusercontent.com/images/YIExqfW95lYL06qfHJsvAQYxR3Q.webp?scale-down-to=2048",
+      "A 60-minute discovery call; access to search console and current workflow blueprints.",
+    img: "/images/tech/process_audit.jpg",
   },
   {
     step: "02",
-    week: "WEEK 2",
-    title: "Map",
-    headline: "The single source of truth",
+    week: "PHASE 2",
+    title: "Build",
+    headline: "Engineering clean web architecture",
     description:
-      "Each workflow is drawn end to end: the trigger, the tools it touches, the person who signs off. You approve the map before anything is built.",
+      "We engineer a lightning-fast Next.js application with zero bloat, rigorous TypeScript types, modern Tailwind styles, and sub-second Core Web Vitals.",
     clientRole:
-      "One 45-minute diagram review call to approve the logic.",
-    img: "https://framerusercontent.com/images/gL8YwCzYwSCuF5xVfVZTkj0hqjk.webp?scale-down-to=2048",
+      "Review interactive staging environment and sign off on core page templates.",
+    img: "/images/tech/process_build.jpg",
   },
   {
     step: "03",
-    week: "WEEKS 3-4",
-    title: "Build",
-    headline: "Wiring the machine",
+    week: "PHASE 3",
+    title: "Index",
+    headline: "LLM visibility & structured search schema",
     description:
-      "We wire the workflows into your CRM, inbox, invoicing and helpdesk, with a test run on real records and a log you can read.",
+      "We deploy JSON-LD knowledge graphs, entity relationships, and semantic topic clusters engineered for top rankings on Google and citations in ChatGPT & Perplexity.",
     clientRole:
-      "Zero hours required from your team. We work on dummy data.",
-    img: "https://framerusercontent.com/images/wpafQXWdQJCRrKXIWCks9bdMc.webp?scale-down-to=2048",
+      "Sign-off on brand entity claims, core services, and knowledge graph attributes.",
+    img: "/images/tech/process_indexing.jpg",
   },
   {
     step: "04",
-    week: "WEEK 5",
-    title: "Launch",
-    headline: "Shadowing the live office",
+    week: "PHASE 4",
+    title: "Automate",
+    headline: "Connecting pipelines to autopilot",
     description:
-      "The automation runs alongside your team for seven days. Staff verify the outputs before actions go out to real customers.",
+      "We wire inbound forms, instant AI lead qualification, CRM synchronization, and automated notification pipelines so growth operations run 24/7.",
     clientRole:
-      "10 minutes a day checking draft emails and generated invoices.",
-    img: "https://framerusercontent.com/images/XwXhHNBcyj1p6pAUtOL4YPr50s.webp?scale-down-to=2048",
+      "Review dummy-lead test run and automated notification alerts.",
+    img: "/images/tech/process_automate.jpg",
   },
   {
     step: "05",
     week: "ONGOING",
-    title: "Autopilot",
-    headline: "The morning digest",
+    title: "Scale",
+    headline: "Autonomous growth & rank monitoring",
     description:
-      "Every morning a report on what ran, what paused and what it saved. We tune, add and retire workflows as the business moves.",
+      "Continuous monitoring of organic keyword rankings, LLM answer engine visibility, and automated workflow uptime with executive monthly reporting.",
     clientRole:
       "Read a 60-second summary while drinking your coffee.",
-    img: "https://framerusercontent.com/images/mDldpEEr36RAiQQ7KZnIDf7wCEA.webp?scale-down-to=2048",
+    img: "/images/tech/process_scale.jpg",
   },
 ];
 
@@ -147,18 +147,17 @@ export function ProcessSection() {
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
                 <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-white/80 font-medium">
-                  HOW IT RUNS
+                  OUR METHODOLOGY
                 </span>
               </div>
 
               <h2 className="text-3xl sm:text-5xl lg:text-[58px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.04]">
-                From audit <br />
-                <span className="text-[#D4F542]">to autopilot.</span>
+                From blueprint <br />
+                <span className="text-[#D4F542]">to market dominance.</span>
               </h2>
 
               <p className="text-sm sm:text-base text-white/70 leading-relaxed font-sans max-w-sm">
-                Five steps from the first call to a business that runs itself. One
-                person on your side, and a morning report from then on.
+                Five engineering stages from deep technical audit to fully indexed, automated digital authority.
               </p>
 
               <div className="pt-2">

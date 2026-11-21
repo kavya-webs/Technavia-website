@@ -7,17 +7,14 @@ import { BookSection } from "@/components/sections/BookSection";
 import { RESULTS } from "@/lib/data";
 
 export const metadata = {
-  title: "Runbook — Results: the number comes first",
-  description: "Every result opens on a figure the owner can check: hours back, days to paid, appointments kept.",
+  title: "TECHNAVIA — Results: Measurable Growth in Rankings & Pipeline",
+  description: "Verified engineering outcomes: Core Web Vitals, organic search scale, AI engine citations, and automated lead conversions.",
 };
 
 const RESULT_IMAGES: Record<string, string> = {
-  "harbour-dental": "/images/results/card_01.jpg",
-  "northcode-studio": "/images/results/card_02.jpg",
-  "fernwood-living": "/images/results/card_03.jpg",
-  "crosslane-freight": "/images/results/card_04.jpg",
-  "whitmore-hale": "/images/results/card_05.jpg",
-  "aldgate-estates": "/images/results/card_06.jpg",
+  "apex-saas": "/images/tech/process_build.jpg",
+  "vanguard-fintech": "/images/tech/llm_visibility.jpg",
+  "kinetix-studio": "/images/tech/web_dev_seo.jpg",
 };
 
 export default function ResultsPage() {
@@ -29,16 +26,16 @@ export default function ResultsPage() {
         titleLine1="The number"
         titleLine2="comes first."
         highlightLine2={true}
-        subtitle="Every engagement starts with the metric that matters to your business. Real results from production workflows running every night."
+        subtitle="Every engagement starts with the metric that matters to your business. Real results from production web builds, search rankings, and autonomous workflows."
         primaryCta={{ label: "Book a call", href: "/book" }}
-        secondaryCta={{ label: "See the workflows", href: "/workflows" }}
-        backgroundImage="/images/workflows/clean_hero_116.jpg"
+        secondaryCta={{ label: "See the services", href: "/workflows" }}
+        backgroundImage="/images/tech/why_technavia.jpg"
         wireframeNumber="06"
         statusPills={[
-          { text: "1,284 TASKS LAST NIGHT", variant: "brass" },
-          { text: "31H BACK PER WEEK", variant: "ghost" },
-          { text: "−62% MISSED CALLS", variant: "outline" },
-          { text: "71% AUTOMATED", variant: "ghost" },
+          { text: "100/100 CORE WEB VITALS", variant: "brass" },
+          { text: "+340% ORGANIC GROWTH", variant: "ghost" },
+          { text: "TOP 3 AI CITATIONS", variant: "outline" },
+          { text: "24/7 LEAD SYNC", variant: "ghost" },
         ]}
       />
 
@@ -47,7 +44,7 @@ export default function ResultsPage() {
         <div className="flex flex-col gap-3">
           <SectionLabel>All results</SectionLabel>
           <h2 className="text-3xl sm:text-4xl font-tight font-semibold text-white">
-            Six results, each with a number.
+            Verified case studies, each with measurable outcomes.
           </h2>
         </div>
 

@@ -4,8 +4,8 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ARTICLES } from "@/lib/data";
 
 export const metadata = {
-  title: "Runbook — Insights: guides on business automation",
-  description: "What we learn wiring companies every week, written down plainly: what to automate first, what it costs and where AI fits.",
+  title: "TECHNAVIA — Insights: Engineering, SEO & AI Visibility Articles",
+  description: "Field notes and technical blueprints from building fast web architectures, securing LLM citations, and automating growth operations.",
 };
 
 export default function InsightsPage() {

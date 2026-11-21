@@ -4,16 +4,18 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const TOOLS = [
-  "Salesforce",
-  "HubSpot",
-  "Xero",
-  "Slack",
-  "Gmail",
-  "Notion",
-  "Stripe",
-  "Shopify",
-  "Airtable",
-  "QuickBooks",
+  "Next.js",
+  "React",
+  "TypeScript",
+  "OpenAI",
+  "Google Gemini",
+  "Claude 3.5",
+  "Perplexity",
+  "Schema.org",
+  "Vercel",
+  "TailwindCSS",
+  "n8n",
+  "Supabase",
 ];
 
 export function WorksWithStrip() {

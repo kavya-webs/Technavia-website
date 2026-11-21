@@ -7,16 +7,40 @@ import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { PageTransition } from "@/components/layout/PageTransition";
 
 export const metadata: Metadata = {
-  title: "Runbook — Business Automation Agency | AI Workflows",
+  metadataBase: new URL("https://technavia.com"),
+  title: {
+    default: "TECHNAVIA — Websites Engineered to Rank on Google & AI",
+    template: "%s | TECHNAVIA",
+  },
   description:
-    "We wire your CRM, invoicing, onboarding and support into workflows that run while the office sleeps.",
+    "Fast, conversion-focused Web Development + Technical SEO, LLM Visibility (AEO / GEO), and Custom AI Automations on autopilot.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   openGraph: {
-    title: "Runbook — Business Automation Agency | AI Workflows",
+    title: "TECHNAVIA — Websites Engineered to Rank on Google & AI",
     description:
-      "We wire your CRM, invoicing, onboarding and support into workflows that run while the office sleeps.",
+      "Websites engineered to rank on Google & AI. Web Dev + SEO, LLM Visibility, and Custom AI Automations.",
     url: "https://miraculous-beet-889424.framer.app",
-    siteName: "Runbook",
+    siteName: "TECHNAVIA",
     type: "website",
+    images: [
+      {
+        url: "/images/technavia/Banner-1.png",
+        width: 1200,
+        height: 630,
+        alt: "TECHNAVIA — Built to Rank. Automated to Scale.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TECHNAVIA — Websites Engineered to Rank on Google & AI",
+    description:
+      "Websites engineered to rank on Google & AI. Web Dev + SEO, LLM Visibility, and Custom AI Automations.",
+    images: ["/images/technavia/Banner-1.png"],
   },
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Runbook — Terms of Service",
+  title: "TECHNAVIA — Terms of Service",
 };
 
 export default function TermsPage() {
@@ -23,21 +23,21 @@ export default function TermsPage() {
       <article className="py-16 px-6 md:px-14 max-w-[900px] mx-auto w-full flex flex-col gap-6 text-sm text-white/70 leading-relaxed font-sans">
         <h2 className="text-xl font-tight font-semibold text-white">1. Scope of Work</h2>
         <p>
-          Runbook provides automation consulting, software integration, API workflow wiring, and
-          ongoing monitoring services under fixed-price statements of work.
+          TECHNAVIA provides web engineering, technical SEO, LLM visibility optimization, custom AI
+          automation wiring, and ongoing performance monitoring services under fixed-price statements of work.
         </p>
 
         <h2 className="text-xl font-tight font-semibold text-white">2. Intellectual Property & Ownership</h2>
         <p>
-          All custom workflow configurations, scripts, and documentation developed for your business
-          become your sole property upon payment. You retain 100% ownership of your automated systems.
+          All custom website source code, schema architecture, workflow pipelines, and documentation developed
+          for your business become your sole property upon payment. You retain 100% ownership of your digital assets.
         </p>
 
         <h2 className="text-xl font-tight font-semibold text-white">3. Third-Party Software Dependencies</h2>
         <p>
-          Workflows depend upon third-party APIs (e.g., Stripe, HubSpot, Xero). While Runbook builds
-          robust error-handling into all pipelines, we are not liable for outages caused by third-party
-          vendor service interruptions.
+          Systems depend upon third-party platforms and APIs (e.g., search engines, LLM providers, CRM platforms).
+          While TECHNAVIA builds robust error-handling into all architectures, we are not liable for outages caused
+          by third-party vendor service interruptions.
         </p>
       </article>
     </div>

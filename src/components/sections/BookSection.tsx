@@ -10,17 +10,17 @@ export function BookSection() {
   const router = useRouter();
   const [teamSize, setTeamSize] = useState<string>("6–20");
   const [selectedWorkflows, setSelectedWorkflows] = useState<string[]>([
-    "Invoicing",
-    "Leads",
+    "Web Dev + SEO",
+    "LLM Visibility",
   ]);
 
   const teamSizes = ["1–5", "6–20", "21–100", "100+"];
   const workflowOptions = [
-    "Invoicing",
-    "Leads",
-    "Support",
-    "Onboarding",
-    "Reporting",
+    "Web Dev + SEO",
+    "LLM Visibility",
+    "AI Automations",
+    "Lead Routing",
+    "Ops Autopilot",
   ];
 
   const toggleWorkflow = (item: string) => {
@@ -42,12 +42,12 @@ export function BookSection() {
 
   return (
     <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-36 px-6 md:px-14 border-t border-white/[0.08] overflow-hidden">
-      {/* Background Photography: depot at dusk */}
+      {/* Background Photography: tech engineering environment */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
-          src="https://framerusercontent.com/images/o9ITAJgXIoSkR7WSBLyUKwhA1PI.webp?scale-down-to=2048"
-          alt="A logistics depot at dusk, the loading doors still lit"
-          className="w-full h-full object-cover object-[50%_50%] opacity-65"
+          src="/images/tech/hero_tech.jpg"
+          alt="Modern engineering architecture"
+          className="w-full h-full object-cover object-[50%_50%] opacity-50"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/80 via-[#0B0D10]/25 to-[#0B0D10]/75" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-transparent to-[#0B0D10]/40" />
@@ -64,12 +64,11 @@ export function BookSection() {
         >
           <SectionLabel>Book a call</SectionLabel>
           <h2 className="text-4xl sm:text-6xl lg:text-[76px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.98]">
-            Tell us what eats your week. <br />
-            <span className="text-[#D4F542]">We'll automate it.</span>
+            Scale your digital presence. <br />
+            <span className="text-[#D4F542]">Let's engineer it.</span>
           </h2>
           <p className="text-base sm:text-lg text-white/70 leading-relaxed font-sans max-w-lg">
-            Pick what fits. On the 20-minute call we map the first workflow,
-            the tools it touches and the week it goes live.
+            Tell us your targets. On the 20-minute architecture session, we audit your search visibility, outline your web performance strategy, and identify your high-ROI automation opportunities.
           </p>
         </motion.div>
 

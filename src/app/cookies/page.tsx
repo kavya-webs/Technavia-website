@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Runbook — Cookies Policy",
+  title: "TECHNAVIA — Cookies Policy",
 };
 
 export default function CookiesPage() {

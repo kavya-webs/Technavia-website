@@ -8,12 +8,9 @@ import { Button } from "../ui/Button";
 import { RESULTS } from "@/lib/data";
 
 const RESULT_IMAGES: Record<string, string> = {
-  "harbour-dental": "/images/results/card_01.jpg",
-  "northcode-studio": "/images/results/card_02.jpg",
-  "fernwood-living": "/images/results/card_03.jpg",
-  "crosslane-freight": "/images/results/card_04.jpg",
-  "whitmore-hale": "/images/results/card_05.jpg",
-  "aldgate-estates": "/images/results/card_06.jpg",
+  "apex-saas": "/images/tech/process_build.jpg",
+  "vanguard-fintech": "/images/tech/llm_visibility.jpg",
+  "kinetix-studio": "/images/tech/web_dev_seo.jpg",
 };
 
 export function ResultsSection() {
@@ -35,16 +32,15 @@ export function ResultsSection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
-            <SectionLabel>Results</SectionLabel>
+            <SectionLabel>Case Studies</SectionLabel>
             <h2 className="text-4xl sm:text-6xl lg:text-[76px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1]">
-              Numbers the owner <br />
-              <span className="text-[#D4F542]">reads on Monday.</span>
+              Measurable impact <br />
+              <span className="text-[#D4F542]">on pipeline & rankings.</span>
             </h2>
           </div>
           <div className="flex flex-col items-start md:items-end gap-6 max-w-md">
             <p className="text-base text-white/60 leading-relaxed font-sans md:text-right">
-              Every result opens on the figure the client reports upward. How
-              the workflow got there is one click behind it.
+              Real engineering outcomes from fast web architecture, dominant search rankings, and autonomous lead capture.
             </p>
             <Button href="/results" variant="ghost" hasArrow={false} hasLamp={true}>
               All results

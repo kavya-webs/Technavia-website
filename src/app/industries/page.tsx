@@ -6,9 +6,9 @@ import { ResultsSection } from "@/components/sections/ResultsSection";
 import { BookSection } from "@/components/sections/BookSection";
 
 export const metadata: Metadata = {
-  title: "Runbook — Industries we automate: six sectors, the same ten jobs",
+  title: "TECHNAVIA — Industries: High-Growth Sectors Engineered to Rank",
   description:
-    "Clinics, agencies, shops, depots, law firms and estate agents all do the same things by hand: chase invoices, route leads, copy contact records, and assemble weekly reports.",
+    "Tailored web engineering, AEO/GEO visibility, and workflow automation for clinics, tech agencies, ecommerce, logistics, and professional services.",
 };
 
 export default function IndustriesPage() {

@@ -7,8 +7,8 @@ import { BookSection } from "@/components/sections/BookSection";
 import { TOOLS } from "@/lib/data";
 
 export const metadata = {
-  title: "Runbook — Tools we connect: CRM, invoicing, inbox, helpdesk",
-  description: "The tools you already pay for, joined so a job done in one shows up in all of them.",
+  title: "TECHNAVIA — Tools & Architecture Stack",
+  description: "Modern Jamstack web architecture, search indexing engines, LLM reasoning layers, and automated workflow buses.",
 };
 
 export default function ToolsPage() {
@@ -20,15 +20,15 @@ export default function ToolsPage() {
         titleLine1="Your stack,"
         titleLine2="wired."
         highlightLine2={true}
-        subtitle="We do not replace your software. We connect your existing tools — CRM, invoicing, communication, and databases — into an automated engine."
+        subtitle="We engineer fast Next.js frontends connected to semantic search schemas, LLM reasoning engines, and autonomous workflow buses."
         primaryCta={{ label: "Book a stack audit", href: "/book" }}
         secondaryCta={{ label: "How we connect them", href: "/process" }}
-        backgroundImage="https://framerusercontent.com/images/1RRozVJo6j9BUUQiWVOOruiGIKg.webp"
+        backgroundImage="/images/tech/ai_automations.jpg"
         wireframeNumber="60"
         statusPills={[
-          { text: "60+ TOOLS CONNECTED", variant: "brass" },
-          { text: "API & WEBHOOK NATIVE", variant: "ghost" },
-          { text: "ZERO NEW APPS TO LEARN", variant: "outline" },
+          { text: "PRODUCTION STACK", variant: "brass" },
+          { text: "EDGE & API NATIVE", variant: "ghost" },
+          { text: "SUB-SECOND SPEEDS", variant: "outline" },
         ]}
       />
 

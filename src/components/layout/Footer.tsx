@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "../ui/Button";
+import { TechnaviaLogo } from "../ui/TechnaviaLogo";
 
 export function Footer() {
   const [londonTime, setLondonTime] = useState("14:37");
@@ -45,8 +46,8 @@ export function Footer() {
             {/* Left Headline & CTA */}
             <div className="lg:col-span-5 flex flex-col gap-6">
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.98]">
-                Your business, <br />
-                <span className="text-[#D4F542]">running itself.</span>
+                Websites engineered, <br />
+                <span className="text-[#D4F542]">running on Google & AI.</span>
               </h2>
 
               <div>
@@ -61,7 +62,7 @@ export function Footer() {
               {/* Col 1: Agency */}
               <div className="flex flex-col gap-3">
                 <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-white/45 border-b border-white/[0.08] pb-2">
-                  AGENCY
+                  DISCIPLINES
                 </span>
                 <ul className="flex flex-col gap-2.5 text-sm font-medium text-white/80 font-sans">
                   <li>
@@ -69,15 +70,7 @@ export function Footer() {
                       href="/workflows"
                       className="hover:text-[#D4F542] transition-colors"
                     >
-                      Workflows
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/industries"
-                      className="hover:text-[#D4F542] transition-colors"
-                    >
-                      Industries
+                      Services
                     </Link>
                   </li>
                   <li>
@@ -90,18 +83,26 @@ export function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="/tools"
-                      className="hover:text-[#D4F542] transition-colors"
-                    >
-                      Tools
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
                       href="/process"
                       className="hover:text-[#D4F542] transition-colors"
                     >
                       Process
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/tools"
+                      className="hover:text-[#D4F542] transition-colors"
+                    >
+                      Stack
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/industries"
+                      className="hover:text-[#D4F542] transition-colors"
+                    >
+                      Industries
                     </Link>
                   </li>
                 </ul>
@@ -139,7 +140,7 @@ export function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="/faq"
+                      href="/contact"
                       className="hover:text-[#D4F542] transition-colors"
                     >
                       Contact
@@ -155,13 +156,13 @@ export function Footer() {
                 </span>
                 <div className="flex flex-col gap-2.5 text-sm text-white/80 font-sans">
                   <a
-                    href="mailto:hello@runbookops.agency"
+                    href="mailto:contact@technavia.com"
                     className="hover:text-[#D4F542] transition-colors break-all font-medium"
                   >
-                    hello@runbookops.agency
+                    contact@technavia.com
                   </a>
                   <span className="text-xs font-mono text-white/50">
-                    London · remote-first
+                    London & San Francisco · remote-first
                   </span>
                   <div className="flex items-center gap-3 pt-2 text-xs font-mono font-bold tracking-wider uppercase text-white/70">
                     <a
@@ -183,12 +184,12 @@ export function Footer() {
                     </a>
                     <span>·</span>
                     <a
-                      href="https://www.youtube.com"
+                      href="https://github.com/kavya-webs/Technavia-website"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-[#D4F542] transition-colors"
                     >
-                      YOUTUBE
+                      GITHUB
                     </a>
                   </div>
                 </div>
@@ -196,7 +197,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Center Giant Row: Giant Runbook Logo Card with Green Slide Hover + London Widget */}
+          {/* Center Giant Row: Giant TECHNAVIA Logo Card with Green Slide Hover + London Widget */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch my-auto">
             {/* Giant Logo Card with sliding green block hover effect */}
             <div
@@ -204,12 +205,14 @@ export function Footer() {
               onMouseLeave={() => setLogoHovered(false)}
               className="lg:col-span-8 relative overflow-hidden rounded-[28px] sm:rounded-[36px] border border-white/[0.12] bg-[#0E1116] px-8 sm:px-12 py-6 sm:py-8 flex items-center cursor-pointer select-none group"
             >
-              {/* Base Layer: White text & Lime glowing dot */}
-              <div className="flex items-center gap-5 sm:gap-8 select-none">
-                <span className="w-8 h-8 sm:w-14 sm:h-14 rounded-full bg-[#D4F542] shadow-[0_0_24px_#D4F542] flex-shrink-0" />
-                <span className="text-6xl sm:text-8xl lg:text-[130px] font-tight font-extrabold text-[#F8F8F5] tracking-tighter leading-none">
-                  Runbook
-                </span>
+              {/* Base Layer: White text & Lime 6-node network icon */}
+              <div className="flex items-center select-none py-2">
+                <TechnaviaLogo
+                  variant="horizontal"
+                  symbolSize={58}
+                  wordmarkHeight={38}
+                  className="max-w-full"
+                />
               </div>
 
               {/* Sliding Neon Lime Green Box Overlay Layer */}
@@ -223,20 +226,24 @@ export function Footer() {
                 }}
                 transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
               >
-                <div className="flex items-center gap-5 sm:gap-8 select-none">
-                  <span className="w-8 h-8 sm:w-14 sm:h-14 rounded-full bg-black flex-shrink-0" />
-                  <span className="text-6xl sm:text-8xl lg:text-[130px] font-tight font-extrabold text-black tracking-tighter leading-none">
-                    Runbook
-                  </span>
+                <div className="flex items-center select-none py-2">
+                  <TechnaviaLogo
+                    variant="horizontal"
+                    symbolSize={58}
+                    wordmarkHeight={38}
+                    symbolColor="#000000"
+                    wordmarkColor="#000000"
+                    className="max-w-full"
+                  />
                 </div>
               </motion.div>
             </div>
 
-            {/* London Live Widget Card matching sec_180.jpg & video */}
+            {/* London Live Widget Card */}
             <div className="lg:col-span-4 relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-white/[0.12] bg-zinc-950 flex flex-col justify-end p-6 min-h-[140px] sm:min-h-[160px]">
               <img
-                src="https://framerusercontent.com/images/D5vywc1iZWqwCmhbjYFnlcV21C0.webp?scale-down-to=2048"
-                alt="London Office Night Sky"
+                src="/images/tech/why_technavia.jpg"
+                alt="Engineering Desk"
                 className="absolute inset-0 w-full h-full object-cover opacity-45"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
@@ -245,11 +252,11 @@ export function Footer() {
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#D4F542] shadow-[0_0_10px_#D4F542] animate-pulse" />
                   <span className="text-white font-medium">
-                    LONDON · {londonTime}
+                    LONDON & SF · {londonTime}
                   </span>
                 </div>
                 <span className="text-[#D4F542] text-[11px] font-bold tracking-wider">
-                  3 WORKFLOWS RUNNING
+                  3 SERVICES ACTIVE
                 </span>
               </div>
             </div>
@@ -258,7 +265,7 @@ export function Footer() {
           {/* Bottom Legal Bar */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 border-t border-white/[0.08] text-xs font-mono text-white/50">
             <div className="flex flex-wrap items-center gap-6">
-              <span>© 2026 Runbook</span>
+              <span>© 2026 TECHNAVIA</span>
               <Link href="/privacy" className="hover:text-white transition-colors">
                 Privacy
               </Link>
@@ -271,7 +278,7 @@ export function Footer() {
             </div>
 
             <div className="text-white/45 uppercase tracking-widest text-[11px]">
-              RUNS ON ZAPIER · MAKE · N8N · CUSTOM AGENTS
+              BUILT TO RANK · AUTOMATED TO SCALE
             </div>
           </div>
         </div>

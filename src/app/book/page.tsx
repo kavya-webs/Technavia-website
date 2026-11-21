@@ -4,9 +4,9 @@ import { SubpageHero } from "@/components/sections/SubpageHero";
 import { BookForm } from "./BookForm";
 
 export const metadata: Metadata = {
-  title: "Runbook — Book a 20-minute architecture screen share",
+  title: "TECHNAVIA — Book a 20-minute architecture screen share",
   description:
-    "Screen share with an engineer who writes code. We will map two workflows you want off your desk this month.",
+    "Screen share with a senior engineer who writes code. We will map your web architecture, search visibility, and AI automation strategy.",
 };
 
 export default function BookPage() {

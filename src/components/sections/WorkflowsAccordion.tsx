@@ -19,54 +19,34 @@ interface WorkflowItem {
 
 const WORKFLOW_ITEMS: WorkflowItem[] = [
   {
-    id: "invoicing",
+    id: "web-dev-seo",
     num: "01",
-    title: "Invoicing",
-    tagline: "Invoices out the minute a job closes, chased until paid.",
-    tools: ["Xero", "QuickBooks", "Stripe", "GoCardless", "Slack"],
-    time: "02:14",
-    action: "Invoice #4821 sent",
-    img: "https://framerusercontent.com/images/pt55hjmji8LIjNGhQZtIvdoJdI.webp?scale-down-to=2048",
+    title: "Web Development + Technical SEO",
+    tagline: "Fast, conversion-focused websites engineered with clean architecture to rank from day one.",
+    tools: ["Next.js 15", "TypeScript", "TailwindCSS", "Schema.org", "Google Search Console"],
+    time: "99/100",
+    action: "Core Web Vitals · 0.4s LCP",
+    img: "/images/tech/web_dev_seo.jpg",
   },
   {
-    id: "lead-routing",
+    id: "llm-visibility",
     num: "02",
-    title: "Lead routing",
-    tagline: "Every enquiry scored, assigned and in the CRM in seconds.",
-    tools: ["HubSpot", "Salesforce", "Typeform", "Calendly", "Slack"],
-    time: "02:15",
-    action: "Lead qualified · CRM updated",
-    img: "https://framerusercontent.com/images/WuDZGegUoTc2fQRZKz75LuQHKw.webp?scale-down-to=2048",
+    title: "LLM Visibility (AEO / GEO)",
+    tagline: "Structured content and entity optimization so your brand gets recommended by ChatGPT, Gemini, and Perplexity.",
+    tools: ["OpenAI", "Claude 3.5", "Perplexity API", "JSON-LD", "Knowledge Graph"],
+    time: "TOP 1",
+    action: "Answer Engine Citation Secured",
+    img: "/images/tech/llm_visibility.jpg",
   },
   {
-    id: "support",
+    id: "ai-automations",
     num: "03",
-    title: "Support",
-    tagline: "Tickets answered, tagged and escalated without a queue.",
-    tools: ["Zendesk", "Intercom", "Freshdesk", "Notion", "Linear"],
-    time: "02:16",
-    action: "Ticket #772 closed",
-    img: "https://framerusercontent.com/images/HeKgtQJLUH23dS8vPa7TY3fGvjM.webp?scale-down-to=2048",
-  },
-  {
-    id: "onboarding",
-    num: "04",
-    title: "Onboarding",
-    tagline: "Contracts, accounts and welcome sequences from one form.",
-    tools: ["DocuSign", "Google Workspace", "Notion", "Slack", "Airtable"],
-    time: "02:18",
-    action: "Client folder created",
-    img: "https://framerusercontent.com/images/LxpPJti5vuqwnKxo3nXTj9scvM.webp?scale-down-to=2048",
-  },
-  {
-    id: "reporting",
-    num: "05",
-    title: "Reporting",
-    tagline: "The numbers on the desk every morning, nobody builds them.",
-    tools: ["Google Sheets", "PostgreSQL", "Slack", "Metabase", "Notion"],
-    time: "02:20",
-    action: "Monday report sent",
-    img: "https://framerusercontent.com/images/unJzb8Yad2e1lOvu0QXxo4v80ik.webp?scale-down-to=2048",
+    title: "Custom AI Automations",
+    tagline: "Tailored workflows that automate lead capture, follow-ups, reporting, and repetitive operations on autopilot.",
+    tools: ["n8n", "Make", "OpenAI APIs", "Supabase", "Slack / CRM"],
+    time: "24/7",
+    action: "Lead qualified · CRM updated · Digest sent",
+    img: "/images/tech/ai_automations.jpg",
   },
 ];
 
@@ -84,19 +64,18 @@ export function WorkflowsAccordion() {
         {/* Top Header Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-7 flex flex-col gap-4">
-            <SectionLabel>What we automate</SectionLabel>
+            <SectionLabel>Core Capabilities</SectionLabel>
             <h2 className="text-4xl sm:text-6xl lg:text-[76px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1]">
-              The work that runs <br />
-              <span className="text-[#D4F542]">while you sleep.</span>
+              Engineered to rank. <br />
+              <span className="text-[#D4F542]">Automated to scale.</span>
             </h2>
           </div>
           <div className="lg:col-span-5 flex flex-col items-start lg:items-end gap-6">
             <p className="text-base text-white/60 leading-relaxed font-sans max-w-md lg:text-right">
-              Five workflows, each wired into the tools you already pay for.
-              Point at one to see what it does at night.
+              Three core engineering disciplines that turn your digital presence into an autonomous growth engine.
             </p>
             <Button href="/workflows" variant="ghost" hasArrow={false} hasLamp={true}>
-              All workflows
+              All services
             </Button>
           </div>
         </div>

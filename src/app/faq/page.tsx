@@ -5,9 +5,9 @@ import { FaqSection } from "@/components/sections/FaqSection";
 import { BookSection } from "@/components/sections/BookSection";
 
 export const metadata: Metadata = {
-  title: "Runbook — FAQ: what we automate, tools, timing, access",
+  title: "TECHNAVIA — FAQ: Web Dev, SEO, LLM Visibility & AI Automations",
   description:
-    "What we automate, which tools we connect, how night-shift operations run, and what security fences we build.",
+    "Everything about how we engineer websites, optimize for LLMs and answer engines, and deploy autonomous growth pipelines.",
 };
 
 export default function FaqPage() {
@@ -27,7 +27,7 @@ export default function FaqPage() {
           { text: "REPLY < 24H", variant: "outline" },
         ]}
         primaryCta={{ label: "BOOK A CALL", href: "/book" }}
-        secondaryCta={{ label: "EMAIL AN ARCHITECT", href: "mailto:hello@runbookops.agency" }}
+        secondaryCta={{ label: "EMAIL AN ARCHITECT", href: "mailto:contact@technavia.com" }}
       />
 
       {/* Embedded FAQ Component with De-duplicated Heading */}

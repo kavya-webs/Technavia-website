@@ -1,6 +1,6 @@
 import React from "react";
 import { Hero } from "@/components/sections/Hero";
-import { WhyRunbook } from "@/components/sections/WhyRunbook";
+import { WhyTechnavia } from "@/components/sections/WhyTechnavia";
 import { WorksWithStrip } from "@/components/sections/WorksWithStrip";
 import { WorkflowsAccordion } from "@/components/sections/WorkflowsAccordion";
 import { ProcessSection } from "@/components/sections/ProcessSection";
@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full">
       <Hero />
-      <WhyRunbook />
+      <WhyTechnavia />
       <WorksWithStrip />
       <WorkflowsAccordion />
       <ProcessSection />

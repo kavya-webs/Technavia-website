@@ -19,69 +19,45 @@ interface WorkflowDetail {
 
 const WORKFLOW_DETAILS: WorkflowDetail[] = [
   {
-    id: "invoicing",
+    id: "web-dev-seo",
     num: "01",
-    title: "Invoicing",
-    tagline: "Invoices out the minute a job closes, chased until paid.",
+    title: "Web Development + Technical SEO",
+    tagline: "Fast, conversion-focused websites engineered with clean architecture to rank from day one.",
     summary:
-      "When a job is marked done in your project tool, the invoice is built from the quote, checked against the timesheet and sent from your accounting system with the right payment link. Reminders go out on day 7, 14 and 21 in your own tone, stop the moment the money lands, and the ledger is reconciled every morning at 06:00.",
-    tools: ["Xero", "QuickBooks", "Stripe", "GoCardless", "Gmail"],
-    time: "02:14",
-    action: "Invoice #4821 sent",
-    img: "https://framerusercontent.com/images/pt55hjmji8LIjNGhQZtIvdoJdI.webp?scale-down-to=2048",
+      "Every website we engineer is built with modern Next.js 15, TypeScript, and server components for lightning-fast speeds and zero JavaScript bloat. We bake in semantic HTML, OpenGraph, JSON-LD structured data, clean URL hierarchies, and sub-second Core Web Vitals so Google and Bing index and reward your pages immediately.",
+    tools: ["Next.js 15", "TypeScript", "TailwindCSS", "Schema.org", "Google Search Console"],
+    time: "99/100",
+    action: "Core Web Vitals · 0.4s LCP",
+    img: "/images/tech/web_dev_seo.jpg",
   },
   {
-    id: "lead-routing",
+    id: "llm-visibility",
     num: "02",
-    title: "Lead routing",
-    tagline: "Every enquiry scored, assigned and in the CRM in seconds.",
+    title: "LLM Visibility (AEO / GEO)",
+    tagline: "Structured content and entity optimization so your brand gets recommended by ChatGPT, Gemini, and Perplexity.",
     summary:
-      "Website forms, inbound mail and ad leads land in one queue. Each enquiry is enriched with company size, sector and location, scored against your ideal client and routed to the right person's calendar with a drafted first reply. Nothing waits in an inbox overnight, and the CRM holds the full record before anyone has read it.",
-    tools: ["HubSpot", "Pipedrive", "Typeform", "Clearbit", "Slack"],
-    time: "02:15",
-    action: "Lead qualified · CRM updated",
-    img: "https://framerusercontent.com/images/WuDZGegUoTc2fQRZKz75LuQHKw.webp?scale-down-to=2048",
+      "As B2B buyers transition from traditional Google searches to AI answer engines, your digital footprint must be semantically legible to large language models. We build entity relationships, knowledge graph linkages, structured citation hubs, and authoritative content clusters that secure prominent citations in ChatGPT Search, Google Gemini, and Perplexity.",
+    tools: ["OpenAI", "Claude 3.5", "Perplexity API", "JSON-LD", "Knowledge Graph"],
+    time: "TOP 1",
+    action: "Answer Engine Citation Secured",
+    img: "/images/tech/llm_visibility.jpg",
   },
   {
-    id: "support",
+    id: "ai-automations",
     num: "03",
-    title: "Support",
-    tagline: "Tickets answered, tagged and escalated without a queue.",
+    title: "Custom AI Automations",
+    tagline: "Tailored workflows that automate lead capture, follow-ups, reporting, and repetitive operations on autopilot.",
     summary:
-      "Every message to support is read, tagged by topic and urgency, and answered from your own help articles when the answer already exists. Refunds, cancellations and outages go to a person within minutes with the customer's history attached. Across our clients 71 % of tickets close without anyone on their side touching them.",
-    tools: ["Intercom", "Zendesk", "Help Scout", "Slack", "Notion"],
-    time: "02:16",
-    action: "Ticket #772 closed",
-    img: "https://framerusercontent.com/images/HeKgtQJLUH23dS8vPa7TY3fGvjM.webp?scale-down-to=2048",
-  },
-  {
-    id: "onboarding",
-    num: "04",
-    title: "Onboarding",
-    tagline: "Contracts, accounts and welcome sequences from one form.",
-    summary:
-      "A signed proposal starts the clock. The contract goes out for e-signature, the client folder, project board and shared channel are created with the right people in them, the first invoice is raised and a welcome sequence runs over the first 14 days. Your team opens a workspace that is already set up.",
-    tools: ["DocuSign", "Google Drive", "Notion", "Slack", "Stripe"],
-    time: "02:18",
-    action: "Client folder created",
-    img: "https://framerusercontent.com/images/LxpPJti5vuqwnKxo3nXTj9scvM.webp?scale-down-to=2048",
-  },
-  {
-    id: "reporting",
-    num: "05",
-    title: "Reporting",
-    tagline: "The numbers on the desk every morning, nobody builds them.",
-    summary:
-      "Revenue, pipeline, cash, delivery and support figures are pulled from every system at 02:00, checked against targets and formatted into a single email and dashboard. Weekly summaries, month-end reconciliations and board packs arrive without anyone pulling CSV exports.",
-    tools: ["Google Sheets", "Looker Studio", "Airtable", "Stripe", "Slack"],
-    time: "02:20",
-    action: "Monday report sent",
-    img: "https://framerusercontent.com/images/unJzb8Yad2e1lOvu0QXxo4v80ik.webp?scale-down-to=2048",
+      "Stop letting qualified inbound enquiries sit in unread inboxes. We wire custom AI agents and webhook pipelines directly into your forms, CRM, email, and messaging systems. Inbound leads are instantly scored, enriched with company metrics, entered into your CRM, and followed up with personalized context within seconds.",
+    tools: ["n8n", "Make", "OpenAI APIs", "Supabase", "Slack / CRM"],
+    time: "24/7",
+    action: "Lead qualified · CRM updated · Digest sent",
+    img: "/images/tech/ai_automations.jpg",
   },
 ];
 
 export function WorkflowsNightShift() {
-  const [activeTab, setActiveTab] = useState<string>("invoicing");
+  const [activeTab, setActiveTab] = useState<string>("web-dev-seo");
 
   // Track active section on scroll
   useEffect(() => {
@@ -120,16 +96,15 @@ export function WorkflowsNightShift() {
       {/* Intro Header */}
       <section className="py-20 md:py-28 px-6 md:px-14 max-w-[1280px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
         <div className="lg:col-span-7 flex flex-col gap-4">
-          <SectionLabel>The night shift, workflow by workflow</SectionLabel>
+          <SectionLabel>Engineered Capabilities</SectionLabel>
           <h2 className="text-4xl sm:text-6xl lg:text-[76px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.98]">
-            Five workflows. <br />
-            <span className="text-[#D4F542]">Zero hands.</span>
+            Three core services. <br />
+            <span className="text-[#D4F542]">Zero bottlenecks.</span>
           </h2>
         </div>
         <div className="lg:col-span-5 pb-2">
           <p className="text-base sm:text-lg text-white/70 font-sans leading-relaxed">
-            Each one is wired into the tools you already pay for and runs on a trigger, not a
-            reminder. Pick one to see what it does between the last log-off and the first coffee.
+            Engineered from first principles with modern code, semantic LLM visibility, and autonomous workflow pipelines.
           </p>
         </div>
       </section>

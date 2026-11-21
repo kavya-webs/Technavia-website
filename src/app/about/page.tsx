@@ -6,8 +6,8 @@ import { ReviewsSection } from "@/components/sections/ReviewsSection";
 import { BookSection } from "@/components/sections/BookSection";
 
 export const metadata = {
-  title: "Runbook — About: a business automation agency",
-  description: "One team that wires the work and stays to run it. Every workflow we build gets measured, and the number goes to the owner.",
+  title: "TECHNAVIA — About: Web Engineering & AI Visibility",
+  description: "One team that engineers your web architecture, secures your search rankings, and automates your operations.",
 };
 
 export default function AboutPage() {
@@ -47,18 +47,13 @@ export default function AboutPage() {
             </div>
             <div className="flex flex-col gap-5 text-base sm:text-lg text-white/80 leading-relaxed font-sans">
               <p>
-                Runbook began in 2019 with two founders, a shared desk in London and one client: a
-                design studio whose creative directors spent their weekends assembling invoices and
-                retyping timesheets.
+                TECHNAVIA was established to solve a critical market gap: traditional agency websites look pretty but fail to rank on search engines or AI answer engines, and lack the automated infrastructure to convert inbound traffic.
               </p>
               <p>
-                We realized that 80% of what growing businesses struggle with is not lack of strategy or
-                ambition—it is the glue work between the systems they already pay for.
+                We believe that modern digital presence requires an engineering-first approach. Fast Next.js architecture, semantic JSON-LD entity structures, and automated lead routing pipelines that run seamlessly 24/7.
               </p>
               <p>
-                Today, our automation infrastructure coordinates over 48,000 monthly tasks for clinics,
-                agencies, e-commerce brands, legal firms and logistics depots across the UK, Europe and
-                North America.
+                Today, TECHNAVIA builds and powers digital infrastructure for high-growth SaaS, fintech, professional services, and ecommerce companies worldwide.
               </p>
             </div>
           </div>
@@ -66,8 +61,8 @@ export default function AboutPage() {
           <div className="lg:col-span-5 flex justify-start lg:justify-end">
             <figure className="relative w-full max-w-[500px] aspect-[4/3] rounded-3xl overflow-hidden border border-white/[0.12] shadow-2xl group">
               <img
-                src="/images/questions/office_clean.jpg"
-                alt="Runbook London Studio"
+                src="/images/tech/why_technavia.jpg"
+                alt="TECHNAVIA Engineering Studio"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />

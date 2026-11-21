@@ -28,8 +28,8 @@ export function FaqSection({ showHeader = true }: FaqSectionProps = {}) {
           <div className="relative w-full aspect-[4/5] max-h-[620px] rounded-[32px] overflow-hidden border border-white/[0.12] bg-[#12151B] shadow-[0_24px_50px_rgba(0,0,0,0.8)]">
             {/* Base Office Photography */}
             <img
-              src="/images/questions/base_office.jpg"
-              alt="Runbook office"
+              src="/images/tech/why_technavia.jpg"
+              alt="TECHNAVIA studio"
               className="w-full h-full object-cover select-none pointer-events-none"
             />
 
@@ -169,7 +169,7 @@ export function FaqSection({ showHeader = true }: FaqSectionProps = {}) {
               </p>
             </div>
             <Link
-              href="mailto:hello@runbookops.agency"
+              href="mailto:contact@technavia.com"
               className="group inline-flex items-center gap-3 bg-[#F0F2E8] hover:bg-white text-black pl-5 pr-2 py-2 rounded-full font-tight font-semibold text-sm transition-all shadow-[0_4px_20px_rgba(0,0,0,0.3)] w-fit flex-shrink-0"
             >
               <span>Ask us</span>

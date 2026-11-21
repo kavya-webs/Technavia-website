@@ -51,12 +51,12 @@ const PACKAGES: PackageData[] = [
     cadencePayOnce: "PER WORKFLOW, FIXED PRICE",
     cadenceMonthly: "PER MONTH, SPREAD OVER 12 MO",
     summary:
-      "One workflow wired end to end, run beside your team for two weeks, then handed over with a runbook.",
+      "One service wired end to end, run beside your team for two weeks, then handed over with full documentation.",
     deliverables: [
       "End-to-end sandbox build",
-      "Past record stress tests",
+      "Production stress tests",
       "14-day shadowing period",
-      "Video runbook + documentation",
+      "Video walkthrough + documentation",
       "30-day post-launch warranty",
     ],
     bgImage:

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LitDot } from "../ui/LitDot";
 import { Button } from "../ui/Button";
+import { TechnaviaLogo } from "../ui/TechnaviaLogo";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -53,14 +54,14 @@ export function Navbar() {
             : "bg-transparent"
         }`}
       >
-        {/* Brand Logo - Made bigger */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="scale-125 flex items-center justify-center">
-            <LitDot />
-          </div>
-          <span className="font-tight font-semibold text-2xl md:text-[26px] tracking-tight text-[#F8F8F5] group-hover:text-[#D4F542] transition-colors">
-            Runbook
-          </span>
+        {/* Brand Logo - Official TECHNAVIA */}
+        <Link href="/" className="flex items-center group py-2" aria-label="TECHNAVIA Home">
+          <TechnaviaLogo
+            variant="horizontal"
+            symbolSize={30}
+            wordmarkHeight={18}
+            className="group-hover:opacity-90 transition-opacity"
+          />
         </Link>
 
         {/* Desktop Navigation Links - Hover effect with white pill shape & black text, active marked by green dot */}

@@ -5,9 +5,9 @@ import { ProcessSection } from "@/components/sections/ProcessSection";
 import { BookSection } from "@/components/sections/BookSection";
 
 export const metadata = {
-  title: "Runbook — Workflows: Invoicing, Lead routing, Support, Onboarding, Reporting",
+  title: "TECHNAVIA — Services: Web Development, LLM Visibility & AI Automations",
   description:
-    "Five workflows, running on their own. Invoicing, lead routing, support, onboarding and reporting, wired into the tools you already use.",
+    "Three core engineering disciplines: fast conversion-focused web architecture, semantic LLM visibility (AEO/GEO), and custom AI automations wired for growth.",
 };
 
 export default function WorkflowsPage() {

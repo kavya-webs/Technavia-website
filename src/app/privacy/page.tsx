@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Runbook — Privacy Policy",
+  title: "TECHNAVIA — Privacy Policy",
 };
 
 export default function PrivacyPage() {
@@ -44,7 +44,7 @@ export default function PrivacyPage() {
         <h2 className="text-xl font-tight font-semibold text-white">4. Your Rights</h2>
         <p>
           You may request full deletion of your contact records at any time by emailing
-          hello@runbookops.agency.
+          contact@technavia.com.
         </p>
       </article>
     </div>

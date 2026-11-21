@@ -11,6 +11,7 @@ export interface WorkflowItem {
   trigger: string;
   steps: string[];
   result: string;
+  img: string;
   caseStudy: {
     client: string;
     metric: string;
@@ -81,687 +82,449 @@ export interface FaqItem {
 }
 
 // -------------------------------------------------------------
-// WORKFLOWS DATA
+// TECHNAVIA 3 CORE SERVICES
 // -------------------------------------------------------------
 export const WORKFLOWS: WorkflowItem[] = [
   {
-    id: "invoicing",
+    id: "web-dev-seo",
     num: "01",
-    title: "Invoicing",
-    tagline: "Invoices out the minute a job closes, chased until paid.",
-    summary: "When a job is marked done in your project tool, the invoice is built from the quote, checked against purchase orders, and delivered with payment links.",
-    description: "Manual invoice chasing eats hours every Friday. Runbook wires your billing systems directly to work tracking so payment cycles drop from 45 days to 9 days.",
-    tools: ["Xero", "QuickBooks", "Stripe", "GoCardless", "Gmail"],
+    title: "Web Development + Technical SEO",
+    tagline: "Fast, conversion-focused websites engineered to rank from day one.",
+    summary:
+      "High-performance Next.js architectures with 100/100 Core Web Vitals, semantic Schema.org hierarchy, and canonical entity graphs designed to index and rank on Google from the moment of launch.",
+    description:
+      "Slow, bloated agency sites bleed conversion and fail Google's rendering budget. TECHNAVIA engineers clean TypeScript codebases with zero render-blocking bloat, achieving sub-400ms LCP times and instant search engine indexation.",
+    tools: ["Next.js", "TypeScript", "Tailwind CSS", "Schema.org", "Vercel"],
     timestamp: "02:14",
-    timeAction: "Invoice #4821 sent",
-    trigger: "Job marked 'Complete' in project tracker or CRM",
+    timeAction: "Core Web Vitals 100 · Schema Indexed",
+    trigger: "Production deployment & automated indexing hook",
     steps: [
-      "Job status change triggers draft invoice creation in accounting software",
-      "Line items and expenses validated against quote specifications",
-      "Invoice emailed with one-click payment links (card / bank debit)",
-      "Automated gentle reminders scheduled for days 7, 14, and 21 until reconciled",
+      "Modular Next.js App Router build with automated server-side caching",
+      "Semantic HTML5 & deep JSON-LD Schema graph injected at build-time",
+      "Sub-400ms Largest Contentful Paint (LCP) optimized across global CDNs",
+      "Automated XML sitemaps and immediate Google Search Console ping",
     ],
-    result: "Payments collected 9 days faster without administrative friction.",
+    result: "100/100 Google Lighthouse scores, indexation within 24 hours, and 3.2x higher organic crawl efficiency.",
+    img: "/images/tech/web_dev_seo.jpg",
     caseStudy: {
-      client: "Northcode Studio",
-      metric: "9 days faster paid",
-      quote: "We used to lose half of every Monday afternoon writing reminders. Now invoices land automatically before our clients finish their morning standup.",
+      client: "Vanguard Tech",
+      metric: "0.38s LCP · #1 Rankings",
+      quote: "TECHNAVIA re-architected our web system from scratch. Within 3 weeks of launch, our core commercial keywords jumped to page one.",
     },
   },
   {
-    id: "lead-routing",
+    id: "llm-visibility",
     num: "02",
-    title: "Lead routing",
-    tagline: "Every enquiry scored, assigned and in the CRM in seconds.",
-    summary: "Incoming leads from forms, chats, or partner portals are enriched with company firmographics, deduplicated, and routed instantly to the right desk.",
-    description: "Speed to lead is the highest predictor of close rate. In under 60 seconds, enquiries are scored, enriched, and put into your pipeline with draft replies.",
-    tools: ["HubSpot", "Pipedrive", "Typeform", "Clearbit", "Slack"],
+    title: "LLM Visibility (AEO / GEO)",
+    tagline: "Structured entity optimization so your brand is recommended by ChatGPT, Gemini & Perplexity.",
+    summary:
+      "Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) that position your company as the authoritative citation when buyers prompt AI models for vendor recommendations.",
+    description:
+      "Traditional SEO is no longer enough when B2B buyers query ChatGPT, Perplexity, and Gemini instead of clicking 10 blue links. TECHNAVIA structures your knowledge graph, entity associations, and authoritative data so AI models cite your brand first.",
+    tools: ["ChatGPT", "Gemini", "Perplexity", "Claude", "Knowledge Graph"],
     timestamp: "02:15",
-    timeAction: "Lead qualified · CRM updated",
-    trigger: "New inbound enquiry submitted via website or partner API",
+    timeAction: "Knowledge Graph Synced · AI Citations Live",
+    trigger: "Continuous LLM citation monitoring & entity sync",
     steps: [
-      "Webhook fires on form submission; Clearbit/enrichment API fetches employee count & revenue",
-      "Lead scoring algorithm calculates qualification tier (A, B, C)",
-      "Contact and deal records created in CRM with calendar booking links",
-      "Slack notification sent to matching team channel with full context dossier",
+      "Entity graph mapping across Wikidata, Crunchbase, and industry ontologies",
+      "Information gain content structuring designed specifically for LLM retrieval (RAG)",
+      "Digital PR and authoritative co-occurrence engineering across Tier-1 sources",
+      "Automated prompt-benchmark tracking across GPT-4o, Claude 3.5, Gemini Pro, and Perplexity",
     ],
-    result: "Lead response time drops from 4 hours to under 60 seconds.",
+    result: "From 0% to 68% share of AI model recommendations for high-intent category prompts.",
+    img: "/images/tech/llm_visibility.jpg",
     caseStudy: {
-      client: "Aldgate Estates",
-      metric: "3× viewings booked",
-      quote: "Portal leads answered in under a minute mean negotiators find qualified buyers before competitors even download their spreadsheets.",
+      client: "Apex SaaS Platform",
+      metric: "380% AI Citations Jump",
+      quote: "When prospective enterprise clients ask ChatGPT or Perplexity for the top software in our niche, TECHNAVIA made sure our name is the primary recommendation.",
     },
   },
   {
-    id: "support",
+    id: "ai-automations",
     num: "03",
-    title: "Support",
-    tagline: "Tickets answered, tagged and escalated without a queue.",
-    summary: "Customer queries are categorized, common requests resolved instantly from internal knowledge bases, and complex issues routed with conversation history.",
-    description: "Up to 70% of inbound tickets are repetitive queries. Runbook equips your helpdesk with autonomous triage agents that maintain brand voice.",
-    tools: ["Intercom", "Zendesk", "Help Scout", "Slack", "Notion"],
+    title: "Custom AI Automations",
+    tagline: "Tailored workflows that automate lead capture, follow-ups, and operations on autopilot.",
+    summary:
+      "Event-driven autonomous pipelines that qualify inbound enquiries, enrich firmographics, schedule meetings, and sync CRMs while your team sleeps.",
+    description:
+      "Eliminate administrative friction and human delay. TECHNAVIA connects your web forms, CRM, email infrastructure, and AI models into hardened background workflows that run 24/7 with zero manual intervention.",
+    tools: ["Python", "LangChain", "OpenAI API", "Supabase", "n8n"],
     timestamp: "02:16",
-    timeAction: "Ticket #772 closed",
-    trigger: "New support ticket received via email, widget or portal",
+    timeAction: "Leads Qualified · Pipeline on Autopilot",
+    trigger: "New inbound enquiry or operational event trigger",
     steps: [
-      "Ticket text parsed for urgency, topic intent, and sentiment",
-      "Knowledge retrieval matches ticket to verified documentation",
-      "Autonomous draft response generated or standard action executed",
-      "Complex edge-cases escalated to team with bullet-point summary",
+      "Form submission triggers instant firmographic data enrichment (company size, revenue, tech stack)",
+      "LLM agent evaluates enquiry against ICP criteria and drafts personalized response",
+      "High-value leads automatically routed to account executive calendar with full brief attached",
+      "CRM records, Slack alerts, and automated follow-up sequences synchronized on autopilot",
     ],
-    result: "71% of standard tickets resolved unattended overnight.",
+    result: "Average response time dropped from 4 hours to 42 seconds, boosting discovery call bookings by 142%.",
+    img: "/images/tech/ai_automations.jpg",
     caseStudy: {
-      client: "Fernwood Living",
-      metric: "71% tickets closed unattended",
-      quote: "Customers wake up to solved inquiries instead of a queue ticket. Our team now focuses purely on complex high-touch accounts.",
-    },
-  },
-  {
-    id: "onboarding",
-    num: "04",
-    title: "Onboarding",
-    tagline: "Contracts, accounts and welcome sequences from one form.",
-    summary: "One submission triggers client workspace provisioning, contract generation, billing authorization, and scheduled welcome communications.",
-    description: "Client kickoff shouldn't require copy-pasting across eight apps. A single submission provisions everything in 90 seconds flat.",
-    tools: ["DocuSign", "Google Drive", "Notion", "Slack", "Stripe"],
-    timestamp: "02:18",
-    timeAction: "Client folder created",
-    trigger: "Deal marked 'Closed Won' in CRM",
-    steps: [
-      "Master service agreement auto-generated and dispatched via DocuSign",
-      "Dedicated Google Drive directory structure and shared Notion portal built",
-      "Stripe customer profile created and recurring billing mandate initialized",
-      "Private Slack connect channel generated with automated welcome dossier",
-    ],
-    result: "Client kickoff time compressed from 3 days to under 3 minutes.",
-    caseStudy: {
-      client: "Crosslane Freight",
-      metric: "31 h a week back",
-      quote: "New drivers and vendors are onboarded with contracts and compliance checklists verified before their start date.",
-    },
-  },
-  {
-    id: "reporting",
-    num: "05",
-    title: "Reporting",
-    tagline: "The numbers on the desk every morning, nobody builds them.",
-    summary: "Daily figures aggregated overnight across financial tools, marketing pipelines, and operational queues, delivered as clean briefings at 07:00.",
-    description: "Stop spending late Sunday evenings compiling weekly KPI decks. Runbook synthesizes multi-source data while the team sleeps.",
-    tools: ["Google Sheets", "Looker Studio", "Xero", "HubSpot", "Slack"],
-    timestamp: "02:20",
-    timeAction: "Monday report sent",
-    trigger: "Scheduled cron timer every day at 02:00 UTC",
-    steps: [
-      "Extract revenue numbers from Stripe & Xero",
-      "Pull conversion metrics and pipeline velocity from CRM",
-      "Calculate variance against weekly targets and format clean summaries",
-      "Email structured PDF brief to leadership and post highlights to Slack",
-    ],
-    result: "Zero hours spent assembling manual reports each week.",
-    caseStudy: {
-      client: "Whitmore & Hale",
-      metric: "4 min matter opening",
-      quote: "The partners receive their billing realization numbers at 7 AM sharp with zero manual spreadsheet handling.",
+      client: "Kinetix Studio",
+      metric: "31h Saved Per Week",
+      quote: "Our engineers and account leads used to spend hours manually entering CRM data and drafting follow-ups. TECHNAVIA put the entire pipeline on autopilot.",
     },
   },
 ];
 
 // -------------------------------------------------------------
-// RESULTS DATA
+// CASE STUDIES / RESULTS DATA
 // -------------------------------------------------------------
 export const RESULTS: ResultItem[] = [
   {
-    id: "harbour-dental",
+    id: "apex-saas",
     num: "01",
-    client: "Harbour Dental",
-    industry: "Clinics",
-    year: "2026",
-    headline: "Reminders by text, a reply to reschedule, the diary refilled from the waiting list.",
-    metric: "−62 %",
-    metricSub: "missed appointments",
-    summary: "Two clinics with four dentists struggled with 40 morning calls and frequent last-minute cancellations.",
-    before: "Reception spent 3 hours every morning manually calling patients; 18% of booked slots went empty due to no-shows.",
-    after: "Two-way SMS reminders trigger auto-rescheduling; cancelled slots are instantly offered to the waitlist. Empty chair time dropped by two-thirds.",
-    workflowUsed: "Support & Reminders",
-    quote: {
-      text: "Our front desk used to start the day with 40 reminder calls. Now it starts with patients. Missed appointments are down by two thirds and nobody on my team touched a spreadsheet to get there.",
-      author: "Dr Hana Lee",
-      role: "Practice Owner · Harbour Dental",
-    },
-  },
-  {
-    id: "northcode-studio",
-    num: "02",
-    client: "Northcode Studio",
-    industry: "Agencies",
-    year: "2026",
-    headline: "Invoices generated on milestone completion, chased politely until paid.",
-    metric: "9 days",
-    metricSub: "faster paid",
-    summary: "A 16-person design agency with project managers chasing billing milestones instead of delivering creative work.",
-    before: "Invoice creation was delayed until month-end; average debtor days sat at 42 days.",
-    after: "Figma & Linear task completions trigger draft invoices in Xero with payment links. Average payment arrival down to 14 days.",
-    workflowUsed: "Invoicing & Billing",
-    quote: {
-      text: "We used to lose half of every Monday afternoon writing reminders. Now invoices land automatically before our clients finish their morning standup.",
-      author: "Martin Keane",
-      role: "Managing Director · Northcode Studio",
-    },
-  },
-  {
-    id: "fernwood-living",
-    num: "03",
-    client: "Fernwood Living",
-    industry: "E-commerce",
+    client: "Apex Scale SaaS",
+    industry: "Enterprise B2B Software",
     year: "2025",
-    headline: "Order tracking, address changes and returns handled without human intervention.",
-    metric: "71 %",
-    metricSub: "tickets closed unattended",
-    summary: "A direct-to-consumer furniture company inundated with 'Where is my order?' inquiries during seasonal rushes.",
-    before: "Support team of 4 overwhelmed by 300+ daily tickets; response times exceeded 24 hours.",
-    after: "Zendesk paired with Shopify & courier APIs answers delivery status and generates return labels instantly.",
-    workflowUsed: "Customer Support Automation",
+    headline: "Dominating generative AI search with 380% citation increase across ChatGPT & Perplexity",
+    metric: "380%",
+    metricSub: "AI CITATION GROWTH",
+    summary:
+      "Apex was invisible on generative AI platforms despite having a market-leading product. TECHNAVIA structured their entity graph, deployed semantic content clusters, and secured primary citations in 68% of relevant AI buyer queries.",
+    before: "0 citations in ChatGPT/Perplexity, relying solely on costly paid search ads.",
+    after: "Ranked as primary recommendation in 68% of target category prompts with zero ongoing ad spend.",
+    workflowUsed: "LLM Visibility (AEO / GEO)",
     quote: {
-      text: "About 70% of our tickets now close themselves while our support agents only touch nuanced design consultations.",
-      author: "Anjali Mehta",
-      role: "Head of Operations · Fernwood Living",
-    },
-  },
-  {
-    id: "crosslane-freight",
-    num: "04",
-    client: "Crosslane Freight",
-    industry: "Logistics",
-    year: "2025",
-    headline: "Driver dispatch, proof of delivery upload, and vendor onboarding unified.",
-    metric: "31 h",
-    metricSub: "a week back per team",
-    summary: "A regional logistics depot managing 45 trucks with paper dockets and manual WhatsApp chains.",
-    before: "Office dispatchers retyped delivery manifests into accounting software and called drivers individually.",
-    after: "Mobile delivery signatures automatically close jobs, file PODs, and generate customer receipts in real time.",
-    workflowUsed: "Onboarding & Dispatch",
-    quote: {
-      text: "The paperwork used to pile up until 8 PM every single evening. Now manifests reconcile themselves as each truck completes its drop.",
-      author: "Daniel Okoro",
-      role: "Operations Director · Crosslane Freight",
-    },
-  },
-  {
-    id: "whitmore-hale",
-    num: "05",
-    client: "Whitmore & Hale",
-    industry: "Legal",
-    year: "2025",
-    headline: "Client matter intake and anti-money laundering checks automated in minutes.",
-    metric: "4 min",
-    metricSub: "from enquiry to open matter",
-    summary: "A boutique commercial law firm spending billable associate hours on client intake compliance.",
-    before: "Onboarding a new client required 5 separate forms, manual identity verification, and 3-5 days wait time.",
-    after: "Secure client portal captures details, performs electronic ID checks, and builds matter workspaces in Clio.",
-    workflowUsed: "Compliance & Intake",
-    quote: {
-      text: "What used to take a paralegal two days of back-and-forth emails now finishes in four minutes with complete audit trails.",
-      author: "Eleanor Whitmore",
-      role: "Senior Partner · Whitmore & Hale",
-    },
-  },
-  {
-    id: "aldgate-estates",
-    num: "06",
-    client: "Aldgate Estates",
-    industry: "Real estate",
-    year: "2024",
-    headline: "Portal leads answered in under sixty seconds with calendar booking links.",
-    metric: "3×",
-    metricSub: "viewings booked",
-    summary: "An independent London estate agency competing against corporate brokerages for Rightmove enquiries.",
-    before: "Weekend and evening portal enquiries waited until Monday morning; 60% of prospective buyers ghosted.",
-    after: "Inbound enquiries trigger instant SMS & WhatsApp verification with direct viewing scheduling.",
-    workflowUsed: "Lead Routing & Scheduling",
-    quote: {
-      text: "Portal leads answered in under a minute mean our negotiators have their schedules packed before competitors even download their spreadsheets.",
+      text: "When prospective enterprise clients ask ChatGPT or Perplexity for the top software in our niche, TECHNAVIA made sure our name is the primary recommendation.",
       author: "Marcus Vance",
-      role: "Principal Broker · Aldgate Estates",
+      role: "VP of Growth, Apex SaaS",
+    },
+  },
+  {
+    id: "vanguard-fintech",
+    num: "02",
+    client: "Vanguard FinTech",
+    industry: "Financial Infrastructure",
+    year: "2025",
+    headline: "Sub-400ms load time and #1 organic rankings for high-intent enterprise search queries",
+    metric: "0.38s",
+    metricSub: "LARGEST CONTENTFUL PAINT",
+    summary:
+      "Vanguard's legacy WordPress architecture suffered from slow TTFB and high bounce rates. TECHNAVIA re-engineered the platform on Next.js, achieving 100/100 Core Web Vitals and instant Google indexation.",
+    before: "4.2s load speed, 62% mobile bounce rate, stuck on page 3 of Google search.",
+    after: "0.38s LCP, 100/100 Lighthouse score, and page 1 rankings for 18 core commercial terms.",
+    workflowUsed: "Web Development + Technical SEO",
+    quote: {
+      text: "TECHNAVIA re-architected our web system from scratch. Within 3 weeks of launch, our core commercial keywords jumped to page one.",
+      author: "Elena Rostova",
+      role: "Chief Technology Officer, Vanguard FinTech",
+    },
+  },
+  {
+    id: "kinetix-studio",
+    num: "03",
+    client: "Kinetix Studio",
+    industry: "Creative Technology",
+    year: "2025",
+    headline: "Automating lead qualification, CRM synchronization, and client follow-ups on autopilot",
+    metric: "31h",
+    metricSub: "SAVED PER TEAM, PER WEEK",
+    summary:
+      "Inbound leads sat in inboxes for hours before manual triage. TECHNAVIA deployed an autonomous pipeline that enriches leads, scores ICP fit, and books qualified calls in under 60 seconds.",
+    before: "4-hour average response time, 40% of inbound enquiries went cold before first contact.",
+    after: "42-second automated response with pre-drafted briefs, boosting call conversions by 142%.",
+    workflowUsed: "Custom AI Automations",
+    quote: {
+      text: "Our engineers and account leads used to spend hours manually entering CRM data. TECHNAVIA put the entire pipeline on autopilot.",
+      author: "David Thorne",
+      role: "Managing Director, Kinetix",
     },
   },
 ];
 
 // -------------------------------------------------------------
-// INDUSTRIES DATA
+// SECTORS & CLIENT TYPES
 // -------------------------------------------------------------
 export const INDUSTRIES: IndustryItem[] = [
   {
-    id: "clinics",
+    id: "b2b-saas",
     num: "01",
-    name: "Clinics",
-    share: "24 %",
-    workflows: ["Appointment reminders", "Intake forms", "Recall lists", "Deposit collection"],
-    description: "Dental practices, physio centers and medical clinics reclaiming front desk time from scheduling calls.",
-    exampleClient: "Harbour Dental",
+    name: "B2B SaaS & Tech",
+    share: "38%",
+    workflows: ["Web Dev + Technical SEO", "LLM Visibility", "AI Automations"],
+    description: "High-velocity web systems built to convert enterprise buyers and get recommended by generative AI search engines.",
+    exampleClient: "Apex Scale, CloudSphere, TensorLabs",
   },
   {
-    id: "agencies",
+    id: "fintech-finance",
     num: "02",
-    name: "Agencies",
-    share: "21 %",
-    workflows: ["Proposal to contract", "Client onboarding", "Timesheet to invoice", "Review requests"],
-    description: "Design studios, software consultancies and marketing teams automating billing and project setup.",
-    exampleClient: "Northcode Studio",
+    name: "FinTech & Professional Services",
+    share: "24%",
+    workflows: ["Web Dev + Technical SEO", "AI Automations"],
+    description: "High-security, sub-second web platforms with automated client intake, KYC verification, and instant reporting.",
+    exampleClient: "Vanguard FinTech, Meridian Capital",
   },
   {
-    id: "e-commerce",
+    id: "studios-agencies",
     num: "03",
-    name: "E-commerce",
-    share: "18 %",
-    workflows: ["Order updates", "Returns management", "Low-stock alerts", "Review syndication"],
-    description: "Direct-to-consumer brands eliminating repetitive support tickets and streamlining vendor reorders.",
-    exampleClient: "Fernwood Living",
+    name: "High-Growth Studios",
+    share: "18%",
+    workflows: ["LLM Visibility", "AI Automations"],
+    description: "Authority positioning that establishes agency founders as category leaders across AI search and traditional SERPs.",
+    exampleClient: "Kinetix Studio, Method & Form",
   },
   {
-    id: "logistics",
+    id: "ecommerce-brands",
     num: "04",
-    name: "Logistics",
-    share: "14 %",
-    workflows: ["Job dispatch", "Proof of delivery", "Customer updates", "Driver compliance"],
-    description: "Haulage, courier and warehouse networks replacing manual manifest retyping with webhook pipelines.",
-    exampleClient: "Crosslane Freight",
+    name: "High-Ticket E-Commerce",
+    share: "12%",
+    workflows: ["Web Dev + Technical SEO", "LLM Visibility"],
+    description: "Headless commerce frontends with deep structured product schema, rich snippets, and generative AI product recommendation indexing.",
+    exampleClient: "Aura Home, Valo Gear",
   },
   {
-    id: "legal",
+    id: "healthcare-clinics",
     num: "05",
-    name: "Legal",
-    share: "13 %",
-    workflows: ["Matter intake", "Conflict checks", "Time to bill", "Document assembly"],
-    description: "Law practices expediting AML verification and contract preparation without administrative bloat.",
-    exampleClient: "Whitmore & Hale",
-  },
-  {
-    id: "real-estate",
-    num: "06",
-    name: "Real estate",
-    share: "10 %",
-    workflows: ["Viewing bookings", "Valuation follow-ups", "Vendor updates", "Deposit tracking"],
-    description: "Residential agencies securing instant lead response on portal enquiries and automated calendar sync.",
-    exampleClient: "Aldgate Estates",
+    name: "Specialized Healthcare",
+    share: "8%",
+    workflows: ["Web Dev + Technical SEO", "AI Automations"],
+    description: "Local & technical SEO dominance with automated patient scheduling and zero-friction consultation booking.",
+    exampleClient: "Harbour Health, Pulse Ortho",
   },
 ];
 
 // -------------------------------------------------------------
-// TOOLS & INTEGRATIONS DATA
+// TECHNAVIA MODERN TECH STACK
 // -------------------------------------------------------------
 export const TOOLS: ToolItem[] = [
   {
-    id: "crm",
+    id: "nextjs",
     num: "01",
-    name: "CRM",
-    category: "Sales",
-    description: "Every lead, deal and note in one place, kept current by workflows rather than people.",
-    connectsTo: ["HubSpot", "Pipedrive", "Salesforce"],
-    workflowCount: 4,
-    since: "2019",
-  },
-  {
-    id: "invoicing",
-    num: "02",
-    name: "Invoicing",
-    category: "Finance",
-    description: "Quotes become invoices, invoices become reconciled cash without chasing.",
-    connectsTo: ["Xero", "QuickBooks", "Stripe", "GoCardless"],
+    name: "Next.js & React",
+    category: "FRONTEND",
+    description: "Sub-second server-side rendering, streaming architectures, and perfect Core Web Vitals.",
+    connectsTo: ["TypeScript", "Tailwind CSS", "Vercel"],
     workflowCount: 3,
-    since: "2019",
+    since: "2024",
   },
   {
-    id: "inbox",
+    id: "schema-seo",
+    num: "02",
+    name: "Schema & JSON-LD",
+    category: "TECHNICAL SEO",
+    description: "Deep semantic entity graphs enabling Google and AI bots to understand your brand identity.",
+    connectsTo: ["Google Search Console", "Wikidata", "Knowledge Graph"],
+    workflowCount: 3,
+    since: "2024",
+  },
+  {
+    id: "llm-engines",
     num: "03",
-    name: "Inbox",
-    category: "Comms",
-    description: "Mail read, sorted, enriched and drafted before you start your day.",
-    connectsTo: ["Gmail", "Outlook", "Slack"],
-    workflowCount: 5,
-    since: "2020",
+    name: "LLM Citation Engines",
+    category: "AEO / GEO",
+    description: "Structured retrieval engineering for ChatGPT, Gemini, Perplexity, and Claude answer engines.",
+    connectsTo: ["OpenAI API", "Anthropic", "Perplexity"],
+    workflowCount: 2,
+    since: "2024",
   },
   {
-    id: "helpdesk",
+    id: "langchain-python",
     num: "04",
-    name: "Helpdesk",
-    category: "Support",
-    description: "Tickets tagged, answered from internal docs and escalated with history attached.",
-    connectsTo: ["Intercom", "Zendesk", "Help Scout"],
+    name: "LangChain & Python",
+    category: "AI AGENTS",
+    description: "Autonomous reasoning agents for real-time lead qualification, firmographic enrichment, and triage.",
+    connectsTo: ["Supabase", "OpenAI", "Webhooks"],
     workflowCount: 2,
-    since: "2021",
+    since: "2024",
   },
   {
-    id: "docs",
+    id: "automation-webhooks",
     num: "05",
-    name: "Docs",
-    category: "Data",
-    description: "Contracts, folders and shared workspaces created the moment they are needed.",
-    connectsTo: ["Notion", "Google Drive", "DocuSign"],
+    name: "Autonomous Webhooks",
+    category: "AUTOMATION",
+    description: "Event-driven background pipelines wiring CRMs, calendar systems, and databases with zero latency.",
+    connectsTo: ["HubSpot", "Slack", "Stripe", "n8n"],
     workflowCount: 3,
-    since: "2020",
+    since: "2024",
   },
   {
-    id: "reporting",
+    id: "edge-infrastructure",
     num: "06",
-    name: "Reporting",
-    category: "Data",
-    description: "The figures pulled overnight and written up into morning briefings.",
-    connectsTo: ["Google Sheets", "Looker Studio", "Airtable"],
-    workflowCount: 2,
-    since: "2022",
+    name: "Global Edge Network",
+    category: "INFRASTRUCTURE",
+    description: "Global CDN distribution, edge serverless computing, and real-time vector database storage.",
+    connectsTo: ["Vercel", "Supabase", "Cloudflare"],
+    workflowCount: 3,
+    since: "2024",
   },
 ];
 
 // -------------------------------------------------------------
-// PRICING PACKAGES DATA
-// -------------------------------------------------------------
-export const PRICING_PACKAGES = [
-  {
-    id: "audit",
-    num: "01",
-    name: "The Audit",
-    price: "£2,800",
-    cadence: "Fixed price",
-    badge: "First step",
-    summary: "We sit with the people who do the work and identify every task that repeats across your tool stack.",
-    deliverables: [
-      "2 days of structured observation across your departments",
-      "Comprehensive map of 30+ repetitive operations",
-      "ROI prioritization scorecard (hours lost vs implementation cost)",
-      "Technical architecture plan for the top 5 high-impact workflows",
-      "Credited 100% against build fees if you proceed",
-    ],
-    timeline: "Week 1",
-  },
-  {
-    id: "build",
-    num: "02",
-    name: "Workflow Build",
-    price: "£4,500",
-    cadence: "Per workflow",
-    badge: "Most popular",
-    summary: "Turnkey custom automation wiring your tools with robust error handling, monitoring, and staff training.",
-    deliverables: [
-      "Full API & webhook integration between your systems",
-      "Custom business logic & conditional routing rules",
-      "Edge-case testing & failure fallback alerts to Slack",
-      "Interactive staff walkthrough video & documentation",
-      "30-day post-launch warranty with instant bug remediation",
-    ],
-    timeline: "Weeks 2–5",
-  },
-  {
-    id: "run",
-    num: "03",
-    name: "The Night Shift",
-    price: "£950",
-    cadence: "Per month",
-    badge: "Retainer",
-    summary: "Dedicated monitoring, API schema update maintenance, and ongoing workflow tweaks as your team expands.",
-    deliverables: [
-      "24/7 autonomous heartbeat logging and alert triage",
-      "API migration maintenance when tools release updates",
-      "Up to 4 minor workflow modifications or prompt adjustments / month",
-      "Weekly performance & task count executive report",
-      "Direct Slack access to your assigned automation engineer",
-    ],
-    timeline: "Ongoing",
-  },
-];
-
-// -------------------------------------------------------------
-// PROCESS STEPS DATA
-// -------------------------------------------------------------
-export const PROCESS_STEPS = [
-  {
-    step: "01",
-    week: "Week 1",
-    title: "Audit",
-    headline: "Finding the lost hours.",
-    description: "We sit with the people who do the work and list every task that repeats. Most teams find thirty; we pick the ten that cost the most hours.",
-    clientRole: "Two 45-minute interviews with department leads; view-only access to existing tools.",
-  },
-  {
-    step: "02",
-    week: "Week 2",
-    title: "Map",
-    headline: "Architecture & trigger rules.",
-    description: "We map the exact triggers, data transformations, security boundaries, and fallback conditions before writing any automation code.",
-    clientRole: "Review the workflow schematic and approve data validation criteria.",
-  },
-  {
-    step: "03",
-    week: "Weeks 3–4",
-    title: "Build",
-    headline: "Wiring the tools.",
-    description: "Our engineers build the pipelines, test against historical company edge-cases, and integrate failure notifications into your team's Slack.",
-    clientRole: "Provide sample edge-case data and test sandbox credentials.",
-  },
-  {
-    step: "04",
-    week: "Week 5",
-    title: "Launch",
-    headline: "Parallel run to live.",
-    description: "We run the workflows in shadow mode alongside your manual team for 5 days to verify 100% accuracy, then switch fully to autopilot.",
-    clientRole: "Sign off on shadow run accuracy verification.",
-  },
-  {
-    step: "05",
-    week: "Ongoing",
-    title: "Autopilot",
-    headline: "The morning report.",
-    description: "The systems execute through the night. Your team arrives to reconciled accounts, answered leads, and clean morning briefings.",
-    clientRole: "Read the Monday report; focus on high-value strategic work.",
-  },
-];
-
-// -------------------------------------------------------------
-// INSIGHTS / BLOG ARTICLES
-// -------------------------------------------------------------
-export const ARTICLES: ArticleItem[] = [
-  {
-    slug: "which-workflow-first",
-    type: "Guide",
-    date: "6 Oct 2026",
-    readTime: "5 min read",
-    title: "Which workflow to automate first",
-    excerpt: "Sort the list by hours lost, not by what looks clever. A ten-minute scoring method that picks the first project.",
-    author: {
-      name: "Mara Lindqvist",
-      role: "Founder · Solutions, Runbook",
-    },
-    content: [
-      "When companies decide to automate, their first instinct is usually to build something complex: a multi-model customer service agent, a dynamic pricing pipeline, or an elaborate predictive forecast.",
-      "In practice, the highest-ROI automation is almost always unglamorous. It is the invoice chasing email sent every Friday afternoon. It is the lead copied from Typeform into HubSpot. It is the Google Drive folder created when a client signs.",
-      "Here is the simple 3-part framework we use during our first-week audits to identify which workflow to tackle first.",
-      "1. Calculate Human Friction (Hours lost per week × hourly cost of the operator).",
-      "2. Calculate Error Severity (What happens when a human forgets this step on a busy Friday?).",
-      "3. Measure System Reliability (Are the target tools accessible via modern REST APIs or webhooks?).",
-      "If a task occurs at least 15 times a week, touches two or more tools, and follows deterministic if-this-then-that rules, wire that one first. The hours saved immediately fund the rest of your automation roadmap.",
-    ],
-  },
-  {
-    slug: "zapier-make-n8n",
-    type: "Insight",
-    date: "26 Sep 2026",
-    readTime: "6 min read",
-    title: "Zapier, Make or n8n: which one your business should run on",
-    excerpt: "Same apps, different owners, different costs at volume. How we choose, and where AI agents fit.",
-    author: {
-      name: "Jack Torrance",
-      role: "Lead Automation Architect, Runbook",
-    },
-    content: [
-      "One of the first questions clients ask is: 'Why not just hire someone on Upwork to build a few Zaps?'",
-      "Zapier is incredible for rapid prototyping and simple linear automations. But as soon as your business reaches 10,000 tasks a month, Zapier's task-based pricing turns into a punitive tax on your growth.",
-      "Make offers superior visual error branching and substantially better pricing at scale, making it our preferred engine for mid-sized operations.",
-      "For enterprise setups with strict GDPR, HIPAA, or on-premise compliance requirements, self-hosted n8n is unbeatable. You own the execution environment, pay zero per-task fees, and maintain complete control over sensitive customer payloads.",
-    ],
-  },
-  {
-    slug: "invoice-chasing",
-    type: "Guide",
-    date: "15 Sep 2026",
-    readTime: "5 min read",
-    title: "Chasing invoices without chasing anyone",
-    excerpt: "A four-step sequence in the client's own tone, tied to the day the work finishes, that stops the moment the money lands.",
-    author: {
-      name: "Mara Lindqvist",
-      role: "Founder · Solutions, Runbook",
-    },
-    content: [
-      "Most invoice chasing fails because it happens sporadically when the business owner notices cash flow dipping at the end of the month.",
-      "Effective automated chasing operates with predictable mathematical regularity. It begins 3 days before the invoice is due with an automated delivery confirmation.",
-      "On day +3, a gentle reminder with direct one-click Apple Pay or Stripe bank transfer links arrives.",
-      "By connecting your bank feed reconciliation directly to the notification webhook, the sequence instantly pauses the second payment clears, ensuring no client ever receives an embarrassing reminder for an already-paid bill.",
-    ],
-  },
-  {
-    slug: "ai-agents-in-support",
-    type: "Insight",
-    date: "2 Sep 2026",
-    readTime: "6 min read",
-    title: "What an AI agent should and should not answer in support",
-    excerpt: "About 70 % of tickets can close on their own. The other 30 % is where the setup matters.",
-    author: {
-      name: "Jack Torrance",
-      role: "Lead Automation Architect, Runbook",
-    },
-    content: [
-      "Nothing damages brand trust faster than an unconstrained LLM hallucinating refund policies or making false promises to an angry customer.",
-      "The golden rule of customer support automation: Autonomous agents should only handle deterministic, verifiable retrieval tasks.",
-      "Order status lookups, returns initiation, invoice re-sends, and appointment rescheduling should be automated with strict schema validation.",
-      "Complaints, refund requests above £50, or messages detected with negative sentiment must be summarized and escalated to experienced human agents with full customer context.",
-    ],
-  },
-  {
-    slug: "the-morning-report",
-    type: "Report",
-    date: "18 Aug 2026",
-    readTime: "4 min read",
-    title: "The morning report: what founders actually read at 07:00",
-    excerpt: "Why 80-page dashboard tools get ignored, and how a 6-line automated summary keeps leadership aligned.",
-    author: {
-      name: "Mara Lindqvist",
-      role: "Founder · Solutions, Runbook",
-    },
-    content: [
-      "Most executive dashboards fail because they require a founder to log into a portal and dig through filters to understand yesterday's performance.",
-      "A great automated morning report delivers three numbers directly to your lock screen: Yesterday's Cash Collected, New Qualified Pipeline, and Unresolved Operational Blockers.",
-      "When information is pushed proactively while the team sleeps, executive decisions happen over morning coffee rather than in reactive afternoon meetings.",
-    ],
-  },
-  {
-    slug: "cost-of-manual-work",
-    type: "Guide",
-    date: "5 Aug 2026",
-    readTime: "7 min read",
-    title: "The hidden compounding cost of manual data entry",
-    excerpt: "It's not just the 3 hours a day. It's the context switching, the typos, and the staff burnout.",
-    author: {
-      name: "Jack Torrance",
-      role: "Lead Automation Architect, Runbook",
-    },
-    content: [
-      "When calculating the cost of manual administration, leaders usually multiply hourly wages by hours spent typing.",
-      "This overlooks the compounding cost of context switching. Research shows it takes 23 minutes for an employee to regain deep focus after being interrupted by an administrative task.",
-      "By removing repetitive data entry from skilled knowledge workers, team satisfaction rises, turnover drops, and operational velocity triples.",
-    ],
-  },
-];
-
-// -------------------------------------------------------------
-// FAQS DATA
+// FAQS
 // -------------------------------------------------------------
 export const FAQS: FaqItem[] = [
   {
     num: "01",
-    question: "What exactly do you automate?",
-    answer: "The repeatable work between your systems: invoicing and chasing, lead routing and CRM upkeep, client onboarding, support replies, reports and month end. If a task happens every week and touches more than one tool, it is a candidate.",
-    category: "Scope",
+    category: "TECHNICAL SEO",
+    question: "What makes TECHNAVIA websites rank faster on Google?",
+    answer:
+      "Most agency websites are built on bloated CMS templates laden with render-blocking scripts, unoptimized fonts, and broken hierarchy. TECHNAVIA engineers clean Next.js architectures with 100/100 Core Web Vitals, sub-400ms LCP times, and deep JSON-LD Schema graphs. Search engine crawlers parse your entity relationships immediately without consuming crawl budget, giving you top rankings faster.",
   },
   {
     num: "02",
-    question: "Which tools do you work with?",
-    answer: "Your CRM (HubSpot, Pipedrive, Salesforce), accounting (Xero, QuickBooks, Stripe), inbox and chat (Gmail, Outlook, Slack), helpdesk (Intercom, Zendesk, Help Scout), docs (Notion, Google Drive, DocuSign) and reporting (Sheets, Looker Studio, Airtable). Workflows run on Make, Zapier or n8n, with AI agents for reading, sorting and drafting. If you use something else, we have probably connected it.",
-    category: "Tools",
+    category: "LLM VISIBILITY",
+    question: "What is LLM Visibility (AEO / GEO) and why does it matter?",
+    answer:
+      "Modern buyers increasingly use ChatGPT, Gemini, and Perplexity instead of Google to find software, agencies, and vendors. LLM Visibility (Generative Engine Optimization) structures your content, entity associations, and digital footprint so AI models retrieve and cite your brand as the primary authority when buyers prompt for recommendations.",
   },
   {
     num: "03",
-    question: "How long does a first workflow take?",
-    answer: "The audit takes a week. The first workflow is usually live three to four weeks after that, running alongside the manual process until you are happy to switch it off. Most clients have three workflows live inside the first quarter.",
-    category: "Timeline",
+    category: "AI AUTOMATIONS",
+    question: "How do your Custom AI Automations work with our existing stack?",
+    answer:
+      "We build event-driven background pipelines that connect seamlessly into the tools you already use (HubSpot, Salesforce, Slack, Gmail, Supabase). Inbound enquiries are enriched, scored by AI agents, and booked directly into your sales team's calendar within seconds—running 24/7 with zero manual effort.",
   },
   {
     num: "04",
-    question: "What does it cost?",
-    answer: "A fixed price per workflow, agreed after the audit, and a monthly care plan that covers monitoring, fixes and small changes. The audit is a fixed £1,500 for one week and ends with a list of what to automate first and what each item is worth in hours.",
-    category: "Pricing",
+    category: "PROCESS",
+    question: "How long does a typical Web Development & SEO project take?",
+    answer:
+      "Our core builds are executed in rapid 3-to-5 week engineering sprints: Week 1 is technical audit and blueprinting; Weeks 2–3 are Next.js architecture and UI engineering; Week 4 is Schema injection, LLM indexing, and automated pipeline integration; Week 5 is live launch and verification.",
   },
   {
     num: "05",
-    question: "What happens when something breaks?",
-    answer: "Every workflow writes a log and alerts us when a run fails. We fix most failures before you notice; anything that needs a decision from you arrives as a short message with the context attached. Nothing silently stops.",
-    category: "Reliability",
+    category: "PRICING",
+    question: "Can we hire TECHNAVIA on an ongoing retainer?",
+    answer:
+      "Yes. In addition to fixed-price project builds, we offer ongoing Autopilot Retainers that cover continuous technical SEO optimization, LLM prompt-citation monitoring, and automated workflow expansion as your business scales.",
   },
   {
     num: "06",
-    question: "Where does our data go?",
-    answer: "It stays in your own accounts. Workflows run under your logins with the least access they need, we hold no copies of your records, and AI steps are configured so that nothing is used for training. We sign your data agreement before any build.",
-    category: "Security",
-  },
-  {
-    num: "07",
-    question: "Do we own the workflows?",
-    answer: "Yes. They are built in your accounts, documented, and yours to keep if you ever leave. We do not lock a client into a tool or into us.",
-    category: "Ownership",
-  },
-  {
-    num: "08",
-    question: "Are we too small for this?",
-    answer: "If one person spends more than a day a week on admin that follows the same steps, you are the right size. Our smallest client has four people; the first workflow saved them eleven hours a week.",
-    category: "Eligibility",
+    category: "OWNERSHIP",
+    question: "Who owns the code, intellectual property, and AI workflows?",
+    answer:
+      "You own 100% of everything we build. All Next.js source code, custom Python scripts, Schema configurations, and automation workflows are handed over directly to your team or GitHub repository with complete documentation.",
   },
 ];
 
 // -------------------------------------------------------------
-// NIGHT LOG TERMINAL DATA
+// ARTICLES & INSIGHTS
 // -------------------------------------------------------------
-export const NIGHT_LOGS = [
+export const ARTICLES: ArticleItem[] = [
   {
-    time: "23:52",
-    event: "New lead from website form",
-    workflow: "Lead routing",
-    result: "In the CRM, owner assigned, first reply sent",
+    slug: "ranking-in-chatgpt-perplexity",
+    type: "Guide",
+    date: "November 2025",
+    readTime: "6 min read",
+    title: "How to rank your brand in ChatGPT, Perplexity, and Gemini (AEO/GEO)",
+    excerpt:
+      "The definitive framework for structuring your company's entity graph and content so generative AI search engines cite you as the primary category authority.",
+    author: {
+      name: "TECHNAVIA Engineering",
+      role: "AI & Search Architecture",
+    },
+    content: [
+      "Generative AI has fundamentally shifted how B2B buyers discover solutions. Instead of scrolling through 10 Google links, buyers ask: 'What are the top web engineering studios for AI startups?'",
+      "If your brand isn't structured into the training weights, retrieval corpora, or live search indexes of Perplexity and ChatGPT Search, you are effectively invisible to the highest-intent buyers.",
+      "In this guide, we break down the 3 layers of Generative Engine Optimization: Entity Graph Mapping, Information Gain Content Structuring, and Digital Authority Co-occurrence.",
+    ],
   },
   {
-    time: "00:07",
-    event: "Proposal #318 signed",
-    workflow: "Onboarding",
-    result: "Workspace, invoice and welcome mail created",
+    slug: "core-web-vitals-100-guide",
+    type: "Insight",
+    date: "October 2025",
+    readTime: "5 min read",
+    title: "Why sub-400ms LCP is the highest-ROI technical SEO lever",
+    excerpt:
+      "How clean Next.js architecture and zero-render-blocking engineering directly translate into higher organic crawl frequency and top Google rankings.",
+    author: {
+      name: "TECHNAVIA Engineering",
+      role: "Frontend Systems",
+    },
+    content: [
+      "Page speed is not just a vanity metric—it dictates Google's crawl budget allocation and mobile ranking indexation.",
+      "When your Largest Contentful Paint loads in under 400ms, search engine spiders can render 10x more pages per second, indexing new commercial content within hours instead of weeks.",
+      "Here is how we eliminate hydration bloat and leverage edge caching to achieve consistent 100/100 Lighthouse performance.",
+    ],
   },
   {
-    time: "00:41",
-    event: "Invoice #4821 sent",
-    workflow: "Invoicing",
-    result: "Payment link sent, reminders set for day 7, 14 and 21",
+    slug: "automating-b2b-lead-pipeline",
+    type: "Report",
+    date: "September 2025",
+    readTime: "7 min read",
+    title: "Automating B2B lead capture: From 4 hours to 42 seconds",
+    excerpt:
+      "How event-driven AI pipelines qualify inbound enquiries, enrich firmographics, and schedule meetings while the sales team sleeps.",
+    author: {
+      name: "TECHNAVIA Engineering",
+      role: "Autonomous Operations",
+    },
+    content: [
+      "Speed-to-lead is the single highest predictor of deal closure. A lead contacted within 5 minutes is 21 times more likely to enter the sales cycle than one contacted after 30 minutes.",
+      "By connecting web forms to LLM agents and webhook triggers, TECHNAVIA customers enrich company revenue and tech stack data instantly, booking qualified calls without any human overhead.",
+    ],
+  },
+];
+
+// -------------------------------------------------------------
+// PROCESS STEPS
+// -------------------------------------------------------------
+export interface ProcessStepItem {
+  step: string;
+  week: string;
+  title: string;
+  headline: string;
+  description: string;
+  clientRole: string;
+  img: string;
+}
+
+export const PROCESS_STEPS: ProcessStepItem[] = [
+  {
+    step: "01",
+    week: "PHASE 1",
+    title: "Audit",
+    headline: "Forensic technical & entity analysis",
+    description:
+      "We perform an in-depth audit of your web performance, semantic entity footprint, search rankings, and operational bottlenecks to build a prioritized roadmap.",
+    clientRole:
+      "A 60-minute discovery call; access to search console and current workflow blueprints.",
+    img: "/images/tech/process_audit.jpg",
   },
   {
-    time: "01:15",
-    event: "14 support tickets sorted",
-    workflow: "Support triage",
-    result: "9 answered, 5 handed to team with context dossier",
+    step: "02",
+    week: "PHASE 2",
+    title: "Build",
+    headline: "Engineering clean web architecture",
+    description:
+      "We engineer a lightning-fast Next.js application with zero bloat, rigorous TypeScript types, modern Tailwind styles, and sub-second Core Web Vitals.",
+    clientRole:
+      "Review interactive staging environment and sign off on core page templates.",
+    img: "/images/tech/process_build.jpg",
   },
   {
-    time: "01:48",
-    event: "Stock below 20 on SKU 1132",
-    workflow: "Reordering",
-    result: "Purchase order sent to supplier",
+    step: "03",
+    week: "PHASE 3",
+    title: "Index",
+    headline: "LLM visibility & structured search schema",
+    description:
+      "We deploy JSON-LD knowledge graphs, entity relationships, and semantic topic clusters engineered for top rankings on Google and citations in ChatGPT & Perplexity.",
+    clientRole:
+      "Sign-off on brand entity claims, core services, and knowledge graph attributes.",
+    img: "/images/tech/process_indexing.jpg",
   },
   {
-    time: "02:14",
-    event: "Weekly report built",
-    workflow: "Reporting",
-    result: "In founder's inbox at 07:00 sharp",
+    step: "04",
+    week: "PHASE 4",
+    title: "Automate",
+    headline: "Connecting pipelines to autopilot",
+    description:
+      "We wire inbound forms, instant AI lead qualification, CRM synchronization, and automated notification pipelines so growth operations run 24/7.",
+    clientRole:
+      "Review dummy-lead test run and automated notification alerts.",
+    img: "/images/tech/process_automate.jpg",
+  },
+  {
+    step: "05",
+    week: "ONGOING",
+    title: "Scale",
+    headline: "Autonomous growth & rank monitoring",
+    description:
+      "Continuous monitoring of organic keyword rankings, LLM answer engine visibility, and automated workflow uptime with executive monthly reporting.",
+    clientRole:
+      "Read a 60-second summary while drinking your coffee.",
+    img: "/images/tech/process_scale.jpg",
   },
 ];

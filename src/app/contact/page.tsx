@@ -4,9 +4,9 @@ import { SubpageHero } from "@/components/sections/SubpageHero";
 import { ContactForm } from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: "Runbook — Contact: write to the desk",
+  title: "TECHNAVIA — Contact: Direct Engineering Line",
   description:
-    "Direct line to senior automation architects in London. Zero SDR layers, zero automated sales funnels. Response within 24 hours.",
+    "Direct line to senior web architects and AI engineers in London & SF. Zero SDR layers, zero automated sales funnels. Response within 24 hours.",
 };
 
 export default function ContactPage() {
@@ -41,10 +41,10 @@ export default function ContactPage() {
                 </span>
               </div>
               <a
-                href="mailto:hello@runbookops.agency"
+                href="mailto:contact@technavia.com"
                 className="text-2xl font-tight font-semibold text-white hover:text-[#D4F542] transition-colors"
               >
-                hello@runbookops.agency
+                contact@technavia.com
               </a>
             </div>
 

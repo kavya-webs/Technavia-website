@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = ARTICLES.find((a) => a.slug === slug);
   if (!post) return { title: "Article Not Found" };
   return {
-    title: `${post.title} — Runbook Insights`,
+    title: `${post.title} — TECHNAVIA Insights`,
     description: post.excerpt,
   };
 }

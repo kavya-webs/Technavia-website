@@ -7,8 +7,8 @@ import { BookSection } from "@/components/sections/BookSection";
 import { PROCESS_STEPS } from "@/lib/data";
 
 export const metadata = {
-  title: "Runbook — Process: from audit to autopilot",
-  description: "The same plan every time: audit, map, build, launch, report. You know what each week needs from you.",
+  title: "TECHNAVIA — Process: From Blueprint to Market Dominance",
+  description: "Five engineering stages from forensic audit to high-speed web architecture, LLM indexing, and automated growth operations.",
 };
 
 export default function ProcessPage() {
@@ -17,18 +17,18 @@ export default function ProcessPage() {
       {/* Hero */}
       <SubpageHero
         pageName="PROCESS"
-        titleLine1="From audit"
-        titleLine2="to autopilot."
+        titleLine1="From blueprint"
+        titleLine2="to market dominance."
         highlightLine2={true}
-        subtitle="Five weeks from first conversation to fully automated operations running every night."
+        subtitle="From deep technical audit to fast web engineering, LLM indexing, and autonomous operations."
         primaryCta={{ label: "Book an audit", href: "/book" }}
         secondaryCta={{ label: "See pricing", href: "/pricing" }}
-        backgroundImage="/images/workflows/clean_hero_122.jpg"
+        backgroundImage="/images/tech/process_build.jpg"
         wireframeNumber="05"
         statusPills={[
-          { text: "5 STEPS TO AUTOPILOT", variant: "brass" },
-          { text: "AVERAGE 3-4 WEEKS TO LIVE", variant: "ghost" },
-          { text: "ZERO CODE CHANGES", variant: "outline" },
+          { text: "5 ENGINEERING PHASES", variant: "brass" },
+          { text: "SUB-SECOND CORE WEB VITALS", variant: "ghost" },
+          { text: "AEO / GEO VISIBILITY", variant: "outline" },
         ]}
       />
 

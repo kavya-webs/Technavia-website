@@ -14,8 +14,8 @@ const REVIEW_PORTRAITS = [
 
 export function ReviewsSection() {
   const [activeReview, setActiveReview] = useState<number>(0);
-  const reviews = RESULTS.slice(0, 5);
-  const current = reviews[activeReview];
+  const reviews = RESULTS;
+  const current = reviews[activeReview] || reviews[0];
 
   return (
     <section className="relative w-full bg-[#F2F3EE] text-[#14161A] py-24 md:py-36 px-6 md:px-14 border-t border-[#14161A]/10">

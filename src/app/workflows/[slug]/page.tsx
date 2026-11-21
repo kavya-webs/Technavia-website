@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const wf = WORKFLOWS.find((w) => w.id === slug);
   if (!wf) return { title: "Workflow Not Found" };
   return {
-    title: `Runbook — ${wf.title} Workflow`,
+    title: `TECHNAVIA — ${wf.title}`,
     description: wf.tagline,
   };
 }

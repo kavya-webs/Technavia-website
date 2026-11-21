@@ -16,63 +16,67 @@ interface ToolCardData {
 
 const LEFT_TOOLS: ToolCardData[] = [
   {
-    id: "crm",
+    id: "architecture",
     num: "01",
-    category: "SALES",
-    name: "CRM",
+    category: "ARCHITECTURE",
+    name: "Next.js & React",
     description:
-      "Every lead, deal and note in one place, kept current by the workflows rather than by people.",
-    connectsTo: "HubSpot, Pipedrive, Salesforce",
-    meta: "USED IN 4 WORKFLOWS • SINCE 2019",
+      "Server-rendered, statically generated edge performance with sub-second LCP and zero client-side bloat.",
+    connectsTo: "TypeScript, Vercel, TailwindCSS",
+    meta: "WEB FRAMEWORK • PRODUCTION GRADE",
   },
   {
-    id: "inbox",
+    id: "search",
     num: "03",
-    category: "COMMS",
-    name: "Inbox",
-    description: "Mail read, sorted and drafted before you open it.",
-    connectsTo: "Gmail, Outlook, Slack",
-    meta: "USED IN 5 WORKFLOWS • SINCE 2020",
+    category: "SEARCH",
+    name: "Technical SEO & Schema",
+    description:
+      "Rich entity graphs, JSON-LD microdata, and Core Web Vitals optimization to win top organic positions.",
+    connectsTo: "Google Search Console, Schema.org, Ahrefs",
+    meta: "ORGANIC INDEXING • CONTINUOUS",
   },
   {
-    id: "docs",
+    id: "reasoning",
     num: "05",
-    category: "DATA",
-    name: "Docs",
-    description: "Contracts, folders and boards created the moment they are needed.",
-    connectsTo: "DocuSign, Notion, Google Workspace",
-    meta: "USED IN 3 WORKFLOWS • SINCE 2020",
+    category: "REASONING",
+    name: "OpenAI & Claude",
+    description:
+      "Generative AI reasoning engines analyzing user queries, enriching content, and qualifying inbound leads.",
+    connectsTo: "GPT-4o, Claude 3.5 Sonnet, Gemini Pro",
+    meta: "INTELLIGENCE LAYER • ACTIVE",
   },
 ];
 
 const RIGHT_TOOLS: ToolCardData[] = [
   {
-    id: "invoicing",
+    id: "visibility",
     num: "02",
-    category: "FINANCE",
-    name: "Invoicing",
-    description: "Quotes become invoices, invoices become reconciled cash.",
-    connectsTo: "Xero, QuickBooks, Stripe",
-    meta: "USED IN 3 WORKFLOWS • SINCE 2019",
-  },
-  {
-    id: "helpdesk",
-    num: "04",
-    category: "SUPPORT",
-    name: "Helpdesk",
+    category: "VISIBILITY",
+    name: "Perplexity & AEO",
     description:
-      "Tickets tagged, answered from your own articles and escalated with the history attached.",
-    connectsTo: "Intercom, Zendesk, Help Scout",
-    meta: "USED IN 2 WORKFLOWS • SINCE 2021",
+      "Entity mapping and answer engine citations so AI assistants cite and recommend your brand first.",
+    connectsTo: "Perplexity API, SearchGPT, Bing IndexNow",
+    meta: "ANSWER ENGINE OPTIMIZATION",
   },
   {
-    id: "reporting",
+    id: "automation",
+    num: "04",
+    category: "AUTOMATION",
+    name: "n8n & Workflow Bus",
+    description:
+      "Mission-critical webhook pipelines routing leads, scheduling demos, and syncing systems on autopilot.",
+    connectsTo: "n8n, Make, Zapier, Webhooks",
+    meta: "PIPELINE ORCHESTRATION • 24/7",
+  },
+  {
+    id: "knowledge",
     num: "06",
-    category: "DATA",
-    name: "Reporting",
-    description: "The figures pulled overnight and written morning.",
-    connectsTo: "Google Sheets, Metabase, Notion",
-    meta: "USED IN 4 WORKFLOWS • SINCE 2021",
+    category: "KNOWLEDGE",
+    name: "Vector & Semantic DB",
+    description:
+      "High-dimensional vector embeddings powering custom domain knowledge retrieval and RAG architectures.",
+    connectsTo: "Pinecone, Supabase, pgvector",
+    meta: "SEMANTIC MEMORY • REAL-TIME",
   },
 ];
 
@@ -204,16 +208,15 @@ export function ToolsStack() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
-            <SectionLabel>Tools</SectionLabel>
+            <SectionLabel>Engineering Stack</SectionLabel>
             <h2 className="text-4xl sm:text-6xl lg:text-[76px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1]">
-              Your stack, <span className="text-[#D4F542]">wired.</span>
+              The modern stack <br />
+              <span className="text-[#D4F542]">under the hood.</span>
             </h2>
           </div>
           <div className="flex flex-col items-start md:items-end gap-5 max-w-md">
             <p className="text-base text-white/60 leading-relaxed font-sans md:text-right">
-              We do not replace the tools your team already pays for. We connect
-              them, so a change in one shows up in all the others before anyone
-              has to type it twice.
+              We engineer modern Jamstack code connected to leading AI reasoning models and automation buses — built for speed, rankings, and conversions.
             </p>
             <Button href="/book" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[42px] !text-xs">
               Book a stack audit
@@ -335,11 +338,11 @@ export function ToolsStack() {
                 </span>
 
                 <div className="text-3xl sm:text-[34px] font-tight font-bold text-white tracking-tight leading-none mb-1">
-                  Runbook
+                  TECHNAVIA
                 </div>
 
                 <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.16em] text-[#D4F542] font-semibold">
-                  RUNS THE WORKFLOWS BETWEEN THEM
+                  NAVIGATING THE FUTURE OF TECHNOLOGY
                 </span>
               </div>
             </div>

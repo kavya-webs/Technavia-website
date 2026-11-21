@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { TechnaviaLogo } from "../ui/TechnaviaLogo";
 
 export function LoadingScreen() {
   const [shouldRender, setShouldRender] = useState(false);
@@ -10,10 +11,10 @@ export function LoadingScreen() {
   useEffect(() => {
     // Only show on first visit in this browser session
     try {
-      const shown = sessionStorage.getItem("runbook_intro_shown");
+      const shown = sessionStorage.getItem("technavia_intro_shown");
       if (!shown) {
         setShouldRender(true);
-        sessionStorage.setItem("runbook_intro_shown", "true");
+        sessionStorage.setItem("technavia_intro_shown", "true");
 
         // Complete fast & smooth in 1.1s
         const doneTimer = setTimeout(() => {
@@ -34,7 +35,7 @@ export function LoadingScreen() {
 
   if (!shouldRender || isDone) return null;
 
-  const words = ["THE", "NIGHT", "SHIFT", "STARTS"];
+  const words = ["BUILT", "TO", "RANK.", "AUTOMATED", "TO", "SCALE."];
 
   return (
     <AnimatePresence>
@@ -68,10 +69,7 @@ export function LoadingScreen() {
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
               className="flex items-center gap-4"
             >
-              <div className="w-8 h-8 rounded-full bg-[#D4F542] shadow-[0_0_20px_#D4F542]" />
-              <h1 className="text-4xl md:text-5xl font-tight font-bold tracking-tight text-white">
-                Runbook
-              </h1>
+              <TechnaviaLogo variant="horizontal" symbolSize={38} wordmarkHeight={24} />
             </motion.div>
 
             {/* Word-by-word dropping subtitle */}

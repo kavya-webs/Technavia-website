@@ -170,10 +170,10 @@ export function ProcessSection() {
               OUR 21-DAY PROCESS
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.05]">
+          <p className="text-3xl sm:text-4xl font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.05]">
             From silent website <br />
             <span className="text-[#D4F542]">to automated pipeline in three weeks.</span>
-          </h2>
+          </p>
           <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-sans">
             Five engineering stages from deep technical audit to fully indexed, automated digital authority.
           </p>

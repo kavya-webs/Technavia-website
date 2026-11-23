@@ -15,7 +15,7 @@ export function OrganizationJsonLd() {
         "logo": {
           "@type": "ImageObject",
           "@id": "https://technaviatechnology.com/#logo",
-          "url": "https://technaviatechnology.com/images/technavia/Logo_Png/Full_logo.png",
+          "url": "https://technaviatechnology.com/logo.png",
           "caption": "TECHNAVIA Logo",
         },
         "description":
@@ -83,14 +83,6 @@ export function OrganizationJsonLd() {
         "description": "Websites engineered to rank on Google & AI.",
         "publisher": {
           "@id": "https://technaviatechnology.com/#organization",
-        },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://technaviatechnology.com/blogs?q={search_term_string}",
-          },
-          "query-input": "required name=search_term_string",
         },
       },
       {
@@ -201,7 +193,7 @@ export function ArticleJsonLd({
       "name": "TECHNAVIA",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://technaviatechnology.com/icon.svg",
+        "url": "https://technaviatechnology.com/logo.png",
       },
     },
     "mainEntityOfPage": {

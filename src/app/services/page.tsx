@@ -121,8 +121,8 @@ export default function ServicesPage() {
                     <span className="font-mono text-2xl font-bold text-[#D4F542]">
                       {srv.num}
                     </span>
-                    <div className="px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.1] text-xs font-mono text-white/90">
-                      <strong className="text-[#D4F542] mr-1">{srv.metric}</strong> {srv.metricLabel}
+                    <div className="px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.1] text-xs font-mono text-white/90 whitespace-nowrap shrink-0">
+                      <strong className="text-[#D4F542] mr-1 whitespace-nowrap">{srv.metric}</strong> <span className="whitespace-nowrap">{srv.metricLabel}</span>
                     </div>
                   </div>
 

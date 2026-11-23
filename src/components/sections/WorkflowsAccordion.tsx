@@ -116,10 +116,10 @@ export function WorkflowsAccordion() {
                 <span className="font-mono text-2xl font-semibold text-[#D4F542]">
                   {cap.num}
                 </span>
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.1] text-xs font-mono text-white/90">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
-                  <span className="font-semibold text-[#D4F542]">{cap.metric}</span>
-                  <span className="text-white/60">{cap.metricLabel}</span>
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.1] text-xs font-mono text-white/90 whitespace-nowrap shrink-0">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542] shrink-0" />
+                  <span className="font-semibold text-[#D4F542] whitespace-nowrap">{cap.metric}</span>
+                  <span className="text-white/60 whitespace-nowrap">{cap.metricLabel}</span>
                 </div>
               </div>
 

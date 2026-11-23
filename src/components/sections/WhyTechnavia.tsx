@@ -32,7 +32,7 @@ export function WhyTechnavia() {
 
           {/* Right Column: Dark-Tech Architecture HUD Card */}
           <div className="lg:col-span-5 flex justify-start lg:justify-end">
-            <div className="relative w-full max-w-[540px] aspect-[16/11] rounded-2xl overflow-hidden border border-white/[0.12] bg-[#0E1116] shadow-2xl p-6 flex flex-col justify-between group">
+            <div className="relative w-full max-w-[540px] min-h-[330px] sm:aspect-[16/11] rounded-2xl overflow-hidden border border-white/[0.12] bg-[#0E1116] shadow-2xl p-4 sm:p-6 flex flex-col justify-between group">
               {/* Circuit Grid Pattern Background */}
               <div className="absolute inset-0 opacity-20 pointer-events-none">
                 <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -50,43 +50,43 @@ export function WhyTechnavia() {
               <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[#D4F542]/10 blur-3xl pointer-events-none" />
 
               {/* Top HUD Telemetry */}
-              <div className="relative z-10 flex items-center justify-between text-xs font-mono">
-                <div className="flex items-center gap-2">
+              <div className="relative z-10 flex flex-wrap items-center justify-between gap-y-1 gap-x-2 text-xs font-mono">
+                <div className="flex items-center gap-2 shrink-0">
                   <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542] animate-pulse" />
-                  <span className="text-white/80 font-medium">ENGINEERING BUS ONLINE</span>
+                  <span className="text-white/80 font-medium text-[11px] sm:text-xs">ENGINEERING BUS ONLINE</span>
                 </div>
-                <span className="text-white/40 uppercase tracking-widest text-[10px]">NEXT.JS · GEO · N8N</span>
+                <span className="text-white/40 uppercase tracking-widest text-[9px] sm:text-[10px] shrink-0">NEXT.JS · GEO · N8N</span>
               </div>
 
               {/* Center Architecture Blueprint Nodes */}
-              <div className="relative z-10 my-auto grid grid-cols-3 gap-3 py-4">
-                <div className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.08] flex flex-col gap-1">
-                  <span className="text-[10px] font-mono text-[#D4F542]">01 · SPEED</span>
-                  <span className="text-sm font-tight font-bold text-white">&lt; 1.0s LCP</span>
-                  <span className="text-[11px] font-sans text-white/50">Edge Pre-rendered</span>
+              <div className="relative z-10 my-auto grid grid-cols-3 gap-2 sm:gap-3 py-3 sm:py-4">
+                <div className="p-2 sm:p-3 rounded-xl bg-white/[0.04] border border-white/[0.08] flex flex-col gap-0.5 sm:gap-1">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-[#D4F542]">01 · SPEED</span>
+                  <span className="text-xs sm:text-sm font-tight font-bold text-white whitespace-nowrap">&lt; 1.0s LCP</span>
+                  <span className="text-[10px] sm:text-[11px] font-sans text-white/50 leading-tight">Edge Pre-rendered</span>
                 </div>
-                <div className="p-3 rounded-xl bg-white/[0.04] border border-[#D4F542]/30 flex flex-col gap-1 shadow-[0_0_20px_rgba(212,245,66,0.1)]">
-                  <span className="text-[10px] font-mono text-[#D4F542]">02 · ENTITY</span>
-                  <span className="text-sm font-tight font-bold text-white">AEO / GEO</span>
-                  <span className="text-[11px] font-sans text-white/50">ChatGPT & Perplexity</span>
+                <div className="p-2 sm:p-3 rounded-xl bg-white/[0.04] border border-[#D4F542]/30 flex flex-col gap-0.5 sm:gap-1 shadow-[0_0_20px_rgba(212,245,66,0.1)]">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-[#D4F542]">02 · ENTITY</span>
+                  <span className="text-xs sm:text-sm font-tight font-bold text-white whitespace-nowrap">AEO / GEO</span>
+                  <span className="text-[10px] sm:text-[11px] font-sans text-white/50 leading-tight">ChatGPT & Perplexity</span>
                 </div>
-                <div className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.08] flex flex-col gap-1">
-                  <span className="text-[10px] font-mono text-[#D4F542]">03 · OPS</span>
-                  <span className="text-sm font-tight font-bold text-white">&lt; 60s Lead</span>
-                  <span className="text-[11px] font-sans text-white/50">CRM Synced</span>
+                <div className="p-2 sm:p-3 rounded-xl bg-white/[0.04] border border-white/[0.08] flex flex-col gap-0.5 sm:gap-1">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-[#D4F542]">03 · OPS</span>
+                  <span className="text-xs sm:text-sm font-tight font-bold text-white whitespace-nowrap">&lt; 60s Lead</span>
+                  <span className="text-[10px] sm:text-[11px] font-sans text-white/50 leading-tight">CRM Synced</span>
                 </div>
               </div>
 
               {/* Floating Pill on photo: 100/100 CORE WEB VITALS */}
-              <div className="relative z-10 flex items-center justify-between pt-3 border-t border-white/[0.08]">
-                <div className="flex items-center gap-2.5 px-3 py-1 rounded-full bg-[#0B0D10]/90 border border-white/[0.16] backdrop-blur-md">
-                  <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_10px_#D4F542]" />
-                  <span className="text-xs font-mono tracking-wider uppercase text-white/90">
-                    <strong className="text-[#D4F542] font-semibold mr-1.5">95+</strong>
+              <div className="relative z-10 flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-white/[0.08]">
+                <div className="flex items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-[#0B0D10]/90 border border-white/[0.16] backdrop-blur-md">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4F542] shadow-[0_0_10px_#D4F542]" />
+                  <span className="text-[11px] sm:text-xs font-mono tracking-wider uppercase text-white/90 whitespace-nowrap">
+                    <strong className="text-[#D4F542] font-semibold mr-1">95+</strong>
                     CORE WEB VITALS
                   </span>
                 </div>
-                <span className="text-[11px] font-mono text-white/50 uppercase">21-DAY DELIVERY</span>
+                <span className="text-[10px] sm:text-[11px] font-mono text-white/50 uppercase whitespace-nowrap">21-DAY DELIVERY</span>
               </div>
             </div>
           </div>

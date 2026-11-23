@@ -78,6 +78,31 @@ export function ProcessSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState<number>(0);
   const [mobileStep, setMobileStep] = useState<number>(0);
+  const [direction, setDirection] = useState<number>(1);
+
+  const handleStepChange = (newStep: number) => {
+    setDirection(newStep > mobileStep ? 1 : -1);
+    setMobileStep(newStep);
+  };
+
+  const handleNext = () => {
+    setDirection(1);
+    setMobileStep((prev) => (prev < STEPS.length - 1 ? prev + 1 : 0));
+  };
+
+  const handlePrev = () => {
+    setDirection(-1);
+    setMobileStep((prev) => (prev > 0 ? prev - 1 : STEPS.length - 1));
+  };
+
+  const handleDragEnd = (_: any, info: { offset: { x: number }; velocity: { x: number } }) => {
+    const swipeThreshold = 35;
+    if (info.offset.x < -swipeThreshold || info.velocity.x < -300) {
+      handleNext();
+    } else if (info.offset.x > swipeThreshold || info.velocity.x > 300) {
+      handlePrev();
+    }
+  };
 
   // Vertical scroll tracking: As user scrolls down 450vh, the carousel glides sideways
   const { scrollYProgress } = useScroll({
@@ -135,35 +160,35 @@ export function ProcessSection() {
 
   return (
     <>
-      {/* MOBILE EXPERIENCE: Compact, interactive Step Explorer with gestures and zero scroll jank */}
-      <section className="block md:hidden relative w-full bg-[#0B0D10] text-[#F8F8F5] py-14 px-5 border-t border-white/[0.08]">
+      {/* MOBILE & TABLET EXPERIENCE: Touch-swipeable interactive Step Explorer */}
+      <section className="block lg:hidden relative w-full bg-[#0B0D10] text-[#F8F8F5] py-16 sm:py-20 px-5 sm:px-8 border-t border-white/[0.08]">
         {/* Header */}
-        <div className="flex flex-col gap-2.5 mb-5">
+        <div className="max-w-2xl mx-auto flex flex-col gap-3 mb-6">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
             <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542] font-semibold">
               OUR 21-DAY PROCESS
             </span>
           </div>
-          <h2 className="text-3xl font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.05]">
+          <h2 className="text-3xl sm:text-4xl font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.05]">
             From silent website <br />
             <span className="text-[#D4F542]">to automated pipeline in three weeks.</span>
           </h2>
-          <p className="text-xs text-white/70 leading-relaxed font-sans">
+          <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-sans">
             Five engineering stages from deep technical audit to fully indexed, automated digital authority.
           </p>
         </div>
 
         {/* Horizontal Step Tabs Rail */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-2.5 mb-4 scrollbar-none -mx-1 px-1">
+        <div className="max-w-2xl mx-auto flex items-center gap-2 overflow-x-auto pb-3 mb-4 scrollbar-none -mx-1 px-1">
           {STEPS.map((s, idx) => {
             const isActive = mobileStep === idx;
             return (
               <button
                 key={s.step}
                 type="button"
-                onClick={() => setMobileStep(idx)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono transition-all whitespace-nowrap shrink-0 cursor-pointer ${
+                onClick={() => handleStepChange(idx)}
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-mono transition-all whitespace-nowrap shrink-0 cursor-pointer ${
                   isActive
                     ? "bg-[#D4F542] text-black font-bold shadow-[0_0_12px_rgba(212,245,66,0.35)] scale-100"
                     : "bg-white/[0.06] text-white/60 hover:text-white border border-white/[0.08]"
@@ -176,114 +201,160 @@ export function ProcessSection() {
           })}
         </div>
 
-        {/* Interactive Animated Card */}
-        <div className="relative w-full rounded-2xl overflow-hidden border border-white/[0.14] bg-zinc-950 min-h-[390px] p-5 flex flex-col justify-between shadow-2xl">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={mobileStep}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute inset-0 z-0 pointer-events-none"
-            >
-              {/* Background Photo */}
-              <Image
-                src={STEPS[mobileStep].img}
-                alt={STEPS[mobileStep].title}
-                fill
-                sizes="(max-width: 768px) 100vw, 400px"
-                className="object-cover object-[50%_35%]"
-              />
-              {/* Directional Gradient Scrims */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-[#0B0D10]/85 via-50% to-[#0B0D10]/60" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/95 via-[#0B0D10]/60 to-transparent" />
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Top Card Elements */}
-          <div className="relative z-10 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="px-2.5 py-0.5 rounded-full bg-[#D4F542] text-black font-mono text-[10px] font-bold shadow-[0_0_10px_rgba(212,245,66,0.3)]">
-                {STEPS[mobileStep].week}
-              </span>
-              <span className="text-[10px] font-mono text-white/60 tracking-wider uppercase">
-                STEP {STEPS[mobileStep].step} / 05
-              </span>
-            </div>
-
-            {/* Outline Stroke Number */}
-            <span
-              className="text-5xl font-tight font-extrabold select-none pointer-events-none leading-none tracking-tighter"
-              style={{
-                WebkitTextStroke: "1.5px #D4F542",
-                color: "transparent",
-                textShadow: "0 0 20px rgba(212, 245, 66, 0.3)",
-              }}
-            >
-              {STEPS[mobileStep].step}
+        {/* Interactive Animated Card with Touch Swipe */}
+        <div className="relative w-full max-w-2xl mx-auto">
+          {/* Subtle Swipe Hint */}
+          <div className="flex items-center justify-between text-[11px] font-mono text-white/40 pb-2 px-1">
+            <span className="flex items-center gap-1.5 text-[#D4F542]">
+              <span className="animate-pulse">↔</span>
+              <span>SWIPE OR TAP TO EXPLORE</span>
             </span>
+            <span className="text-white/60">{STEPS[mobileStep].week}</span>
           </div>
 
-          {/* Content Area */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={mobileStep}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.25 }}
-              className="relative z-10 flex flex-col gap-2 my-auto py-3"
-            >
-              <div className="text-[10px] font-mono text-[#D4F542] font-semibold tracking-wider uppercase">
-                {STEPS[mobileStep].headline}
-              </div>
-              <h3 className="text-2xl font-tight font-semibold text-white tracking-tight">
-                {STEPS[mobileStep].title}
-              </h3>
-              <p className="text-xs text-white/80 leading-relaxed font-sans line-clamp-3">
-                {STEPS[mobileStep].description}
-              </p>
-              <div className="p-2 rounded-xl bg-black/60 border border-white/[0.08] text-[10px] font-mono text-white/70 mt-1">
-                <span className="text-[#D4F542] font-semibold">Deliverable: </span>
-                {STEPS[mobileStep].clientRole}
-              </div>
-            </motion.div>
-          </AnimatePresence>
+          <motion.div
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.18}
+            onDragEnd={handleDragEnd}
+            className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-white/[0.14] bg-zinc-950 min-h-[420px] sm:min-h-[460px] p-6 sm:p-8 flex flex-col justify-between shadow-2xl touch-pan-y cursor-grab active:cursor-grabbing select-none group"
+          >
+            {/* Background Photo */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={mobileStep}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="absolute inset-0 z-0 pointer-events-none"
+              >
+                <Image
+                  src={STEPS[mobileStep].img}
+                  alt={STEPS[mobileStep].title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 680px"
+                  className="object-cover object-[50%_35%]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-[#0B0D10]/85 via-50% to-[#0B0D10]/60" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/95 via-[#0B0D10]/60 to-transparent" />
+              </motion.div>
+            </AnimatePresence>
 
-          {/* Bottom Controls inside Card */}
-          <div className="relative z-10 pt-3 border-t border-white/[0.1] flex items-center justify-between gap-2">
-            <div className="flex items-center gap-1.5">
-              <button
-                type="button"
-                onClick={() => setMobileStep((prev) => (prev > 0 ? prev - 1 : STEPS.length - 1))}
-                className="w-7 h-7 rounded-full bg-white/[0.1] hover:bg-white/[0.2] text-white flex items-center justify-center text-xs font-mono transition-colors"
-                aria-label="Previous step"
+            {/* Top Card Elements */}
+            <div className="relative z-10 flex items-center justify-between pointer-events-none">
+              <div className="flex items-center gap-2">
+                <span className="px-3 py-1 rounded-full bg-[#D4F542] text-black font-mono text-[11px] font-bold shadow-[0_0_12px_rgba(212,245,66,0.35)]">
+                  {STEPS[mobileStep].week}
+                </span>
+                <span className="text-xs font-mono text-white/70 tracking-wider uppercase">
+                  STEP {STEPS[mobileStep].step} / 05
+                </span>
+              </div>
+
+              {/* Outline Stroke Number */}
+              <span
+                className="text-6xl sm:text-7xl font-tight font-extrabold select-none pointer-events-none leading-none tracking-tighter"
+                style={{
+                  WebkitTextStroke: "1.5px #D4F542",
+                  color: "transparent",
+                  textShadow: "0 0 25px rgba(212, 245, 66, 0.35)",
+                }}
               >
-                ←
-              </button>
-              <span className="text-[11px] font-mono text-white/60">
-                {STEPS[mobileStep].step} / 05
+                {STEPS[mobileStep].step}
               </span>
-              <button
-                type="button"
-                onClick={() => setMobileStep((prev) => (prev < STEPS.length - 1 ? prev + 1 : 0))}
-                className="w-7 h-7 rounded-full bg-white/[0.1] hover:bg-white/[0.2] text-white flex items-center justify-center text-xs font-mono transition-colors"
-                aria-label="Next step"
-              >
-                →
-              </button>
             </div>
 
-            <Button href="/book?type=audit" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[34px] !text-[11px] !px-3">
-              Get 48-Hour Blueprint
-            </Button>
-          </div>
+            {/* Content Area with Direction-Aware Slide Animation */}
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={mobileStep}
+                custom={direction}
+                variants={{
+                  enter: (dir: number) => ({
+                    x: dir > 0 ? 30 : -30,
+                    opacity: 0,
+                  }),
+                  center: {
+                    x: 0,
+                    opacity: 1,
+                  },
+                  exit: (dir: number) => ({
+                    x: dir > 0 ? -30 : 30,
+                    opacity: 0,
+                  }),
+                }}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="relative z-10 flex flex-col gap-2.5 my-auto py-4 pointer-events-none"
+              >
+                <div className="text-xs font-mono text-[#D4F542] font-semibold tracking-wider uppercase">
+                  {STEPS[mobileStep].headline}
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-tight font-semibold text-white tracking-tight">
+                  {STEPS[mobileStep].title}
+                </h3>
+                <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-sans line-clamp-3">
+                  {STEPS[mobileStep].description}
+                </p>
+                <div className="p-3 rounded-xl bg-black/60 border border-white/[0.08] text-[11px] font-mono text-white/80 mt-1">
+                  <span className="text-[#D4F542] font-semibold">Deliverable: </span>
+                  {STEPS[mobileStep].clientRole}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Bottom Controls inside Card */}
+            <div className="relative z-10 pt-4 border-t border-white/[0.1] flex flex-wrap items-center justify-between gap-3">
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  className="w-8 h-8 rounded-full bg-white/[0.1] hover:bg-white/[0.2] active:scale-95 text-white flex items-center justify-center text-xs font-mono transition-all cursor-pointer"
+                  aria-label="Previous step"
+                >
+                  ←
+                </button>
+
+                {/* Interactive Dots Pagination */}
+                <div className="flex items-center gap-1.5 px-2">
+                  {STEPS.map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => handleStepChange(i)}
+                      className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                        mobileStep === i
+                          ? "w-6 bg-[#D4F542] shadow-[0_0_8px_#D4F542]"
+                          : "w-1.5 bg-white/30 hover:bg-white/60"
+                      }`}
+                      aria-label={`Go to step ${i + 1}`}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  className="w-8 h-8 rounded-full bg-white/[0.1] hover:bg-white/[0.2] active:scale-95 text-white flex items-center justify-center text-xs font-mono transition-all cursor-pointer"
+                  aria-label="Next step"
+                >
+                  →
+                </button>
+              </div>
+
+              <Button href="/book?type=audit" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[36px] !text-[11px] !px-3.5">
+                Get 48-Hour Blueprint
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* DESKTOP / TABLET EXPERIENCE: 450vh spring pinned horizontal glide */}
-      <section ref={containerRef} className="hidden md:block relative w-full bg-[#0B0D10] text-[#F8F8F5] h-[450vh]">
+      {/* DESKTOP EXPERIENCE: 450vh spring pinned horizontal glide (Monitors & Large Laptops) */}
+      <section ref={containerRef} className="hidden lg:block relative w-full bg-[#0B0D10] text-[#F8F8F5] h-[450vh]">
         {/* Pinned Sticky Screen Wrapper */}
         <div className="sticky top-0 h-screen w-full flex flex-col justify-between pt-6 md:pt-10 pb-8 md:pb-12 px-6 md:px-8 lg:px-14 overflow-hidden border-t border-white/[0.08]">
           <div className="max-w-[1360px] mx-auto w-full h-full flex flex-col justify-between relative">

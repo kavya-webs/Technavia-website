@@ -5,17 +5,17 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const TOOLS = [
   "Next.js",
-  "React",
   "TypeScript",
-  "OpenAI",
-  "Google Gemini",
-  "Claude 3.5",
-  "Perplexity",
-  "Schema.org",
   "Vercel",
-  "TailwindCSS",
+  "Google Search Console",
+  "Schema.org",
+  "OpenAI",
+  "Claude",
+  "Perplexity",
   "n8n",
-  "Supabase",
+  "Make",
+  "HubSpot",
+  "Stripe",
 ];
 
 export function WorksWithStrip() {

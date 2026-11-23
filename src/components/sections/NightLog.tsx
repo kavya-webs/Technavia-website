@@ -23,7 +23,7 @@ const TERMINAL_LOGS: LogEntry[] = [
     workflow: "Custom AI Automations",
     category: "AI LEAD ROUTING",
     result: "Scored 94/100, enriched with company metrics, CRM updated",
-    href: "/workflows/ai-automations",
+    href: "/services/ai-automations",
   },
   {
     time: "00:07",
@@ -31,7 +31,7 @@ const TERMINAL_LOGS: LogEntry[] = [
     workflow: "Web Dev + Technical SEO",
     category: "TECHNICAL SEO",
     result: "100/100 Lighthouse, 0.38s LCP across all global nodes",
-    href: "/workflows/web-dev-seo",
+    href: "/services/web-development-seo",
   },
   {
     time: "00:41",
@@ -39,7 +39,7 @@ const TERMINAL_LOGS: LogEntry[] = [
     workflow: "LLM Visibility (AEO/GEO)",
     category: "LLM VISIBILITY",
     result: "Knowledge graph linked, authoritative source citation verified",
-    href: "/workflows/llm-visibility",
+    href: "/services/llm-visibility",
   },
   {
     time: "01:15",
@@ -47,7 +47,7 @@ const TERMINAL_LOGS: LogEntry[] = [
     workflow: "Web Dev + Technical SEO",
     category: "SEARCH SCHEMA",
     result: "Zero rich snippet errors, instant indexation on Google & Bing",
-    href: "/workflows/web-dev-seo",
+    href: "/services/web-development-seo",
   },
   {
     time: "01:48",
@@ -55,7 +55,7 @@ const TERMINAL_LOGS: LogEntry[] = [
     workflow: "Custom AI Automations",
     category: "AI AUTOMATIONS",
     result: "Contract signed, staging repo initialized, client notified",
-    href: "/workflows/ai-automations",
+    href: "/services/ai-automations",
   },
   {
     time: "02:14",
@@ -63,7 +63,7 @@ const TERMINAL_LOGS: LogEntry[] = [
     workflow: "LLM Visibility (AEO/GEO)",
     category: "AEO MONITORING",
     result: "Position #1 secured for 14 keywords, weekly report delivered",
-    href: "/workflows/llm-visibility",
+    href: "/services/llm-visibility",
   },
 ];
 
@@ -137,18 +137,16 @@ export function NightLog() {
       <div className="relative z-10 max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left Column Text */}
         <div className="lg:col-span-5 flex flex-col gap-6">
-          <SectionLabel>The night log</SectionLabel>
-          <h2 className="text-4xl sm:text-6xl font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1]">
-            While you sleep, <br />
-            <span className="text-[#D4F542]">the work gets done.</span>
+          <SectionLabel>SAMPLE AUTOMATION TELEMETRY</SectionLabel>
+          <h2 className="text-3xl sm:text-5xl font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.05]">
+            What your growth engine runs <br />
+            <span className="text-[#D4F542]">while your team sleeps.</span>
           </h2>
-          <p className="text-base sm:text-lg text-white/70 leading-relaxed font-sans">
-            Every workflow writes what it did into one log. This is a night like
-            any other: leads routed, invoices out, tickets sorted, nobody at a
-            desk.
+          <p className="text-sm sm:text-base text-white/70 leading-relaxed font-sans">
+            Example production triggers TECHNAVIA wires into client CRMs, websites, and AI monitoring pipelines:
           </p>
-          <Button href="/workflows" variant="ghost" hasArrow={false} hasLamp={true}>
-            See the workflows
+          <Button href="/services" variant="ghost" hasArrow={false} hasLamp={true}>
+            Explore Services
           </Button>
         </div>
 
@@ -159,15 +157,15 @@ export function NightLog() {
             <div className="flex items-center gap-2.5">
               <span className="w-2.5 h-2.5 rounded-full bg-[#D4F542] shadow-[0_0_10px_#D4F542] animate-pulse" />
               <span className="text-xs font-mono uppercase tracking-widest text-white/90">
-                Live · Tonight
+                Live Telemetry · 6 Nodes Active
               </span>
             </div>
             <div className="text-right">
-              <div className="text-2xl sm:text-3xl font-tight font-bold text-white tracking-tight leading-none">
-                <RollingCounter value={taskCount.toLocaleString()} />
+              <div className="text-xs font-mono font-bold text-[#D4F542] tracking-wider uppercase">
+                CRITICAL WORKFLOWS ONLINE
               </div>
-              <div className="text-[10px] font-mono uppercase tracking-widest text-white/50 mt-1">
-                Tasks tonight
+              <div className="text-[10px] font-mono uppercase tracking-widest text-white/50 mt-0.5">
+                Latency &lt; 60ms
               </div>
             </div>
           </div>

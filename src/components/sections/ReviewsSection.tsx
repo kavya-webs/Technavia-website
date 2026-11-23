@@ -4,18 +4,17 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { RESULTS } from "@/lib/data";
 
-const REVIEW_PORTRAITS = [
-  "https://framerusercontent.com/images/gtCsnjITh4FJZxvR6mJl8ITbA.webp?scale-down-to=2048",
-  "https://framerusercontent.com/images/rYF6VrXEAAW6zGsmEsPDhvtAY.webp?scale-down-to=2048",
-  "https://framerusercontent.com/images/py9KhPBZwCXd1QM59jPco86fIk.webp?scale-down-to=2048",
-  "https://framerusercontent.com/images/AN3J79LdNmBN2sL5osuX3cTIPw.webp?scale-down-to=2048",
-  "https://framerusercontent.com/images/tbKfoU4sf8kUohplyzin5oZI8.webp?scale-down-to=2048",
-];
+const CLIENT_INITIALS: Record<string, string> = {
+  "apex-saas": "MV",
+  "vanguard-fintech": "ER",
+  "kinetix-studio": "DT",
+};
 
 export function ReviewsSection() {
   const [activeReview, setActiveReview] = useState<number>(0);
   const reviews = RESULTS;
   const current = reviews[activeReview] || reviews[0];
+  const initials = CLIENT_INITIALS[current.id] || "TV";
 
   return (
     <section className="relative w-full bg-[#F2F3EE] text-[#14161A] py-24 md:py-36 px-6 md:px-8 lg:px-14 border-t border-[#14161A]/10">
@@ -28,30 +27,71 @@ export function ReviewsSection() {
 
         {/* Testimonial Stage */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Portrait & Badge */}
+          {/* Left Monogram Card & Badge */}
           <div className="lg:col-span-5 flex flex-col">
-            <div className="relative aspect-[4/5] w-full max-w-md mx-auto lg:mx-0 rounded-3xl overflow-hidden bg-[#E2E3DC] border border-[#14161A]/12 shadow-2xl flex flex-col justify-end p-6">
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={activeReview}
-                  src={REVIEW_PORTRAITS[activeReview]}
-                  alt={current.quote.author}
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.4 }}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </AnimatePresence>
+            <div className="relative aspect-[4/5] w-full max-w-md mx-auto lg:mx-0 rounded-3xl overflow-hidden bg-[#0B0D10] border border-black/20 shadow-2xl flex flex-col justify-between p-8">
+              {/* Subtle Tech Grid Background */}
+              <div className="absolute inset-0 opacity-15 pointer-events-none">
+                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <pattern id="review-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+                      <circle cx="2" cy="2" r="1.2" fill="#D4F542" />
+                      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="0.5" />
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#review-grid)" />
+                </svg>
+              </div>
 
-              {/* Bottom Vignette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
+              {/* Top Badge: Verified Case Study */}
+              <div className="relative z-10 flex items-center justify-between text-xs font-mono">
+                <span className="text-[#D4F542] uppercase tracking-wider font-semibold">
+                  VERIFIED DEPLOYMENT
+                </span>
+                <span className="text-white/40 uppercase">
+                  {current.year}
+                </span>
+              </div>
 
-              {/* Client Pill in bottom left */}
-              <div className="relative z-10 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/75 backdrop-blur-md border border-white/15 text-xs font-mono text-white/90 w-fit">
-                <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
-                <span className="tracking-wider uppercase font-medium">
-                  {current.client}
+              {/* Center Monogram Badge with Animated Transition */}
+              <div className="relative z-10 my-auto flex flex-col items-center justify-center py-6">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeReview}
+                    initial={{ opacity: 0, scale: 0.88 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.08 }}
+                    transition={{ duration: 0.3 }}
+                    className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-[#14161A] border-2 border-[#D4F542]/30 flex items-center justify-center shadow-[0_0_40px_rgba(212,245,66,0.15)] group"
+                  >
+                    <div className="text-4xl sm:text-5xl font-tight font-extrabold text-[#F8F8F5] tracking-tight">
+                      {initials}
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 w-6 h-6 rounded-full bg-[#D4F542] text-black text-xs font-bold flex items-center justify-center shadow-md">
+                      ✓
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+                <div className="mt-5 text-center">
+                  <div className="text-sm font-tight font-bold text-white tracking-wide">
+                    {current.quote.author}
+                  </div>
+                  <div className="text-xs font-mono text-white/50 uppercase tracking-wider mt-0.5">
+                    {current.quote.role}
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Client Pill & Verified Stat */}
+              <div className="relative z-10 flex items-center justify-between pt-4 border-t border-white/[0.08]">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-md border border-white/10 text-xs font-mono text-white/90">
+                  <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
+                  <span className="tracking-wider uppercase font-medium">
+                    {current.client}
+                  </span>
+                </div>
+                <span className="text-[11px] font-mono text-[#D4F542] font-semibold tracking-wider">
+                  {current.metric} {current.metricSub}
                 </span>
               </div>
             </div>
@@ -89,7 +129,7 @@ export function ReviewsSection() {
             {/* Bottom Controls with Number Pills, Rail, and Arrows */}
             <div className="flex flex-col gap-3 pt-6 border-t border-[#14161A]/10">
               <div className="flex items-center justify-between">
-                {/* 5 Numbered Circular Buttons */}
+                {/* Numbered Circular Buttons */}
                 <div className="flex items-center gap-2.5">
                   {reviews.map((_, idx) => {
                     const isActive = activeReview === idx;
@@ -140,13 +180,35 @@ export function ReviewsSection() {
                 <motion.div
                   className="absolute left-0 top-0 h-full bg-[#14161A] rounded-full"
                   animate={{
-                    left: `${(activeReview / (reviews.length - 1)) * 80}%`,
+                    left: `${(activeReview / Math.max(reviews.length - 1, 1)) * 80}%`,
                     width: "20%",
                   }}
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* TECHNAVIA Engineering Guarantee Strip */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-[#0B0D10] border border-white/[0.12] text-[#F8F8F5] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+          <div className="flex flex-col gap-2 max-w-2xl">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
+              <span className="font-mono text-xs uppercase tracking-widest text-[#D4F542] font-semibold">
+                TECHNAVIA ENGINEERING GUARANTEE
+              </span>
+            </div>
+            <h3 className="text-xl sm:text-2xl font-tight font-semibold text-[#F8F8F5]">
+              Our 95+ Speed & Zero-Lock-In Guarantee
+            </h3>
+            <p className="text-sm text-white/70 font-sans leading-relaxed">
+              Every site we ship passes mobile Core Web Vitals (95+ Lighthouse Performance) and comes with 100% source-code ownership—or we optimize it free until it does.
+            </p>
+          </div>
+          <div className="flex items-center gap-3 font-mono text-xs text-white/80 bg-white/[0.06] border border-white/[0.12] px-5 py-3 rounded-2xl whitespace-nowrap self-stretch md:self-auto justify-center">
+            <span className="text-[#D4F542] font-bold text-sm">100%</span>
+            <span className="tracking-wider">CODE OWNERSHIP</span>
           </div>
         </div>
       </div>

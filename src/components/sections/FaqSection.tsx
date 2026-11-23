@@ -28,12 +28,13 @@ export function FaqSection({ showHeader = true }: FaqSectionProps = {}) {
         {/* Left Column: Sticky Question Image Card with Laser Line Animation */}
         <div className="lg:col-span-5 sticky top-28 hidden lg:block">
           <div className="relative w-full aspect-[4/5] max-h-[620px] rounded-[32px] overflow-hidden border border-white/[0.12] bg-[#12151B] shadow-[0_24px_50px_rgba(0,0,0,0.8)]">
-            {/* Base Office Photography */}
+            {/* Dark Studio Visual with Deep Vignette */}
             <img
-              src="/images/tech/why_technavia.jpg"
-              alt="TECHNAVIA studio"
-              className="w-full h-full object-cover select-none pointer-events-none"
+              src="/images/questions/office_clean.jpg"
+              alt="TECHNAVIA engineering systems"
+              className="w-full h-full object-cover select-none pointer-events-none opacity-60"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-black/40 to-transparent pointer-events-none" />
 
             {/* Glowing Green Laser Scan Line Animation on Question Change */}
             <AnimatePresence mode="wait">
@@ -66,7 +67,7 @@ export function FaqSection({ showHeader = true }: FaqSectionProps = {}) {
             <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 z-10 flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#0B0D10]/85 border border-white/10 backdrop-blur-md shadow-lg select-none">
               <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
               <span className="font-mono text-xs font-semibold text-[#D4F542] tracking-wider">
-                {currentNum} / 08
+                {currentNum} / {String(FAQS.length).padStart(2, "0")}
               </span>
               <span className="font-mono text-[11px] text-white/70 tracking-widest uppercase">
                 · QUESTION

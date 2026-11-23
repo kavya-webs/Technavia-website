@@ -6,7 +6,7 @@ import { ContactForm } from "./ContactForm";
 export const metadata: Metadata = {
   title: "TECHNAVIA — Contact: Direct Engineering Line",
   description:
-    "Direct line to senior web architects and AI engineers in London & SF. Zero SDR layers, zero automated sales funnels. Response within 24 hours.",
+    "Direct line to senior web architects and AI engineers. Remote-first, serving B2B teams worldwide. Zero SDR layers, zero automated sales funnels. Response within 24 hours.",
 };
 
 export default function ContactPage() {
@@ -17,13 +17,13 @@ export default function ContactPage() {
         pageName="Contact"
         titleLine1="Write to"
         titleLine2="the desk."
-        subtitle="Direct line to senior automation architects in London. Zero SDR layers, zero automated sales funnels."
+        subtitle="Direct line to senior web architects and AI engineers. Remote-first, serving B2B teams worldwide."
         backgroundImage="/images/questions/base_office.jpg"
         wireframeNumber="24"
         statusPills={[
           { text: "DESK ONLINE", variant: "brass" },
           { text: "< 24H RESPONSE TIME", variant: "ghost" },
-          { text: "LONDON HQ · UTC/GMT", variant: "outline" },
+          { text: "REMOTE-FIRST · WORLDWIDE", variant: "outline" },
         ]}
       />
 
@@ -41,10 +41,10 @@ export default function ContactPage() {
                 </span>
               </div>
               <a
-                href="mailto:contact@technaviatechnology.com"
-                className="text-xl sm:text-2xl font-tight font-semibold text-white hover:text-[#D4F542] transition-colors break-all"
+                href="mailto:contact@technavia.com"
+                className="text-xl sm:text-2xl font-tight font-semibold text-white hover:text-[#D4F542] transition-colors whitespace-nowrap"
               >
-                contact@technaviatechnology.com
+                contact@technavia.com
               </a>
             </div>
 
@@ -53,10 +53,10 @@ export default function ContactPage() {
               <span className="text-xs font-mono text-white/50 uppercase tracking-widest block mb-2">
                 Base
               </span>
-              <div className="text-base text-white/90 font-medium">London · Remote-First</div>
+              <div className="text-base text-white/90 font-medium">Remote-First · Serving B2B Teams Worldwide</div>
               <div className="text-xs font-mono text-[#D4F542] mt-1 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D4F542]" />
-                <span>UTC / GMT timezone (desk active 08:00 – 18:30)</span>
+                <span>Global coverage (async & live engineering support)</span>
               </div>
             </div>
 

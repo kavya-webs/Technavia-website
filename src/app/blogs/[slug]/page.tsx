@@ -67,7 +67,18 @@ export default async function BlogDetailPage({
             Blogs
           </Link>
           <span>/</span>
-          <span className="text-[#D4F542]">{post.category}</span>
+          <Link
+            href={
+              post.category === "AI Visibility"
+                ? "/services/llm-visibility"
+                : post.category === "AI Automations"
+                ? "/services/ai-automations"
+                : "/services/web-development-seo"
+            }
+            className="text-[#D4F542] hover:underline"
+          >
+            {post.category}
+          </Link>
         </div>
 
         {/* Badges */}

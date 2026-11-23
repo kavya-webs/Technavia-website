@@ -34,12 +34,16 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Services", href: "/workflows" },
+    { name: "Services", href: "/services" },
     { name: "Results", href: "/results" },
     { name: "Process", href: "/process" },
     { name: "Blogs", href: "/blogs" },
     { name: "About", href: "/about" },
   ];
+
+  if (pathname?.startsWith("/lp")) {
+    return null;
+  }
 
   return (
     <header

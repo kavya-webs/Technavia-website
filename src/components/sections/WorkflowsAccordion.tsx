@@ -1,242 +1,189 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
 
-interface WorkflowItem {
+interface CapabilityCard {
   id: string;
   num: string;
   title: string;
+  href: string;
   tagline: string;
+  bullets: string[];
   tools: string[];
-  time: string;
-  action: string;
+  metric: string;
+  metricLabel: string;
   img: string;
 }
 
-const WORKFLOW_ITEMS: WorkflowItem[] = [
+const CAPABILITIES: CapabilityCard[] = [
   {
     id: "web-dev-seo",
     num: "01",
     title: "Web Development + Technical SEO",
-    tagline: "Fast, conversion-focused websites engineered with clean architecture to rank from day one.",
-    tools: ["Next.js 15", "TypeScript", "TailwindCSS", "Schema.org", "Google Search Console"],
-    time: "99/100",
-    action: "Core Web Vitals · 0.4s LCP",
+    href: "/services/web-development-seo",
+    tagline:
+      "Conversion-engineered Next.js websites with clean semantic architecture, sub-second Core Web Vitals, and schema markup built to rank from day one.",
+    bullets: [
+      "Custom conversion UI & copy",
+      "95+ Lighthouse & CWV guarantee",
+      "Full technical SEO & schema foundation",
+    ],
+    tools: ["Next.js", "TypeScript", "TailwindCSS", "Schema.org", "GSC"],
+    metric: "95+",
+    metricLabel: "Core Web Vitals",
     img: "/images/tech/web_dev_seo.jpg",
   },
   {
     id: "llm-visibility",
     num: "02",
     title: "LLM Visibility (AEO / GEO)",
-    tagline: "Structured content and entity optimization so your brand gets recommended by ChatGPT, Gemini, and Perplexity.",
-    tools: ["OpenAI", "Claude 3.5", "Perplexity API", "JSON-LD", "Knowledge Graph"],
-    time: "TOP 1",
-    action: "Answer Engine Citation Secured",
+    href: "/services/llm-visibility",
+    tagline:
+      "Entity graph optimization and structured answer architecture so ChatGPT, Gemini, and Perplexity recommend your brand when buyers search your category.",
+    bullets: [
+      "Organization, Service & FAQ JSON-LD",
+      "Quotable answer-capsule architecture",
+      "AI citation tracking & entity authority",
+    ],
+    tools: ["OpenAI", "Claude", "Perplexity", "JSON-LD Graph", "Vector DB"],
+    metric: "TOP 1",
+    metricLabel: "AI Citation Target",
     img: "/images/tech/llm_visibility.jpg",
   },
   {
     id: "ai-automations",
     num: "03",
     title: "Custom AI Automations",
-    tagline: "Tailored workflows that automate lead capture, follow-ups, reporting, and repetitive operations on autopilot.",
-    tools: ["n8n", "Make", "OpenAI APIs", "Supabase", "Slack / CRM"],
-    time: "24/7",
-    action: "Lead qualified · CRM updated · Digest sent",
+    href: "/services/ai-automations",
+    tagline:
+      "Production n8n and API workflows that capture, qualify, and follow up with inbound leads in under 60 seconds—eliminating manual ops bottlenecks.",
+    bullets: [
+      "Instant lead capture & CRM sync",
+      "Automated follow-up & call booking",
+      "Custom reporting & internal ops agents",
+    ],
+    tools: ["n8n", "Make", "OpenAI APIs", "HubSpot", "Slack"],
+    metric: "< 60s",
+    metricLabel: "Lead Response Time",
     img: "/images/tech/ai_automations.jpg",
   },
 ];
 
 export function WorkflowsAccordion() {
-  const [openIndex, setOpenIndex] = useState<number>(0);
-
-  const toggle = (idx: number) => {
-    setOpenIndex(openIndex === idx ? -1 : idx);
-  };
-
   return (
     <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] pt-24 md:pt-32 pb-28 md:pb-36 overflow-visible border-t border-white/[0.08]">
-      {/* Angled Edge Header Accent */}
       <div className="max-w-[1280px] mx-auto px-6 md:px-8 lg:px-14 flex flex-col gap-16">
         {/* Top Header Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-7 flex flex-col gap-4">
-            <SectionLabel>Core Capabilities</SectionLabel>
-            <h2 className="text-4xl sm:text-6xl lg:text-[76px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1]">
-              Engineered to rank. <br />
-              <span className="text-[#D4F542]">Automated to scale.</span>
+            <SectionLabel>CORE CAPABILITIES</SectionLabel>
+            <h2 className="text-3xl sm:text-5xl lg:text-[68px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.02]">
+              Three engineering systems. <br />
+              <span className="text-[#D4F542]">One compounding pipeline.</span>
             </h2>
           </div>
           <div className="lg:col-span-5 flex flex-col items-start lg:items-end gap-6">
-            <p className="text-base text-white/60 leading-relaxed font-sans max-w-md lg:text-right">
-              Three core engineering disciplines that turn your digital presence into an autonomous growth engine.
+            <p className="text-base text-white/70 leading-relaxed font-sans max-w-md lg:text-right">
+              Every service is built to stand alone or work together as a unified acquisition engine.
             </p>
-            <Button href="/workflows" variant="ghost" hasArrow={false} hasLamp={true}>
-              All services
+            <Button href="/services" variant="ghost" hasArrow={false} hasLamp={true}>
+              Compare All Services →
             </Button>
           </div>
         </div>
-      </div>
 
-      {/* Accordion Rows */}
-      <div className="mt-14 md:mt-20 border-t border-white/[0.12]">
-        {WORKFLOW_ITEMS.map((item, idx) => {
-          const isOpen = openIndex === idx;
-
-          return (
-            <div
-              key={item.id}
-              onMouseEnter={() => setOpenIndex(idx)}
-              onClick={() => setOpenIndex(idx)}
-              className={`relative border-b border-white/[0.12] transition-colors duration-400 overflow-hidden cursor-pointer ${
-                isOpen ? "bg-black/50" : "hover:bg-white/[0.02]"
-              }`}
+        {/* Scannable 3-Column Open Cards Layout (Never collapsed) */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch pt-4">
+          {CAPABILITIES.map((cap) => (
+            <motion.div
+              key={cap.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="relative rounded-3xl overflow-hidden border border-white/[0.12] bg-[#0E1116] p-7 sm:p-8 flex flex-col justify-between group hover:border-[#D4F542]/40 transition-all duration-300 shadow-[0_20px_45px_rgba(0,0,0,0.5)]"
             >
-              {/* Row Background Media Layer */}
-              <div
-                className={`absolute inset-0 z-0 pointer-events-none transition-opacity duration-700 ${
-                  isOpen ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  fill
-                  sizes="100vw"
-                  className={`object-cover transition-transform duration-1000 ${
-                    isOpen ? "scale-100" : "scale-105"
-                  }`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/95 via-[#0B0D10]/75 to-[#0B0D10]/50" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10]/90 via-transparent to-[#0B0D10]/80" />
+              {/* Subtle Ambient Background Glow on Hover */}
+              <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+              {/* Card Top: Number + Metric Badge */}
+              <div className="relative z-10 flex items-center justify-between gap-4 pb-6 border-b border-white/[0.08]">
+                <span className="font-mono text-2xl font-semibold text-[#D4F542]">
+                  {cap.num}
+                </span>
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.1] text-xs font-mono text-white/90">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
+                  <span className="font-semibold text-[#D4F542]">{cap.metric}</span>
+                  <span className="text-white/60">{cap.metricLabel}</span>
+                </div>
               </div>
 
-              {/* Main Trigger Button */}
-              <button
-                onClick={() => toggle(idx)}
-                className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-8 lg:px-14 py-7 md:py-9 flex items-center justify-between text-left group cursor-pointer"
-              >
-                <div className="flex items-center gap-8 md:gap-20">
-                  <span
-                    className={`font-mono text-2xl md:text-4xl transition-colors duration-400 ${
-                      isOpen
-                        ? "text-[#D4F542]"
-                        : "text-white/40 group-hover:text-white"
-                    }`}
-                  >
-                    {item.num}
-                  </span>
-                  <h3
-                    className={`font-tight font-semibold tracking-[-0.04em] transition-all duration-400 ${
-                      isOpen
-                        ? "text-3xl sm:text-5xl md:text-6xl lg:text-[68px] text-white"
-                        : "text-2xl sm:text-4xl md:text-5xl text-white/80 group-hover:text-white"
-                    }`}
-                  >
-                    {item.title}
-                  </h3>
+              {/* Card Body: Title, Copy & Bullets */}
+              <div className="relative z-10 flex-1 flex flex-col gap-5 py-6">
+                <h3 className="text-2xl sm:text-3xl font-tight font-semibold tracking-tight text-[#F8F8F5] leading-tight">
+                  {cap.title}
+                </h3>
+
+                <p className="text-sm text-white/70 font-sans leading-relaxed">
+                  {cap.tagline}
+                </p>
+
+                {/* Bullets List */}
+                <div className="flex flex-col gap-2.5 pt-2">
+                  {cap.bullets.map((bullet, i) => (
+                    <div key={i} className="flex items-start gap-2.5 text-xs text-white/85 font-sans">
+                      <span className="w-4 h-4 rounded-full bg-[#D4F542]/15 text-[#D4F542] flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5">
+                        ✓
+                      </span>
+                      <span>{bullet}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Card Footer: Tools & Dedicated Page Link */}
+              <div className="relative z-10 pt-6 border-t border-white/[0.08] flex items-center justify-between gap-4">
+                <div className="flex flex-wrap items-center gap-1.5">
+                  {cap.tools.slice(0, 3).map((tool) => (
+                    <span
+                      key={tool}
+                      className="text-[10px] font-mono uppercase tracking-wider text-white/50 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]"
+                    >
+                      {tool}
+                    </span>
+                  ))}
                 </div>
 
-                <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${
-                    isOpen
-                      ? "bg-white text-black rotate-90"
-                      : "border border-white/20 text-white group-hover:border-white"
-                  }`}
+                <Link
+                  href={cap.href}
+                  className="w-10 h-10 rounded-full bg-[#D4F542] text-black flex items-center justify-center hover:scale-110 transition-transform shadow-[0_0_15px_rgba(212,245,66,0.25)] flex-shrink-0"
+                  aria-label={`Learn more about ${cap.title}`}
+                  title={`Open ${cap.title}`}
                 >
                   <svg
                     className="w-4 h-4 -rotate-45"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="2.2"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
                     <path d="M5 12h14M13 5l7 7-7 7" />
                   </svg>
-                </div>
-              </button>
-
-              {/* Expandable Content Area with buttery-smooth Framer Motion animation */}
-              <AnimatePresence initial={false}>
-                {isOpen && (
-                  <motion.div
-                    key="content"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{
-                      height: "auto",
-                      opacity: 1,
-                      transition: {
-                        height: { duration: 0.42, ease: [0.16, 1, 0.3, 1] },
-                        opacity: { duration: 0.35, ease: "linear", delay: 0.06 },
-                      },
-                    }}
-                    exit={{
-                      height: 0,
-                      opacity: 0,
-                      transition: {
-                        height: { duration: 0.32, ease: [0.16, 1, 0.3, 1] },
-                        opacity: { duration: 0.2, ease: "linear" },
-                      },
-                    }}
-                    className="relative z-10 overflow-hidden"
-                  >
-                    <div className="pb-10 pt-2">
-                      <div className="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-14 pl-6 sm:pl-16 md:pl-28 lg:pl-44 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-                        <div className="flex flex-col gap-4 max-w-xl">
-                          <p className="text-base sm:text-lg md:text-xl text-[#F8F8F5]/90 font-normal leading-relaxed font-sans">
-                            {item.tagline}
-                          </p>
-                          <div className="flex flex-wrap items-center gap-2 pt-1">
-                            {item.tools.map((t) => (
-                              <span
-                                key={t}
-                                className="px-3 py-1 rounded-full bg-[#0B0D10]/80 border border-white/20 text-xs font-mono uppercase tracking-wider text-white/80 backdrop-blur-sm"
-                              >
-                                {t}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="flex flex-wrap sm:flex-nowrap items-center gap-4 flex-shrink-0">
-                          <div className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-[#0B0D10]/80 border border-[#D4F542]/50 backdrop-blur-md">
-                            <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
-                            <span className="text-xs font-mono text-[#D4F542] font-semibold">
-                              {item.time}
-                            </span>
-                            <span className="text-xs font-mono text-white/90 uppercase">
-                              {item.action}
-                            </span>
-                          </div>
-                          <Link
-                            href={`/workflows/${item.id}`}
-                            className="w-10 h-10 rounded-full bg-[#D4F542] text-black grid place-items-center hover:scale-105 transition-transform flex-shrink-0"
-                            title={`Open ${item.title}`}
-                          >
-                            <svg
-                              className="w-4 h-4 -rotate-45"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2.4"
-                            >
-                              <path d="M5 12h14M13 5l7 7-7 7" />
-                            </svg>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          );
-        })}
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
+
+export default WorkflowsAccordion;

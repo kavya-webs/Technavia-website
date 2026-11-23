@@ -9,7 +9,7 @@ export function BookForm() {
   const initialTeam = searchParams.get("team") || "6–20";
   const initialWorkflows = searchParams.get("workflows")
     ? searchParams.get("workflows")!.split(",")
-    : ["Invoicing", "Leads"];
+    : ["Website + Technical SEO", "LLM Visibility"];
 
   const [teamSize, setTeamSize] = useState<string>(initialTeam);
   const [selectedWfs, setSelectedWfs] = useState<string[]>(initialWorkflows);
@@ -20,12 +20,10 @@ export function BookForm() {
 
   const teamSizes = ["1–5", "6–20", "21–100", "100+"];
   const workflowOptions = [
-    "Invoicing",
-    "Leads",
-    "Support",
-    "Onboarding",
-    "Reporting",
-    "CRM Sync",
+    "Website + Technical SEO",
+    "LLM Visibility (ChatGPT/Perplexity)",
+    "AI Lead Automations",
+    "Full 21-Day Growth System",
     "Other",
   ];
 

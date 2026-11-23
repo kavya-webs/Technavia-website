@@ -32,10 +32,10 @@ export function ResultsSection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
-            <SectionLabel>Case Studies</SectionLabel>
-            <h2 className="text-4xl sm:text-6xl lg:text-[76px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1]">
-              Measurable impact <br />
-              <span className="text-[#D4F542]">on pipeline & rankings.</span>
+            <SectionLabel>PROVEN ARCHITECTURE</SectionLabel>
+            <h2 className="text-3xl sm:text-5xl lg:text-[68px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.02]">
+              Built for speed, rankings, <br />
+              <span className="text-[#D4F542]">and measurable ops ROI.</span>
             </h2>
           </div>
           <div className="flex flex-col items-start md:items-end gap-6 max-w-md">
@@ -75,12 +75,17 @@ export function ResultsSection() {
                 </div>
 
                 {/* Top Bar inside Card */}
-                <div className="relative z-10 flex items-center justify-between">
-                  {/* Result Pill */}
-                  <div className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-black/65 backdrop-blur-md border border-white/[0.1] text-xs font-mono">
-                    <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
-                    <span className="text-white/90 font-medium tracking-wider uppercase">
-                      RESULT {res.num} / 03
+                <div className="relative z-10 flex items-center justify-between gap-4">
+                  {/* Result & Benchmark Pill */}
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/[0.12] text-xs font-mono">
+                      <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
+                      <span className="text-white/90 font-medium tracking-wider uppercase">
+                        RESULT {res.num} / 03
+                      </span>
+                    </div>
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#D4F542]/15 border border-[#D4F542]/30 text-[10px] font-mono font-semibold text-[#D4F542] tracking-wider uppercase">
+                      BENCHMARK BUILD
                     </span>
                   </div>
 
@@ -91,7 +96,7 @@ export function ResultsSection() {
                 </div>
 
                 {/* Bottom Content Bar inside Card */}
-                <div className="relative z-10 mt-auto pt-16 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+                <div className="relative z-10 mt-auto pt-10 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
                   {/* Left Metric */}
                   <div className="flex flex-col gap-2 max-w-sm">
                     <div className="text-5xl sm:text-7xl lg:text-8xl font-tight font-semibold text-white tracking-tight leading-none group-hover:text-[#D4F542] transition-colors">
@@ -102,19 +107,32 @@ export function ResultsSection() {
                     </div>
                   </div>
 
-                  {/* Middle Narrative */}
-                  <div className="flex flex-col gap-3 max-w-xl">
-                    <div className="flex items-center gap-3">
+                  {/* Middle Narrative: Problem -> System Built -> Measurable Result */}
+                  <div className="flex flex-col gap-3.5 max-w-xl">
+                    <div className="flex flex-wrap items-center gap-2.5">
                       <h3 className="text-2xl sm:text-3xl font-tight font-semibold text-white">
                         {res.client}
                       </h3>
-                      <span className="text-xs font-mono text-white/50 tracking-wider uppercase">
-                        {res.industry} · {res.workflowUsed}
+                      <span className="text-xs font-mono text-[#D4F542] tracking-wider uppercase bg-white/[0.06] px-2 py-0.5 rounded">
+                        {res.workflowUsed}
                       </span>
                     </div>
-                    <p className="text-sm sm:text-base text-white/80 leading-relaxed font-sans">
-                      {res.headline}
-                    </p>
+
+                    {/* Problem -> System -> Result Strip */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs font-sans pt-1">
+                      <div className="p-2.5 rounded-xl bg-black/60 border border-white/[0.08] backdrop-blur-sm flex flex-col gap-1">
+                        <span className="font-mono text-[10px] uppercase text-red-400 font-semibold tracking-wider">01 · PROBLEM</span>
+                        <p className="text-white/70 leading-snug line-clamp-2">{res.before}</p>
+                      </div>
+                      <div className="p-2.5 rounded-xl bg-black/60 border border-white/[0.08] backdrop-blur-sm flex flex-col gap-1">
+                        <span className="font-mono text-[10px] uppercase text-[#D4F542] font-semibold tracking-wider">02 · SYSTEM BUILT</span>
+                        <p className="text-white/70 leading-snug line-clamp-2">{res.summary}</p>
+                      </div>
+                      <div className="p-2.5 rounded-xl bg-black/60 border border-white/[0.08] backdrop-blur-sm flex flex-col gap-1">
+                        <span className="font-mono text-[10px] uppercase text-emerald-400 font-semibold tracking-wider">03 · RESULT</span>
+                        <p className="text-white/70 leading-snug line-clamp-2">{res.after}</p>
+                      </div>
+                    </div>
                   </div>
 
                   {/* Right Circular CTA Button */}
@@ -124,7 +142,7 @@ export function ResultsSection() {
                       className="group/btn flex items-center gap-3 pl-4 pr-2 py-2 rounded-full bg-white/10 hover:bg-white border border-white/20 hover:border-white text-white hover:text-black transition-all backdrop-blur-md"
                     >
                       <span className="text-xs font-mono font-semibold uppercase tracking-wider">
-                        OPEN
+                        CASE STUDY
                       </span>
                       <span className="w-8 h-8 rounded-full bg-[#D4F542] text-black flex items-center justify-center font-bold text-sm group-hover/btn:scale-105 transition-transform">
                         →

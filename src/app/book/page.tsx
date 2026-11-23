@@ -17,13 +17,13 @@ export default function BookPage() {
         pageName="Book a Call"
         titleLine1="Twenty minutes."
         titleLine2="No pitch."
-        subtitle="Screen share with an engineer who writes code. We will map two workflows you want off your desk this month."
+        subtitle="Screen share with a senior engineer who writes code. We will map your web architecture, LLM visibility, and automated lead workflows."
         backgroundImage="https://framerusercontent.com/images/o9ITAJgXIoSkR7WSBLyUKwhA1PI.webp?scale-down-to=2048"
         wireframeNumber="20"
         statusPills={[
-          { text: "20-MIN SCREEN SHARE", variant: "brass" },
+          { text: "20-MIN AUDIT CALL", variant: "brass" },
           { text: "NO SLIDES · LIVE MAPPING", variant: "ghost" },
-          { text: "WITH AUTOMATION ENGINEER", variant: "outline" },
+          { text: "SENIOR ENGINEER LED", variant: "outline" },
         ]}
       />
 

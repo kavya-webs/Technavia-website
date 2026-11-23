@@ -208,18 +208,18 @@ export function ToolsStack() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
-            <SectionLabel>Engineering Stack</SectionLabel>
-            <h2 className="text-4xl sm:text-6xl lg:text-[76px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1]">
-              The modern stack <br />
-              <span className="text-[#D4F542]">under the hood.</span>
+            <SectionLabel>UNDER THE HOOD</SectionLabel>
+            <h2 className="text-3xl sm:text-5xl lg:text-[68px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.02]">
+              Production architecture, <br />
+              <span className="text-[#D4F542]">not fragile agency templates.</span>
             </h2>
           </div>
           <div className="flex flex-col items-start md:items-end gap-5 max-w-md">
             <p className="text-base text-white/60 leading-relaxed font-sans md:text-right">
               We engineer modern Jamstack code connected to leading AI reasoning models and automation buses — built for speed, rankings, and conversions.
             </p>
-            <Button href="/book" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[42px] !text-xs">
-              Book a stack audit
+            <Button href="/book?type=audit" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[42px] !text-xs">
+              Request a Stack Audit
             </Button>
           </div>
         </div>

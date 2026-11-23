@@ -61,18 +61,18 @@ export default function AboutPage() {
           <div className="lg:col-span-5 flex justify-start lg:justify-end">
             <figure className="relative w-full max-w-[500px] aspect-[4/3] rounded-3xl overflow-hidden border border-white/[0.12] shadow-2xl group">
               <img
-                src="/images/tech/why_technavia.jpg"
-                alt="TECHNAVIA Engineering Studio"
+                src="/images/tech/process_build.jpg"
+                alt="TECHNAVIA Engineering Systems"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
 
-              {/* Floating Pill on photo: 2019 · LONDON HQ */}
+              {/* Floating Pill on photo: REMOTE-FIRST · WORLDWIDE */}
               <figcaption className="absolute bottom-5 left-5 flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#0B0D10]/85 border border-white/[0.16] backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.5)]">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#D4F542] shadow-[0_0_10px_#D4F542]" />
                 <span className="text-xs font-mono tracking-wider uppercase text-white/90">
-                  <strong className="text-[#D4F542] font-semibold mr-1.5">2019</strong>
-                  · LONDON HQ
+                  <strong className="text-[#D4F542] font-semibold mr-1.5">EST. 2019</strong>
+                  · REMOTE-FIRST · WORLDWIDE
                 </span>
               </figcaption>
             </figure>

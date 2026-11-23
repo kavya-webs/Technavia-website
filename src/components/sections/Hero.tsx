@@ -21,18 +21,15 @@ interface HeroPin {
   lampY: number;
 }
 
-// Exactly 3 functional service pins moved towards the right with a comfortable right margin:
-// 1. Web Dev + Technical SEO at the upper right (92%, 14%)
-// 2. LLM Visibility (AEO/GEO) at middle right (87%, 29%)
-// 3. Custom AI Automations at lower-middle right (93%, 45%)
+// 4 functional engineering target pins:
 const HERO_PINS: HeroPin[] = [
   {
     id: "web-dev-seo",
-    time: "99/100",
-    event: "CORE WEB VITALS · 0.4s LCP",
+    time: "95+",
+    event: "CORE WEB VITALS · SUB-SECOND LOAD",
     title: "Web Dev + Technical SEO",
-    desc: "Fast, conversion-focused websites engineered with clean architecture to rank from day one.",
-    href: "/workflows/web-dev-seo",
+    desc: "Sub-second Next.js architecture with clean schema and semantic tags built to rank.",
+    href: "/services/web-development-seo",
     left: "92%",
     top: "14%",
     side: "l",
@@ -41,11 +38,11 @@ const HERO_PINS: HeroPin[] = [
   },
   {
     id: "llm-visibility",
-    time: "TOP 1",
-    event: "AI ANSWER ENGINE CITATION",
+    time: "AEO / GEO",
+    event: "ENGINEERED FOR CHATGPT & PERPLEXITY CITATIONS",
     title: "LLM Visibility (AEO / GEO)",
-    desc: "Structured content and entity optimization so ChatGPT, Gemini & Perplexity recommend you.",
-    href: "/workflows/llm-visibility",
+    desc: "Entity knowledge graphs and quotable answer blocks so AI recommend your brand.",
+    href: "/services/llm-visibility",
     left: "87%",
     top: "29%",
     side: "l",
@@ -55,14 +52,27 @@ const HERO_PINS: HeroPin[] = [
   {
     id: "ai-automations",
     time: "24/7",
-    event: "LEAD CAPTURED · CRM SYNCED",
+    event: "AI LEAD ROUTING · CRM SYNCED",
     title: "Custom AI Automations",
-    desc: "Tailored workflows that automate lead capture, follow-ups, and repetitive operations on autopilot.",
-    href: "/workflows/ai-automations",
+    desc: "Instant lead enrichment, qualification, and automated CRM routing in under 60 seconds.",
+    href: "/services/ai-automations",
     left: "93%",
     top: "45%",
     side: "l",
     lampX: 93,
+    lampY: 0,
+  },
+  {
+    id: "turnkey-delivery",
+    time: "21 DAYS",
+    event: "TURNKEY DELIVERY · 100% CODE OWNERSHIP",
+    title: "Turnkey Done-For-You Delivery",
+    desc: "From architectural blueprint to live deployment with under 2 hours of founder input.",
+    href: "/book?type=audit",
+    left: "88%",
+    top: "60%",
+    side: "l",
+    lampX: 88,
     lampY: 0,
   },
 ];
@@ -258,40 +268,38 @@ export function Hero() {
           <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.12] w-fit">
             <LitDot />
             <span className="text-[11px] font-mono uppercase tracking-[0.12em] text-[#F8F8F5]/90 font-medium">
-              WEB ENGINEERING & AI VISIBILITY · BUILT TO RANK
+              WEB ENGINEERING · AEO / GEO · AI AUTOMATION
             </span>
           </div>
 
           {/* Hero Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-[72px] xl:text-[78px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.94]">
-            Websites engineered,
-            <br />
-            to rank on <span className="text-[#D4F542]">Google & AI.</span>
+          <h1 className="text-3xl sm:text-5xl lg:text-[64px] xl:text-[70px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.98] max-w-[620px]">
+            Turn your website into a <span className="text-[#D4F542]">Google, AI-search,</span> and lead-automation engine in 21 days.
           </h1>
 
           {/* Subtitle */}
-          <p className="text-sm sm:text-base text-[#F8F8F5]/80 font-normal max-w-md leading-relaxed font-sans">
-            Fast, conversion-focused websites engineered with clean architecture, semantic LLM visibility, and automated lead workflows.
+          <p className="text-sm sm:text-base text-[#F8F8F5]/80 font-normal max-w-lg leading-relaxed font-sans">
+            We engineer sub-second B2B websites built to rank on Google, get cited by ChatGPT & Perplexity, and auto-qualify every inbound lead into your CRM—with under 2 hours of your team&apos;s time.
           </p>
 
           {/* CTAs */}
           <div className="flex flex-wrap items-center gap-3.5 pt-0.5">
-            <Button href="/book" variant="quiet">
-              Book a call
+            <Button href="/book?type=audit" variant="quiet">
+              Get Your Free 5-Min Audit
             </Button>
-            <Button href="/workflows" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[42px] !text-[12.5px]">
-              Explore services
+            <Button href="/services" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[42px] !text-[12.5px]">
+              Explore Services
             </Button>
           </div>
         </div>
 
-        {/* Bottom Right: 100/100 Core Web Vitals */}
+        {/* Bottom Right: 95+ Core Web Vitals */}
         <div className="flex flex-row lg:flex-col items-baseline lg:items-end gap-3 lg:gap-1 pb-1 sm:pb-2 pointer-events-auto">
           <span className="text-3xl sm:text-4xl lg:text-6xl font-tight font-semibold tracking-tight text-[#F8F8F5] leading-none">
-            100
+            &lt; 1.0s
           </span>
           <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#F8F8F5]/60">
-            PERFECT LIGHTHOUSE SCORE
+            95+ CORE WEB VITALS GREEN
           </span>
         </div>
       </div>

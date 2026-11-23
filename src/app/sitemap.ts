@@ -14,7 +14,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/workflows`,
+      url: `${baseUrl}/services`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/services/web-development-seo`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/services/llm-visibility`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/services/ai-automations`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,

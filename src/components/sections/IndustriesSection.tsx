@@ -10,7 +10,7 @@ export interface IndustryItem {
   id: string;
   num: string;
   name: string;
-  share: string;
+  outcomeTag: string;
   typicalWorkflows: string;
   workflowsList?: string[];
   description?: string;
@@ -23,7 +23,7 @@ export const INDUSTRY_ITEMS: IndustryItem[] = [
     id: "clinics",
     num: "01",
     name: "Clinics",
-    share: "24 %",
+    outcomeTag: "24/7 patient inquiry capture & local SEO",
     typicalWorkflows: "Appointment reminders, intake forms, recall lists",
     workflowsList: ["Appointment reminders", "Intake forms", "Recall lists", "Deposit collection"],
     description: "Dental practices, physio centers and medical clinics reclaiming front desk time from repetitive scheduling calls.",
@@ -34,7 +34,7 @@ export const INDUSTRY_ITEMS: IndustryItem[] = [
     id: "agencies",
     num: "02",
     name: "Agencies",
-    share: "21 %",
+    outcomeTag: "High-converting offer pages & automated lead routing",
     typicalWorkflows: "Proposal to contract, client onboarding, timesheet to invoice",
     workflowsList: ["Proposal to contract", "Client onboarding", "Timesheet to invoice", "Review requests"],
     description: "Design studios, software consultancies and marketing teams automating billing, timesheets and project kickoffs.",
@@ -45,7 +45,7 @@ export const INDUSTRY_ITEMS: IndustryItem[] = [
     id: "ecommerce",
     num: "03",
     name: "E-commerce",
-    share: "18 %",
+    outcomeTag: "Headless speed & rich product schema indexing",
     typicalWorkflows: "Order updates, returns, low-stock alerts",
     workflowsList: ["Order updates", "Automated returns", "Low-stock alerts", "Review syndication"],
     description: "Shopify and WooCommerce brands automating order triage, shipping updates, inventory reorders and customer tickets.",
@@ -56,7 +56,7 @@ export const INDUSTRY_ITEMS: IndustryItem[] = [
     id: "logistics",
     num: "04",
     name: "Logistics",
-    share: "14 %",
+    outcomeTag: "Automated job dispatch & customer updates",
     typicalWorkflows: "Job dispatch, proof of delivery, customer updates",
     workflowsList: ["Job dispatch", "Proof of delivery", "Customer updates", "Driver scheduling"],
     description: "Depots, freight forwarders and courier operators eliminating manual spreadsheet entry and dispatch status calls.",
@@ -67,7 +67,7 @@ export const INDUSTRY_ITEMS: IndustryItem[] = [
     id: "legal",
     num: "05",
     name: "Legal",
-    share: "13 %",
+    outcomeTag: "Strict privacy compliance & intake qualification",
     typicalWorkflows: "Matter intake, conflict checks, time to bill",
     workflowsList: ["Matter intake", "Conflict checks", "Time to bill", "Document generation"],
     description: "Boutique law firms, conveyancers and corporate counsels automating document intake, conflict indexing and billing runs.",
@@ -78,7 +78,7 @@ export const INDUSTRY_ITEMS: IndustryItem[] = [
     id: "real-estate",
     num: "06",
     name: "Real estate",
-    share: "10 %",
+    outcomeTag: "High-intent property landing systems",
     typicalWorkflows: "Viewing bookings, valuation follow-ups, vendor updates",
     workflowsList: ["Viewing bookings", "Valuation follow-ups", "Vendor updates", "Portal lead sync"],
     description: "Estate agencies and property management desks connecting portal leads directly to negotiator calendars in seconds.",
@@ -129,16 +129,15 @@ export function IndustriesSection({ variant = "list", showHeader = true }: Indus
         {showHeader && (
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="max-w-2xl">
-              <SectionLabel>Industries</SectionLabel>
+              <SectionLabel>BUILT FOR HIGH-TICKET B2B</SectionLabel>
               <h2 className="text-3xl sm:text-5xl lg:text-[62px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.05]">
-                Six sectors, <br className="hidden sm:block" />
-                <span className="text-[#D4F542]">the same ten jobs.</span>
+                Tailored systems <br className="hidden sm:block" />
+                <span className="text-[#D4F542]">for service and growth teams.</span>
               </h2>
             </div>
             <div className="flex flex-col items-start md:items-end gap-4 max-w-md">
               <p className="text-sm sm:text-base text-white/70 leading-relaxed md:text-right font-sans">
-                Every sector has its own version of the work that repeats every day. We have wired
-                most of it before, so your build starts from a running workflow, not a blank page.
+                Every sector has its own conversion bottlenecks and operational friction. We replace generic templates with custom web engineering, verified schema, and automated lead routing.
               </p>
             </div>
           </div>
@@ -168,7 +167,7 @@ export function IndustriesSection({ variant = "list", showHeader = true }: Indus
                       <span className="text-[#D4F542] mr-1.5">{ind.num}</span> / 06
                     </span>
                     <span className="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-xs font-mono font-medium text-[#D4F542]">
-                      {ind.share} of clients
+                      {ind.outcomeTag}
                     </span>
                   </div>
 
@@ -321,13 +320,10 @@ export function IndustriesSection({ variant = "list", showHeader = true }: Indus
                       </div>
                     </div>
 
-                    {/* Right: Percentage Share */}
+                    {/* Right: Outcome Tag */}
                     <div className="flex items-center gap-1.5 sm:gap-3 text-right">
-                      <span className="text-lg sm:text-2xl font-mono font-semibold text-[#D4F542]">
-                        {ind.share}
-                      </span>
-                      <span className="text-xs sm:text-sm font-mono uppercase tracking-widest text-white/40 hidden md:inline">
-                        OF OUR CLIENTS
+                      <span className="text-xs sm:text-sm font-mono text-[#D4F542] font-semibold tracking-wide">
+                        {ind.outcomeTag}
                       </span>
                     </div>
                   </Link>

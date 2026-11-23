@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { LoadingScreen } from "@/components/layout/LoadingScreen";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { OrganizationJsonLd } from "@/components/seo/JsonLd";
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s | TECHNAVIA",
   },
   description:
-    "Fast, conversion-focused Web Development + Technical SEO, LLM Visibility (AEO / GEO), and Custom AI Automations on autopilot.",
+    "We engineer sub-second B2B websites built to rank on Google, get cited by ChatGPT & Perplexity, and auto-qualify every inbound lead into your CRM.",
   alternates: {
     canonical: "https://technaviatechnology.com",
   },
@@ -37,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TECHNAVIA — Websites Engineered to Rank on Google & AI",
     description:
-      "Websites engineered to rank on Google & AI. Web Dev + SEO, LLM Visibility, and Custom AI Automations.",
+      "Turn your website into a Google, AI-search, and lead-automation engine in 21 days.",
     url: "https://technaviatechnology.com",
     siteName: "TECHNAVIA",
     type: "website",
@@ -54,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "TECHNAVIA — Websites Engineered to Rank on Google & AI",
     description:
-      "Websites engineered to rank on Google & AI. Web Dev + SEO, LLM Visibility, and Custom AI Automations.",
+      "Turn your website into a Google, AI-search, and lead-automation engine in 21 days.",
     images: ["/images/technavia/Banner-1.png"],
   },
 };
@@ -77,7 +76,6 @@ export default function RootLayout({
       <body className="bg-[#0B0D10] text-[#F8F8F5] min-h-screen flex flex-col font-sans selection:bg-[#D4F542] selection:text-black">
         <OrganizationJsonLd />
         <SmoothScroll />
-        <LoadingScreen />
         <PageTransition />
         <Navbar />
         <main className="flex-1 w-full relative z-10 bg-[#0B0D10] shadow-[0_40px_80px_rgba(0,0,0,0.95)]">

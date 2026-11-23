@@ -1,34 +1,19 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "../ui/Button";
 import { TechnaviaLogo } from "../ui/TechnaviaLogo";
 
 export function Footer() {
-  const [londonTime, setLondonTime] = useState("14:37");
   const [logoHovered, setLogoHovered] = useState(false);
+  const pathname = usePathname();
 
-  useEffect(() => {
-    const updateTime = () => {
-      try {
-        const now = new Date();
-        const options: Intl.DateTimeFormatOptions = {
-          timeZone: "Europe/London",
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-        };
-        setLondonTime(new Intl.DateTimeFormat("en-GB", options).format(now));
-      } catch (e) {
-        setLondonTime("14:37");
-      }
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 10000);
-    return () => clearInterval(interval);
-  }, []);
+  if (pathname?.startsWith("/lp")) {
+    return null;
+  }
 
   return (
     <footer
@@ -67,7 +52,7 @@ export function Footer() {
                 <ul className="flex flex-col gap-2.5 text-sm font-medium text-white/80 font-sans">
                   <li>
                     <Link
-                      href="/workflows"
+                      href="/services"
                       className="hover:text-[#D4F542] transition-colors"
                     >
                       Services
@@ -156,13 +141,13 @@ export function Footer() {
                 </span>
                 <div className="flex flex-col gap-2.5 text-sm text-white/80 font-sans">
                   <a
-                    href="mailto:contact@technaviatechnology.com"
-                    className="hover:text-[#D4F542] transition-colors break-all font-medium"
+                    href="mailto:contact@technavia.com"
+                    className="hover:text-[#D4F542] transition-colors whitespace-nowrap font-medium"
                   >
-                    contact@technaviatechnology.com
+                    contact@technavia.com
                   </a>
                   <span className="text-xs font-mono text-white/50">
-                    London & San Francisco · remote-first
+                    Remote-First · Serving B2B Teams Worldwide
                   </span>
                   <div className="flex items-center gap-3 pt-2 text-xs font-mono font-bold tracking-wider uppercase text-white/70">
                     <a
@@ -245,24 +230,36 @@ export function Footer() {
               </motion.div>
             </div>
 
-            {/* London Live Widget Card */}
-            <div className="lg:col-span-4 relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-white/[0.12] bg-zinc-950 flex flex-col justify-end p-6 min-h-[140px] sm:min-h-[160px]">
-              <img
-                src="/images/tech/why_technavia.jpg"
-                alt="Engineering Desk"
-                className="absolute inset-0 w-full h-full object-cover opacity-45"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+            {/* Live Operational Status Widget Card */}
+            <div className="lg:col-span-4 relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-white/[0.12] bg-[#0E1116] flex flex-col justify-between p-6 min-h-[140px] sm:min-h-[160px]">
+              {/* Dark-Tech Circuit / Grid Background Pattern */}
+              <div className="absolute inset-0 opacity-20 pointer-events-none">
+                <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <pattern id="footer-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                      <circle cx="2" cy="2" r="1" fill="#D4F542" />
+                      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="0.5" />
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#footer-grid)" />
+                </svg>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-[#0B0D10]/60 to-transparent pointer-events-none" />
 
-              <div className="relative z-10 flex items-center justify-between text-xs font-mono">
+              <div className="relative z-10 flex items-center justify-between text-xs font-mono text-white/50">
+                <span className="uppercase tracking-widest text-[10px]">GLOBAL TELEMETRY</span>
+                <span className="text-[#D4F542] text-[10px] font-bold tracking-wider">ALL NODES ONLINE</span>
+              </div>
+
+              <div className="relative z-10 flex items-center justify-between text-xs font-mono pt-4">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#D4F542] shadow-[0_0_10px_#D4F542] animate-pulse" />
                   <span className="text-white font-medium">
-                    LONDON & SF · {londonTime}
+                    Remote-First · Serving B2B Teams Worldwide
                   </span>
                 </div>
-                <span className="text-[#D4F542] text-[11px] font-bold tracking-wider">
-                  3 SERVICES ACTIVE
+                <span className="text-[#D4F542] text-[11px] font-bold tracking-wider hidden sm:inline">
+                  3 SYSTEMS ACTIVE
                 </span>
               </div>
             </div>

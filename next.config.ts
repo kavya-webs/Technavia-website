@@ -21,6 +21,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/workflows",
+        destination: "/services",
+        permanent: true,
+      },
+      {
+        source: "/workflows/:slug*",
+        destination: "/services/:slug*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

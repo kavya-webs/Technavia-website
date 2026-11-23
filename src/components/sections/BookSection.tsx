@@ -16,11 +16,10 @@ export function BookSection() {
 
   const teamSizes = ["1–5", "6–20", "21–100", "100+"];
   const workflowOptions = [
-    "Web Dev + SEO",
-    "LLM Visibility",
-    "AI Automations",
-    "Lead Routing",
-    "Ops Autopilot",
+    "Website + Technical SEO",
+    "LLM Visibility (ChatGPT/Perplexity)",
+    "AI Lead Automations",
+    "Full 21-Day Growth System",
   ];
 
   const toggleWorkflow = (item: string) => {
@@ -62,13 +61,13 @@ export function BookSection() {
           transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-6 flex flex-col gap-6"
         >
-          <SectionLabel>Book a call</SectionLabel>
-          <h2 className="text-4xl sm:text-6xl lg:text-[76px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.98]">
-            Scale your digital presence. <br />
-            <span className="text-[#D4F542]">Let's engineer it.</span>
+          <SectionLabel>START YOUR UPGRADE</SectionLabel>
+          <h2 className="text-3xl sm:text-5xl lg:text-[62px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.02]">
+            Get a free 5-minute audit— <br />
+            <span className="text-[#D4F542]">or book a 20-min build call.</span>
           </h2>
           <p className="text-base sm:text-lg text-white/70 leading-relaxed font-sans max-w-lg">
-            Tell us your targets. On the 20-minute architecture session, we audit your search visibility, outline your web performance strategy, and identify your high-ROI automation opportunities.
+            No pitch decks or pushy sales reps. Pick your biggest bottleneck below and we&apos;ll send a custom Loom audit within 48 hours.
           </p>
         </motion.div>
 
@@ -119,7 +118,7 @@ export function BookSection() {
           {/* Question 2: Workflows */}
           <div className="flex flex-col gap-2.5 sm:gap-3">
             <span className="text-[11px] sm:text-xs font-mono text-white/60 uppercase tracking-widest">
-              02 · Workflows you want to fix
+              02 · What do you want to fix first?
             </span>
             <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {workflowOptions.map((wf) => {

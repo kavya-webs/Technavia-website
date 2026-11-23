@@ -19,57 +19,57 @@ interface ProcessStep {
 const STEPS: ProcessStep[] = [
   {
     step: "01",
-    week: "PHASE 1",
-    title: "Audit",
-    headline: "Forensic technical & entity analysis",
+    week: "DAYS 1–3",
+    title: "Audit & Blueprint",
+    headline: "Audit & Offer Blueprint",
     description:
-      "We perform an in-depth audit of your web performance, semantic entity footprint, search rankings, and operational bottlenecks to build a prioritized roadmap.",
+      "We dissect your current site, competitors, search gaps, and AI visibility—then lock in your conversion offer and wireframe.",
     clientRole:
       "A 60-minute discovery call; access to search console and current workflow blueprints.",
     img: "/images/tech/process_audit.jpg",
   },
   {
     step: "02",
-    week: "PHASE 2",
-    title: "Build",
-    headline: "Engineering clean web architecture",
+    week: "DAYS 4–10",
+    title: "Speed-First Build",
+    headline: "Speed-First Engineering",
     description:
-      "We engineer a lightning-fast Next.js application with zero bloat, rigorous TypeScript types, modern Tailwind styles, and sub-second Core Web Vitals.",
+      "We build your custom dark/brand-matched frontend in Next.js with zero bloat, clean heading hierarchy, and conversion copy.",
     clientRole:
       "Review interactive staging environment and sign off on core page templates.",
     img: "/images/tech/process_build.jpg",
   },
   {
     step: "03",
-    week: "PHASE 3",
-    title: "Index",
-    headline: "LLM visibility & structured search schema",
+    week: "DAYS 11–14",
+    title: "SEO & LLM Indexing",
+    headline: "SEO & LLM Entity Indexing",
     description:
-      "We deploy JSON-LD knowledge graphs, entity relationships, and semantic topic clusters engineered for top rankings on Google and citations in ChatGPT & Perplexity.",
+      "We deploy structured JSON-LD schema, XML sitemaps, internal linking hubs, and AEO answer blocks built for Google and AI engines.",
     clientRole:
       "Sign-off on brand entity claims, core services, and knowledge graph attributes.",
     img: "/images/tech/process_indexing.jpg",
   },
   {
     step: "04",
-    week: "PHASE 4",
-    title: "Automate",
-    headline: "Connecting pipelines to autopilot",
+    week: "DAYS 15–18",
+    title: "AI Workflows",
+    headline: "AI Workflow Wiring",
     description:
-      "We wire inbound forms, instant AI lead qualification, CRM synchronization, and automated notification pipelines so growth operations run 24/7.",
+      "We connect your forms, Meta Ads leads, calendar, and CRM via n8n so every inquiry gets qualified and routed in under 60 seconds.",
     clientRole:
       "Review dummy-lead test run and automated notification alerts.",
     img: "/images/tech/process_automate.jpg",
   },
   {
     step: "05",
-    week: "ONGOING",
-    title: "Scale",
-    headline: "Autonomous growth & rank monitoring",
+    week: "DAYS 19–21",
+    title: "QA & Launch",
+    headline: "QA, Launch & Handover",
     description:
-      "Continuous monitoring of organic keyword rankings, LLM answer engine visibility, and automated workflow uptime with executive monthly reporting.",
+      "We stress-test Core Web Vitals, verify tracking pixels, ship to your domain, and hand over 100% of the code and documentation.",
     clientRole:
-      "Read a 60-second summary while drinking your coffee.",
+      "Domain DNS verification and complete repository handover.",
     img: "/images/tech/process_scale.jpg",
   },
 ];
@@ -141,13 +141,13 @@ export function ProcessSection() {
         <div className="flex flex-col gap-2.5 mb-5">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
-            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-white/80 font-medium">
-              OUR METHODOLOGY
+            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542] font-semibold">
+              OUR 21-DAY PROCESS
             </span>
           </div>
           <h2 className="text-3xl font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.05]">
-            From blueprint <br />
-            <span className="text-[#D4F542]">to market dominance.</span>
+            From silent website <br />
+            <span className="text-[#D4F542]">to automated pipeline in three weeks.</span>
           </h2>
           <p className="text-xs text-white/70 leading-relaxed font-sans">
             Five engineering stages from deep technical audit to fully indexed, automated digital authority.
@@ -275,8 +275,8 @@ export function ProcessSection() {
               </button>
             </div>
 
-            <Button href="/book" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[34px] !text-[11px] !px-3">
-              Book audit
+            <Button href="/book?type=audit" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[34px] !text-[11px] !px-3">
+              Get 48-Hour Blueprint
             </Button>
           </div>
         </div>
@@ -297,14 +297,14 @@ export function ProcessSection() {
               >
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
-                  <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-white/80 font-medium">
-                    OUR METHODOLOGY
+                  <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542] font-semibold">
+                    OUR 21-DAY PROCESS
                   </span>
                 </div>
 
-                <h2 className="text-3xl sm:text-5xl lg:text-[58px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.04]">
-                  From blueprint <br />
-                  <span className="text-[#D4F542]">to market dominance.</span>
+                <h2 className="text-3xl sm:text-5xl lg:text-[54px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.04]">
+                  From silent website <br />
+                  <span className="text-[#D4F542]">to automated pipeline in three weeks.</span>
                 </h2>
 
                 <p className="text-sm sm:text-base text-white/70 leading-relaxed font-sans max-w-sm">
@@ -312,8 +312,8 @@ export function ProcessSection() {
                 </p>
 
                 <div className="pt-2">
-                  <Button href="/book" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[44px] !text-xs">
-                    Book your audit
+                  <Button href="/book?type=audit" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[44px] !text-xs">
+                    Get Your 48-Hour Audit Blueprint
                   </Button>
                 </div>
               </motion.div>

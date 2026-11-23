@@ -19,12 +19,8 @@ export function OrganizationJsonLd() {
         "description":
           "Websites engineered to rank on Google & AI. Fast Web Development + Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations on autopilot.",
         "slogan": "BUILT TO RANK. AUTOMATED TO SCALE.",
-        "email": "contact@technaviatechnology.com",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "London",
-          "addressCountry": "GB",
-        },
+        "email": "contact@technavia.com",
+        "areaServed": "Worldwide",
         "knowsAbout": [
           "Web Development",
           "Technical SEO",
@@ -66,9 +62,9 @@ export function OrganizationJsonLd() {
           "@id": "https://technaviatechnology.com/#organization",
         },
         "description":
-          "Fast, conversion-focused websites engineered with clean Next.js architecture and sub-400ms LCP so search engines index and rank them from day one.",
+          "Conversion-engineered Next.js websites with clean semantic architecture, sub-second Core Web Vitals, and schema markup built to rank from day one.",
         "serviceType": "Web Engineering & Technical Search Engine Optimization",
-        "url": "https://technaviatechnology.com/workflows/web-dev-seo",
+        "url": "https://technaviatechnology.com/services/web-development-seo",
       },
       {
         "@type": "Service",
@@ -78,9 +74,9 @@ export function OrganizationJsonLd() {
           "@id": "https://technaviatechnology.com/#organization",
         },
         "description":
-          "Structured content and entity optimization so your brand gets recommended when buyers prompt ChatGPT, Gemini, Perplexity, and Claude.",
+          "Entity graph optimization and structured answer architecture so ChatGPT, Gemini, and Perplexity recommend your brand when buyers search your category.",
         "serviceType": "Generative Engine Optimization & Answer Engine Optimization",
-        "url": "https://technaviatechnology.com/workflows/llm-visibility",
+        "url": "https://technaviatechnology.com/services/llm-visibility",
       },
       {
         "@type": "Service",
@@ -90,9 +86,9 @@ export function OrganizationJsonLd() {
           "@id": "https://technaviatechnology.com/#organization",
         },
         "description":
-          "Tailored background pipelines that automate lead capture, follow-ups, CRM syncing, and repetitive operations on autopilot.",
+          "Production n8n and API workflows that capture, qualify, and follow up with inbound leads in under 60 seconds—eliminating manual ops bottlenecks.",
         "serviceType": "Autonomous Operations & Workflow Automation",
-        "url": "https://technaviatechnology.com/workflows/ai-automations",
+        "url": "https://technaviatechnology.com/services/ai-automations",
       },
     ],
   };
@@ -173,6 +169,40 @@ export function FaqJsonLd({
         "text": f.answer,
       },
     })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export function ServiceJsonLd({
+  name,
+  description,
+  url,
+  serviceType,
+}: {
+  name: string;
+  description: string;
+  url: string;
+  serviceType: string;
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": name,
+    "description": description,
+    "url": url,
+    "serviceType": serviceType,
+    "provider": {
+      "@type": "Organization",
+      "name": "TECHNAVIA",
+      "url": "https://technaviatechnology.com",
+    },
+    "areaServed": "Worldwide",
   };
 
   return (

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { BookSection } from "@/components/sections/BookSection";
-import { ArticleJsonLd } from "@/components/seo/JsonLd";
+import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ARTICLES } from "@/lib/data";
 
 export function generateStaticParams() {
@@ -14,18 +14,34 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = ARTICLES.find((a) => a.slug === slug);
   if (!post) return { title: "Blueprint Not Found — TECHNAVIA" };
+
+  const fullImageUrl = post.coverImage.startsWith("http")
+    ? post.coverImage
+    : `https://technaviatechnology.com${post.coverImage}`;
+
   return {
-    title: `${post.title} — TECHNAVIA Blueprints`,
+    title: `${post.title} | TECHNAVIA Blueprints`,
     description: post.excerpt,
     alternates: {
       canonical: `https://technaviatechnology.com/blogs/${slug}`,
     },
     openGraph: {
-      title: `${post.title} — TECHNAVIA Blueprints`,
+      title: `${post.title} | TECHNAVIA Blueprints`,
       description: post.excerpt,
       url: `https://technaviatechnology.com/blogs/${slug}`,
       type: "article",
-      images: [post.coverImage],
+      images: [
+        {
+          url: fullImageUrl,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} | TECHNAVIA Blueprints`,
+      description: post.excerpt,
+      images: [fullImageUrl],
     },
   };
 }
@@ -47,6 +63,13 @@ export default async function BlogDetailPage({
 
   return (
     <div className="flex flex-col w-full bg-[#0B0D10] text-[#F8F8F5] pt-[92px]">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Blueprints", item: "/blogs" },
+          { name: post.title, item: `/blogs/${slug}` },
+        ]}
+      />
       <ArticleJsonLd
         title={post.title}
         excerpt={post.excerpt}

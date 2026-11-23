@@ -57,12 +57,14 @@ export function BookForm() {
 
           <div className="mt-4 p-4 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-xs font-mono text-white/60 flex items-center gap-3">
             <span className="w-2 h-2 rounded-full bg-[#D4F542]" />
-            <span>Format: 20-min Google Meet · Live workflow wireframe · London time</span>
+            <span>Format: 20-min Google Meet · Live workflow wireframe · Remote Worldwide</span>
           </div>
         </div>
       ) : (
         <form
           onSubmit={handleSubmit}
+          toolname="book_technical_consultation"
+          tooldescription="Book a 20-minute technical consultation and architecture review with TECHNAVIA senior web architects"
           className="p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl bg-zinc-950/80 border border-white/[0.14] backdrop-blur-2xl shadow-[0_24px_50px_rgba(0,0,0,0.85)] flex flex-col gap-6 sm:gap-8"
         >
           {/* Step 1: Team Size */}

@@ -1,13 +1,26 @@
 import React from "react";
+import { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata = {
-  title: "TECHNAVIA — Privacy Policy",
+export const metadata: Metadata = {
+  title: "Privacy Policy — Data Protection Standards | TECHNAVIA",
+  description:
+    "TECHNAVIA's commitment to enterprise client privacy, confidentiality, data security protocols, and compliance across global web engineering retainers.",
+  alternates: {
+    canonical: "https://technaviatechnology.com/privacy",
+  },
 };
 
 export default function PrivacyPage() {
   return (
     <div className="flex flex-col w-full pt-[100px]">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Privacy Policy", item: "/privacy" },
+        ]}
+      />
       <section className="py-20 px-6 md:px-14 border-b border-white/[0.08] max-w-[900px] mx-auto w-full">
         <div className="flex items-center gap-2 text-xs font-mono text-white/50 mb-6 uppercase tracking-wider">
           <Link href="/" className="hover:text-white">Home</Link>

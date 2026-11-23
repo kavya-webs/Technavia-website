@@ -1,13 +1,26 @@
 import React from "react";
+import { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata = {
-  title: "TECHNAVIA — Terms of Service",
+export const metadata: Metadata = {
+  title: "Terms of Service — Web Architecture Agreements | TECHNAVIA",
+  description:
+    "Standard terms of service, intellectual property ownership, 100% source code handover policies, and 21-day turnkey sprint agreements for TECHNAVIA.",
+  alternates: {
+    canonical: "https://technaviatechnology.com/terms",
+  },
 };
 
 export default function TermsPage() {
   return (
     <div className="flex flex-col w-full pt-[100px]">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Terms of Service", item: "/terms" },
+        ]}
+      />
       <section className="py-20 px-6 md:px-14 border-b border-white/[0.08] max-w-[900px] mx-auto w-full">
         <div className="flex items-center gap-2 text-xs font-mono text-white/50 mb-6 uppercase tracking-wider">
           <Link href="/" className="hover:text-white">Home</Link>

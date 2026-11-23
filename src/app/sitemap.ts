@@ -1,11 +1,11 @@
 import { MetadataRoute } from "next";
-import { ARTICLES, WORKFLOWS, RESULTS } from "@/lib/data";
+import { ARTICLES, RESULTS } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://technaviatechnology.com";
   const now = new Date();
 
-  // Static core routes
+  // Static core indexable routes (200 OK canonicals only)
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/`,
@@ -117,23 +117,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Dynamic workflow pages
-  const workflowRoutes: MetadataRoute.Sitemap = WORKFLOWS.map((wf) => ({
-    url: `${baseUrl}/workflows/${wf.id}`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.85,
-  }));
-
-  // Dynamic results case studies
+  // Dynamic results case studies (Seravolve, TG media, COSMO SOLOR)
   const resultRoutes: MetadataRoute.Sitemap = RESULTS.map((res) => ({
     url: `${baseUrl}/results/${res.id}`,
     lastModified: now,
     changeFrequency: "monthly",
-    priority: 0.8,
+    priority: 0.85,
   }));
 
-  // Dynamic blog blueprints
+  // Dynamic technical blog blueprints
   const blogRoutes: MetadataRoute.Sitemap = ARTICLES.map((art) => ({
     url: `${baseUrl}/blogs/${art.slug}`,
     lastModified: now,
@@ -141,5 +133,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...staticRoutes, ...workflowRoutes, ...resultRoutes, ...blogRoutes];
+  return [...staticRoutes, ...resultRoutes, ...blogRoutes];
 }

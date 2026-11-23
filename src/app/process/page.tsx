@@ -1,19 +1,53 @@
 import React from "react";
+import { Metadata } from "next";
 import Link from "next/link";
 import { SubpageHero } from "@/components/sections/SubpageHero";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ProcessSection as ProcessWidget } from "@/components/sections/ProcessSection";
 import { BookSection } from "@/components/sections/BookSection";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { PROCESS_STEPS } from "@/lib/data";
 
-export const metadata = {
-  title: "TECHNAVIA — Process: From Blueprint to Market Dominance",
-  description: "Five engineering stages from forensic audit to high-speed web architecture, LLM indexing, and automated growth operations.",
+export const metadata: Metadata = {
+  title: "21-Day Engineering Process — From Audit to Launch",
+  description:
+    "Our 5-stage sprint methodology: from forensic audit to speed-first Next.js build, LLM indexing, and AI workflow wiring with 100% source code ownership.",
+  alternates: {
+    canonical: "https://technaviatechnology.com/process",
+  },
+  openGraph: {
+    title: "21-Day Engineering Process — From Audit to Launch",
+    description:
+      "Our 5-stage sprint methodology: from forensic audit to speed-first Next.js build, LLM indexing, and AI workflow wiring with 100% source code ownership.",
+    url: "https://technaviatechnology.com/process",
+    type: "website",
+    images: [
+      {
+        url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
+        width: 1200,
+        height: 630,
+        alt: "TECHNAVIA — 21-Day Engineering Process",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "21-Day Engineering Process — From Audit to Launch",
+    description:
+      "Our 5-stage sprint methodology: from forensic audit to speed-first Next.js build, LLM indexing, and AI workflow wiring with 100% source code ownership.",
+    images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
+  },
 };
 
 export default function ProcessPage() {
   return (
     <div className="flex flex-col w-full">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Process", item: "/process" },
+        ]}
+      />
       {/* Hero */}
       <SubpageHero
         pageName="PROCESS"
@@ -23,7 +57,7 @@ export default function ProcessPage() {
         subtitle="From deep technical audit to fast web engineering, LLM indexing, and autonomous operations."
         primaryCta={{ label: "Book an audit", href: "/book" }}
         secondaryCta={{ label: "Read our blogs", href: "/blogs" }}
-        backgroundImage="/images/tech/process_build.jpg"
+        backgroundImage="/images/tech/process_build.webp"
         wireframeNumber="05"
         statusPills={[
           { text: "5 ENGINEERING PHASES", variant: "brass" },

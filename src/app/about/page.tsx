@@ -1,18 +1,52 @@
 import React from "react";
+import { Metadata } from "next";
 import Link from "next/link";
 import { SubpageHero } from "@/components/sections/SubpageHero";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ReviewsSection } from "@/components/sections/ReviewsSection";
 import { BookSection } from "@/components/sections/BookSection";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata = {
-  title: "TECHNAVIA — About: Web Engineering & AI Visibility",
-  description: "One team that engineers your web architecture, secures your search rankings, and automates your operations.",
+export const metadata: Metadata = {
+  title: "About TECHNAVIA — High-Growth B2B Web Engineering Studio",
+  description:
+    "Learn how TECHNAVIA engineers high-ranking Next.js websites, optimizes entity graphs for AI engine citations, and deploys autonomous lead-to-CRM workflows.",
+  alternates: {
+    canonical: "https://technaviatechnology.com/about",
+  },
+  openGraph: {
+    title: "About TECHNAVIA — High-Growth B2B Web Engineering Studio",
+    description:
+      "Learn how TECHNAVIA engineers high-ranking Next.js websites, optimizes entity graphs for AI engine citations, and deploys autonomous lead-to-CRM workflows.",
+    url: "https://technaviatechnology.com/about",
+    type: "website",
+    images: [
+      {
+        url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
+        width: 1200,
+        height: 630,
+        alt: "TECHNAVIA — Built to Rank. Automated to Scale.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About TECHNAVIA — High-Growth B2B Web Engineering Studio",
+    description:
+      "Learn how TECHNAVIA engineers high-ranking Next.js websites, optimizes entity graphs for AI engine citations, and deploys autonomous lead-to-CRM workflows.",
+    images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
+  },
 };
 
 export default function AboutPage() {
   return (
     <div className="flex flex-col w-full">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: "/" },
+          { name: "About", item: "/about" },
+        ]}
+      />
       {/* Hero */}
       <SubpageHero
         pageName="ABOUT"
@@ -61,7 +95,7 @@ export default function AboutPage() {
           <div className="lg:col-span-5 flex justify-start lg:justify-end">
             <figure className="relative w-full max-w-[500px] aspect-[4/3] rounded-3xl overflow-hidden border border-white/[0.12] shadow-2xl group">
               <img
-                src="/images/tech/process_build.jpg"
+                src="/images/tech/process_build.webp"
                 alt="TECHNAVIA Engineering Systems"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />

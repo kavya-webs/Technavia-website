@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { BookSection } from "@/components/sections/BookSection";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { RESULTS } from "@/lib/data";
 
 export function generateStaticParams() {
@@ -13,10 +14,41 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const res = RESULTS.find((r) => r.id === slug);
-  if (!res) return { title: "Result Not Found" };
+  if (!res) return { title: "Result Not Found — TECHNAVIA" };
+
+  const title = `${res.client}: ${res.metric} ${res.metricSub} | TECHNAVIA Case Study`;
+  const description = `${res.headline} Built with ${res.workflowUsed} for ${res.industry} achieving ${res.metricSub}.`;
+
   return {
-    title: `TECHNAVIA — ${res.client}: ${res.metric} ${res.metricSub}`,
-    description: res.headline,
+    title,
+    description,
+    alternates: {
+      canonical: `https://technaviatechnology.com/results/${slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://technaviatechnology.com/results/${slug}`,
+      type: "article",
+      images: [
+        {
+          url: res.previewImg.startsWith("http")
+            ? res.previewImg
+            : `https://technaviatechnology.com${res.previewImg}`,
+          alt: `${res.client} Live Preview`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [
+        res.previewImg.startsWith("http")
+          ? res.previewImg
+          : `https://technaviatechnology.com${res.previewImg}`,
+      ],
+    },
   };
 }
 
@@ -34,6 +66,13 @@ export default async function ResultDetailPage({
 
   return (
     <div className="flex flex-col w-full pt-[100px]">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Results", item: "/results" },
+          { name: res.client, item: `/results/${res.id}` },
+        ]}
+      />
       {/* Hero */}
       <section className="py-20 md:py-28 px-6 md:px-14 border-b border-white/[0.08] max-w-[1280px] mx-auto w-full">
         <div className="flex items-center gap-2 text-xs font-mono text-white/50 mb-6 uppercase tracking-wider">

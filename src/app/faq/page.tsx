@@ -3,21 +3,49 @@ import { Metadata } from "next";
 import { SubpageHero } from "@/components/sections/SubpageHero";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { BookSection } from "@/components/sections/BookSection";
-import { FaqJsonLd } from "@/components/seo/JsonLd";
+import { FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { FAQS } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "TECHNAVIA — FAQ: Web Dev, SEO, LLM Visibility & AI Automations",
+  title: "Frequently Asked Questions — Web Dev & AI | TECHNAVIA",
   description:
-    "Everything about how we engineer websites, optimize for LLMs and answer engines, and deploy autonomous growth pipelines.",
+    "Everything you need to know about our Next.js engineering standards, Generative Engine Optimization (GEO/AEO), Core Web Vitals guarantees, and 21-day delivery.",
   alternates: {
     canonical: "https://technaviatechnology.com/faq",
+  },
+  openGraph: {
+    title: "Frequently Asked Questions — Web Dev & AI | TECHNAVIA",
+    description:
+      "Everything you need to know about our Next.js engineering standards, Generative Engine Optimization (GEO/AEO), Core Web Vitals guarantees, and 21-day delivery.",
+    url: "https://technaviatechnology.com/faq",
+    type: "website",
+    images: [
+      {
+        url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
+        width: 1200,
+        height: 630,
+        alt: "TECHNAVIA — Frequently Asked Questions",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Frequently Asked Questions — Web Dev & AI | TECHNAVIA",
+    description:
+      "Everything you need to know about our Next.js engineering standards, Generative Engine Optimization (GEO/AEO), Core Web Vitals guarantees, and 21-day delivery.",
+    images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
   },
 };
 
 export default function FaqPage() {
   return (
     <div className="flex flex-col w-full">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: "/" },
+          { name: "FAQ", item: "/faq" },
+        ]}
+      />
       <FaqJsonLd faqs={FAQS} />
       {/* Subpage Hero with Photographic Background & Split-Line Animation */}
       <SubpageHero

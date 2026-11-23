@@ -14,59 +14,43 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "Googlebot",
         allow: "/",
-        disallow: ["/lp/"],
+        disallow: ["/api/", "/_next/", "/private/", "/lp/"],
       },
       {
         userAgent: "Bingbot",
         allow: "/",
-        disallow: ["/lp/"],
+        disallow: ["/api/", "/_next/", "/private/", "/lp/"],
       },
-      // AI Search & Retrieval Crawlers (ChatGPT Search, Perplexity, Claude, Gemini)
+      // Explicit AI Search & Ingestion Bots
       {
         userAgent: "OAI-SearchBot",
         allow: "/",
-        disallow: ["/lp/"],
+        disallow: ["/api/", "/_next/", "/private/", "/lp/"],
       },
       {
         userAgent: "ChatGPT-User",
         allow: "/",
-        disallow: ["/lp/"],
+        disallow: ["/api/", "/_next/", "/private/", "/lp/"],
       },
       {
         userAgent: "PerplexityBot",
         allow: "/",
-        disallow: ["/lp/"],
+        disallow: ["/api/", "/_next/", "/private/", "/lp/"],
       },
       {
         userAgent: "ClaudeBot",
         allow: "/",
-        disallow: ["/lp/"],
+        disallow: ["/api/", "/_next/", "/private/", "/lp/"],
       },
       {
-        userAgent: "anthropic-ai",
+        userAgent: "Claude-SearchBot",
         allow: "/",
-        disallow: ["/lp/"],
-      },
-      // Foundation Model Training & Corpus Ingestion Bots
-      {
-        userAgent: "GPTBot",
-        allow: "/",
-        disallow: ["/lp/"],
+        disallow: ["/api/", "/_next/", "/private/", "/lp/"],
       },
       {
         userAgent: "Google-Extended",
         allow: "/",
-        disallow: ["/lp/"],
-      },
-      {
-        userAgent: "Applebot-Extended",
-        allow: "/",
-        disallow: ["/lp/"],
-      },
-      {
-        userAgent: "cohere-ai",
-        allow: "/",
-        disallow: ["/lp/"],
+        disallow: ["/api/", "/_next/", "/private/", "/lp/"],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

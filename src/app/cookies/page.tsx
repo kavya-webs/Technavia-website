@@ -1,13 +1,26 @@
 import React from "react";
+import { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata = {
-  title: "TECHNAVIA — Cookies Policy",
+export const metadata: Metadata = {
+  title: "Cookies Policy — Technical Data Usage | TECHNAVIA",
+  description:
+    "Information on how TECHNAVIA uses technical session cookies, anonymous analytics, and local storage to guarantee secure web engineering performance.",
+  alternates: {
+    canonical: "https://technaviatechnology.com/cookies",
+  },
 };
 
 export default function CookiesPage() {
   return (
     <div className="flex flex-col w-full pt-[100px]">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Cookies Policy", item: "/cookies" },
+        ]}
+      />
       <section className="py-20 px-6 md:px-14 border-b border-white/[0.08] max-w-[900px] mx-auto w-full">
         <div className="flex items-center gap-2 text-xs font-mono text-white/50 mb-6 uppercase tracking-wider">
           <Link href="/" className="hover:text-white">Home</Link>

@@ -3,11 +3,37 @@ import { Metadata } from "next";
 import { SubpageHero } from "@/components/sections/SubpageHero";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { BookSection } from "@/components/sections/BookSection";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "TECHNAVIA — Careers: Web Engineers, SEO Specialists & AI Builders",
+  title: "Careers at TECHNAVIA — Web Engineers & AI Builders",
   description:
-    "We engineer high-performance web systems and AI infrastructure. Small headcount, high leverage, zero busywork.",
+    "Join TECHNAVIA's remote engineering studio. We build sub-second web applications, AEO visibility systems, and autonomous lead workflows with zero busywork.",
+  alternates: {
+    canonical: "https://technaviatechnology.com/careers",
+  },
+  openGraph: {
+    title: "Careers at TECHNAVIA — Web Engineers & AI Builders",
+    description:
+      "Join TECHNAVIA's remote engineering studio. We build sub-second web applications, AEO visibility systems, and autonomous lead workflows with zero busywork.",
+    url: "https://technaviatechnology.com/careers",
+    type: "website",
+    images: [
+      {
+        url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
+        width: 1200,
+        height: 630,
+        alt: "TECHNAVIA — Careers & Engineering Opportunities",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Careers at TECHNAVIA — Web Engineers & AI Builders",
+    description:
+      "Join TECHNAVIA's remote engineering studio. We build sub-second web applications, AEO visibility systems, and autonomous lead workflows with zero busywork.",
+    images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
+  },
 };
 
 interface RoleItem {
@@ -25,7 +51,7 @@ const ROLES: RoleItem[] = [
     num: "01",
     title: "Senior Automation Engineer",
     team: "Engineering · Full-time",
-    location: "London / Remote (UK/EU)",
+    location: "Remote-First · Worldwide",
     tags: ["Make", "n8n", "TypeScript", "Python", "Webhook APIs"],
     description:
       "Build resilient multi-step webhook pipelines in Make, n8n, Python and TypeScript connecting enterprise CRMs, billing engines and custom ERPs.",
@@ -36,7 +62,7 @@ const ROLES: RoleItem[] = [
     num: "02",
     title: "Operations Solutions Architect",
     team: "Solutions · Full-time",
-    location: "London / Remote (UK/EU)",
+    location: "Remote-First · Worldwide",
     tags: ["Systems Architecture", "Client Audits", "Process Mapping", "API Design"],
     description:
       "Lead on-site and remote client audits, interview operations directors, and translate messy manual office workflows into clean technical specifications.",
@@ -47,7 +73,7 @@ const ROLES: RoleItem[] = [
     num: "03",
     title: "Client Automation Success Lead",
     team: "Client Operations · Full-time",
-    location: "London / Remote (UK/EU)",
+    location: "Remote-First · Worldwide",
     tags: ["Workflow Monitoring", "Slack Connect", "Incident Response", "Account Expansion"],
     description:
       "Manage live workflow monitoring, triage client Slack Connect requests, and proactively discover new automation opportunities for active retainers.",
@@ -80,6 +106,12 @@ const PRINCIPLES = [
 export default function CareersPage() {
   return (
     <div className="flex flex-col w-full">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Careers", item: "/careers" },
+        ]}
+      />
       {/* Subpage Hero with Dusk Photography & Masked Split-Line Animation */}
       <SubpageHero
         pageName="Careers"
@@ -87,11 +119,11 @@ export default function CareersPage() {
         titleLine1="Work you can"
         titleLine2="point at."
         subtitle="We build silent infrastructure for growing teams. Small headcount, high leverage, zero busywork."
-        backgroundImage="/images/workflows/clean_hero_120.jpg"
+        backgroundImage="/images/workflows/clean_hero_120.webp"
         wireframeNumber="03"
         statusPills={[
           { text: "3 OPEN ROLES", variant: "brass" },
-          { text: "REMOTE-FIRST (UK/EU)", variant: "ghost" },
+          { text: "REMOTE-FIRST · WORLDWIDE", variant: "ghost" },
           { text: "PRODUCTION FROM WEEK 1", variant: "outline" },
         ]}
       />

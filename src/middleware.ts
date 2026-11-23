@@ -1,0 +1,32 @@
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+
+export function middleware(request: NextRequest) {
+  const host = request.headers.get("host")?.toLowerCase() || "";
+  const isProduction =
+    host === "technaviatechnology.com" || host === "www.technaviatechnology.com";
+  const isLocalhost =
+    host.startsWith("localhost") || host.startsWith("127.0.0.1");
+
+  const response = NextResponse.next();
+
+  // If request is served from any domain other than production (e.g. *.vercel.app, staging branches),
+  // inject X-Robots-Tag to strictly prevent search engine indexing of staging environments.
+  if (!isProduction && !isLocalhost) {
+    response.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive, nosnippet");
+  }
+
+  return response;
+}
+
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except static assets:
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico, icon.svg, public images
+     */
+    "/((?!_next/static|_next/image|favicon.ico|icon.svg|images).*)",
+  ],
+};

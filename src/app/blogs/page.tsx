@@ -1,21 +1,51 @@
 import React from "react";
+import { Metadata } from "next";
 import { SubpageHero } from "@/components/sections/SubpageHero";
 import { BookSection } from "@/components/sections/BookSection";
 import { BlogExplorer } from "@/components/sections/BlogExplorer";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ARTICLES } from "@/lib/data";
 
-export const metadata = {
-  title: "TECHNAVIA — Blogs & Blueprints: Web Engineering, SEO & AI Visibility",
+export const metadata: Metadata = {
+  title: "Engineering Blueprints: SEO, LLM Visibility & AI",
   description:
-    "Technical guides, real-world benchmarks, and architectural field notes from engineering high-performance web systems, securing LLM citations, and building autonomous workflows.",
+    "Technical field notes, real-world benchmarks, and architecture blueprints for engineering sub-second websites, winning LLM citations, and running automations.",
   alternates: {
     canonical: "https://technaviatechnology.com/blogs",
+  },
+  openGraph: {
+    title: "Engineering Blueprints: SEO, LLM Visibility & AI",
+    description:
+      "Technical field notes, real-world benchmarks, and architecture blueprints for engineering sub-second websites, winning LLM citations, and running automations.",
+    url: "https://technaviatechnology.com/blogs",
+    type: "website",
+    images: [
+      {
+        url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
+        width: 1200,
+        height: 630,
+        alt: "TECHNAVIA — Technical Blueprints & Insights",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Engineering Blueprints: SEO, LLM Visibility & AI",
+    description:
+      "Technical field notes, real-world benchmarks, and architecture blueprints for engineering sub-second websites, winning LLM citations, and running automations.",
+    images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
   },
 };
 
 export default function BlogsPage() {
   return (
     <div className="flex flex-col w-full bg-[#0B0D10] text-[#F8F8F5]">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Blueprints", item: "/blogs" },
+        ]}
+      />
       {/* Hero Header with Background Photography & Visual Parity */}
       <SubpageHero
         pageName="BLOGS"
@@ -23,7 +53,7 @@ export default function BlogsPage() {
         titleLine2="visibility & automation."
         highlightLine2={true}
         subtitle="Technical field notes, real-world benchmarks, and architecture blueprints from engineering sub-second websites, securing LLM citations, and running background pipelines on autopilot."
-        backgroundImage="/images/tech/llm_visibility.jpg"
+        backgroundImage="/images/tech/llm_visibility.webp"
         wireframeNumber="04"
         badgeText="BLUEPRINTS & RESEARCH"
         statusPills={[

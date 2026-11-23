@@ -57,6 +57,8 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
+      toolname="submit_engineering_inquiry"
+      tooldescription="Submit an engineering inquiry or project brief to TECHNAVIA senior web architects"
       className="p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-zinc-950/80 border border-white/[0.14] backdrop-blur-2xl shadow-[0_24px_50px_rgba(0,0,0,0.85)] flex flex-col gap-5 sm:gap-6"
     >
       {/* Topic Selection */}

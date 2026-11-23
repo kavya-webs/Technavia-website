@@ -151,21 +151,21 @@ export function Footer() {
                   </span>
                   <div className="flex items-center gap-3 pt-2 text-xs font-mono font-bold tracking-wider uppercase text-white/70">
                     <a
-                      href="https://www.linkedin.com"
+                      href="https://www.instagram.com/technavia/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-[#D4F542] transition-colors"
                     >
-                      LINKEDIN
+                      INSTAGRAM
                     </a>
                     <span>·</span>
                     <a
-                      href="https://x.com"
+                      href="https://www.pinterest.com/technaviatechnology/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-[#D4F542] transition-colors"
                     >
-                      X
+                      PINTEREST
                     </a>
                   </div>
                 </div>
@@ -173,7 +173,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Center Giant Row: Giant TECHNAVIA Logo Card with Green Slide Hover + London Widget */}
+          {/* Center Giant Row: Giant TECHNAVIA Logo Card with Green Slide Hover + Telemetry Widget */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch my-auto">
             {/* Giant Logo Card with sliding green block hover effect */}
             <div

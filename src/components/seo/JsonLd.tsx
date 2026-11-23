@@ -5,36 +5,75 @@ export function OrganizationJsonLd() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": ["Organization", "ProfessionalService"],
         "@id": "https://technaviatechnology.com/#organization",
         "name": "TECHNAVIA",
-        "alternateName": ["Technavia Technology", "TECHNAVIA Web Engineering & AI"],
+        "alternateName": "Technavia Technology",
+        "disambiguatingDescription":
+          "B2B technology studio specializing in Web Development, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations at technaviatechnology.com.",
         "url": "https://technaviatechnology.com",
         "logo": {
           "@type": "ImageObject",
           "@id": "https://technaviatechnology.com/#logo",
-          "url": "https://technaviatechnology.com/icon.svg",
-          "caption": "TECHNAVIA 6-Node Network Symbol",
+          "url": "https://technaviatechnology.com/images/technavia/Logo_Png/Full_logo.png",
+          "caption": "TECHNAVIA Logo",
         },
         "description":
-          "Websites engineered to rank on Google & AI. Fast Web Development + Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations on autopilot.",
+          "B2B technology studio specializing in Web Development, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations at technaviatechnology.com.",
         "slogan": "BUILT TO RANK. AUTOMATED TO SCALE.",
         "email": "contact@technavia.com",
+        "telephone": "+91 7048617190",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "202 Cyber City Corporate Office, Mota Varachha Main Road, Utran",
+          "addressLocality": "Surat",
+          "addressRegion": "Gujarat",
+          "postalCode": "394105",
+          "addressCountry": "IN",
+        },
         "areaServed": "Worldwide",
+        "founder": {
+          "@type": "Person",
+          "name": "Kavya Mavani",
+          "jobTitle": "Lead Web Architect & Founder",
+          "email": "kavyamavaniweb@gmail.com",
+        },
+        "sameAs": [
+          "https://www.instagram.com/technavia/",
+          "https://www.pinterest.com/technaviatechnology/",
+        ],
         "knowsAbout": [
           "Web Development",
           "Technical SEO",
-          "Core Web Vitals",
-          "Generative Engine Optimization",
-          "AEO",
-          "GEO",
+          "Answer Engine Optimization (AEO)",
+          "Generative Engine Optimization (GEO)",
           "LLM Visibility",
-          "Next.js Architecture",
-          "React Server Components",
-          "Schema.org Entity Graphs",
-          "AI Automations",
-          "n8n Workflow Engineering",
+          "Custom AI Automations",
         ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "TECHNAVIA Core Engineering Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@id": "https://technaviatechnology.com/#service-web-dev-seo",
+              },
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@id": "https://technaviatechnology.com/#service-llm-visibility",
+              },
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@id": "https://technaviatechnology.com/#service-ai-automations",
+              },
+            },
+          ],
+        },
       },
       {
         "@type": "WebSite",
@@ -91,6 +130,32 @@ export function OrganizationJsonLd() {
         "url": "https://technaviatechnology.com/services/ai-automations",
       },
     ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export function BreadcrumbJsonLd({
+  items,
+}: {
+  items: Array<{ name: string; item: string }>;
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map((crumb, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "name": crumb.name,
+      "item": crumb.item.startsWith("http")
+        ? crumb.item
+        : `https://technaviatechnology.com${crumb.item}`,
+    })),
   };
 
   return (

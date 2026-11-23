@@ -110,7 +110,7 @@ export function Hero() {
       {/* Background Tech Studio Photography */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <Image
-          src="/images/tech/hero_tech.jpg"
+          src="/images/tech/hero_tech.webp"
           alt="Modern tech studio architecture at dusk"
           fill
           priority

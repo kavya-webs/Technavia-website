@@ -36,7 +36,7 @@ const CAPABILITIES: CapabilityCard[] = [
     tools: ["Next.js", "TypeScript", "TailwindCSS", "Schema.org", "GSC"],
     metric: "95+",
     metricLabel: "Core Web Vitals",
-    img: "/images/tech/web_dev_seo.jpg",
+    img: "/images/tech/web_dev_seo.webp",
   },
   {
     id: "llm-visibility",
@@ -53,7 +53,7 @@ const CAPABILITIES: CapabilityCard[] = [
     tools: ["OpenAI", "Claude", "Perplexity", "JSON-LD Graph", "Vector DB"],
     metric: "TOP 1",
     metricLabel: "AI Citation Target",
-    img: "/images/tech/llm_visibility.jpg",
+    img: "/images/tech/llm_visibility.webp",
   },
   {
     id: "ai-automations",
@@ -70,7 +70,7 @@ const CAPABILITIES: CapabilityCard[] = [
     tools: ["n8n", "Make", "OpenAI APIs", "HubSpot", "Slack"],
     metric: "< 60s",
     metricLabel: "Lead Response Time",
-    img: "/images/tech/ai_automations.jpg",
+    img: "/images/tech/ai_automations.webp",
   },
 ];
 

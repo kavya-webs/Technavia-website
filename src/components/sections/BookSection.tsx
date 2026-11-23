@@ -46,7 +46,7 @@ export function BookSection({ defaultService }: { defaultService?: string }) {
       {/* Background Photography: tech engineering environment */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
-          src="/images/tech/hero_tech.jpg"
+          src="/images/tech/hero_tech.webp"
           alt="Modern engineering architecture"
           className="w-full h-full object-cover object-[50%_50%] opacity-50"
         />

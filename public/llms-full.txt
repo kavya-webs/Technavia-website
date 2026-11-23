@@ -1,89 +1,84 @@
 # TECHNAVIA — Full Architecture & Knowledge Corpus
 
-> Websites engineered to rank on Google & AI. Built to rank. Automated to scale.
+> TECHNAVIA (technaviatechnology.com) is a B2B web engineering, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automation studio — distinct from Technavio market research.
 > Canonical URL: https://technaviatechnology.com
-> Contact: contact@technaviatechnology.com
+> Alternate Name: Technavia Technology
+> Contact: contact@technavia.com
+> Phone: +91 7048617190
+> Corporate Location: 202 Cyber City Corporate Office, Mota Varachha Main Road, Utran, Surat - 394105, Gujarat, India
 
 ---
 
 ## 1. Company Profile & Overview
 
-TECHNAVIA is an engineering firm headquartered in London, operating globally to deliver high-velocity web systems and autonomous pipelines for high-growth B2B SaaS, FinTech, and technology studios.
+TECHNAVIA (https://technaviatechnology.com) is a premium B2B Web Engineering and AI Automation studio turning company websites into high-ranking Google assets, LLM-cited knowledge entities, and autonomous lead-to-CRM automation engines.
 
-Traditional agencies deliver static, bloated templates that fail on two fronts:
-1. They load too slowly to rank on Google, and their content structure is invisible to modern generative AI answer engines (ChatGPT, Perplexity, Claude, Gemini).
-2. They possess zero automated operational infrastructure, requiring manual sales triage that leads to lost pipeline.
+- **Brand Name**: TECHNAVIA
+- **Alternate Name**: Technavia Technology
+- **Disambiguating Description**: B2B technology studio specializing in Web Development, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations at technaviatechnology.com. Distinct from Technavio market research and legacy biometrics software.
+- **Founder & Lead Web Architect**: Kavya Mavani (kavyamavaniweb@gmail.com)
+- **Official Contact**: contact@technavia.com
+- **Operational Model**: Remote-First · Serving B2B Founders, Tech Leaders & Growth Teams Worldwide
+- **Core Value Proposition**: "Turn your website into a Google, AI-search, and lead-automation engine in 21 days."
 
-TECHNAVIA solves this by unifying:
-1. Next.js 15 Web Engineering with 100/100 Core Web Vitals and sub-400ms Largest Contentful Paint.
-2. Generative Engine Optimization (GEO / AEO) with deep JSON-LD Knowledge Graphs and semantic entity clusters.
-3. Event-driven Custom AI Automations that qualify inbound leads and schedule meetings in under 42 seconds.
+### Official Verified Brand Profiles (sameAs)
+- **Instagram**: https://www.instagram.com/technavia/
+- **Pinterest**: https://www.pinterest.com/technaviatechnology/
 
 ---
 
-## 2. Detailed Service Specifications
+## 2. The 3 Core Engineering Systems
 
 ### Service 01: Web Development + Technical SEO
-- **Overview:** Fast, conversion-focused websites engineered with clean architecture so search engines index and rank them from day one.
-- **Architecture:** Next.js 15 Server Components, TypeScript, Tailwind CSS, Edge CDN caching on Vercel/Cloudflare.
-- **Core Web Vitals Guarantees:** 100/100 Lighthouse performance, Largest Contentful Paint (LCP) under 400ms, Cumulative Layout Shift (CLS) of 0.00, Interaction to Next Paint (INP) under 50ms.
-- **SEO Implementation:** Zero client-side render blocking, clean semantic HTML5 landmarks, automatic AVIF/WebP image optimization, server-rendered open-graph tags, and dynamic sitemaps.
-- **URL:** https://technaviatechnology.com/workflows/web-dev-seo
+- **Overview**: Fast, conversion-focused websites engineered with clean architecture so search engines index and rank them from day one.
+- **Architecture**: Next.js 16 Server Components, React 19, TypeScript, Tailwind CSS.
+- **Core Web Vitals Guarantees**: 95+ Mobile Lighthouse performance, Largest Contentful Paint (LCP) under 1.0s, zero hydration bloat.
+- **SEO Implementation**: Zero client-side render blocking, clean semantic HTML5 landmarks, automatic WebP image optimization, server-rendered OpenGraph metadata, and dynamic sitemaps.
+- **Canonical URL**: https://technaviatechnology.com/services/web-development-seo
 
 ### Service 02: LLM Visibility (AEO / GEO)
-- **Overview:** Structured content and entity optimization so your brand gets recommended when buyers prompt ChatGPT, Gemini, Perplexity, and Claude.
-- **Theory of Operation:** Generative AI answer engines rely on semantic entity graphs and retrieval-augmented generation (RAG). If an organization does not have clear subject-predicate assertions and canonical entity links, LLMs either omit the brand or hallucinate incorrect details.
-- **Implementation:** Deep Schema.org JSON-LD microdata, organization and founder entity mapping, high information-gain content hubs, authoritative citation co-occurrence, and crawler optimization for GPTBot, OAI-SearchBot, PerplexityBot, and ClaudeBot.
-- **URL:** https://technaviatechnology.com/workflows/llm-visibility
+- **Overview**: Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) that position your company as the authoritative citation when buyers prompt AI models (ChatGPT, Gemini, Perplexity, Claude).
+- **Architecture**: Deep JSON-LD Knowledge Graphs, Quotable Answer-Capsules, Entity Graph mapping across official sameAs nodes.
+- **Outcome**: Deterministic citation readiness for high-intent B2B vendor prompts.
+- **Canonical URL**: https://technaviatechnology.com/services/llm-visibility
 
 ### Service 03: Custom AI Automations
-- **Overview:** Tailored workflows that automate lead capture, follow-ups, reporting, and repetitive operations on autopilot.
-- **Architecture:** Python & n8n workflow engines, serverless edge webhook endpoints, Supabase Vector database, OpenAI and Anthropic API models.
-- **Workflow Pipeline:**
-  1. Inbound form submission triggers an edge webhook within 50ms.
-  2. Background worker queries firmographic enrichment APIs (Clearbit / Apollo).
-  3. AI qualification model evaluates Ideal Customer Profile (ICP) criteria and assigns a sales tier.
-  4. Tier-1 prospects receive a personalized calendar booking link within 42 seconds.
-  5. Profile, enriched data, and call notifications sync immediately to Slack and HubSpot CRM.
-- **Reliability:** Built with idempotency keys, exponential backoff retries, and comprehensive error fallback queues so no lead is lost.
-- **URL:** https://technaviatechnology.com/workflows/ai-automations
+- **Overview**: Event-driven autonomous pipelines that qualify inbound enquiries, enrich firmographics, schedule meetings, and sync CRMs while your team sleeps.
+- **Architecture**: Production n8n workflows, Clearbit/Apollo data enrichment, LLM ICP scoring, dynamic calendar booking links, two-way CRM sync (HubSpot/Salesforce), and Slack alerts.
+- **Outcome**: Average lead response under 60 seconds, eliminating manual triage bottlenecks completely.
+- **Canonical URL**: https://technaviatechnology.com/services/ai-automations
 
 ---
 
-## 3. Engineering Methodology (5-Week Cycle)
+## 3. Real Production Proof & Hosted Builds
 
-- **Phase 1: Audit (Week 1):** Forensic performance, keyword ranking, semantic entity footprint, and operational workflow audit. Delivers a prioritized ROI roadmap.
-- **Phase 2: Build (Weeks 2–3):** Rapid Next.js architecture and UI engineering. Zero bloated CMS templates, strict TypeScript types, sub-second initial load.
-- **Phase 3: Index (Week 4):** Deployment of JSON-LD knowledge graphs, entity relationships, and semantic topic clusters engineered for Google and LLM crawlers.
-- **Phase 4: Automate (Week 4):** Wiring inbound webhooks, instant AI lead triage, CRM synchronization, and automated notification alerts.
-- **Phase 5: Scale (Week 5 & Ongoing):** Production launch, live verification, and continuous rank/citation tracking with monthly executive reports.
+1. **SERAVOLVE**
+   - **Category**: D2C E-Commerce & Skincare (WEB DEV + CRO)
+   - **URL**: https://seravolve.com/
+   - **Deliverables**: 3-Step Hero Quiz Engine, Custom Routine Builder, Multi-Currency E-Commerce UX.
+   - **Verified Metric**: +64% QUIZ-TO-CHECKOUT CONVERSION | < 1.0s LCP.
 
----
+2. **TG MEDIA**
+   - **Category**: Growth & Marketing Agency (MOTION UX + AUTOMATION)
+   - **URL**: https://marketing-agency-neon.vercel.app/
+   - **Deliverables**: Interactive Video Reel Masonry, 3D Stacked Bento Grid, 42-second automated lead triage bus.
+   - **Verified Metric**: +310% PIPELINE ENGAGEMENT | 95+ Core Web Vitals.
 
-## 4. Frequently Asked Questions (FAQ)
-
-### What makes TECHNAVIA websites rank faster on Google?
-Most agency websites are built on bloated CMS templates laden with render-blocking scripts, unoptimized fonts, and broken hierarchy. TECHNAVIA engineers clean Next.js architectures with 100/100 Core Web Vitals, sub-400ms LCP times, and deep JSON-LD Schema graphs. Search engine crawlers parse your entity relationships immediately without consuming crawl budget, giving you top rankings faster.
-
-### What is LLM Visibility (AEO / GEO) and why does it matter?
-Modern buyers increasingly use ChatGPT, Gemini, and Perplexity instead of Google to find software, agencies, and vendors. LLM Visibility (Generative Engine Optimization) structures your content, entity associations, and digital footprint so AI models retrieve and cite your brand as the primary authority when buyers prompt for recommendations.
-
-### How do your Custom AI Automations work with our existing stack?
-We build event-driven background pipelines that connect seamlessly into the tools you already use (HubSpot, Salesforce, Slack, Gmail, Supabase). Inbound enquiries are enriched, scored by AI agents, and booked directly into your sales team's calendar within seconds—running 24/7 with zero manual effort.
-
-### How long does a typical Web Development & SEO project take?
-Our core builds are executed in rapid 3-to-5 week engineering sprints: Week 1 is technical audit and blueprinting; Weeks 2–3 are Next.js architecture and UI engineering; Week 4 is Schema injection, LLM indexing, and automated pipeline integration; Week 5 is live launch and verification.
-
-### Can we hire TECHNAVIA on an ongoing retainer?
-Yes. In addition to fixed-price project builds, we offer ongoing Autopilot Retainers that cover continuous technical SEO optimization, LLM prompt-citation monitoring, and automated workflow expansion as your business scales.
-
-### Who owns the code, intellectual property, and AI workflows?
-You own 100% of everything we build. All Next.js source code, custom Python scripts, Schema configurations, and automation workflows are handed over directly to your team or GitHub repository with complete documentation.
+3. **COSMO SOLOR**
+   - **Category**: Renewable Energy (WEB & SEARCH ARCHITECTURE)
+   - **URL**: https://concept-cosmoenergy.vercel.app/
+   - **Deliverables**: Interactive Stories Carousel, Scroll Blur-Reveal Type, Schema Entity Graph.
+   - **Verified Metric**: < 0.6s LCP & COMMERCIAL LEADS | 185% Inquiry Surge.
 
 ---
 
-## 5. Contact & Booking
-
-- **Technical Audit Booking:** https://technaviatechnology.com/book
-- **Engineering Desk:** contact@technaviatechnology.com
-- **Locations:** London, UK (UTC/GMT) and San Francisco, CA (PST)
+## 4. Canonical Site Endpoints
+- **Website**: https://technaviatechnology.com
+- **Sitemap**: https://technaviatechnology.com/sitemap.xml
+- **Services Directory**: https://technaviatechnology.com/services
+- **Verified Results**: https://technaviatechnology.com/results
+- **21-Day Process**: https://technaviatechnology.com/process
+- **Blueprints & Blogs**: https://technaviatechnology.com/blogs
+- **About TECHNAVIA**: https://technaviatechnology.com/about
+- **Book Consultation**: https://technaviatechnology.com/book
+- **Contact Engineering Desk**: https://technaviatechnology.com/contact

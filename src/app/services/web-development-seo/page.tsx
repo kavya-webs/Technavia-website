@@ -4,21 +4,37 @@ import Link from "next/link";
 import Image from "next/image";
 import { SubpageHero } from "@/components/sections/SubpageHero";
 import { BookSection } from "@/components/sections/BookSection";
-import { ServiceJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
+import { ServiceJsonLd, FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { RESULTS } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Web Development + Technical SEO — Sub-Second Next.js Architecture | TECHNAVIA",
+  title: "Web Development + Technical SEO Studio | TECHNAVIA",
   description:
-    "Conversion-engineered Next.js websites with clean semantic architecture, sub-second Core Web Vitals, and schema markup built to rank from day one.",
+    "Conversion-engineered Next.js websites with clean semantic architecture, sub-second Core Web Vitals, and schema markup built to rank on Google from day one.",
   alternates: {
     canonical: "https://technaviatechnology.com/services/web-development-seo",
   },
   openGraph: {
-    title: "Web Development + Technical SEO — Sub-Second Next.js Architecture | TECHNAVIA",
+    title: "Web Development + Technical SEO Studio | TECHNAVIA",
     description:
-      "Conversion-engineered Next.js websites with clean semantic architecture, sub-second Core Web Vitals, and schema markup built to rank from day one.",
+      "Conversion-engineered Next.js websites with clean semantic architecture, sub-second Core Web Vitals, and schema markup built to rank on Google from day one.",
     url: "https://technaviatechnology.com/services/web-development-seo",
+    type: "website",
+    images: [
+      {
+        url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
+        width: 1200,
+        height: 630,
+        alt: "TECHNAVIA — Web Development + Technical SEO",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web Development + Technical SEO Studio | TECHNAVIA",
+    description:
+      "Conversion-engineered Next.js websites with clean semantic architecture, sub-second Core Web Vitals, and schema markup built to rank on Google from day one.",
+    images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
   },
 };
 
@@ -112,6 +128,13 @@ export default function WebDevelopmentSeoPage() {
         serviceType="Web Engineering & Technical Search Engine Optimization"
       />
       <FaqJsonLd faqs={FAQS} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Services", item: "/services" },
+          { name: "Web Development + Technical SEO", item: "/services/web-development-seo" },
+        ]}
+      />
 
       {/* 1. Hero with Standardized Breadcrumb */}
       <SubpageHero
@@ -123,7 +146,7 @@ export default function WebDevelopmentSeoPage() {
         subtitle="We engineer sub-second Next.js web applications with clean semantic architecture, structured JSON-LD schema, and conversion copy built to rank on Google from day one."
         primaryCta={{ label: "Get Your Free 5-Min Audit", href: "/book?type=audit&service=web-dev-seo" }}
         secondaryCta={{ label: "See Live Builds", href: "/results" }}
-        backgroundImage="/images/tech/web_dev_seo.jpg"
+        backgroundImage="/images/tech/web_dev_seo.webp"
         wireframeNumber="01"
         statusPills={[
           { text: "95+ CORE WEB VITALS", variant: "brass" },

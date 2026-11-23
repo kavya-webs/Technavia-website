@@ -3,20 +3,36 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { SubpageHero } from "@/components/sections/SubpageHero";
 import { BookSection } from "@/components/sections/BookSection";
-import { ServiceJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
+import { ServiceJsonLd, FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "LLM Visibility (AEO / GEO) — Generative Engine Optimization | TECHNAVIA",
+  title: "LLM Visibility & Generative Engine Optimization | TECHNAVIA",
   description:
-    "Entity graph optimization and structured answer architecture so ChatGPT, Gemini, and Perplexity recommend your brand when buyers search your category.",
+    "Entity graph optimization and structured answer architecture so ChatGPT, Gemini, and Perplexity recommend your brand when enterprise buyers search categories.",
   alternates: {
     canonical: "https://technaviatechnology.com/services/llm-visibility",
   },
   openGraph: {
-    title: "LLM Visibility (AEO / GEO) — Generative Engine Optimization | TECHNAVIA",
+    title: "LLM Visibility & Generative Engine Optimization | TECHNAVIA",
     description:
-      "Entity graph optimization and structured answer architecture so ChatGPT, Gemini, and Perplexity recommend your brand when buyers search your category.",
+      "Entity graph optimization and structured answer architecture so ChatGPT, Gemini, and Perplexity recommend your brand when enterprise buyers search categories.",
     url: "https://technaviatechnology.com/services/llm-visibility",
+    type: "website",
+    images: [
+      {
+        url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
+        width: 1200,
+        height: 630,
+        alt: "TECHNAVIA — LLM Visibility (AEO / GEO)",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LLM Visibility & Generative Engine Optimization | TECHNAVIA",
+    description:
+      "Entity graph optimization and structured answer architecture so ChatGPT, Gemini, and Perplexity recommend your brand when enterprise buyers search categories.",
+    images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
   },
 };
 
@@ -131,6 +147,13 @@ export default function LlmVisibilityPage() {
         serviceType="Generative Engine Optimization & Answer Engine Optimization"
       />
       <FaqJsonLd faqs={FAQS} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Services", item: "/services" },
+          { name: "LLM Visibility (AEO / GEO)", item: "/services/llm-visibility" },
+        ]}
+      />
 
       {/* 1. Hero with Standardized Breadcrumb */}
       <SubpageHero
@@ -142,7 +165,7 @@ export default function LlmVisibilityPage() {
         subtitle="When high-intent B2B buyers ask ChatGPT or Perplexity for the top software or service in your niche, we ensure your brand is cited as the primary recommendation."
         primaryCta={{ label: "Get Your Free 5-Min Audit", href: "/book?type=audit&service=llm-visibility" }}
         secondaryCta={{ label: "See Live Builds", href: "/results" }}
-        backgroundImage="/images/tech/llm_visibility.jpg"
+        backgroundImage="/images/tech/llm_visibility.webp"
         wireframeNumber="02"
         statusPills={[
           { text: "TOP 1 CITATION TARGET", variant: "brass" },

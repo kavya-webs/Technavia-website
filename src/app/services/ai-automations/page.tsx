@@ -3,20 +3,36 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { SubpageHero } from "@/components/sections/SubpageHero";
 import { BookSection } from "@/components/sections/BookSection";
-import { ServiceJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
+import { ServiceJsonLd, FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Custom AI Automations — Production n8n & API Workflows | TECHNAVIA",
+  title: "Custom AI Automations & Lead Routing Systems | TECHNAVIA",
   description:
-    "Production n8n and API workflows that capture, qualify, and follow up with inbound leads in under 60 seconds—eliminating manual ops bottlenecks.",
+    "Production n8n and API workflows that capture, qualify, and route inbound leads in under 60 seconds, eliminating manual bottlenecks while your team sleeps.",
   alternates: {
     canonical: "https://technaviatechnology.com/services/ai-automations",
   },
   openGraph: {
-    title: "Custom AI Automations — Production n8n & API Workflows | TECHNAVIA",
+    title: "Custom AI Automations & Lead Routing Systems | TECHNAVIA",
     description:
-      "Production n8n and API workflows that capture, qualify, and follow up with inbound leads in under 60 seconds—eliminating manual ops bottlenecks.",
+      "Production n8n and API workflows that capture, qualify, and route inbound leads in under 60 seconds, eliminating manual bottlenecks while your team sleeps.",
     url: "https://technaviatechnology.com/services/ai-automations",
+    type: "website",
+    images: [
+      {
+        url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
+        width: 1200,
+        height: 630,
+        alt: "TECHNAVIA — Custom AI Automations",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Custom AI Automations & Lead Routing Systems | TECHNAVIA",
+    description:
+      "Production n8n and API workflows that capture, qualify, and route inbound leads in under 60 seconds, eliminating manual bottlenecks while your team sleeps.",
+    images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
   },
 };
 
@@ -137,6 +153,13 @@ export default function AiAutomationsPage() {
         serviceType="Autonomous Operations & Workflow Automation"
       />
       <FaqJsonLd faqs={FAQS} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Services", item: "/services" },
+          { name: "Custom AI Automations", item: "/services/ai-automations" },
+        ]}
+      />
 
       {/* 1. Hero with Standardized Breadcrumb */}
       <SubpageHero
@@ -148,7 +171,7 @@ export default function AiAutomationsPage() {
         subtitle="Production n8n and webhook pipelines that capture, qualify, and route inbound leads in under 60 seconds—eliminating manual ops bottlenecks while your team sleeps."
         primaryCta={{ label: "Get Your Free 5-Min Audit", href: "/book?type=audit&service=ai-automations" }}
         secondaryCta={{ label: "See Live Builds", href: "/results" }}
-        backgroundImage="/images/tech/ai_automations.jpg"
+        backgroundImage="/images/tech/ai_automations.webp"
         wireframeNumber="03"
         statusPills={[
           { text: "< 60s RESPONSE TIME", variant: "brass" },

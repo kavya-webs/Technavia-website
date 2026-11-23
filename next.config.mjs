@@ -34,12 +34,35 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: "/.well-known/llms.txt",
+        destination: "/llms.txt",
+      },
+    ];
+  },
   async headers() {
     return [
       {
+        source: "/",
+        headers: [
+          {
+            key: "Link",
+            value: '<https://technaviatechnology.com/llms.txt>; rel="describedby"',
+          },
+        ],
+      },
+      {
         source: "/images/:path*",
         headers: [
-          { key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" },
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      {
+        source: "/icon.svg",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],
       },
       {

@@ -114,11 +114,11 @@ export const WORKFLOWS: WorkflowItem[] = [
       "Automated XML sitemaps and immediate Google Search Console ping",
     ],
     result: "100/100 Google Lighthouse scores, indexation within 24 hours, and 3.2x higher organic crawl efficiency.",
-    img: "/images/tech/web_dev_seo.jpg",
+    img: "/images/tech/web_dev_seo.webp",
     caseStudy: {
-      client: "Vanguard Tech",
-      metric: "0.38s LCP · #1 Rankings",
-      quote: "TECHNAVIA re-architected our web system from scratch. Within 3 weeks of launch, our core commercial keywords jumped to page one.",
+      client: "Seravolve",
+      metric: "+64% Quiz Conversion · < 1.0s LCP",
+      quote: "The 3-step quiz engine and sub-second routine builder TECHNAVIA built turned our storefront into an interactive conversion machine.",
     },
   },
   {
@@ -141,11 +141,11 @@ export const WORKFLOWS: WorkflowItem[] = [
       "Automated prompt-benchmark tracking across GPT-4o, Claude 3.5, Gemini Pro, and Perplexity",
     ],
     result: "From 0% to 68% share of AI model recommendations for high-intent category prompts.",
-    img: "/images/tech/llm_visibility.jpg",
+    img: "/images/tech/llm_visibility.webp",
     caseStudy: {
-      client: "Apex SaaS Platform",
-      metric: "380% AI Citations Jump",
-      quote: "When prospective enterprise clients ask ChatGPT or Perplexity for the top software in our niche, TECHNAVIA made sure our name is the primary recommendation.",
+      client: "COSMO SOLOR",
+      metric: "185% Inquiry Surge · < 0.6s LCP",
+      quote: "TECHNAVIA's entity graph optimization and sub-second architecture positioned our renewable solutions prominently across Google and generative search engines.",
     },
   },
   {
@@ -168,11 +168,11 @@ export const WORKFLOWS: WorkflowItem[] = [
       "CRM records, Slack alerts, and automated follow-up sequences synchronized on autopilot",
     ],
     result: "Average response time dropped from 4 hours to 42 seconds, boosting discovery call bookings by 142%.",
-    img: "/images/tech/ai_automations.jpg",
+    img: "/images/tech/ai_automations.webp",
     caseStudy: {
-      client: "Kinetix Studio",
-      metric: "31h Saved Per Week",
-      quote: "Our engineers and account leads used to spend hours manually entering CRM data and drafting follow-ups. TECHNAVIA put the entire pipeline on autopilot.",
+      client: "TG media",
+      metric: "+310% Pipeline Engagement · 42s Triage",
+      quote: "TECHNAVIA engineered our 42-second lead triage bus and interactive showcase, eliminating manual ops bottlenecks completely.",
     },
   },
 ];
@@ -445,7 +445,7 @@ export const ARTICLES: ArticleItem[] = [
     title: "How to rank your brand in ChatGPT, Perplexity, and Gemini (AEO/GEO)",
     excerpt:
       "The definitive framework for structuring your company's entity graph and content so generative AI search engines cite you as the primary category authority.",
-    coverImage: "/images/tech/llm_visibility.jpg",
+    coverImage: "/images/tech/llm_visibility.webp",
     tags: ["AEO", "GEO", "Schema", "ChatGPT", "Perplexity"],
     featured: true,
     author: {
@@ -470,7 +470,7 @@ export const ARTICLES: ArticleItem[] = [
     title: "Why sub-400ms LCP is the highest-ROI technical SEO lever",
     excerpt:
       "How clean Next.js architecture and zero-render-blocking engineering directly translate into higher organic crawl frequency and top Google rankings.",
-    coverImage: "/images/tech/web_dev_seo.jpg",
+    coverImage: "/images/tech/web_dev_seo.webp",
     tags: ["Next.js", "Core Web Vitals", "LCP", "Page Speed"],
     author: {
       name: "TECHNAVIA Engineering",
@@ -493,7 +493,7 @@ export const ARTICLES: ArticleItem[] = [
     title: "Automating B2B lead capture: From 4 hours to 42 seconds",
     excerpt:
       "How event-driven AI pipelines qualify inbound enquiries, enrich firmographics, and schedule meetings while the sales team sleeps.",
-    coverImage: "/images/tech/ai_automations.jpg",
+    coverImage: "/images/tech/ai_automations.webp",
     tags: ["AI Agents", "Webhooks", "Lead Triage", "HubSpot"],
     author: {
       name: "TECHNAVIA Engineering",
@@ -515,7 +515,7 @@ export const ARTICLES: ArticleItem[] = [
     title: "Entity Graph Optimization: Structuring Schema for LLM Crawlers",
     excerpt:
       "How to build machine-readable JSON-LD entity graphs that establish your organization as the definitive authority in your niche.",
-    coverImage: "/images/tech/process_indexing.jpg",
+    coverImage: "/images/tech/process_indexing.webp",
     tags: ["Entity Graphs", "Knowledge Base", "Wikidata", "JSON-LD"],
     author: {
       name: "TECHNAVIA Engineering",
@@ -537,7 +537,7 @@ export const ARTICLES: ArticleItem[] = [
     title: "Next.js 15 Server Components: Eliminating Client Hydration Bloat",
     excerpt:
       "A deep dive into zero-bundle-size React Server Components and how they enable blisteringly fast rendering for enterprise B2B websites.",
-    coverImage: "/images/tech/process_build.jpg",
+    coverImage: "/images/tech/process_build.webp",
     tags: ["React Server Components", "SSR", "TypeScript", "Performance"],
     author: {
       name: "TECHNAVIA Engineering",
@@ -558,7 +558,7 @@ export const ARTICLES: ArticleItem[] = [
     title: "Building Resilient AI Agents with n8n, Supabase Vector & Webhooks",
     excerpt:
       "Architectural patterns for running multi-step AI agents that never fail silently and automatically recover from external API timeouts.",
-    coverImage: "/images/tech/process_automate.jpg",
+    coverImage: "/images/tech/process_automate.webp",
     tags: ["n8n", "Vector Search", "Supabase", "Autonomous Ops"],
     author: {
       name: "TECHNAVIA Engineering",
@@ -595,7 +595,7 @@ export const PROCESS_STEPS: ProcessStepItem[] = [
       "We perform an in-depth audit of your web performance, semantic entity footprint, search rankings, and operational bottlenecks to build a prioritized roadmap.",
     clientRole:
       "A 60-minute discovery call; access to search console and current workflow blueprints.",
-    img: "/images/tech/process_audit.jpg",
+    img: "/images/tech/process_audit.webp",
   },
   {
     step: "02",
@@ -606,7 +606,7 @@ export const PROCESS_STEPS: ProcessStepItem[] = [
       "We engineer a lightning-fast Next.js application with zero bloat, rigorous TypeScript types, modern Tailwind styles, and sub-second Core Web Vitals.",
     clientRole:
       "Review interactive staging environment and sign off on core page templates.",
-    img: "/images/tech/process_build.jpg",
+    img: "/images/tech/process_build.webp",
   },
   {
     step: "03",
@@ -617,7 +617,7 @@ export const PROCESS_STEPS: ProcessStepItem[] = [
       "We deploy JSON-LD knowledge graphs, entity relationships, and semantic topic clusters engineered for top rankings on Google and citations in ChatGPT & Perplexity.",
     clientRole:
       "Sign-off on brand entity claims, core services, and knowledge graph attributes.",
-    img: "/images/tech/process_indexing.jpg",
+    img: "/images/tech/process_indexing.webp",
   },
   {
     step: "04",
@@ -628,7 +628,7 @@ export const PROCESS_STEPS: ProcessStepItem[] = [
       "We wire inbound forms, instant AI lead qualification, CRM synchronization, and automated notification pipelines so growth operations run 24/7.",
     clientRole:
       "Review dummy-lead test run and automated notification alerts.",
-    img: "/images/tech/process_automate.jpg",
+    img: "/images/tech/process_automate.webp",
   },
   {
     step: "05",
@@ -639,6 +639,6 @@ export const PROCESS_STEPS: ProcessStepItem[] = [
       "Continuous monitoring of organic keyword rankings, LLM answer engine visibility, and automated workflow uptime with executive monthly reporting.",
     clientRole:
       "Read a 60-second summary while drinking your coffee.",
-    img: "/images/tech/process_scale.jpg",
+    img: "/images/tech/process_scale.webp",
   },
 ];

@@ -26,7 +26,7 @@ const STEPS: ProcessStep[] = [
       "We dissect your current site, competitors, search gaps, and AI visibility—then lock in your conversion offer and wireframe.",
     clientRole:
       "A 60-minute discovery call; access to search console and current workflow blueprints.",
-    img: "/images/tech/process_audit.jpg",
+    img: "/images/tech/process_audit.webp",
   },
   {
     step: "02",
@@ -37,7 +37,7 @@ const STEPS: ProcessStep[] = [
       "We build your custom dark/brand-matched frontend in Next.js with zero bloat, clean heading hierarchy, and conversion copy.",
     clientRole:
       "Review interactive staging environment and sign off on core page templates.",
-    img: "/images/tech/process_build.jpg",
+    img: "/images/tech/process_build.webp",
   },
   {
     step: "03",
@@ -48,7 +48,7 @@ const STEPS: ProcessStep[] = [
       "We deploy structured JSON-LD schema, XML sitemaps, internal linking hubs, and AEO answer blocks built for Google and AI engines.",
     clientRole:
       "Sign-off on brand entity claims, core services, and knowledge graph attributes.",
-    img: "/images/tech/process_indexing.jpg",
+    img: "/images/tech/process_indexing.webp",
   },
   {
     step: "04",
@@ -59,7 +59,7 @@ const STEPS: ProcessStep[] = [
       "We connect your forms, Meta Ads leads, calendar, and CRM via n8n so every inquiry gets qualified and routed in under 60 seconds.",
     clientRole:
       "Review dummy-lead test run and automated notification alerts.",
-    img: "/images/tech/process_automate.jpg",
+    img: "/images/tech/process_automate.webp",
   },
   {
     step: "05",
@@ -70,7 +70,7 @@ const STEPS: ProcessStep[] = [
       "We stress-test Core Web Vitals, verify tracking pixels, ship to your domain, and hand over 100% of the code and documentation.",
     clientRole:
       "Domain DNS verification and complete repository handover.",
-    img: "/images/tech/process_scale.jpg",
+    img: "/images/tech/process_scale.webp",
   },
 ];
 

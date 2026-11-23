@@ -6,55 +6,69 @@ import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { OrganizationJsonLd } from "@/components/seo/JsonLd";
 
+const isStaging =
+  process.env.VERCEL_ENV === "preview" ||
+  process.env.VERCEL_ENV === "development" ||
+  (process.env.NEXT_PUBLIC_VERCEL_ENV && process.env.NEXT_PUBLIC_VERCEL_ENV !== "production");
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://technaviatechnology.com"),
   title: {
-    default: "TECHNAVIA — Websites Engineered to Rank on Google & AI",
+    default: "TECHNAVIA | Web Development, Technical SEO & AI Automation Studio",
     template: "%s | TECHNAVIA",
   },
   description:
-    "We engineer sub-second B2B websites built to rank on Google, get cited by ChatGPT & Perplexity, and auto-qualify every inbound lead into your CRM.",
+    "TECHNAVIA is a B2B technology studio specializing in Web Development, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations at technaviatechnology.com.",
   alternates: {
     canonical: "https://technaviatechnology.com",
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  robots: isStaging
+    ? {
+        index: false,
+        follow: false,
+        googleBot: {
+          index: false,
+          follow: false,
+        },
+      }
+    : {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
+      },
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",
     apple: "/icon.svg",
   },
   openGraph: {
-    title: "TECHNAVIA — Websites Engineered to Rank on Google & AI",
+    title: "TECHNAVIA | Web Development, Technical SEO & AI Automation Studio",
     description:
-      "Turn your website into a Google, AI-search, and lead-automation engine in 21 days.",
+      "B2B technology studio specializing in Web Development, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations at technaviatechnology.com.",
     url: "https://technaviatechnology.com",
     siteName: "TECHNAVIA",
     type: "website",
     images: [
       {
-        url: "/images/technavia/Banner-1.png",
+        url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
         width: 1200,
         height: 630,
-        alt: "TECHNAVIA — Built to Rank. Automated to Scale.",
+        alt: "TECHNAVIA | Web Development, Technical SEO & AI Automation Studio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "TECHNAVIA — Websites Engineered to Rank on Google & AI",
+    title: "TECHNAVIA | Web Development, Technical SEO & AI Automation Studio",
     description:
-      "Turn your website into a Google, AI-search, and lead-automation engine in 21 days.",
-    images: ["/images/technavia/Banner-1.png"],
+      "B2B technology studio specializing in Web Development, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations at technaviatechnology.com.",
+    images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
   },
 };
 

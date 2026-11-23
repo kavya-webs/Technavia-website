@@ -1,17 +1,49 @@
 import React, { Suspense } from "react";
 import { Metadata } from "next";
 import { SubpageHero } from "@/components/sections/SubpageHero";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { BookForm } from "./BookForm";
 
 export const metadata: Metadata = {
-  title: "TECHNAVIA — Book a 20-minute architecture screen share",
+  title: "Book a 20-Min Architecture Consultation | TECHNAVIA",
   description:
-    "Screen share with a senior engineer who writes code. We will map your web architecture, search visibility, and AI automation strategy.",
+    "Schedule a 20-minute screen share with a senior engineer. We map your web speed, LLM answer-engine visibility, and autonomous lead pipeline with zero pitch.",
+  alternates: {
+    canonical: "https://technaviatechnology.com/book",
+  },
+  openGraph: {
+    title: "Book a 20-Min Architecture Consultation | TECHNAVIA",
+    description:
+      "Schedule a 20-minute screen share with a senior engineer. We map your web speed, LLM answer-engine visibility, and autonomous lead pipeline with zero pitch.",
+    url: "https://technaviatechnology.com/book",
+    type: "website",
+    images: [
+      {
+        url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
+        width: 1200,
+        height: 630,
+        alt: "TECHNAVIA — Book a 20-Minute Architecture Consultation",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Book a 20-Min Architecture Consultation | TECHNAVIA",
+    description:
+      "Schedule a 20-minute screen share with a senior engineer. We map your web speed, LLM answer-engine visibility, and autonomous lead pipeline with zero pitch.",
+    images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
+  },
 };
 
 export default function BookPage() {
   return (
     <div className="flex flex-col w-full">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Book Consultation", item: "/book" },
+        ]}
+      />
       {/* Subpage Hero with Dusk Logistics Depot Photography & Split-Line Animation */}
       <SubpageHero
         pageName="Book a Call"

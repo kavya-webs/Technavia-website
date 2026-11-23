@@ -4,16 +4,48 @@ import { SubpageHero } from "@/components/sections/SubpageHero";
 import { IndustriesSection } from "@/components/sections/IndustriesSection";
 import { ResultsSection } from "@/components/sections/ResultsSection";
 import { BookSection } from "@/components/sections/BookSection";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "TECHNAVIA — Industries: High-Growth Sectors Engineered to Rank",
+  title: "Industries & Sectors Engineered to Rank | TECHNAVIA",
   description:
-    "Tailored web engineering, AEO/GEO visibility, and workflow automation for clinics, tech agencies, ecommerce, logistics, and professional services.",
+    "Discover our specialized web engineering and LLM search optimization across six core B2B sectors: SaaS, agencies, healthcare clinics, logistics, and D2C.",
+  alternates: {
+    canonical: "https://technaviatechnology.com/industries",
+  },
+  openGraph: {
+    title: "Industries & Sectors Engineered to Rank | TECHNAVIA",
+    description:
+      "Discover our specialized web engineering and LLM search optimization across six core B2B sectors: SaaS, agencies, healthcare clinics, logistics, and D2C.",
+    url: "https://technaviatechnology.com/industries",
+    type: "website",
+    images: [
+      {
+        url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
+        width: 1200,
+        height: 630,
+        alt: "TECHNAVIA — Industries & Specialized Sectors",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Industries & Sectors Engineered to Rank | TECHNAVIA",
+    description:
+      "Discover our specialized web engineering and LLM search optimization across six core B2B sectors: SaaS, agencies, healthcare clinics, logistics, and D2C.",
+    images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
+  },
 };
 
 export default function IndustriesPage() {
   return (
     <div className="flex flex-col w-full">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", item: "/" },
+          { name: "Industries", item: "/industries" },
+        ]}
+      />
       {/* Subpage Hero with Photographic Background & Split-Line Animation */}
       <SubpageHero
         pageName="Industries"
@@ -27,7 +59,7 @@ export default function IndustriesPage() {
           { text: "PRE-BUILT BLUEPRINTS", variant: "ghost" },
           { text: "48,200 TASKS/MO", variant: "outline" },
         ]}
-        primaryCta={{ label: "EXPLORE WORKFLOWS", href: "/workflows" }}
+        primaryCta={{ label: "EXPLORE SERVICES", href: "/services" }}
         secondaryCta={{ label: "BOOK ARCHITECT CALL", href: "/book" }}
       />
 

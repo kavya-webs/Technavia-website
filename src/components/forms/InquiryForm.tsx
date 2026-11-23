@@ -3,60 +3,54 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, AlertCircle, Loader2, ArrowLeft } from "lucide-react";
 
 const SERVICE_OPTIONS = [
   "Web Dev + Technical SEO",
   "LLM Visibility (AEO / GEO)",
   "Custom AI Automations",
-  "Full System (Web + SEO + AI)",
-];
+  "Full 21-Day Growth Engine",
+] as const;
 
-const TIMELINE_OPTIONS = [
-  "Immediate (< 30 days)",
-  "1–3 Months",
-  "Audit First",
-];
-
-const BUDGET_OPTIONS = [
-  "Under $3k",
-  "$3k – $7.5k",
-  "$7.5k – $15k",
-  "$15k+",
-  "Not Sure Yet",
-];
+type ServiceType = (typeof SERVICE_OPTIONS)[number];
 
 interface InquiryFormProps {
   defaultService?: string;
-  defaultTimeline?: string;
   className?: string;
 }
 
 export function InquiryForm({
   defaultService,
-  defaultTimeline,
   className = "",
 }: InquiryFormProps) {
   const searchParams = useSearchParams();
 
-  // Parse default services
-  const paramServices = searchParams.get("services") || searchParams.get("workflows");
-  const initialServices = paramServices
-    ? paramServices.split(",")
-    : defaultService
-    ? [defaultService]
-    : ["Web Dev + Technical SEO", "LLM Visibility (AEO / GEO)"];
+  // Determine initial service from query param or prop
+  const paramService = searchParams.get("service") || searchParams.get("type");
+  const initialService: ServiceType = (() => {
+    if (paramService) {
+      if (paramService.includes("seo") || paramService.includes("web")) return "Web Dev + Technical SEO";
+      if (paramService.includes("llm") || paramService.includes("aeo") || paramService.includes("geo")) return "LLM Visibility (AEO / GEO)";
+      if (paramService.includes("auto")) return "Custom AI Automations";
+    }
+    if (defaultService) {
+      const match = SERVICE_OPTIONS.find((s) => s.toLowerCase() === defaultService.toLowerCase());
+      if (match) return match;
+    }
+    return "Web Dev + Technical SEO";
+  })();
 
-  // Form State
+  // 2-Step Form State
+  const [step, setStep] = useState<1 | 2>(1);
+  const [selectedService, setSelectedService] = useState<ServiceType>(initialService);
+
+  // Contact Capture State
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [websiteUrl, setWebsiteUrl] = useState("");
-  const [services, setServices] = useState<string[]>(initialServices);
-  const [projectBrief, setProjectBrief] = useState("");
-  const [timeline, setTimeline] = useState(defaultTimeline || "Immediate (< 30 days)");
-  const [budget, setBudget] = useState("Under $3k");
+  const [bottleneck, setBottleneck] = useState("");
 
-  // Honeypot field for spam bots
+  // Honeypot field for spam protection
   const [websiteHp, setWebsiteHp] = useState("");
 
   // Tracking Attribution
@@ -80,22 +74,21 @@ export function InquiryForm({
     }
   }, []);
 
-  const toggleService = (srv: string) => {
-    setServices((prev) => {
-      if (prev.includes(srv)) {
-        if (prev.length === 1) return prev; // Keep at least one
-        return prev.filter((s) => s !== srv);
-      }
-      return [...prev, srv];
-    });
+  const handleServiceSelect = (srv: ServiceType) => {
+    setSelectedService(srv);
     setErrorMessage(null);
+  };
+
+  const handleContinue = () => {
+    setErrorMessage(null);
+    setStep(2);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage(null);
 
-    // Frontend validation
+    // Validation
     if (!fullName.trim()) {
       setErrorMessage("Please enter your name.");
       return;
@@ -107,13 +100,8 @@ export function InquiryForm({
       return;
     }
 
-    if (services.length === 0) {
-      setErrorMessage("Please select at least one primary service.");
-      return;
-    }
-
-    if (!projectBrief.trim()) {
-      setErrorMessage("Please share a brief note on your core bottleneck or target outcome.");
+    if (!websiteUrl.trim()) {
+      setErrorMessage("Please enter your website URL.");
       return;
     }
 
@@ -129,10 +117,9 @@ export function InquiryForm({
           fullName: fullName.trim(),
           email: email.trim(),
           websiteUrl: websiteUrl.trim(),
-          services,
-          projectBrief: projectBrief.trim(),
-          timeline,
-          budget,
+          services: [selectedService],
+          bottleneck: bottleneck.trim() || undefined,
+          projectBrief: bottleneck.trim() ? `Bottleneck: ${bottleneck.trim()}` : "20-Min Architecture Audit Requested",
           sourcePage,
           utm_source: utmSource,
           utm_medium: utmMedium,
@@ -144,283 +131,281 @@ export function InquiryForm({
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.error || "Failed to submit inquiry. Please try again.");
+        throw new Error(data.error || "Failed to submit request. Please try again.");
       }
 
       setIsSuccess(true);
     } catch (err: any) {
-      console.error("[FORM_SUBMIT_ERROR]", err);
-      setErrorMessage(
-        err.message || "An unexpected error occurred. Please email inquiry@technaviatechnology.com directly."
-      );
+      setErrorMessage(err.message || "An unexpected error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const resetForm = () => {
+    setIsSuccess(false);
+    setStep(1);
+    setFullName("");
+    setEmail("");
+    setWebsiteUrl("");
+    setBottleneck("");
+    setErrorMessage(null);
+  };
+
   return (
-    <div className={`w-full ${className}`}>
-      <AnimatePresence mode="wait">
-        {isSuccess ? (
-          <motion.div
-            key="success-card"
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="p-8 sm:p-12 md:p-16 rounded-3xl bg-[#0E1116] border border-[#D4F542]/50 text-center flex flex-col items-center gap-6 shadow-[0_0_50px_rgba(212,245,66,0.15)]"
-          >
-            <div className="w-16 h-16 rounded-full bg-[#D4F542] text-black flex items-center justify-center shadow-[0_0_24px_rgba(212,245,66,0.5)]">
-              <CheckCircle2 className="w-9 h-9 stroke-[2.5]" />
-            </div>
+    <div
+      className={`w-full max-w-xl mx-auto bg-[#14161A]/95 border border-white/[0.14] rounded-2xl sm:rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] relative overflow-hidden ${className}`}
+    >
+      {/* Decorative top border highlight */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4F542] to-transparent opacity-60" />
 
-            <div className="max-w-lg">
-              <span className="text-xs font-mono uppercase tracking-widest text-[#D4F542] block mb-2 font-semibold">
-                INQUIRY DISPATCHED
-              </span>
-              <h3 className="text-3xl sm:text-4xl font-tight font-semibold text-white tracking-tight">
-                Engineering brief received.
-              </h3>
-              <p className="mt-4 text-sm sm:text-base text-white/70 font-sans leading-relaxed">
-                Thank you, <strong className="text-white font-medium">{fullName}</strong>. An email confirmation has been sent to{" "}
-                <span className="text-[#D4F542] font-mono">{email}</span>.
-              </p>
-              <p className="mt-2 text-xs sm:text-sm text-white/50 font-sans leading-relaxed">
-                A senior web architect is reviewing your notes ({services.join(", ")}) and will reply with an initial technical assessment within 1 business day.
-              </p>
-            </div>
+      {/* Success View */}
+      {isSuccess ? (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="py-10 text-center flex flex-col items-center gap-4"
+        >
+          <div className="w-14 h-14 rounded-full bg-[#D4F542]/10 border border-[#D4F542]/40 flex items-center justify-center text-[#D4F542]">
+            <CheckCircle2 className="w-7 h-7" />
+          </div>
 
-            <div className="p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-white/[0.08] text-xs font-mono text-white/60 flex items-center gap-3 max-w-md">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542] shrink-0" />
-              <span>Direct engineer response · Zero sales outreach · Non-disclosure guaranteed</span>
-            </div>
+          <div className="flex flex-col gap-1.5">
+            <h3 className="text-xl sm:text-2xl font-tight font-semibold text-[#F8F8F5]">
+              Audit Request Dispatched
+            </h3>
+            <p className="text-xs sm:text-sm text-white/70 max-w-sm mx-auto leading-relaxed">
+              We received your notes for <span className="text-[#D4F542] font-mono">{selectedService}</span>. A senior engineer will review your website and reply with a live screen-share link or Loom audit within 24 hours.
+            </p>
+          </div>
 
+          <div className="pt-3">
             <button
               type="button"
-              onClick={() => {
-                setIsSuccess(false);
-                setProjectBrief("");
-                setWebsiteUrl("");
-              }}
-              className="mt-2 text-xs font-mono text-white/50 hover:text-[#D4F542] transition-colors underline cursor-pointer"
+              onClick={resetForm}
+              className="text-xs font-mono text-[#D4F542] hover:underline cursor-pointer"
             >
-              Submit another brief or project
+              ← Submit another request
             </button>
-          </motion.div>
-        ) : (
-          <form
-            key="inquiry-form"
-            onSubmit={handleSubmit}
-            toolname="book_technical_audit"
-            tooldescription="Submit an inquiry or book a 5-minute Technical SEO, LLM Visibility, or AI Automation audit with TECHNAVIA."
-            className="p-6 sm:p-10 md:p-12 rounded-3xl bg-[#0E1116] border border-white/[0.12] backdrop-blur-2xl shadow-[0_24px_50px_rgba(0,0,0,0.85)] flex flex-col gap-8 text-[#F8F8F5]"
-          >
-            {/* Honeypot field (hidden from visual users) */}
-            <div className="hidden" aria-hidden="true">
-              <label htmlFor="website_hp">Do not fill this field</label>
-              <input
-                id="website_hp"
-                type="text"
-                name="website_hp"
-                value={websiteHp}
-                onChange={(e) => setWebsiteHp(e.target.value)}
-                tabIndex={-1}
-                autoComplete="off"
-              />
-            </div>
+          </div>
+        </motion.div>
+      ) : (
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5 sm:gap-6">
+          {/* Honeypot field for bot detection */}
+          <div className="hidden" aria-hidden="true">
+            <label htmlFor="inquiry_hp_website">Leave this field blank</label>
+            <input
+              type="text"
+              id="inquiry_hp_website"
+              name="website_hp"
+              tabIndex={-1}
+              autoComplete="off"
+              value={websiteHp}
+              onChange={(e) => setWebsiteHp(e.target.value)}
+            />
+          </div>
 
-            {/* Error Notification Banner */}
-            {errorMessage && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="p-4 rounded-xl bg-red-950/60 border border-red-500/40 text-red-200 text-xs sm:text-sm font-sans flex items-center gap-3"
-              >
-                <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
-                <span>{errorMessage}</span>
-              </motion.div>
-            )}
-
-            {/* 01: Service Multi-Select */}
-            <div className="flex flex-col gap-3">
-              <div className="flex items-center justify-between">
-                <label className="text-xs font-mono text-[#D4F542] uppercase tracking-wider font-semibold">
-                  01 · Primary Need <span className="text-white/40">(Select one or more)</span>
-                </label>
-                <span className="text-[11px] font-mono text-white/40">Multi-select</span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {SERVICE_OPTIONS.map((srv) => {
-                  const isSelected = services.includes(srv);
-                  return (
-                    <button
-                      key={srv}
-                      type="button"
-                      onClick={() => toggleService(srv)}
-                      className={`p-3.5 rounded-xl text-xs sm:text-sm font-sans text-left transition-all cursor-pointer flex items-center justify-between border ${
-                        isSelected
-                          ? "bg-[#D4F542] text-black font-semibold border-[#D4F542] shadow-[0_0_14px_rgba(212,245,66,0.3)]"
-                          : "bg-white/[0.04] text-white/80 hover:bg-white/[0.08] hover:text-white border-white/[0.08]"
-                      }`}
-                    >
-                      <span>{srv}</span>
-                      <span
-                        className={`w-4 h-4 rounded-full border text-[10px] grid place-items-center transition-colors shrink-0 ml-2 ${
-                          isSelected
-                            ? "border-black bg-black text-[#D4F542]"
-                            : "border-white/30 text-transparent"
-                        }`}
-                      >
-                        ✓
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* 02: Full Name & Work Email */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4 border-t border-white/[0.08]">
-              <div className="flex flex-col gap-2">
-                <label className="text-xs font-mono text-white/70 uppercase tracking-wider">
-                  Full Name <span className="text-[#D4F542]">*</span>
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. Alex Vance"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  className="px-4 py-3.5 rounded-xl bg-black/60 border border-white/[0.12] text-white text-sm focus:border-[#D4F542] focus:ring-1 focus:ring-[#D4F542]/40 focus:outline-none transition-all placeholder:text-white/25 font-sans"
-                />
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <label className="text-xs font-mono text-white/70 uppercase tracking-wider">
-                  Work Email <span className="text-[#D4F542]">*</span>
-                </label>
-                <input
-                  type="email"
-                  required
-                  placeholder="alex@company.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="px-4 py-3.5 rounded-xl bg-black/60 border border-white/[0.12] text-white text-sm focus:border-[#D4F542] focus:ring-1 focus:ring-[#D4F542]/40 focus:outline-none transition-all placeholder:text-white/25 font-sans"
-                />
-              </div>
-            </div>
-
-            {/* 03: Website URL */}
-            <div className="flex flex-col gap-2">
-              <label className="text-xs font-mono text-white/70 uppercase tracking-wider">
-                Current Website URL <span className="text-white/40">(Optional)</span>
-              </label>
-              <input
-                type="text"
-                placeholder="https://yourcompany.com"
-                value={websiteUrl}
-                onChange={(e) => setWebsiteUrl(e.target.value)}
-                className="px-4 py-3.5 rounded-xl bg-black/60 border border-white/[0.12] text-white text-sm focus:border-[#D4F542] focus:ring-1 focus:ring-[#D4F542]/40 focus:outline-none transition-all placeholder:text-white/25 font-sans"
-              />
-            </div>
-
-            {/* 04: Project Brief / Bottleneck */}
-            <div className="flex flex-col gap-2 pt-4 border-t border-white/[0.08]">
-              <div className="flex items-center justify-between">
-                <label className="text-xs font-mono text-[#D4F542] uppercase tracking-wider font-semibold">
-                  02 · Main Bottleneck / Goal <span className="text-[#D4F542]">*</span>
-                </label>
-                <span className="text-[11px] font-mono text-white/40">Technical brief</span>
-              </div>
-              <textarea
-                required
-                rows={4}
-                placeholder="What's the #1 ranking, speed, or automation bottleneck you want solved?"
-                value={projectBrief}
-                onChange={(e) => setProjectBrief(e.target.value)}
-                className="px-4 py-3.5 rounded-xl bg-black/60 border border-white/[0.12] text-white text-sm focus:border-[#D4F542] focus:ring-1 focus:ring-[#D4F542]/40 focus:outline-none transition-all placeholder:text-white/25 font-sans leading-relaxed resize-y"
-              />
-            </div>
-
-            {/* 05: Target Timeline */}
-            <div className="flex flex-col gap-2.5 pt-4 border-t border-white/[0.08]">
-              <label className="text-xs font-mono text-white/70 uppercase tracking-wider">
-                Target Timeline
-              </label>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                {TIMELINE_OPTIONS.map((t) => {
-                  const isSelected = timeline === t;
-                  return (
-                    <button
-                      key={t}
-                      type="button"
-                      onClick={() => setTimeline(t)}
-                      className={`py-2.5 px-3 rounded-xl text-xs font-mono transition-all cursor-pointer text-center border ${
-                        isSelected
-                          ? "bg-[#D4F542] text-black font-semibold border-[#D4F542] shadow-[0_0_10px_rgba(212,245,66,0.25)]"
-                          : "bg-white/[0.04] text-white/70 hover:bg-white/[0.08] hover:text-white border-white/[0.08]"
-                      }`}
-                    >
-                      {t}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* 06: Estimated Investment */}
-            <div className="flex flex-col gap-2.5">
-              <label className="text-xs font-mono text-white/70 uppercase tracking-wider">
-                Estimated Investment Range
-              </label>
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
-                {BUDGET_OPTIONS.map((b) => {
-                  const isSelected = budget === b;
-                  return (
-                    <button
-                      key={b}
-                      type="button"
-                      onClick={() => setBudget(b)}
-                      className={`py-2.5 px-2 rounded-xl text-xs font-mono transition-all cursor-pointer text-center border ${
-                        isSelected
-                          ? "bg-[#D4F542] text-black font-semibold border-[#D4F542] shadow-[0_0_10px_rgba(212,245,66,0.25)]"
-                          : "bg-white/[0.04] text-white/70 hover:bg-white/[0.08] hover:text-white border-white/[0.08]"
-                      }`}
-                    >
-                      {b}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Submit Action Button */}
-            <div className="pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#D4F542] hover:bg-[#c3e33b] text-black text-sm font-mono font-bold tracking-wider uppercase transition-all duration-200 shadow-[0_0_24px_rgba(212,245,66,0.35)] flex items-center justify-center gap-3 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed min-h-[48px]"
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin text-black" />
-                    <span>Dispatching...</span>
-                  </>
-                ) : (
-                  <>
-                    <span>Submit Engineering Brief</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </>
-                )}
-              </button>
-
-              <span className="text-xs font-mono text-white/45 text-center sm:text-right">
-                Direct to senior architect · 1 business day reply
+          {/* Breadcrumb Step Header */}
+          <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
+              <span className="text-[11px] font-mono tracking-wider uppercase text-white/70">
+                {step === 1 ? "Step 01 / 02 · Select Focus" : "Step 02 / 02 · Contact Details"}
               </span>
             </div>
-          </form>
-        )}
-      </AnimatePresence>
+            {step === 2 && (
+              <button
+                type="button"
+                onClick={() => setStep(1)}
+                className="text-[11px] font-mono text-white/50 hover:text-[#D4F542] transition-colors flex items-center gap-1 cursor-pointer"
+              >
+                <ArrowLeft className="w-3 h-3" />
+                <span>Change service</span>
+              </button>
+            )}
+          </div>
+
+          <AnimatePresence mode="wait">
+            {step === 1 ? (
+              /* STEP 1: Micro-Commitment Focus Area Pills */
+              <motion.div
+                key="step-1"
+                initial={{ opacity: 0, x: -15 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -15 }}
+                transition={{ duration: 0.2 }}
+                className="flex flex-col gap-4"
+              >
+                <div className="flex flex-col gap-1">
+                  <h3 className="text-base sm:text-lg font-tight font-semibold text-[#F8F8F5]">
+                    What are we fixing on this 20-min call?
+                  </h3>
+                  <p className="text-xs text-white/60">
+                    Pick your primary bottleneck. We will run live diagnostics before the call.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5 pt-1">
+                  {SERVICE_OPTIONS.map((srv) => {
+                    const isSelected = selectedService === srv;
+                    return (
+                      <button
+                        key={srv}
+                        type="button"
+                        onClick={() => handleServiceSelect(srv)}
+                        className={`p-3.5 sm:p-4 rounded-xl text-left text-xs font-mono transition-all flex items-center justify-between border cursor-pointer ${
+                          isSelected
+                            ? "bg-[#D4F542] text-black font-semibold border-[#D4F542] shadow-[0_0_16px_rgba(212,245,66,0.25)]"
+                            : "bg-white/[0.04] text-white/80 border-white/[0.08] hover:bg-white/[0.08] hover:border-white/[0.2]"
+                        }`}
+                      >
+                        <span>{srv}</span>
+                        <span
+                          className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center shrink-0 ml-2 ${
+                            isSelected
+                              ? "border-black bg-black text-[#D4F542]"
+                              : "border-white/30"
+                          }`}
+                        >
+                          {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-[#D4F542]" />}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div className="pt-2">
+                  <button
+                    type="button"
+                    onClick={handleContinue}
+                    className="w-full h-11 sm:h-12 rounded-xl bg-[#D4F542] hover:bg-[#D4F542]/90 text-black font-mono font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-transform active:scale-[0.99] cursor-pointer shadow-[0_0_20px_rgba(212,245,66,0.3)]"
+                  >
+                    <span>Next: Contact Details</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </motion.div>
+            ) : (
+              /* STEP 2: Minimal Contact Capture */
+              <motion.div
+                key="step-2"
+                initial={{ opacity: 0, x: 15 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 15 }}
+                transition={{ duration: 0.2 }}
+                className="flex flex-col gap-4"
+              >
+                <div className="flex flex-col gap-1">
+                  <h3 className="text-base sm:text-lg font-tight font-semibold text-[#F8F8F5]">
+                    Where should we send your audit link?
+                  </h3>
+                  <p className="text-xs text-white/60">
+                    Focus: <span className="text-[#D4F542] font-mono">{selectedService}</span>
+                  </p>
+                </div>
+
+                {/* 2-Column Desktop Grid for Name + Email */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[11px] font-mono uppercase tracking-wider text-white/70">
+                      Full Name <span className="text-[#D4F542]">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Alex Mercer"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      className="w-full h-10 px-3.5 rounded-xl bg-white/[0.05] border border-white/[0.12] focus:border-[#D4F542] focus:bg-white/[0.08] text-white text-xs font-mono outline-none transition-all placeholder:text-white/30"
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[11px] font-mono uppercase tracking-wider text-white/70">
+                      Work Email <span className="text-[#D4F542]">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="alex@company.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full h-10 px-3.5 rounded-xl bg-white/[0.05] border border-white/[0.12] focus:border-[#D4F542] focus:bg-white/[0.08] text-white text-xs font-mono outline-none transition-all placeholder:text-white/30"
+                    />
+                  </div>
+                </div>
+
+                {/* Full Width Website URL */}
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[11px] font-mono uppercase tracking-wider text-white/70">
+                    Website URL <span className="text-[#D4F542]">*</span>
+                  </label>
+                  <input
+                    type="url"
+                    required
+                    placeholder="https://company.com"
+                    value={websiteUrl}
+                    onChange={(e) => setWebsiteUrl(e.target.value)}
+                    className="w-full h-10 px-3.5 rounded-xl bg-white/[0.05] border border-white/[0.12] focus:border-[#D4F542] focus:bg-white/[0.08] text-white text-xs font-mono outline-none transition-all placeholder:text-white/30"
+                  />
+                </div>
+
+                {/* Optional 1-line bottleneck input (NOT a tall textarea) */}
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[11px] font-mono uppercase tracking-wider text-white/70">
+                    Biggest bottleneck <span className="text-white/40 font-normal">(optional)</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 4.2s mobile load, 0 ChatGPT citations, or manual lead copy-paste"
+                    value={bottleneck}
+                    onChange={(e) => setBottleneck(e.target.value)}
+                    className="w-full h-10 px-3.5 rounded-xl bg-white/[0.05] border border-white/[0.12] focus:border-[#D4F542] focus:bg-white/[0.08] text-white text-xs font-mono outline-none transition-all placeholder:text-white/30"
+                  />
+                </div>
+
+                {/* Error Banner */}
+                {errorMessage && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-3 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center gap-2 text-red-400 text-xs font-mono"
+                  >
+                    <AlertCircle className="w-4 h-4 shrink-0" />
+                    <span>{errorMessage}</span>
+                  </motion.div>
+                )}
+
+                {/* Submit Action */}
+                <div className="pt-2 flex flex-col gap-2.5">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full h-11 sm:h-12 rounded-xl bg-[#D4F542] hover:bg-[#D4F542]/90 disabled:opacity-60 text-black font-mono font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-transform active:scale-[0.99] cursor-pointer shadow-[0_0_20px_rgba(212,245,66,0.3)]"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Reserving Slot...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Book My 20-Min Audit Call</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+
+                  {/* Micro-trust line under button */}
+                  <div className="text-[11px] font-mono text-white/50 text-center tracking-tight">
+                    No pitch deck · Live screen-share audit · Zero obligation
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </form>
+      )}
     </div>
   );
 }

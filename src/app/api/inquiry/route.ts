@@ -55,10 +55,18 @@ export async function POST(req: NextRequest) {
       fullName,
       email,
       websiteUrl,
+      companyUrl,
+      competitorUrl,
       services,
+      service,
       projectBrief,
-      timeline,
-      budget,
+      bottleneck,
+      platform,
+      biggestLeak,
+      aiGoal,
+      aiPresence,
+      firstBottleneck,
+      crmStack,
       sourcePage,
       utm_source,
       utm_medium,
@@ -92,32 +100,47 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!Array.isArray(services) || services.length === 0) {
-      return NextResponse.json(
-        { error: "Please select at least one primary service area." },
-        { status: 400 }
-      );
-    }
-
-    if (
-      !projectBrief ||
-      typeof projectBrief !== "string" ||
-      projectBrief.trim().length < 5
-    ) {
-      return NextResponse.json(
-        { error: "Please describe your primary goal or bottleneck." },
-        { status: 400 }
-      );
+    // Resolve service list
+    let resolvedServices: string[] = [];
+    if (Array.isArray(services) && services.length > 0) {
+      resolvedServices = services.map((s) => String(s).trim());
+    } else if (typeof service === "string" && service.trim().length > 0) {
+      resolvedServices = [service.trim()];
+    } else {
+      resolvedServices = ["Full 21-Day Growth Engine"];
     }
 
     const cleanFullName = fullName.trim();
     const cleanEmail = email.trim();
-    const cleanWebsite = websiteUrl ? String(websiteUrl).trim() : "Not provided";
-    const cleanBrief = projectBrief.trim();
-    const cleanTimeline = timeline ? String(timeline).trim() : "Not specified";
-    const cleanBudget = budget ? String(budget).trim() : "Not specified";
-    const cleanServices = services.map((s: string) => String(s).trim());
-    const serviceList = cleanServices.join(", ");
+    const rawWebsite = websiteUrl || companyUrl;
+    const cleanWebsite = rawWebsite && String(rawWebsite).trim().length > 0
+      ? String(rawWebsite).trim()
+      : "Not provided";
+
+    // Gather diagnostic telemetry
+    const diagnosticItems: string[] = [];
+    if (platform) diagnosticItems.push(`Current Platform: ${platform}`);
+    if (biggestLeak) diagnosticItems.push(`Biggest Leak: ${biggestLeak}`);
+    if (aiGoal) diagnosticItems.push(`Primary AI Search Goal: ${aiGoal}`);
+    if (aiPresence) diagnosticItems.push(`Current AI Presence: ${aiPresence}`);
+    if (competitorUrl) diagnosticItems.push(`Top Competitor URL: ${competitorUrl}`);
+    if (firstBottleneck) diagnosticItems.push(`First Bottleneck to Automate: ${firstBottleneck}`);
+    if (crmStack) diagnosticItems.push(`Current CRM / Stack: ${crmStack}`);
+
+    const diagnosticSummary = diagnosticItems.length > 0
+      ? diagnosticItems.join(" | ")
+      : "None provided";
+
+    const cleanBrief =
+      (projectBrief && typeof projectBrief === "string" && projectBrief.trim().length > 0)
+        ? projectBrief.trim()
+        : (bottleneck && typeof bottleneck === "string" && bottleneck.trim().length > 0)
+        ? bottleneck.trim()
+        : (diagnosticItems.length > 0 ? diagnosticSummary : "20-Min Architecture Audit Requested");
+
+    const serviceList = resolvedServices.join(", ");
+    const cleanTimeline = "21-Day Sprint / Immediate";
+    const cleanBudget = "Standard Architecture Scope";
 
     // 3. SMTP Transport Setup
     const smtpHost = process.env.SMTP_HOST || "smtp.hostinger.com";
@@ -137,7 +160,7 @@ export async function POST(req: NextRequest) {
         cleanFullName,
         cleanEmail,
         cleanWebsite,
-        cleanServices,
+        resolvedServices,
         cleanBrief,
         cleanTimeline,
         cleanBudget,
@@ -177,8 +200,7 @@ Prospect:    ${cleanFullName}
 Work Email:  ${cleanEmail}
 Website:     ${cleanWebsite}
 Services:    ${serviceList}
-Timeline:    ${cleanTimeline}
-Budget:      ${cleanBudget}
+Diagnostics: ${diagnosticSummary}
 
 PROJECT BRIEF / BOTTLENECK:
 ${cleanBrief}
@@ -229,12 +251,8 @@ Reply directly to this email to contact the prospect.
       <span class="val">${serviceList}</span>
     </div>
     <div class="row">
-      <span class="label">Target Timeline</span>
-      <span class="val">${cleanTimeline}</span>
-    </div>
-    <div class="row">
-      <span class="label">Estimated Investment</span>
-      <span class="val">${cleanBudget}</span>
+      <span class="label">Diagnostic Breakdown</span>
+      <span class="val">${diagnosticSummary}</span>
     </div>
 
     <div class="row" style="margin-top: 18px;">
@@ -268,9 +286,8 @@ ${serviceList}
 A senior web architect is reviewing your notes and website. We will reply with an initial technical assessment or scheduling link within 1 business day.
 
 Your inquiry summary:
-- Services: ${serviceList}
-- Timeline: ${cleanTimeline}
-- Notes: ${cleanBrief}
+- Focus Area: ${serviceList}
+- Notes / Goal: ${cleanBrief}
 
 If you have additional design specs, GitHub links, or analytics to share, reply directly to this email.
 
@@ -302,9 +319,8 @@ Surat, Gujarat, India · Remote-First Worldwide
     <p>A senior web architect is reviewing your notes and website. We will respond with an initial technical assessment or audit scheduling link within 1 business day.</p>
     <div class="summary">
       <strong>Inquiry Summary:</strong><br/>
-      • <strong>Services:</strong> ${serviceList}<br/>
-      • <strong>Timeline:</strong> ${cleanTimeline}<br/>
-      • <strong>Estimated Budget:</strong> ${cleanBudget}
+      • <strong>Focus Area:</strong> ${serviceList}<br/>
+      • <strong>Notes / Goal:</strong> ${cleanBrief}
     </div>
     <p>If you have additional technical specs, repository links, or analytics reports to attach, simply reply directly to this email.</p>
     <div class="footer">

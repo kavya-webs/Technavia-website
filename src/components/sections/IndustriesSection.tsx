@@ -215,7 +215,7 @@ export function IndustriesSection({ variant = "list", showHeader = true }: Indus
                   <div className="pt-2 flex items-center justify-between text-xs font-mono text-white/50 group-hover:text-white transition-colors">
                     <span>SECTOR PLAYBOOK</span>
                     <Link
-                      href="/workflows"
+                      href="/services"
                       className="text-[#D4F542] flex items-center gap-1 group-hover:translate-x-1 transition-transform font-semibold"
                     >
                       <span>Explore blueprints</span>

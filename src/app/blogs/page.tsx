@@ -61,7 +61,7 @@ export default function BlogsPage() {
           { text: "AEO / GEO VALIDATED", variant: "ghost" },
         ]}
         primaryCta={{ label: "Book an audit", href: "/book" }}
-        secondaryCta={{ label: "Explore services", href: "/workflows" }}
+        secondaryCta={{ label: "Explore services", href: "/services" }}
       />
 
       {/* Interactive Blogs Explorer Section (Search, Filter, Sort, Grid) */}

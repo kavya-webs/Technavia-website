@@ -268,7 +268,7 @@ export function WorkflowsNightShift() {
 
                     {/* See How It Runs CTA Link with arrow badge */}
                     <Link
-                      href={`/workflows/${wf.id}`}
+                      href={wf.id === "web-dev-seo" ? "/services/web-development-seo" : `/services/${wf.id}`}
                       className="group inline-flex items-center gap-3 text-sm font-tight font-semibold text-white hover:text-[#D4F542] transition-colors"
                     >
                       <span className="underline underline-offset-4 decoration-white/30 group-hover:decoration-[#D4F542]">

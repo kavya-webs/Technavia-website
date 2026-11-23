@@ -141,13 +141,13 @@ export function Footer() {
                 </span>
                 <div className="flex flex-col gap-2.5 text-sm text-white/80 font-sans">
                   <a
-                    href="mailto:contact@technavia.com"
+                    href="mailto:inquiry@technaviatechnology.com"
                     className="hover:text-[#D4F542] transition-colors whitespace-nowrap font-medium"
                   >
-                    contact@technavia.com
+                    inquiry@technaviatechnology.com
                   </a>
                   <span className="text-xs font-mono text-white/50">
-                    Remote-First · Serving B2B Teams Worldwide
+                    Surat, India · Serving B2B Teams Globally
                   </span>
                   <div className="flex items-center gap-3 pt-2 text-xs font-mono font-bold tracking-wider uppercase text-white/70">
                     <a
@@ -255,7 +255,7 @@ export function Footer() {
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#D4F542] shadow-[0_0_10px_#D4F542] animate-pulse" />
                   <span className="text-white font-medium">
-                    Remote-First · Serving B2B Teams Worldwide
+                    Surat, India · Serving B2B Teams Globally
                   </span>
                 </div>
                 <span className="text-[#D4F542] text-[11px] font-bold tracking-wider hidden sm:inline">

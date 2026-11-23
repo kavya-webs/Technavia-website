@@ -21,7 +21,7 @@ export function OrganizationJsonLd() {
         "description":
           "B2B technology studio specializing in Web Development, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations at technaviatechnology.com.",
         "slogan": "BUILT TO RANK. AUTOMATED TO SCALE.",
-        "email": "contact@technavia.com",
+        "email": "inquiry@technaviatechnology.com",
         "telephone": "+91 7048617190",
         "address": {
           "@type": "PostalAddress",
@@ -31,7 +31,7 @@ export function OrganizationJsonLd() {
           "postalCode": "394105",
           "addressCountry": "IN",
         },
-        "areaServed": "Worldwide",
+        "areaServed": ["US", "GB", "CA", "AE", "IN", "EU"],
         "founder": {
           "@type": "Person",
           "name": "Kavya Mavani",

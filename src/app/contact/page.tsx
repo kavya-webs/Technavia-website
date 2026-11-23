@@ -95,20 +95,23 @@ export default function ContactPage() {
                 </span>
               </div>
               <a
-                href="mailto:contact@technavia.com"
+                href="mailto:inquiry@technaviatechnology.com"
                 className="text-xl sm:text-2xl font-tight font-semibold text-white hover:text-[#D4F542] transition-colors whitespace-nowrap"
               >
-                contact@technavia.com
+                inquiry@technaviatechnology.com
               </a>
             </div>
 
-            {/* Base Location */}
+            {/* Headquarters & Service Area */}
             <div className="pt-6 border-t border-white/[0.08]">
               <span className="text-xs font-mono text-white/50 uppercase tracking-widest block mb-2">
-                Base
+                Headquarters & Global Coverage
               </span>
-              <div className="text-base text-white/90 font-medium">Remote-First · Serving B2B Teams Worldwide</div>
-              <div className="text-xs font-mono text-[#D4F542] mt-1.5 flex items-center gap-1.5">
+              <div className="text-base text-white/90 font-medium">Surat, Gujarat, India (IST / UTC+5:30)</div>
+              <div className="text-xs font-sans text-white/65 mt-1 leading-relaxed">
+                Serving B2B founders & technology teams globally (North America, Europe, Middle East & India)
+              </div>
+              <div className="text-xs font-mono text-[#D4F542] mt-2 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D4F542]" />
                 <span>Global coverage (async & live engineering support)</span>
               </div>

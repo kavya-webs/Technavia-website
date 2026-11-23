@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { RESULTS } from "@/lib/data";
 
 const CLIENT_INITIALS: Record<string, string> = {
-  "apex-saas": "MV",
-  "vanguard-fintech": "ER",
-  "kinetix-studio": "DT",
+  "seravolve": "SA",
+  "tg-media": "TG",
+  "cosmo-solor": "CC",
 };
 
 export function ReviewsSection() {

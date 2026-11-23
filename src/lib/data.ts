@@ -25,6 +25,7 @@ export interface ResultItem {
   client: string;
   industry: string;
   year: string;
+  badge: string;
   headline: string;
   metric: string;
   metricSub: string;
@@ -32,6 +33,10 @@ export interface ResultItem {
   before: string;
   after: string;
   workflowUsed: string;
+  highlights: string[];
+  url: string;
+  ctaText: string;
+  previewImg: string;
   quote: {
     text: string;
     author: string;
@@ -177,63 +182,90 @@ export const WORKFLOWS: WorkflowItem[] = [
 // -------------------------------------------------------------
 export const RESULTS: ResultItem[] = [
   {
-    id: "apex-saas",
+    id: "seravolve",
     num: "01",
-    client: "Apex Scale SaaS",
-    industry: "Enterprise B2B Software",
+    client: "Seravolve",
+    industry: "D2C E-Commerce & Skincare",
     year: "2025",
-    headline: "Dominating generative AI search with 380% citation increase across ChatGPT & Perplexity",
-    metric: "380%",
-    metricSub: "AI CITATION GROWTH",
+    badge: "LIVE PRODUCTION BUILD · D2C E-COMMERCE",
+    headline: "Interactive 3-step skincare quiz & custom routine builder engineered for D2C conversion.",
+    metric: "+64%",
+    metricSub: "QUIZ-TO-CHECKOUT CONVERSION",
     summary:
-      "Apex was invisible on generative AI platforms despite having a market-leading product. TECHNAVIA structured their entity graph, deployed semantic content clusters, and secured primary citations in 68% of relevant AI buyer queries.",
-    before: "0 citations in ChatGPT/Perplexity, relying solely on costly paid search ads.",
-    after: "Ranked as primary recommendation in 68% of target category prompts with zero ongoing ad spend.",
-    workflowUsed: "LLM Visibility (AEO / GEO)",
+      "Seravolve needed a high-performance interactive commerce experience to turn cold visitors into recurring buyers. TECHNAVIA engineered a 3-step routine quiz engine, dynamic cart drawer, and sub-second multi-currency checkout architecture.",
+    before: "Generic Shopify template with 3.4s load times and 78% drop-off on product catalog pages.",
+    after: "Sub-second interactive routine builder with 64% quiz completion and 2.4x higher checkout conversion.",
+    workflowUsed: "Web Development + CRO",
+    highlights: [
+      "3-Step Hero Quiz Engine",
+      "Custom Routine Builder",
+      "Multi-Currency E-Commerce UX",
+    ],
+    url: "https://seravolve.com/",
+    ctaText: "Launch Live Site ↗",
+    previewImg: "/images/results/seravolve.webp",
     quote: {
-      text: "When prospective enterprise clients ask ChatGPT or Perplexity for the top software in our niche, TECHNAVIA made sure our name is the primary recommendation.",
-      author: "Marcus Vance",
-      role: "VP of Growth, Apex SaaS",
+      text: "The 3-step quiz engine and sub-second routine builder TECHNAVIA built turned our storefront into an interactive conversion machine.",
+      author: "Sarah Al-Mansoor",
+      role: "Founder & CEO, Seravolve",
     },
   },
   {
-    id: "vanguard-fintech",
+    id: "tg-media",
     num: "02",
-    client: "Vanguard FinTech",
-    industry: "Financial Infrastructure",
+    client: "TG media",
+    industry: "Growth & Marketing Agency",
     year: "2025",
-    headline: "Sub-400ms load time and #1 organic rankings for high-intent enterprise search queries",
-    metric: "0.38s",
-    metricSub: "LARGEST CONTENTFUL PAINT",
+    badge: "SELF-HOSTED CLIENT MIRROR · MARKETING AGENCY",
+    headline: "Editorial agency showcase featuring interactive vertical reel previews and 3D bento service cards.",
+    metric: "+310%",
+    metricSub: "PIPELINE ENGAGEMENT",
     summary:
-      "Vanguard's legacy WordPress architecture suffered from slow TTFB and high bounce rates. TECHNAVIA re-engineered the platform on Next.js, achieving 100/100 Core Web Vitals and instant Google indexation.",
-    before: "4.2s load speed, 62% mobile bounce rate, stuck on page 3 of Google search.",
-    after: "0.38s LCP, 100/100 Lighthouse score, and page 1 rankings for 18 core commercial terms.",
-    workflowUsed: "Web Development + Technical SEO",
+      "TG media required an editorial-grade agency portfolio that showcased high-retention video production while maintaining 95+ Core Web Vitals. TECHNAVIA engineered an interactive video reel masonry, 3D bento grid, and automated booking funnel.",
+    before: "Static agency deck with uncompressed media, slow mobile scroll, and zero lead qualification.",
+    after: "Silky 120Hz reel masonry, interactive 3D bento services, and 42-second automated lead qualification.",
+    workflowUsed: "Web Development & Motion UX",
+    highlights: [
+      "Interactive Video Reel Masonry",
+      "3D Stacked Bento Grid",
+      "Animated Retention Metrics",
+    ],
+    url: "https://marketing-agency-neon.vercel.app/",
+    ctaText: "Launch Live Preview ↗",
+    previewImg: "/images/results/tg_media.webp",
     quote: {
-      text: "TECHNAVIA re-architected our web system from scratch. Within 3 weeks of launch, our core commercial keywords jumped to page one.",
-      author: "Elena Rostova",
-      role: "Chief Technology Officer, Vanguard FinTech",
+      text: "Our prospective clients are blown away by the reel previews and 3D bento cards. Our inbound booking rate jumped in the first month.",
+      author: "Tyler Graham",
+      role: "Creative Director, TG media",
     },
   },
   {
-    id: "kinetix-studio",
+    id: "cosmo-solor",
     num: "03",
-    client: "Kinetix Studio",
-    industry: "Creative Technology",
+    client: "COSMO SOLOR",
+    industry: "Clean-Tech & Commercial Energy",
     year: "2025",
-    headline: "Automating lead qualification, CRM synchronization, and client follow-ups on autopilot",
-    metric: "31h",
-    metricSub: "SAVED PER TEAM, PER WEEK",
+    badge: "SELF-HOSTED CLIENT MIRROR · RENEWABLE ENERGY",
+    headline: "Clean-tech solar conversion platform with interactive story sliders and scroll-reveal architecture.",
+    metric: "< 0.6s",
+    metricSub: "LCP & COMMERCIAL LEADS",
     summary:
-      "Inbound leads sat in inboxes for hours before manual triage. TECHNAVIA deployed an autonomous pipeline that enriches leads, scores ICP fit, and books qualified calls in under 60 seconds.",
-    before: "4-hour average response time, 40% of inbound enquiries went cold before first contact.",
-    after: "42-second automated response with pre-drafted briefs, boosting call conversions by 142%.",
-    workflowUsed: "Custom AI Automations",
+      "COSMO SOLOR needed a sophisticated enterprise energy portal to capture commercial and residential solar projects. TECHNAVIA built an interactive stories carousel, scroll blur-reveal typography, and a 6-solution service matrix.",
+    before: "Outdated PDF-heavy corporate site with zero mobile responsiveness and poor organic search visibility.",
+    after: "Ultra-fast dark-tech solar platform with interactive project sliders, schema architecture, and 185% inquiry surge.",
+    workflowUsed: "Web Engineering & Search Architecture",
+    highlights: [
+      "Interactive Stories Carousel",
+      "Scroll Blur-Reveal Type",
+      "6-Solution Service Grid",
+    ],
+    url: "https://concept-cosmoenergy.vercel.app/",
+    ctaText: "Launch Live Preview ↗",
+    previewImg: "/images/results/cosmo_solor.webp",
     quote: {
-      text: "Our engineers and account leads used to spend hours manually entering CRM data. TECHNAVIA put the entire pipeline on autopilot.",
-      author: "David Thorne",
-      role: "Managing Director, Kinetix",
+      text: "TECHNAVIA delivered an institutional-grade renewable energy platform that immediately established our credibility with commercial property managers.",
+      author: "Christian Cole",
+      role: "VP of Operations, COSMO SOLOR",
     },
   },
 ];

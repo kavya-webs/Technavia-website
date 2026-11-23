@@ -283,13 +283,19 @@ export function Hero() {
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-3.5 pt-0.5">
+          <div className="flex flex-wrap items-center gap-3 pt-0.5">
             <Button href="/book?type=audit" variant="quiet">
               Get Your Free 5-Min Audit
             </Button>
-            <Button href="/services" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[42px] !text-[12.5px]">
-              Explore Services
+            <Button href="#case-studies" variant="ghost" hasArrow={false} hasLamp={true} className="!h-[42px] !text-[12.5px]">
+              See Live Builds ↓
             </Button>
+            <Link
+              href="/services"
+              className="text-[12px] font-mono text-white/60 hover:text-[#D4F542] transition-colors uppercase tracking-wider flex items-center gap-1 px-2 py-1"
+            >
+              Explore Services →
+            </Link>
           </div>
         </div>
 

@@ -115,7 +115,7 @@ Expandable accordions for `Services` and `Company`, keeping touch targets strict
   * *Important*: Must remain `.mjs` (ES Module). Do NOT revert to `next.config.ts` because Linux environments with older glibc (e.g. Hostinger) fail to compile `.ts` config files with SWC.
 * **Build Script**: `"build": "next build --webpack"`
   * *Important*: Next.js 16 defaults to Turbopack, which requires native Linux glibc >= 2.29. Hostinger uses WebAssembly fallback, which requires Webpack (`--webpack`).
-* **Dependencies**: `typescript` and `@types/*` must stay inside `dependencies` (not `devDependencies`) so that production CI environments (which run `npm install --omit=dev`) have the compiler installed.
+* **Dependencies**: `typescript`, `@types/*`, `tailwindcss`, and `postcss` must stay inside `dependencies` (not `devDependencies`) so that production CI environments (such as Hostinger, which run `npm install --omit=dev`) have the compiler and CSS pipeline installed.
 * **Git Repository**:
   * Origin: `https://github.com/kavya-webs/Technavia-website.git`
   * Author: `Kavya Mavani <kavyamavaniweb@gmail.com>`

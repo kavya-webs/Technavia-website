@@ -65,7 +65,7 @@ export function Navbar() {
 
     const handleScroll = () => {
       const currentY = window.scrollY;
-      setScrolled(currentY > 30);
+      setScrolled(currentY > 20);
 
       if (currentY > 120 && currentY > lastY) {
         setIsAway(true);
@@ -74,6 +74,9 @@ export function Navbar() {
       }
       lastY = currentY;
     };
+
+    // Initial check on mount
+    setScrolled(window.scrollY > 20);
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -122,7 +125,13 @@ export function Navbar() {
         isAway ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="w-full h-full px-6 md:px-8 lg:px-14 flex items-center justify-between bg-[#0B0D10]/85 backdrop-blur-md border-b border-white/[0.08] transition-all duration-400">
+      <div
+        className={`w-full h-full px-6 md:px-8 lg:px-14 flex items-center justify-between transition-all duration-300 ${
+          scrolled || mobileMenuOpen
+            ? "bg-[#0B0D10]/85 backdrop-blur-md border-b border-white/[0.08]"
+            : "bg-transparent border-b border-transparent"
+        }`}
+      >
         {/* Brand Logo - Official TECHNAVIA */}
         <Link href="/" className="flex items-center group py-2" aria-label="TECHNAVIA Home">
           <TechnaviaLogo

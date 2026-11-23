@@ -51,13 +51,7 @@ export function Navbar() {
         isAway ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <div
-        className={`w-full h-full px-6 md:px-8 lg:px-14 flex items-center justify-between transition-all duration-400 ${
-          scrolled
-            ? "bg-[#0B0D10]/80 backdrop-blur-md border-b border-white/[0.08]"
-            : "bg-transparent"
-        }`}
-      >
+      <div className="w-full h-full px-6 md:px-8 lg:px-14 flex items-center justify-between bg-[#0B0D10]/85 backdrop-blur-md border-b border-white/[0.08] transition-all duration-400">
         {/* Brand Logo - Official TECHNAVIA */}
         <Link href="/" className="flex items-center group py-2" aria-label="TECHNAVIA Home">
           <TechnaviaLogo
@@ -69,18 +63,18 @@ export function Navbar() {
         </Link>
 
         {/* Desktop & iPad Navigation Links - Hover effect with white pill shape & black text, active marked by green dot */}
-        <nav className="hidden md:flex items-center gap-1 lg:gap-3">
+        <nav className="hidden md:flex items-center gap-1.5 lg:gap-3">
           {navLinks.map((item) => {
             const isActive = pathname.startsWith(item.href);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative px-3 lg:px-4 py-1.5 rounded-full text-xs lg:text-sm font-medium transition-all duration-200 text-[#F8F8F5] hover:bg-white hover:text-black group flex flex-col items-center"
+                className="relative px-2.5 lg:px-4 py-2 rounded-full text-xs lg:text-sm font-medium transition-all duration-200 text-[#F8F8F5] hover:bg-white hover:text-black group flex flex-col items-center"
               >
                 <span>{item.name}</span>
                 {isActive && (
-                  <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
+                  <span className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
                 )}
               </Link>
             );
@@ -155,7 +149,7 @@ export function Navbar() {
               Book a call
             </Button>
             <div className="flex items-center justify-between text-xs font-mono text-white/50 pt-2 border-t border-white/[0.08]">
-              <span>LONDON & SF · UTC/GMT</span>
+              <span>REMOTE-FIRST · SERVING B2B WORLDWIDE</span>
               <span className="text-[#D4F542] font-semibold">3 SERVICES ACTIVE</span>
             </div>
           </div>

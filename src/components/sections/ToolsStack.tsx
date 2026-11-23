@@ -226,9 +226,9 @@ export function ToolsStack() {
 
         {/* Interactive Stack Map - 3 Columns with Horizontal Hub Rectangle & Animated Travelling Glowing Balls */}
         <div ref={containerRef} className="relative w-full my-6">
-          {/* Dynamic SVG Overlay for Connecting Lines and Traveling Glowing Balls */}
+          {/* Dynamic SVG Overlay for Connecting Lines and Traveling Glowing Balls - Strictly z-0 behind cards */}
           <svg
-            className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible hidden lg:block"
+            className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible hidden lg:block"
             aria-hidden="true"
           >
             <defs>
@@ -290,7 +290,7 @@ export function ToolsStack() {
             <div className="md:col-span-2 lg:col-span-4 flex items-center justify-center py-4 lg:py-6 order-first lg:order-none">
               <div
                 ref={hubRef}
-                className="relative w-full max-w-[340px] h-[155px] sm:h-[165px] rounded-2xl bg-[#0B0D10]/95 border border-[#D4F542] shadow-[0_0_28px_rgba(212,245,66,0.25)] flex flex-col items-center justify-center p-6 text-center backdrop-blur-2xl"
+                className="relative z-10 w-full max-w-[340px] h-[155px] sm:h-[165px] rounded-2xl bg-[#0B0D10]/95 border border-[#D4F542] shadow-[0_0_28px_rgba(212,245,66,0.25)] flex flex-col items-center justify-center p-6 text-center backdrop-blur-2xl"
               >
                 {/* Glowing neon green center bulb */}
                 <span className="relative flex items-center justify-center mb-2.5">
@@ -316,7 +316,7 @@ export function ToolsStack() {
                   ref={(el) => {
                     cardRefs.current[tool.id] = el;
                   }}
-                  className="relative p-6 sm:p-7 rounded-2xl bg-[#0B0D10]/85 border border-white/[0.12] hover:border-white/30 transition-all duration-300 backdrop-blur-md shadow-xl flex flex-col justify-between"
+                  className="relative z-10 p-6 sm:p-7 rounded-2xl bg-[#14161A] border border-white/[0.12] hover:border-white/30 transition-all duration-300 backdrop-blur-md shadow-xl flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between text-xs font-mono mb-2">
@@ -355,7 +355,7 @@ export function ToolsStack() {
                   ref={(el) => {
                     cardRefs.current[tool.id] = el;
                   }}
-                  className="relative p-6 sm:p-7 rounded-2xl bg-[#0B0D10]/85 border border-white/[0.12] hover:border-white/30 transition-all duration-300 backdrop-blur-md shadow-xl flex flex-col justify-between"
+                  className="relative z-10 p-6 sm:p-7 rounded-2xl bg-[#14161A] border border-white/[0.12] hover:border-white/30 transition-all duration-300 backdrop-blur-md shadow-xl flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between text-xs font-mono mb-2">

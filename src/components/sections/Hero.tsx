@@ -143,24 +143,26 @@ export function Hero() {
         </div>
       )}
 
-      {/* Animated SVG Electrical Cable / Wire connected dynamically to active/hovered pin */}
-      <svg
-        className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
-        <motion.path
-          key={displayedPinId}
-          d={`M ${currentPin.lampX} ${currentPin.lampY} Q ${(currentPin.lampX + parseFloat(currentPin.left)) / 2 + (currentPin.side === 'l' ? 3 : -3)} ${(currentPin.lampY + parseFloat(currentPin.top)) / 2 - 4} ${parseFloat(currentPin.left)} ${parseFloat(currentPin.top)}`}
-          fill="none"
-          stroke="#D4F542"
-          strokeWidth="0.25"
-          strokeDasharray="0.8 0.6"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 0.9 }}
-          transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
-        />
-      </svg>
+      {/* Animated SVG Electrical Cable / Wire connected dynamically to active/hovered pin - strictly below navbar */}
+      <div className="absolute inset-x-0 top-[88px] bottom-0 pointer-events-none overflow-hidden z-10">
+        <svg
+          className="w-full h-full pointer-events-none overflow-hidden"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <motion.path
+            key={displayedPinId}
+            d={`M ${currentPin.lampX} ${currentPin.lampY} Q ${(currentPin.lampX + parseFloat(currentPin.left)) / 2 + (currentPin.side === 'l' ? 3 : -3)} ${(currentPin.lampY + parseFloat(currentPin.top)) / 2 - 4} ${parseFloat(currentPin.left)} ${parseFloat(currentPin.top)}`}
+            fill="none"
+            stroke="#D4F542"
+            strokeWidth="0.25"
+            strokeDasharray="0.8 0.6"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 0.9 }}
+            transition={{ duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
+          />
+        </svg>
+      </div>
 
       {/* 3 Interactive Workflow Pins - All 3 have full hover expansion, click activation, and direct links */}
       <div className="absolute inset-0 z-30 pointer-events-none hidden lg:block">

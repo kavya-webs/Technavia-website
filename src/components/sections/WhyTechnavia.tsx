@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 export function WhyTechnavia() {
   return (
-    <section className="relative w-full min-h-[100svh] flex flex-col justify-between bg-[#0B0D10] text-[#F8F8F5] pt-12 md:pt-16 pb-12 md:pb-16 px-6 md:px-8 lg:px-14 border-t border-white/[0.08]">
-      <div className="max-w-[1340px] mx-auto w-full flex-1 flex flex-col justify-between gap-10 lg:gap-14">
+    <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-20 md:py-28 px-6 md:px-8 lg:px-14 border-t border-white/[0.08]">
+      <div className="max-w-[1340px] mx-auto w-full flex flex-col gap-10 lg:gap-12">
         {/* Top 2-Column: Pitch Headline + Engineering Architecture HUD */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pt-2">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Eyebrow + Big Punchy Statement */}
           <div className="lg:col-span-7 flex flex-col gap-5">
             <div className="flex items-center gap-2">
@@ -49,31 +49,31 @@ export function WhyTechnavia() {
               {/* Glowing Accent Ring */}
               <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[#D4F542]/10 blur-3xl pointer-events-none" />
 
-              {/* Top HUD Telemetry */}
-              <div className="relative z-10 flex flex-wrap items-center justify-between gap-y-1 gap-x-2 text-xs font-mono">
-                <div className="flex items-center gap-2 shrink-0">
-                  <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542] animate-pulse" />
-                  <span className="text-white/80 font-medium text-[11px] sm:text-xs">ENGINEERING BUS ONLINE</span>
+              {/* Top HUD Telemetry - single line nowrap with pulsing active indicator */}
+              <div className="relative z-10 flex items-center justify-between gap-2 text-xs font-mono pb-1 border-b border-white/[0.06]">
+                <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                  <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542] animate-pulse shrink-0" />
+                  <span className="text-white/85 font-medium text-[10.5px] sm:text-xs whitespace-nowrap">ENGINEERING BUS ONLINE</span>
                 </div>
-                <span className="text-white/40 uppercase tracking-widest text-[9px] sm:text-[10px] shrink-0">NEXT.JS · GEO · N8N</span>
+                <span className="text-white/40 uppercase tracking-widest text-[9px] sm:text-[10px] shrink-0 whitespace-nowrap">NEXT.JS · GEO · N8N</span>
               </div>
 
-              {/* Center Architecture Blueprint Nodes */}
-              <div className="relative z-10 my-auto grid grid-cols-3 gap-2 sm:gap-3 py-3 sm:py-4">
-                <div className="p-2 sm:p-3 rounded-xl bg-white/[0.04] border border-white/[0.08] flex flex-col gap-0.5 sm:gap-1">
-                  <span className="text-[9px] sm:text-[10px] font-mono text-[#D4F542]">01 · SPEED</span>
-                  <span className="text-xs sm:text-sm font-tight font-bold text-white whitespace-nowrap">&lt; 1.0s LCP</span>
-                  <span className="text-[10px] sm:text-[11px] font-sans text-white/50 leading-tight">Edge Pre-rendered</span>
+              {/* Center Architecture Blueprint Nodes - Responsive Grid for Mobile (Stacked) and Tablet/Desktop (3-Col) */}
+              <div className="relative z-10 my-auto grid grid-cols-1 sm:grid-cols-3 gap-3 py-3 sm:py-4">
+                <div className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.08] flex flex-col gap-1">
+                  <span className="text-[10px] font-mono text-[#D4F542]">01 · SPEED</span>
+                  <span className="text-sm font-tight font-bold text-white whitespace-nowrap">&lt; 1.0s LCP</span>
+                  <span className="text-[11px] font-sans text-white/50 leading-tight">Edge Pre-rendered</span>
                 </div>
-                <div className="p-2 sm:p-3 rounded-xl bg-white/[0.04] border border-[#D4F542]/30 flex flex-col gap-0.5 sm:gap-1 shadow-[0_0_20px_rgba(212,245,66,0.1)]">
-                  <span className="text-[9px] sm:text-[10px] font-mono text-[#D4F542]">02 · ENTITY</span>
-                  <span className="text-xs sm:text-sm font-tight font-bold text-white whitespace-nowrap">AEO / GEO</span>
-                  <span className="text-[10px] sm:text-[11px] font-sans text-white/50 leading-tight">ChatGPT & Perplexity</span>
+                <div className="p-3 rounded-xl bg-white/[0.04] border border-[#D4F542]/30 flex flex-col gap-1 shadow-[0_0_20px_rgba(212,245,66,0.1)]">
+                  <span className="text-[10px] font-mono text-[#D4F542]">02 · ENTITY</span>
+                  <span className="text-sm font-tight font-bold text-white whitespace-nowrap">AEO / GEO</span>
+                  <span className="text-[11px] font-sans text-white/50 leading-tight">ChatGPT & Perplexity</span>
                 </div>
-                <div className="p-2 sm:p-3 rounded-xl bg-white/[0.04] border border-white/[0.08] flex flex-col gap-0.5 sm:gap-1">
-                  <span className="text-[9px] sm:text-[10px] font-mono text-[#D4F542]">03 · OPS</span>
-                  <span className="text-xs sm:text-sm font-tight font-bold text-white whitespace-nowrap">&lt; 60s Lead</span>
-                  <span className="text-[10px] sm:text-[11px] font-sans text-white/50 leading-tight">CRM Synced</span>
+                <div className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.08] flex flex-col gap-1">
+                  <span className="text-[10px] font-mono text-[#D4F542]">03 · OPS</span>
+                  <span className="text-sm font-tight font-bold text-white whitespace-nowrap">&lt; 60s Lead</span>
+                  <span className="text-[11px] font-sans text-white/50 leading-tight">CRM Synced</span>
                 </div>
               </div>
 
@@ -92,8 +92,8 @@ export function WhyTechnavia() {
           </div>
         </div>
 
-        {/* Bottom 4-Column Stat Metrics Row */}
-        <div className="w-full pt-4">
+        {/* Bottom 4-Column Stat Metrics Row - Tighter Desktop Padding */}
+        <div className="w-full pt-2">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {/* Stat 1: 21 Days */}
             <div className="flex flex-col border-t border-white/[0.14] pt-4">

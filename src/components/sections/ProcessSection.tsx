@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
@@ -187,10 +188,12 @@ export function ProcessSection() {
               className="absolute inset-0 z-0 pointer-events-none"
             >
               {/* Background Photo */}
-              <img
+              <Image
                 src={STEPS[mobileStep].img}
                 alt={STEPS[mobileStep].title}
-                className="w-full h-full object-cover object-[50%_35%]"
+                fill
+                sizes="(max-width: 768px) 100vw, 400px"
+                className="object-cover object-[50%_35%]"
               />
               {/* Directional Gradient Scrims */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-[#0B0D10]/85 via-50% to-[#0B0D10]/60" />
@@ -330,11 +333,12 @@ export function ProcessSection() {
                     >
                       {/* Background Photography */}
                       <div className="absolute inset-0 z-0">
-                        <img
+                        <Image
                           src={s.img}
                           alt={s.title}
-                          className="w-full h-full object-cover object-[50%_35%] scale-100"
-                          loading="lazy"
+                          fill
+                          sizes="(max-width: 1200px) 50vw, 620px"
+                          className="object-cover object-[50%_35%] scale-100"
                         />
                         {/* Gradient scrims for readability */}
                         <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/95 via-[#0B0D10]/70 to-[#0B0D10]/30" />

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "../ui/Button";
 import { LitDot } from "../ui/LitDot";
@@ -98,10 +99,14 @@ export function Hero() {
     >
       {/* Background Tech Studio Photography */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <img
+        <Image
           src="/images/tech/hero_tech.jpg"
           alt="Modern tech studio architecture at dusk"
-          className="absolute inset-0 w-full h-full object-cover object-[50%_42%] scale-105"
+          fill
+          priority
+          quality={85}
+          sizes="100vw"
+          className="object-cover object-[50%_42%] scale-105"
         />
 
         {/* Minor Black Tint across entire background for crisp text readability */}

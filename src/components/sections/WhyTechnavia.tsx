@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export function WhyTechnavia() {
@@ -30,10 +31,12 @@ export function WhyTechnavia() {
           {/* Right Column: Desk Photo with Floating Core Web Vitals Pill */}
           <div className="lg:col-span-5 flex justify-start lg:justify-end">
             <figure className="relative w-full max-w-[540px] aspect-[16/11] rounded-2xl overflow-hidden border border-white/[0.12] shadow-2xl group">
-              <img
+              <Image
                 src="/images/tech/why_technavia.jpg"
                 alt="TECHNAVIA engineering workspace"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                fill
+                sizes="(max-width: 1024px) 100vw, 540px"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
 

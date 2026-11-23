@@ -6,13 +6,15 @@ import { motion } from "framer-motion";
 import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
 
-export function BookSection() {
+export function BookSection({ defaultService }: { defaultService?: string }) {
   const router = useRouter();
   const [teamSize, setTeamSize] = useState<string>("6–20");
-  const [selectedWorkflows, setSelectedWorkflows] = useState<string[]>([
-    "Web Dev + SEO",
-    "LLM Visibility",
-  ]);
+  const [selectedWorkflows, setSelectedWorkflows] = useState<string[]>(() => {
+    if (defaultService) {
+      return [defaultService];
+    }
+    return ["Website + Technical SEO", "LLM Visibility (ChatGPT/Perplexity)"];
+  });
 
   const teamSizes = ["1–5", "6–20", "21–100", "100+"];
   const workflowOptions = [

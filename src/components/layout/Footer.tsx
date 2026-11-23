@@ -31,8 +31,8 @@ export function Footer() {
             {/* Left Headline & CTA */}
             <div className="lg:col-span-5 flex flex-col gap-6">
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.98]">
-                Websites engineered, <br />
-                <span className="text-[#D4F542]">running on Google & AI.</span>
+                Websites engineered <br />
+                <span className="text-[#D4F542]">to rank on Google & AI.</span>
               </h2>
 
               <div>
@@ -44,10 +44,10 @@ export function Footer() {
 
             {/* Right Links Columns */}
             <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
-              {/* Col 1: Agency */}
+              {/* Col 1: Services */}
               <div className="flex flex-col gap-3">
                 <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-white/45 border-b border-white/[0.08] pb-2">
-                  DISCIPLINES
+                  SERVICES
                 </span>
                 <ul className="flex flex-col gap-2.5 text-sm font-medium text-white/80 font-sans">
                   <li>
@@ -55,39 +55,31 @@ export function Footer() {
                       href="/services"
                       className="hover:text-[#D4F542] transition-colors"
                     >
-                      Services
+                      All Services
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/results"
+                      href="/services/web-development-seo"
                       className="hover:text-[#D4F542] transition-colors"
                     >
-                      Results
+                      Web Dev + Technical SEO
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/process"
+                      href="/services/llm-visibility"
                       className="hover:text-[#D4F542] transition-colors"
                     >
-                      Process
+                      LLM Visibility (AEO/GEO)
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/tools"
+                      href="/services/ai-automations"
                       className="hover:text-[#D4F542] transition-colors"
                     >
-                      Stack
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/industries"
-                      className="hover:text-[#D4F542] transition-colors"
-                    >
-                      Industries
+                      Custom AI Automations
                     </Link>
                   </li>
                 </ul>
@@ -101,10 +93,10 @@ export function Footer() {
                 <ul className="flex flex-col gap-2.5 text-sm font-medium text-white/80 font-sans">
                   <li>
                     <Link
-                      href="/about"
+                      href="/results"
                       className="hover:text-[#D4F542] transition-colors"
                     >
-                      About
+                      Results & Live Builds
                     </Link>
                   </li>
                   <li>
@@ -112,7 +104,7 @@ export function Footer() {
                       href="/process"
                       className="hover:text-[#D4F542] transition-colors"
                     >
-                      Process
+                      21-Day Process
                     </Link>
                   </li>
                   <li>
@@ -120,7 +112,15 @@ export function Footer() {
                       href="/blogs"
                       className="hover:text-[#D4F542] transition-colors"
                     >
-                      Blogs
+                      Blueprints & Blogs
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/about"
+                      className="hover:text-[#D4F542] transition-colors"
+                    >
+                      About
                     </Link>
                   </li>
                   <li>

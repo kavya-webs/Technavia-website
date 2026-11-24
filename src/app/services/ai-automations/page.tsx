@@ -1,23 +1,22 @@
 import React, { Suspense } from "react";
 import { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight, CheckCircle2, XCircle, ShieldCheck, Sparkles, Clock } from "lucide-react";
+import { ArrowRight, CheckCircle2, XCircle, ShieldCheck } from "lucide-react";
 import { ServiceJsonLd, FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { AutomationsHeroMockup } from "@/components/mockups/AutomationsHeroMockup";
 import { ServiceBookingForm } from "@/components/forms/ServiceBookingForm";
 import { AdHeaderBar } from "@/components/ui/AdHeaderBar";
 
 export const metadata: Metadata = {
-  title: "Custom AI Automations & n8n Lead Routing Systems | TECHNAVIA",
+  title: "Custom AI Automations & Lead Routing Systems | TECHNAVIA",
   description:
-    "Qualify, enrich, and book every inbound lead in under 60 seconds on 24/7 autopilot. Production n8n workflows with zero monthly Zapier tax.",
+    "Respond to, qualify, and book every inbound B2B lead in under 60 seconds on 24/7 autopilot. Connect website, ads, CRM, and calendar with zero Zapier tax.",
   alternates: {
     canonical: "https://technaviatechnology.com/services/ai-automations",
   },
   openGraph: {
-    title: "Custom AI Automations & n8n Lead Routing Systems | TECHNAVIA",
+    title: "Custom AI Automations & Lead Routing Systems | TECHNAVIA",
     description:
-      "Qualify, enrich, and book every inbound lead in under 60 seconds on 24/7 autopilot. Production n8n workflows with zero monthly Zapier tax.",
+      "Respond to, qualify, and book every inbound B2B lead in under 60 seconds on 24/7 autopilot. Connect website, ads, CRM, and calendar with zero Zapier tax.",
     url: "https://technaviatechnology.com/services/ai-automations",
     type: "website",
     images: [
@@ -31,249 +30,289 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom AI Automations & n8n Lead Routing Systems | TECHNAVIA",
+    title: "Custom AI Automations & Lead Routing Systems | TECHNAVIA",
     description:
-      "Qualify, enrich, and book every inbound lead in under 60 seconds on 24/7 autopilot. Production n8n workflows with zero monthly Zapier tax.",
+      "Respond to, qualify, and book every inbound B2B lead in under 60 seconds on 24/7 autopilot. Connect website, ads, CRM, and calendar with zero Zapier tax.",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
   },
 };
 
-const PAIN_CARDS = [
+const PAIN_COMPARISON = [
+  {
+    manual: "Leads sit in inboxes for 4–12 hours while buying intent fades",
+    automated: "Inbound leads qualified and contacted in under 60 seconds",
+  },
+  {
+    manual: "Reps waste 10–15 hours/week on manual data entry and CRM updates",
+    automated: "Enriched with company size, role, and intent before reps even open the lead",
+  },
+  {
+    manual: "Generic, robotic follow-ups that prospects ignore",
+    automated: "Personalized outreach that sounds human and matches their specific inquiry",
+  },
+  {
+    manual: "Ballooning monthly Zapier invoices with arbitrary task limits",
+    automated: "Zero recurring per-task fees—hosted on infrastructure you 100% own",
+  },
+  {
+    manual: "Leads slip through cracks when reps are busy or off-shift",
+    automated: "24/7 autopilot that never misses an inquiry or forgets to follow up",
+  },
+];
+
+const TARGET_AUDIENCE = [
+  {
+    tag: "GROWTH & PIPELINE",
+    title: "B2B Sales & Growth Leaders",
+    desc: "Missing revenue because warm inbound leads wait hours for a reply while competitors strike first.",
+  },
+  {
+    tag: "OPERATIONS EFFICIENCY",
+    title: "Founders & COOs Scaling Lean",
+    desc: "Spending expensive team hours copy-pasting CRM data instead of closing deals and serving clients.",
+  },
+  {
+    tag: "STABLE INFRASTRUCTURE",
+    title: "Agencies & High-Ticket Service Firms",
+    desc: "Drowning in Zapier invoices and broken automations that fail silently under volume.",
+  },
+];
+
+const BLUEPRINT_STAGES = [
   {
     num: "01",
-    tag: "CONVERSION COLLAPSE",
-    title: "Leads Waiting Hours for Follow-Up",
-    desc: "Losing up to 391% in conversion probability because inbound ad and website leads sit in an unmonitored inbox for hours instead of receiving instant engagement while buying intent is peak.",
+    tag: "0.2s TRIGGER",
+    title: "Instant Capture",
+    desc: "Prospect submits a website form, ad lead form, or booking request. The system catches it instantly.",
   },
   {
     num: "02",
-    tag: "EXPENSIVE BUSYWORK",
-    title: "Reps Drowning in Manual Data Entry",
-    desc: "Paying skilled sales reps and SDRs $40–$80/hr to copy-paste lead details into CRM fields, research LinkedIn profiles manually, and draft repetitive scheduling emails.",
+    tag: "< 15s ENRICHMENT",
+    title: "AI Research & Scoring",
+    desc: "AI instantly verifies the email, analyzes company size, and scores intent against your Ideal Customer Profile.",
   },
   {
     num: "03",
-    tag: "SOFTWARE BLEED",
-    title: "Bleeding Cash on Zapier Task Taxes",
-    desc: "Watching monthly Zapier or Make invoices balloon into hundreds of dollars just to run basic multi-step workflows with strict execution limits and zero enterprise data privacy.",
+    tag: "< 60s OUTREACH",
+    title: "Personalized Outreach & Booking",
+    desc: "Qualified leads receive an instant, personalized message with a direct link to book on your calendar.",
+  },
+  {
+    num: "04",
+    tag: "ZERO MANUAL ENTRY",
+    title: "CRM Sync & Team Brief",
+    desc: "Your CRM (HubSpot, Salesforce, Pipedrive, etc.) is fully updated, and your team gets a concise Slack/Teams brief.",
   },
 ];
 
-const PIPELINE_STAGES = [
-  {
-    stage: "STAGE 01",
-    name: "Inbound Webhook / Form / Meta Ad",
-    desc: "Lead submits details on your website or Meta Lead Ad. Dedicated webhook fires instantly to trigger the automation bus with zero queue delay.",
-    metric: "0.2s TRIGGER",
-  },
-  {
-    stage: "STAGE 02",
-    name: "AI Enrichment & ICP Scoring",
-    desc: "API ping extracts company revenue, employee count, and tech stack. LLM evaluates ICP fit and assigns priority tier (Tier 1 / Tier 2 / Tier 3).",
-    metric: "< 15s ENRICHMENT",
-  },
-  {
-    stage: "STAGE 03",
-    name: "Personalized Outreach & Booking Funnel",
-    desc: "Prospect receives custom WhatsApp or email response with dynamic booking link and pre-populated questionnaire based on their industry.",
-    metric: "< 60s ENGAGEMENT",
-  },
-  {
-    stage: "STAGE 04",
-    name: "Two-Way CRM Sync & Slack Executive Brief",
-    desc: "HubSpot / Salesforce updated with all enriched attributes. Sales team receives an interactive Slack alert with meeting confirmation.",
-    metric: "ZERO BUSYWORK",
-  },
-];
-
-const ENGINEERING_SPECS = [
+const WORKFLOW_CARDS = [
   {
     num: "01",
-    title: "Sub-60s Inbound Webhook Bus",
-    desc: "High-speed webhook listeners on self-hosted n8n capture ad and form submissions in milliseconds with zero queuing.",
+    title: "Instant Lead Response & Routing",
+    desc: "Capture leads from your site or ads, score them instantly, and route high-value prospects to the right rep in under a minute.",
   },
   {
     num: "02",
-    title: "Autonomous LLM Qualification",
-    desc: "AI reasoning models evaluate inbound leads against your exact ICP criteria and assign priority tiers before routing.",
+    title: "AI Lead Qualification",
+    desc: "Automatically assess company fit, budget, and readiness from form submissions and public data before booking calls.",
   },
   {
     num: "03",
     title: "Two-Way CRM Synchronization",
-    desc: "Bi-directional sync with HubSpot, Salesforce, or Pipedrive updating deal stages and contact records on autopilot.",
+    desc: "Keep your CRM, calendar, email, and messaging platforms in perfect real-time sync with zero manual data entry.",
   },
   {
     num: "04",
-    title: "Dynamic Calendar Funnels",
-    desc: "High-value prospects receive instant personalized WhatsApp and email links with pre-filled scheduling slots.",
+    title: "Automated Follow-Up Sequences",
+    desc: "Multi-touch email and WhatsApp follow-up sequences that adapt to prospect replies and stop automatically once booked.",
   },
   {
     num: "05",
-    title: "Interactive Slack Telemetry Alerts",
-    desc: "Rich Slack notifications with one-click lead approval buttons and prospect summaries dispatched immediately.",
+    title: "Client Onboarding Workflows",
+    desc: "Automatically generate client portals, trigger welcome emails, invite team members, and create project tasks upon contract signing.",
   },
   {
     num: "06",
-    title: "Self-Hosted Zero-Tax Architecture",
-    desc: "100% open-source n8n pipelines hosted on your cloud or Hostinger VPS with zero recurring per-execution fees.",
+    title: "Automated Pipeline & Ops Reporting",
+    desc: "Weekly automated digests sent to Slack or email showing pipeline health, speed-to-lead times, and conversion rates.",
   },
-];
-
-const OFFER_STACK = [
-  "Complete Production n8n Automation Bus & Webhook Pipelines",
-  "Sub-60s Lead Capture, Enrichment & Routing Engine",
-  "Two-Way CRM Integration (HubSpot / Salesforce / Pipedrive)",
-  "Automated Calendar Funnel & Interactive Slack Telemetry Alerts",
-  "Complete Workflow JSON Blueprints & Self-Hosting Scripts",
 ];
 
 const FAQS = [
   {
-    question: "Why use self-hosted n8n instead of Zapier or Make?",
+    question: "How quickly can this be set up?",
     answer:
-      "n8n gives you complete ownership, enterprise data privacy, self-hosting options on your own server or VPS, and zero exponential 'task taxes' as your lead volume multiplies. Your data stays strictly in your custody without recurring third-party transaction fees.",
+      "Most custom automation workflows are designed, tested, and fully deployed within 10 to 14 business days. We map your current processes first, build the system in a staging environment, and run live tests before switching production traffic.",
   },
   {
-    question: "How fast does the automated response trigger?",
+    question: "Do we have to switch our existing CRM or tools?",
     answer:
-      "Our webhooks trigger in 0.2 seconds and complete API enrichment, LLM scoring, CRM sync, and outbound personalized engagement within 15–45 seconds of form submission.",
+      "No. We integrate directly with your current tech stack—HubSpot, Salesforce, Pipedrive, Zoho, Slack, Google Workspace, and Microsoft 365. You keep using the tools your team already knows.",
   },
   {
-    question: "What CRM and marketing platforms can you integrate with?",
+    question: "Why is this better than Zapier or Make?",
     answer:
-      "Any platform with a REST API, GraphQL, or webhook capability—including HubSpot, Salesforce, GoHighLevel, Pipedrive, Slack, Notion, Meta Ads, Google Ads, Stripe, and custom internal SQL databases.",
+      "Zapier and Make charge recurring fees for every single task your workflows execute, which can easily cost hundreds of dollars every month as you grow. We build on modern open-source automation infrastructure that you own completely, with zero per-task costs and enterprise-grade data privacy.",
   },
   {
-    question: "Who maintains the automations after the 21-day sprint?",
+    question: "What happens if an API or third-party tool breaks?",
     answer:
-      "You own 100% of the workflow JSON blueprints, self-hosting configurations, and documentation. We provide complete operational video walkthroughs, and our pipelines run autonomously with built-in error alerting.",
+      "Every workflow we build includes automated error handling and alerting. If an external API experiences downtime, the system automatically logs the retry, notifies your team on Slack, and ensures zero lead data is lost.",
+  },
+  {
+    question: "Do you maintain the system after launch?",
+    answer:
+      "Yes. We provide 30 days of complimentary monitoring and fine-tuning after launch, plus optional ongoing maintenance packages so your workflows stay reliable as your business scales.",
   },
 ];
 
 export default function AiAutomationsPage() {
   return (
-    <div className="flex flex-col w-full bg-[#0B0D10] text-[#F8F8F5]">
-      {/* Schema Markup */}
+    <div className="relative min-h-screen bg-[#0B0D10] text-[#F8F8F5] selection:bg-[#D4F542] selection:text-black">
+      {/* Sticky Top Notification Strip */}
+      <Suspense fallback={null}>
+        <AdHeaderBar offerText="B2B Speed-to-Lead Architecture: Respond to every lead in under 60 seconds." />
+      </Suspense>
+
+      {/* SEO Structured Data */}
       <ServiceJsonLd
-        name="Custom AI Automations"
-        description="Production n8n and API workflows that capture, qualify, and route inbound leads in under 60 seconds, eliminating manual bottlenecks while your team sleeps."
+        name="Custom AI Automations & Lead Routing"
+        description="Respond to, qualify, and book every inbound B2B lead in under 60 seconds on 24/7 autopilot. Connect website, ads, CRM, and calendar with zero Zapier tax."
+        serviceType="B2B Lead Pipeline & Operations Automation"
         url="https://technaviatechnology.com/services/ai-automations"
-        serviceType="Autonomous Operations & Workflow Automation"
       />
       <FaqJsonLd faqs={FAQS} />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", item: "/" },
           { name: "Services", item: "/services" },
-          { name: "Custom AI Automations", item: "/services/ai-automations" },
+          { name: "AI Automations", item: "/services/ai-automations" },
         ]}
       />
 
-      {/* Optional Ad Mode Sticky Banner (?ad=1) */}
-      <Suspense fallback={null}>
-        <AdHeaderBar offerText="Claim your free 20-min AI workflow mapping blueprint" />
-      </Suspense>
-
       {/* ========================================================
-          SECTION 1: HORMOZI CALLOUT + OUTCOME HERO (2-COLUMN SPLIT)
+          SECTION 1: HERO
           ======================================================== */}
-      <section className="relative w-full pt-16 md:pt-24 pb-20 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] overflow-hidden">
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#D4F542]/[0.03] rounded-full blur-[140px] pointer-events-none" />
+      <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] overflow-hidden">
+        {/* Glow backdrop */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#D4F542]/[0.03] rounded-full blur-[140px] pointer-events-none" />
 
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-          {/* Left Column: Callout, H1, Subhead, CTA, Trust Pills */}
+          {/* Left Column: Headline & CTA */}
           <div className="lg:col-span-7 flex flex-col gap-6">
-            <div className="flex items-center gap-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] w-fit">
               <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
-              <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542] font-semibold">
-                FOR GROWING B2B TEAMS LOSING WARM LEADS TO SLOW MANUAL FOLLOW-UP
+              <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-white/80">
+                FOR B2B TEAMS LOSING PIPELINE TO SLOW FOLLOW-UP &amp; MANUAL OPS
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.04]">
-              Qualify, enrich, and book every inbound lead in under 60 seconds—on 24/7 autopilot.
+            <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-tight font-semibold tracking-[-0.04em] text-white leading-[1.06]">
+              Respond to, qualify, and book every inbound B2B lead in{" "}
+              <span className="text-[#D4F542]">under 60 seconds</span>—24/7.
             </h1>
 
-            <p className="text-base sm:text-lg text-white/70 leading-relaxed font-sans max-w-xl">
-              Every 5 minutes a lead waits, conversion odds collapse. We build self-hosted n8n &amp; AI agent pipelines that connect your forms, Meta Ads, CRM, and calendar—with zero monthly Zapier tax.
+            <p className="text-sm sm:text-base text-white/70 leading-relaxed font-sans max-w-2xl">
+              When a warm prospect waits hours for a reply, your close rate drops fast. We build custom AI automation systems that connect your website, paid ads, CRM, and calendar—saving your team 15–30 hours a week without recurring per-task Zapier fees.
             </p>
 
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
               <a
                 href="#service-book"
-                className="h-12 sm:h-14 px-7 rounded-xl bg-[#D4F542] hover:bg-[#D4F542]/90 text-black font-mono font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2.5 transition-transform active:scale-95 shadow-[0_0_24px_rgba(212,245,66,0.35)] cursor-pointer"
+                className="h-12 sm:h-14 px-8 rounded-xl bg-[#D4F542] hover:bg-[#D4F542]/90 text-black font-mono font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_0_24px_rgba(212,245,66,0.35)] cursor-pointer"
               >
-                <span>Map My Automation Pipeline (Free 20-Min Call)</span>
+                <span>Map My Automation Roadmap (Free 20-Min Call)</span>
                 <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="#automation-flow"
+                className="h-12 sm:h-14 px-6 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] text-white font-mono text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              >
+                <span>See the 60-Second Flow ↓</span>
               </a>
             </div>
 
-            {/* 3 Trust Pills */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2 text-xs font-mono text-white/60">
-              <span className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#D4F542]" />
-                Sub-60s Inbound Response
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#D4F542]" />
-                Two-Way CRM Synchronization
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#D4F542]" />
-                Zero Per-Task SaaS Tax
-              </span>
+            {/* Micro-Trust Strip */}
+            <div className="flex flex-wrap items-center gap-y-2 gap-x-4 pt-3 text-[11px] font-mono text-white/50">
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#D4F542]" />
+                <span>&lt; 60-SECOND LEAD RESPONSE</span>
+              </div>
+              <span className="text-white/20">·</span>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#D4F542]" />
+                <span>2-WAY CRM SYNC</span>
+              </div>
+              <span className="text-white/20">·</span>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#D4F542]" />
+                <span>ZERO MONTHLY ZAPIER TAX</span>
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Visual Hook Mockup */}
-          <div className="lg:col-span-5 flex justify-center w-full">
+          {/* Right Column: Visual Mockup */}
+          <div className="lg:col-span-5 flex justify-center">
             <AutomationsHeroMockup />
           </div>
         </div>
       </section>
 
       {/* ========================================================
-          SECTION 2: THE COST OF INACTION (BEFORE VS. AFTER SPLIT)
+          SECTION 2: BEFORE VS AFTER COMPARISON
           ======================================================== */}
       <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] bg-[#0E1014]">
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
-          <div className="flex flex-col gap-2 text-center max-w-2xl mx-auto">
-            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">THE SPEED-TO-LEAD BOTTLENECK</span>
+        <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
+          <div className="flex flex-col gap-3 text-center max-w-3xl mx-auto">
+            <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-[#D4F542]">
+              THE COST OF MANUAL FOLLOW-UP
+            </span>
             <h2 className="text-2xl sm:text-4xl font-tight font-semibold tracking-tight text-white">
-              The high hidden cost of manual sales operations
+              Manual follow-up quietly leaks revenue every day.
             </h2>
+            <p className="text-xs sm:text-sm text-white/60">
+              Speed-to-lead is the single biggest conversion lever in B2B sales. Here is what changes when your operations run on autopilot.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Without TECHNAVIA */}
-            <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-red-950/[0.12] border border-red-500/30 flex flex-col gap-4">
-              <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-semibold tracking-wider uppercase">
-                <XCircle className="w-4 h-4" />
-                <span>Without TECHNAVIA (Current State)</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {/* Left: Pain Column */}
+            <div className="p-6 sm:p-8 rounded-3xl bg-[#14161A]/80 border border-red-500/20 flex flex-col gap-5">
+              <div className="flex items-center gap-2 pb-3 border-b border-white/[0.06]">
+                <XCircle className="w-4 h-4 text-red-400" />
+                <span className="text-xs font-mono uppercase tracking-wider text-red-400 font-semibold">
+                  MANUAL B2B OPERATIONS
+                </span>
               </div>
-              <p className="text-sm sm:text-base text-white/80 leading-relaxed font-sans">
-                Warm ad leads sit in an inbox for 4+ hours; sales reps waste 15–30 hrs/week copying data between sheets, CRMs, and emails; Zapier bills spike as volume grows.
-              </p>
-              <div className="pt-2 text-xs font-mono text-red-400/80 flex flex-col gap-1.5 border-t border-red-500/20">
-                <span>• 391% decrease in lead qualification odds after 5 minutes</span>
-                <span>• SDRs waste 50%+ of daily hours on repetitive copy-paste tasks</span>
-                <span>• Zapier monthly bills surge as task counts multiply</span>
+              <div className="flex flex-col gap-4">
+                {PAIN_COMPARISON.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <XCircle className="w-4 h-4 text-red-400/70 shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-white/70 font-sans leading-relaxed">
+                      {item.manual}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* After 21 Days With TECHNAVIA */}
-            <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#D4F542]/[0.06] border border-[#D4F542]/40 flex flex-col gap-4 shadow-[0_0_30px_rgba(212,245,66,0.1)]">
-              <div className="flex items-center gap-2 text-[#D4F542] font-mono text-xs font-semibold tracking-wider uppercase">
-                <CheckCircle2 className="w-4 h-4" />
-                <span>After 21 Days With TECHNAVIA</span>
+            {/* Right: Outcome Column */}
+            <div className="p-6 sm:p-8 rounded-3xl bg-[#14161A] border border-[#D4F542]/40 shadow-[0_0_30px_rgba(212,245,66,0.08)] flex flex-col gap-5">
+              <div className="flex items-center gap-2 pb-3 border-b border-white/[0.06]">
+                <CheckCircle2 className="w-4 h-4 text-[#D4F542]" />
+                <span className="text-xs font-mono uppercase tracking-wider text-[#D4F542] font-semibold">
+                  AUTOMATED WITH TECHNAVIA
+                </span>
               </div>
-              <p className="text-sm sm:text-base text-white/90 leading-relaxed font-sans">
-                Sub-60s automated lead response 24/7; two-way CRM sync with zero manual entry; self-hosted n8n workflows you own 100% with zero per-task SaaS tax.
-              </p>
-              <div className="pt-2 text-xs font-mono text-[#D4F542] flex flex-col gap-1.5 border-t border-[#D4F542]/20">
-                <span>• Every prospect engaged in &lt; 60 seconds with personalized link</span>
-                <span>• Complete CRM and Slack data synchronization on autopilot</span>
-                <span>• 100% open-source self-hosted workflows you own forever</span>
+              <div className="flex flex-col gap-4">
+                {PAIN_COMPARISON.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-[#D4F542] shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-white/90 font-sans leading-relaxed">
+                      {item.automated}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -281,35 +320,36 @@ export default function AiAutomationsPage() {
       </section>
 
       {/* ========================================================
-          SECTION 3: WHO THIS IS BUILT FOR (3 PAIN-DRIVEN CARDS)
+          SECTION 3: TARGET AUDIENCE
           ======================================================== */}
       <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08]">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
-          <div className="flex flex-col gap-2 max-w-xl">
-            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">BUYER SYMPTOMS</span>
+          <div className="flex flex-col gap-3 text-center max-w-2xl mx-auto">
+            <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-[#D4F542]">
+              FIT ASSESSMENT
+            </span>
             <h2 className="text-2xl sm:text-4xl font-tight font-semibold tracking-tight text-white">
-              Who needs autonomous pipeline engineering
+              Built for B2B sales &amp; operations teams.
             </h2>
+            <p className="text-xs sm:text-sm text-white/60">
+              Designed specifically for companies with steady inbound lead flow who want higher conversion without hiring more coordinators.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {PAIN_CARDS.map((item) => (
+            {TARGET_AUDIENCE.map((aud, idx) => (
               <div
-                key={item.num}
-                className="p-6 sm:p-7 rounded-2xl bg-[#14161A]/80 border border-white/[0.08] hover:border-white/[0.2] transition-all flex flex-col justify-between gap-4 group"
+                key={idx}
+                className="p-6 sm:p-8 rounded-2xl bg-[#14161A] border border-white/[0.08] hover:border-white/[0.2] transition-colors flex flex-col gap-4"
               >
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono text-[#D4F542] font-bold">{item.num}</span>
-                    <span className="text-[10px] font-mono uppercase text-white/40 tracking-wider">{item.tag}</span>
-                  </div>
-                  <h3 className="text-lg font-tight font-semibold text-white group-hover:text-[#D4F542] transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-white/65 leading-relaxed font-sans">
-                    {item.desc}
-                  </p>
+                <div className="flex items-center justify-between pb-3 border-b border-white/[0.06]">
+                  <span className="text-[10px] font-mono text-[#D4F542] font-semibold uppercase tracking-wider">
+                    {aud.tag}
+                  </span>
+                  <span className="text-xs font-mono text-white/30">0{idx + 1}</span>
                 </div>
+                <h3 className="text-lg font-tight font-semibold text-white">{aud.title}</h3>
+                <p className="text-xs sm:text-sm text-white/65 leading-relaxed font-sans">{aud.desc}</p>
               </div>
             ))}
           </div>
@@ -317,40 +357,38 @@ export default function AiAutomationsPage() {
       </section>
 
       {/* ========================================================
-          SECTION 4: HOW THE SYSTEM WORKS (4-STAGE PIPELINE PROOF)
+          SECTION 4: LIVE PIPELINE BLUEPRINT
           ======================================================== */}
-      <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] bg-[#0E1014]">
+      <section id="automation-flow" className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] bg-[#0E1014]">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
-          <div className="flex flex-col gap-2 max-w-2xl">
-            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">AUTONOMOUS ARCHITECTURE</span>
+          <div className="flex flex-col gap-3 text-center max-w-2xl mx-auto">
+            <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-[#D4F542]">
+              HOW IT WORKS
+            </span>
             <h2 className="text-2xl sm:text-4xl font-tight font-semibold tracking-tight text-white">
-              4-Stage Sub-60s Inbound Qualification &amp; Booking Pipeline
+              How your automated B2B lead engine works.
             </h2>
             <p className="text-xs sm:text-sm text-white/60">
-              The exact enterprise pipeline architecture that captures, enriches, and books warm leads while your sales team sleeps.
+              Four synchronized stages that transform a cold form submission into a scheduled sales call in under 60 seconds.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PIPELINE_STAGES.map((st) => (
+            {BLUEPRINT_STAGES.map((stg) => (
               <div
-                key={st.stage}
-                className="p-6 rounded-2xl bg-[#14161A] border border-white/[0.1] hover:border-[#D4F542]/50 transition-all flex flex-col justify-between gap-4 group"
+                key={stg.num}
+                className="p-6 rounded-2xl bg-[#14161A] border border-white/[0.08] flex flex-col gap-4 relative"
               >
-                <div className="flex flex-col gap-2.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono text-white/40">{st.stage}</span>
-                    <span className="text-[10px] font-mono text-black bg-[#D4F542] px-2 py-0.5 rounded font-bold">
-                      {st.metric}
-                    </span>
-                  </div>
-                  <h3 className="text-sm sm:text-base font-tight font-semibold text-white group-hover:text-[#D4F542] transition-colors">
-                    {st.name}
-                  </h3>
-                  <p className="text-xs text-white/65 leading-relaxed font-sans">
-                    {st.desc}
-                  </p>
+                <div className="flex items-center justify-between pb-2 border-b border-white/[0.06]">
+                  <span className="text-2xl font-tight font-bold text-[#D4F542] font-mono">
+                    {stg.num}
+                  </span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#D4F542]/10 text-[#D4F542] border border-[#D4F542]/20">
+                    {stg.tag}
+                  </span>
                 </div>
+                <h3 className="text-base font-tight font-semibold text-white">{stg.title}</h3>
+                <p className="text-xs sm:text-sm text-white/65 leading-relaxed font-sans">{stg.desc}</p>
               </div>
             ))}
           </div>
@@ -358,26 +396,31 @@ export default function AiAutomationsPage() {
       </section>
 
       {/* ========================================================
-          SECTION 5: ENGINEERING SPECIFICATION (6 COMPACT CARDS)
+          SECTION 5: WHAT WE AUTOMATE (6 WORKFLOW CARDS)
           ======================================================== */}
       <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08]">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
-          <div className="flex flex-col gap-2 max-w-xl">
-            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">SYSTEM SPECIFICATION</span>
+          <div className="flex flex-col gap-3 text-center max-w-3xl mx-auto">
+            <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-[#D4F542]">
+              OPERATIONS ROADMAP
+            </span>
             <h2 className="text-2xl sm:text-4xl font-tight font-semibold tracking-tight text-white">
-              Six engineering pillars of our autonomous workflows
+              Six revenue &amp; ops workflows we automate.
             </h2>
+            <p className="text-xs sm:text-sm text-white/60">
+              Battle-tested B2B workflows configured on dedicated infrastructure with zero per-task software markup.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {ENGINEERING_SPECS.map((spec) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {WORKFLOW_CARDS.map((wf) => (
               <div
-                key={spec.num}
-                className="p-6 rounded-2xl bg-[#14161A]/80 border border-white/[0.08] hover:border-white/[0.2] transition-all flex flex-col gap-2.5"
+                key={wf.num}
+                className="p-6 sm:p-7 rounded-2xl bg-[#14161A] border border-white/[0.08] hover:border-[#D4F542]/30 transition-colors flex flex-col gap-3"
               >
-                <span className="text-xs font-mono text-[#D4F542] font-semibold">{spec.num}</span>
-                <h3 className="text-base font-tight font-semibold text-white">{spec.title}</h3>
-                <p className="text-xs text-white/65 leading-relaxed font-sans">{spec.desc}</p>
+                <div className="text-xs font-mono text-[#D4F542] font-semibold">{wf.num}</div>
+                <h3 className="text-base font-tight font-semibold text-white">{wf.title}</h3>
+                <p className="text-xs sm:text-sm text-white/65 leading-relaxed font-sans">{wf.desc}</p>
               </div>
             ))}
           </div>
@@ -385,95 +428,20 @@ export default function AiAutomationsPage() {
       </section>
 
       {/* ========================================================
-          SECTION 6: THE 21-DAY GRAND SLAM OFFER STACK
+          SECTION 6: SPEED & OWNERSHIP GUARANTEE BANNER
           ======================================================== */}
-      <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] bg-[#0E1014]">
-        <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-6 flex flex-col gap-6">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-[#D4F542]" />
-              <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542] font-semibold">
-                COMPLETE SPRINT DELIVERABLES
-              </span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-tight font-semibold tracking-tight text-white leading-tight">
-              The 21-Day Custom AI Automation Offer Stack
-            </h2>
-
-            <p className="text-sm text-white/70 leading-relaxed font-sans">
-              Everything required to deploy a production-grade autonomous operations bus that captures, enriches, and books leads with zero manual data entry.
-            </p>
-
-            <div className="flex flex-col gap-3 pt-2">
-              {OFFER_STACK.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3 text-xs sm:text-sm text-white/85 font-mono">
-                  <CheckCircle2 className="w-4 h-4 text-[#D4F542] shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Client Time Needed Tag */}
-            <div className="pt-2 text-xs font-mono text-[#D4F542] flex items-center gap-2">
-              <Clock className="w-4 h-4" />
-              <span>Total Client Time Needed: &lt; 2 Hours Across Entire 21-Day Sprint</span>
-            </div>
-          </div>
-
-          {/* 2 Included Bonuses Card */}
-          <div className="lg:col-span-6 p-6 sm:p-8 rounded-3xl bg-[#14161A] border border-[#D4F542]/40 shadow-[0_0_30px_rgba(212,245,66,0.12)] flex flex-col gap-6">
-            <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
-              <span className="text-xs font-mono text-[#D4F542] font-semibold uppercase tracking-wider">
-                INCLUDED SPRINT BONUSES
-              </span>
-              <span className="text-[11px] font-mono text-white/40">$3,000 ADDED VALUE</span>
-            </div>
-
-            <div className="flex flex-col gap-4">
-              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08] flex flex-col gap-1.5">
-                <span className="text-xs font-mono text-[#D4F542] font-bold">BONUS 01 · $1,500 VALUE</span>
-                <h4 className="text-sm font-tight font-semibold text-white">Free 48-Hour Workflow Architecture Tear-Down</h4>
-                <p className="text-xs text-white/60 leading-relaxed">
-                  We audit your current lead routing, CRM bottlenecks, and manual operations with a live blueprint video before kickoff.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08] flex flex-col gap-1.5">
-                <span className="text-xs font-mono text-[#D4F542] font-bold">BONUS 02 · $1,500 VALUE</span>
-                <h4 className="text-sm font-tight font-semibold text-white">100% Workflow Blueprint Ownership &amp; Zero Task Tax</h4>
-                <p className="text-xs text-white/60 leading-relaxed">
-                  You own all n8n JSON nodes and self-hosting scripts forever. Zero Zapier monthly fees as your lead volume multiplies.
-                </p>
-              </div>
-            </div>
-
-            <a
-              href="#service-book"
-              className="h-12 w-full rounded-xl bg-[#D4F542] hover:bg-[#D4F542]/90 text-black font-mono font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_0_20px_rgba(212,245,66,0.3)] cursor-pointer"
-            >
-              <span>Claim This Offer &amp; Book Audit</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          SECTION 7: RISK REVERSAL GUARANTEE BANNER
-          ======================================================== */}
-      <section className="py-16 md:py-24 px-6 md:px-10 lg:px-16 border-b border-white/[0.08]">
+      <section className="py-16 md:py-20 px-6 md:px-10 lg:px-16 border-b border-white/[0.08]">
         <div className="max-w-[1100px] mx-auto p-8 sm:p-12 rounded-3xl bg-[#14161A] border-2 border-[#D4F542] shadow-[0_0_40px_rgba(212,245,66,0.18)] flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex flex-col gap-3 max-w-2xl">
             <div className="flex items-center gap-2 text-[#D4F542] font-mono text-xs font-bold uppercase tracking-wider">
               <ShieldCheck className="w-5 h-5 text-[#D4F542]" />
-              <span>THE SUB-60S PIPELINE OR WE WORK FOR FREE GUARANTEE</span>
+              <span>SPEED &amp; FULL OWNERSHIP GUARANTEE</span>
             </div>
             <h3 className="text-2xl sm:text-3xl font-tight font-semibold text-white">
-              Sub-60s execution or we continue engineering at zero cost.
+              Our Sub-60s Speed &amp; Full Ownership Guarantee
             </h3>
             <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-sans">
-              We guarantee your automated lead capture, enrichment, and qualification pipeline will execute in under 60 seconds from form submit to CRM sync, or we will continue engineering and optimizing the workflow at zero cost until it does.
+              Every workflow is stress-tested before launch to run reliably under 60 seconds, documented for your team, and hosted on infrastructure you 100% own—with zero ongoing per-task SaaS markup.
             </p>
           </div>
 
@@ -482,7 +450,7 @@ export default function AiAutomationsPage() {
               href="#service-book"
               className="h-12 sm:h-14 px-8 rounded-xl bg-[#D4F542] hover:bg-[#D4F542]/90 text-black font-mono font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_0_20px_rgba(212,245,66,0.3)] cursor-pointer"
             >
-              <span>Get Started Risk-Free</span>
+              <span>Map My Automation Roadmap →</span>
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
@@ -490,14 +458,16 @@ export default function AiAutomationsPage() {
       </section>
 
       {/* ========================================================
-          SECTION 8: OBJECTION-CRUSHING FAQS (4 SERVICE-SPECIFIC Q&AS)
+          SECTION 7: REAL B2B FAQS
           ======================================================== */}
       <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] bg-[#0E1014]">
         <div className="max-w-[900px] mx-auto flex flex-col gap-10">
           <div className="flex flex-col gap-2 text-center">
-            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">STRAIGHT ANSWERS</span>
+            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">
+              CLARITY FIRST
+            </span>
             <h2 className="text-2xl sm:text-4xl font-tight font-semibold tracking-tight text-white">
-              Frequently Asked Questions
+              Questions B2B teams ask before automating.
             </h2>
           </div>
 
@@ -521,9 +491,9 @@ export default function AiAutomationsPage() {
       </section>
 
       {/* ========================================================
-          SECTION 9: DEDICATED SERVICE-PERSONALIZED 2-STEP BOOKING FORM
+          SECTION 8: DEDICATED SERVICE BOOKING FORM
           ======================================================== */}
-      <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16">
+      <section id="service-book" className="py-16 md:py-20 px-6 md:px-10 lg:px-16">
         <div className="max-w-[1280px] mx-auto flex flex-col items-center">
           <ServiceBookingForm serviceType="ai-automations" />
         </div>

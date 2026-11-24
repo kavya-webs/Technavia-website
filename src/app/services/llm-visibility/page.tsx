@@ -8,16 +8,16 @@ import { ServiceBookingForm } from "@/components/forms/ServiceBookingForm";
 import { AdHeaderBar } from "@/components/ui/AdHeaderBar";
 
 export const metadata: Metadata = {
-  title: "LLM Visibility & Generative Engine Optimization (AEO / GEO) | TECHNAVIA",
+  title: "Get Recommended on ChatGPT, Gemini & Perplexity | TECHNAVIA",
   description:
-    "Make ChatGPT, Gemini & Perplexity recommend your brand first. In 21 days, we engineer your entity graph, JSON-LD schema, and quotable answer architecture.",
+    "When customers ask ChatGPT or Google AI who to buy from, make sure your brand is the #1 answer. Complete 21-day AI search visibility setup.",
   alternates: {
     canonical: "https://technaviatechnology.com/services/llm-visibility",
   },
   openGraph: {
-    title: "LLM Visibility & Generative Engine Optimization (AEO / GEO) | TECHNAVIA",
+    title: "Get Recommended on ChatGPT, Gemini & Perplexity | TECHNAVIA",
     description:
-      "Make ChatGPT, Gemini & Perplexity recommend your brand first. In 21 days, we engineer your entity graph, JSON-LD schema, and quotable answer architecture.",
+      "When customers ask ChatGPT or Google AI who to buy from, make sure your brand is the #1 answer. Complete 21-day AI search visibility setup.",
     url: "https://technaviatechnology.com/services/llm-visibility",
     type: "website",
     images: [
@@ -25,122 +25,127 @@ export const metadata: Metadata = {
         url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
         width: 1200,
         height: 630,
-        alt: "TECHNAVIA — LLM Visibility (AEO / GEO)",
+        alt: "TECHNAVIA — AI Search Visibility (ChatGPT & Perplexity)",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LLM Visibility & Generative Engine Optimization (AEO / GEO) | TECHNAVIA",
+    title: "Get Recommended on ChatGPT, Gemini & Perplexity | TECHNAVIA",
     description:
-      "Make ChatGPT, Gemini & Perplexity recommend your brand first. In 21 days, we engineer your entity graph, JSON-LD schema, and quotable answer architecture.",
+      "When customers ask ChatGPT or Google AI who to buy from, make sure your brand is the #1 answer. Complete 21-day AI search visibility setup.",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
   },
 };
 
-const PAIN_CARDS = [
+const AUDIENCE_CARDS = [
   {
     num: "01",
-    tag: "ZERO CITATIONS",
-    title: "Invisible in Conversational AI Queries",
-    desc: "Enterprise buyers ask ChatGPT and Perplexity for vendor recommendations in your niche, and your brand is completely absent while competitors get named and linked.",
+    tag: "HIGH-TICKET BUYERS",
+    title: "Service & B2B Business Owners",
+    desc: "High-value buyers are researching options on ChatGPT and Perplexity before ever filling out a contact form.",
   },
   {
     num: "02",
-    tag: "INFERIOR RIVALS WINNING",
-    title: "Losing Market Share to Weaker Competitors",
-    desc: "Competitors with inferior offerings win high-intent AI recommendations simply because their entity nodes, Wikidata connections, and JSON-LD markup are crawler-accessible.",
+    tag: "OUTPERFORM RIVALS",
+    title: "Brands Losing to Louder Competitors",
+    desc: "You deliver better work than your rivals, yet AI tools keep recommending them simply because their online info is clearer.",
   },
   {
     num: "03",
-    tag: "ZERO VISIBILITY DATA",
-    title: "Operating Without AI Search Telemetry",
-    desc: "Having no visibility into what LLMs output about your category, whether models hallucinate outdated pricing, or how often buyers are steered directly to rivals.",
+    tag: "EARLY ADVANTAGE",
+    title: "Forward-Thinking Founders",
+    desc: "You want to lock in early advantage on AI search now—before every competitor in your market catches on.",
   },
 ];
 
-const CITATION_LAYERS = [
-  {
-    layer: "LAYER 01",
-    name: "Organization + Service JSON-LD Knowledge Graph",
-    desc: "Machine-readable structured microdata linking your company to verified Wikidata, Crunchbase, and founder entities. Guarantees LLM knowledge bases recognize your brand as a primary verified category authority.",
-    tag: "ENTITY ANCHOR",
-  },
-  {
-    layer: "LAYER 02",
-    name: "Quotable Answer-Capsule Syntax",
-    desc: "High-density 40–60 word subject-predicate copy blocks engineered for vector search and RAG extraction. Formatted so ChatGPT and Perplexity pull your exact claims as the synthesized answer.",
-    tag: "RAG EXTRACTION",
-  },
-  {
-    layer: "LAYER 03",
-    name: "Bot Crawl Authorization & IndexNow Protocol",
-    desc: "Unrestricted, high-speed crawler access for OAI-SearchBot, PerplexityBot, and ClaudeBot with instant IndexNow submission upon every service or pricing update.",
-    tag: "LIVE INDEXATION",
-  },
-];
-
-const ENGINEERING_SPECS = [
+const HOW_IT_WORKS_STEPS = [
   {
     num: "01",
-    title: "Semantic Entity Graph Mapping",
-    desc: "We connect your company to verified nodes on Wikidata, Crunchbase, and Schema.org with exact sameAs references, cementing your distinct category identity.",
+    title: "Make Your Brand Crystal Clear",
+    desc: "We add behind-the-scenes labels to your website so AI instantly knows who you are, what you sell, who you help, and why you're credible.",
+    tag: "IDENTITY LABELS",
   },
   {
     num: "02",
-    title: "Quotable Answer-Capsule Syntax",
-    desc: "We architect web copy into direct, high information-gain blocks engineered specifically for RAG (Retrieval-Augmented Generation) models to quote verbatim.",
+    title: "Write Answers AI Loves to Quote",
+    desc: "We add clear, direct Q&A sections and comparison blocks to your pages so AI assistants can easily pull your business as the best answer.",
+    tag: "DIRECT ANSWERS",
   },
   {
     num: "03",
-    title: "ChatGPT & Perplexity Telemetry",
-    desc: "Live telemetry monitoring query variations across Perplexity, SearchGPT, Claude, and Gemini to track citation frequency, sentiment, and category rank.",
+    title: "Open the Doors & Track Real Prompts",
+    desc: "We make sure AI search bots can read your site without getting blocked, then test real buyer questions across ChatGPT and Perplexity to track your visibility.",
+    tag: "PROMPT TESTING",
+  },
+];
+
+const OPTIMIZE_PILLARS = [
+  {
+    num: "01",
+    title: "Clear Brand Identity Labels",
+    desc: "We connect your business name to verified online profiles and industry directories so AI tools never confuse you with another company.",
+  },
+  {
+    num: "02",
+    title: "Direct, Quotable Q&As",
+    desc: "We format key answers in crisp 40-word blocks that AI tools love to lift and quote directly to customers.",
+  },
+  {
+    num: "03",
+    title: "Live Prompt Testing",
+    desc: "We test dozens of real customer search questions on ChatGPT, Gemini, and Perplexity to verify when and how you get recommended.",
   },
   {
     num: "04",
-    title: "Information Gain & Benchmark Matrices",
-    desc: "We deploy proprietary benchmarks, structured comparison matrices, and FAQPage microdata that AI answer engines pull to answer high-intent buyer prompts.",
+    title: "Helpful Comparison Guides",
+    desc: "We add structured comparison tables so AI assistants understand your advantages over alternatives.",
   },
   {
     num: "05",
-    title: "Digital Co-occurrence Anchoring",
-    desc: "We structure digital footprints so your brand co-occurs alongside top tier category leaders in technical corpora, GitHub repositories, and verified industry indexes.",
+    title: "Consistent Web Mentions",
+    desc: "We ensure your location, services, and credentials match across official platforms so AI regards you as a trusted authority.",
   },
   {
     num: "06",
-    title: "Direct Bot Crawl Authorization",
-    desc: "Clean robots.txt configurations that cleanly permit OAI-SearchBot, PerplexityBot, ClaudeBot, and GPTBot without compromising private endpoints.",
+    title: "Unblocked AI Crawler Access",
+    desc: "We ensure search bots from OpenAI, Perplexity, and Google can read your site fast without hitting technical walls.",
   },
 ];
 
-const OFFER_STACK = [
-  "Complete Organization & Service JSON-LD Knowledge Graph",
-  "Full-Site Quotable Answer-Capsule Content Architecture",
-  "Bot Crawl Authorization & IndexNow Instant Submission Protocol",
-  "LLM Citation Baseline Audit Across 10 Live Buyer Queries",
-  "Permanent Entity Disambiguation Assets (SameAs Wikidata & Socials)",
+const DELIVERABLES = [
+  "Complete Business Profile & Structured Data Setup",
+  "High-Value Quotable Q&A Sections Added to Key Pages",
+  "Full AI Bot Access & Sitemap Submission Setup",
+  "Before-and-After AI Visibility Benchmark Report Across 10 Live Customer Prompts",
+  "100% Full Ownership of All Changes & Documentation",
 ];
 
 const FAQS = [
   {
-    question: "What is AEO / GEO and how is it different from traditional SEO?",
+    question: "What is AI Search / LLM Ranking in simple terms?",
     answer:
-      "Traditional SEO optimizes for keyword rank in Google's 10 blue links. Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) structure your brand's entity graph and content architecture so Large Language Models (ChatGPT, Perplexity, Gemini) extract and cite your brand in conversational answers.",
+      "Just like SEO helps you show up on Google, AI Search optimization helps your business get recommended when people type questions into ChatGPT, Perplexity, Gemini, or Google's AI answers.",
   },
   {
-    question: "How quickly do AI search engines start citing our brand?",
+    question: "How is this different from regular Google SEO?",
     answer:
-      "Perplexity, SearchGPT, and Gemini utilize live web crawlers (IndexNow and direct web search) which can ingest structured entity updates and answer capsules within days to weeks of indexation.",
+      "Regular SEO focuses on ranking links for short keywords. AI Search focuses on making your business the single clearest, most trustworthy answer to full customer questions—and the good news is, doing this helps your Google rankings too.",
   },
   {
-    question: "Do I need to rebuild my entire website to get LLM visibility?",
+    question: "How much does it cost and how long does it take?",
     answer:
-      "No. While a sub-second Next.js architecture provides optimal crawl efficiency, our entity graph schemas, JSON-LD microdata, and answer-capsule blocks can be layered onto existing digital infrastructure without a full redesign.",
+      "Our full AI Visibility setup takes 21 days for a transparent fixed project fee (we'll share exact pricing on your free audit call based on your site size). You can run it as a one-time upgrade—no forced monthly lock-in.",
   },
   {
-    question: "How do we track if AI search is actually generating leads?",
+    question: "Do I need to rebuild my whole website for this?",
     answer:
-      "We configure dedicated campaign referral tracking, brand query impression baselines, and custom direct attribution fields so you can measure traffic and revenue originating from AI citations.",
+      "No. In most cases, we can optimize your existing website directly without changing how it looks to visitors.",
+  },
+  {
+    question: "Can you guarantee #1 spot in ChatGPT tomorrow?",
+    answer:
+      "Anyone who promises instant #1 overnight is lying. What we do guarantee is installing the exact proven foundation AI tools rely on, fixing every technical blocker, and showing you verifiable progress across real customer prompts.",
   },
 ];
 
@@ -149,109 +154,122 @@ export default function LlmVisibilityPage() {
     <div className="flex flex-col w-full bg-[#0B0D10] text-[#F8F8F5]">
       {/* Schema Markup */}
       <ServiceJsonLd
-        name="LLM Visibility (AEO / GEO)"
-        description="Entity graph optimization and structured answer architecture so ChatGPT, Gemini, and Perplexity recommend your brand when buyers search your category."
+        name="LLM Visibility & AI Search Optimization"
+        description="Make ChatGPT, Gemini & Perplexity recommend your brand first. In 21 days, we organize your website and brand signals so AI engines cite your business."
         url="https://technaviatechnology.com/services/llm-visibility"
-        serviceType="Generative Engine Optimization & Answer Engine Optimization"
+        serviceType="AI Search Optimization & Brand Visibility"
       />
       <FaqJsonLd faqs={FAQS} />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", item: "/" },
           { name: "Services", item: "/services" },
-          { name: "LLM Visibility (AEO / GEO)", item: "/services/llm-visibility" },
+          { name: "LLM Visibility", item: "/services/llm-visibility" },
         ]}
       />
 
       {/* Optional Ad Mode Sticky Banner (?ad=1) */}
       <Suspense fallback={null}>
-        <AdHeaderBar offerText="Claim your free 48-hr ChatGPT & Perplexity brand citation audit" />
+        <AdHeaderBar offerText="Check what ChatGPT & Perplexity say about your brand today" />
       </Suspense>
 
       {/* ========================================================
-          SECTION 1: HORMOZI CALLOUT + OUTCOME HERO (2-COLUMN SPLIT)
+          SECTION 1: HERO (2-COLUMN SPLIT WITH AI CHAT MOCKUP)
           ======================================================== */}
-      <section className="relative w-full pt-16 md:pt-24 pb-20 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] overflow-hidden">
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#D4F542]/[0.03] rounded-full blur-[140px] pointer-events-none" />
+      <section className="relative w-full pt-28 sm:pt-36 md:pt-40 pb-16 md:pb-24 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] overflow-hidden">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#D4F542]/[0.05] rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-          {/* Left Column: Callout, H1, Subhead, CTA, Trust Pills */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
-              <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542] font-semibold">
-                FOR B2B BRANDS INVISIBLE WHEN BUYERS ASK CHATGPT &amp; PERPLEXITY
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center relative z-10">
+          {/* Left Column: Direct Hook & Copy */}
+          <div className="lg:col-span-7 flex flex-col gap-6 sm:gap-7">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#14161A] border border-white/[0.12] w-fit shadow-[0_0_20px_rgba(212,245,66,0.15)]">
+              <span className="w-2 h-2 rounded-full bg-[#D4F542] animate-pulse" />
+              <span className="text-[10px] sm:text-xs font-mono font-semibold tracking-wider uppercase text-white/90">
+                FOR BUSINESS OWNERS WHO WANT CHATGPT &amp; GOOGLE AI TO RECOMMEND THEM
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.04]">
-              Make ChatGPT, Gemini &amp; Perplexity recommend your brand first—when high-intent buyers ask.
+            <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-tight font-bold tracking-tight text-white leading-[1.08]">
+              When customers ask ChatGPT or Google AI who to buy from,{" "}
+              <span className="text-[#D4F542]">make sure your brand is the #1 answer.</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-white/70 leading-relaxed font-sans max-w-xl">
-              Buyers no longer click 10 blue links—they ask AI who to hire. In 21 days, we engineer your entity graph, JSON-LD schema, and quotable answer architecture so AI search engines cite you over competitors.
+            <p className="text-base sm:text-lg text-white/75 font-sans leading-relaxed max-w-2xl">
+              More buyers now ask AI tools for recommendations instead of scrolling through 10 Google links. In 21 days, we organize your website and online brand signals so ChatGPT, Gemini, and Perplexity trust and recommend your business over competitors.
             </p>
 
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
               <a
                 href="#service-book"
-                className="h-12 sm:h-14 px-7 rounded-xl bg-[#D4F542] hover:bg-[#D4F542]/90 text-black font-mono font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2.5 transition-transform active:scale-95 shadow-[0_0_24px_rgba(212,245,66,0.35)] cursor-pointer"
+                className="h-12 sm:h-14 px-8 rounded-xl bg-[#D4F542] hover:bg-[#D4F542]/90 text-black font-mono font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_0_30px_rgba(212,245,66,0.35)] cursor-pointer"
               >
-                <span>Audit My Brand on ChatGPT &amp; Perplexity</span>
+                <span>Check How AI Sees My Brand (Free) →</span>
                 <ArrowRight className="w-4 h-4" />
+              </a>
+
+              <a
+                href="#how-ai-picks"
+                className="h-12 sm:h-14 px-7 rounded-xl bg-[#14161A] hover:bg-white/[0.08] border border-white/[0.15] text-white font-mono text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              >
+                <span>How It Works ↓</span>
               </a>
             </div>
 
-            {/* 3 Trust Pills */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2 text-xs font-mono text-white/60">
-              <span className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-6 pt-3 text-xs font-mono text-white/60 border-t border-white/[0.08]">
+              <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#D4F542]" />
-                21-Day Implementation
-              </span>
-              <span className="flex items-center gap-2">
+                <span>CHATGPT &amp; PERPLEXITY READY</span>
+              </div>
+              <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#D4F542]" />
-                OAI &amp; Perplexity Verified
-              </span>
-              <span className="flex items-center gap-2">
+                <span>GOOGLE AI OVERVIEWS</span>
+              </div>
+              <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#D4F542]" />
-                100% Entity Ownership
-              </span>
+                <span>DONE-FOR-YOU IN 21 DAYS</span>
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Visual Hook Mockup */}
-          <div className="lg:col-span-5 flex justify-center w-full">
+          {/* Right Column: AI Chat Simulator Mockup */}
+          <div className="lg:col-span-5 w-full">
             <LlmHeroMockup />
           </div>
         </div>
       </section>
 
       {/* ========================================================
-          SECTION 2: THE COST OF INACTION (BEFORE VS. AFTER SPLIT)
+          SECTION 2: BEFORE VS. AFTER
           ======================================================== */}
       <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] bg-[#0E1014]">
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
-          <div className="flex flex-col gap-2 text-center max-w-2xl mx-auto">
-            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">THE AI VISIBILITY LEAK</span>
+        <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
+          <div className="flex flex-col gap-2 max-w-xl">
+            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">THE SHIFT IN SEARCH</span>
             <h2 className="text-2xl sm:text-4xl font-tight font-semibold tracking-tight text-white">
-              What happens when your category searches on AI today
+              Customers are already asking AI about your industry.
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Without TECHNAVIA */}
-            <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-red-950/[0.12] border border-red-500/30 flex flex-col gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {/* Without AI Search Optimization */}
+            <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#14161A]/80 border border-red-500/30 flex flex-col gap-4">
               <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-semibold tracking-wider uppercase">
                 <XCircle className="w-4 h-4" />
-                <span>Without TECHNAVIA (Current State)</span>
+                <span>Without AI Search Optimization</span>
               </div>
-              <p className="text-sm sm:text-base text-white/80 leading-relaxed font-sans">
-                AI engines hallucinate your offer or recommend louder, inferior competitors because your site lacks entity schema, structured answer capsules, and crawler authorization.
-              </p>
-              <div className="pt-2 text-xs font-mono text-red-400/80 flex flex-col gap-1.5 border-t border-red-500/20">
-                <span>• 0 citations when buyers ask ChatGPT &amp; Perplexity who to hire</span>
-                <span>• Competitors capture high-intent enterprise pipeline</span>
-                <span>• Outdated or hallucinated pricing output to prospects</span>
+              <div className="flex flex-col gap-3 text-sm sm:text-base text-white/80 leading-relaxed font-sans">
+                <div className="flex items-start gap-2.5">
+                  <span className="text-red-400 font-bold shrink-0 mt-0.5">•</span>
+                  <span>When someone asks ChatGPT for the best business in your space, it recommends your competitors—or doesn&apos;t mention you at all.</span>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <span className="text-red-400 font-bold shrink-0 mt-0.5">•</span>
+                  <span>AI tools get confused about what you actually sell, your location, or who you help.</span>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <span className="text-red-400 font-bold shrink-0 mt-0.5">•</span>
+                  <span>You miss out on ready-to-buy customers who never even click a traditional Google ad.</span>
+                </div>
               </div>
             </div>
 
@@ -261,13 +279,19 @@ export default function LlmVisibilityPage() {
                 <CheckCircle2 className="w-4 h-4" />
                 <span>After 21 Days With TECHNAVIA</span>
               </div>
-              <p className="text-sm sm:text-base text-white/90 leading-relaxed font-sans">
-                Verified Organization + Service JSON-LD entity graph; RAG-friendly 40–60 word answer blocks; authorized OAI-SearchBot &amp; PerplexityBot indexing; tracked citation baseline.
-              </p>
-              <div className="pt-2 text-xs font-mono text-[#D4F542] flex flex-col gap-1.5 border-t border-[#D4F542]/20">
-                <span>• Recommended as top category provider in live AI answers</span>
-                <span>• Machine-readable entity linked to Wikidata &amp; knowledge graphs</span>
-                <span>• Real telemetry tracking citation frequency and sentiment</span>
+              <div className="flex flex-col gap-3 text-sm sm:text-base text-white/90 leading-relaxed font-sans">
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#D4F542] font-bold shrink-0 mt-0.5">✓</span>
+                  <span>Your website is written and structured in the exact clear format AI assistants look for when picking trusted recommendations.</span>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#D4F542] font-bold shrink-0 mt-0.5">✓</span>
+                  <span>Your brand details, services, and reviews match cleanly across the web so AI sees you as the authority.</span>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <span className="text-[#D4F542] font-bold shrink-0 mt-0.5">✓</span>
+                  <span>We test real customer prompts before and after so you can literally see the improvement.</span>
+                </div>
               </div>
             </div>
           </div>
@@ -275,19 +299,19 @@ export default function LlmVisibilityPage() {
       </section>
 
       {/* ========================================================
-          SECTION 3: WHO THIS IS BUILT FOR (3 PAIN-DRIVEN CARDS)
+          SECTION 3: WHO THIS IS FOR (3 CARDS)
           ======================================================== */}
       <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08]">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
           <div className="flex flex-col gap-2 max-w-xl">
-            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">BUYER SYMPTOMS</span>
+            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">MARKET FIT</span>
             <h2 className="text-2xl sm:text-4xl font-tight font-semibold tracking-tight text-white">
-              Who needs Generative Engine Optimization today
+              Is AI Search ranking right for your business?
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {PAIN_CARDS.map((item) => (
+            {AUDIENCE_CARDS.map((item) => (
               <div
                 key={item.num}
                 className="p-6 sm:p-7 rounded-2xl bg-[#14161A]/80 border border-white/[0.08] hover:border-white/[0.2] transition-all flex flex-col justify-between gap-4 group"
@@ -311,38 +335,33 @@ export default function LlmVisibilityPage() {
       </section>
 
       {/* ========================================================
-          SECTION 4: HOW THE SYSTEM WORKS (3-LAYER CITATION STACK)
+          SECTION 4: HOW IT WORKS (3 SIMPLE PLAIN-ENGLISH STEPS)
           ======================================================== */}
-      <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] bg-[#0E1014]">
+      <section id="how-ai-picks" className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] bg-[#0E1014]">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
           <div className="flex flex-col gap-2 max-w-2xl">
-            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">PROVEN CITATION STACK</span>
+            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">THE 3-STEP ROADMAP</span>
             <h2 className="text-2xl sm:text-4xl font-tight font-semibold tracking-tight text-white">
-              The 3-layer architecture behind AI search citations
+              How we get ChatGPT, Gemini &amp; Perplexity to recommend you.
             </h2>
-            <p className="text-xs sm:text-sm text-white/60">
-              How we transform static websites into machine-readable knowledge anchors that ChatGPT, Perplexity, and Gemini trust.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {CITATION_LAYERS.map((layer) => (
+            {HOW_IT_WORKS_STEPS.map((st) => (
               <div
-                key={layer.layer}
-                className="p-7 rounded-2xl bg-[#14161A] border border-white/[0.1] hover:border-[#D4F542]/50 transition-all flex flex-col justify-between gap-4 group"
+                key={st.num}
+                className="p-6 sm:p-8 rounded-2xl bg-[#14161A] border border-white/[0.08] flex flex-col justify-between gap-6 group hover:border-[#D4F542]/40 transition-all"
               >
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono text-[#D4F542] font-bold">{layer.layer}</span>
-                    <span className="text-[10px] font-mono text-black bg-[#D4F542] px-2 py-0.5 rounded font-bold">
-                      {layer.tag}
-                    </span>
+                    <span className="text-xs font-mono font-bold text-[#D4F542]">STEP {st.num}</span>
+                    <span className="text-[10px] font-mono uppercase text-white/40">{st.tag}</span>
                   </div>
-                  <h3 className="text-base font-tight font-semibold text-white group-hover:text-[#D4F542] transition-colors">
-                    {layer.name}
+                  <h3 className="text-xl font-tight font-semibold text-white group-hover:text-[#D4F542] transition-colors">
+                    {st.title}
                   </h3>
-                  <p className="text-xs text-white/65 leading-relaxed font-sans">
-                    {layer.desc}
+                  <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-sans">
+                    {st.desc}
                   </p>
                 </div>
               </div>
@@ -352,26 +371,32 @@ export default function LlmVisibilityPage() {
       </section>
 
       {/* ========================================================
-          SECTION 5: ENGINEERING SPECIFICATION (6 COMPACT CARDS)
+          SECTION 5: WHAT WE OPTIMIZE BEHIND THE SCENES
           ======================================================== */}
       <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08]">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
           <div className="flex flex-col gap-2 max-w-xl">
-            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">AEO &amp; GEO SPECIFICATION</span>
+            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">BEHIND THE SCENES</span>
             <h2 className="text-2xl sm:text-4xl font-tight font-semibold tracking-tight text-white">
-              Six engineering pillars of LLM citation dominance
+              What we optimize behind the scenes
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {ENGINEERING_SPECS.map((spec) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {OPTIMIZE_PILLARS.map((item) => (
               <div
-                key={spec.num}
-                className="p-6 rounded-2xl bg-[#14161A]/80 border border-white/[0.08] hover:border-white/[0.2] transition-all flex flex-col gap-2.5"
+                key={item.num}
+                className="p-6 rounded-2xl bg-[#14161A]/80 border border-white/[0.08] flex flex-col gap-3 hover:border-white/[0.2] transition-all group"
               >
-                <span className="text-xs font-mono text-[#D4F542] font-semibold">{spec.num}</span>
-                <h3 className="text-base font-tight font-semibold text-white">{spec.title}</h3>
-                <p className="text-xs text-white/65 leading-relaxed font-sans">{spec.desc}</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono text-[#D4F542] font-bold">{item.num}</span>
+                </div>
+                <h3 className="text-base font-tight font-semibold text-white group-hover:text-[#D4F542] transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-white/65 leading-relaxed font-sans">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -379,95 +404,46 @@ export default function LlmVisibilityPage() {
       </section>
 
       {/* ========================================================
-          SECTION 6: THE 21-DAY GRAND SLAM OFFER STACK
+          SECTION 6: DELIVERABLES
           ======================================================== */}
       <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] bg-[#0E1014]">
-        <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-6 flex flex-col gap-6">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-[#D4F542]" />
-              <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542] font-semibold">
-                COMPLETE SPRINT DELIVERABLES
-              </span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-tight font-semibold tracking-tight text-white leading-tight">
-              The 21-Day LLM Visibility Offer Stack
+        <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
+          <div className="flex flex-col gap-2 max-w-2xl">
+            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">THE COMPLETE PACKAGE</span>
+            <h2 className="text-2xl sm:text-4xl font-tight font-semibold tracking-tight text-white">
+              Everything included in your 21-Day AI Visibility Upgrade.
             </h2>
-
-            <p className="text-sm text-white/70 leading-relaxed font-sans">
-              Everything required to link your brand into global AI knowledge graphs and get cited when enterprise buyers search your niche.
-            </p>
-
-            <div className="flex flex-col gap-3 pt-2">
-              {OFFER_STACK.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3 text-xs sm:text-sm text-white/85 font-mono">
-                  <CheckCircle2 className="w-4 h-4 text-[#D4F542] shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Client Time Needed Tag */}
-            <div className="pt-2 text-xs font-mono text-[#D4F542] flex items-center gap-2">
-              <Clock className="w-4 h-4" />
-              <span>Total Client Time Needed: &lt; 2 Hours Across Entire 21-Day Sprint</span>
-            </div>
           </div>
 
-          {/* 2 Included Bonuses Card */}
-          <div className="lg:col-span-6 p-6 sm:p-8 rounded-3xl bg-[#14161A] border border-[#D4F542]/40 shadow-[0_0_30px_rgba(212,245,66,0.12)] flex flex-col gap-6">
-            <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
-              <span className="text-xs font-mono text-[#D4F542] font-semibold uppercase tracking-wider">
-                INCLUDED SPRINT BONUSES
-              </span>
-              <span className="text-[11px] font-mono text-white/40">$3,000 ADDED VALUE</span>
-            </div>
-
-            <div className="flex flex-col gap-4">
-              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08] flex flex-col gap-1.5">
-                <span className="text-xs font-mono text-[#D4F542] font-bold">BONUS 01 · $1,500 VALUE</span>
-                <h4 className="text-sm font-tight font-semibold text-white">Free 48-Hour AI Visibility &amp; Citation Tear-Down</h4>
-                <p className="text-xs text-white/60 leading-relaxed">
-                  We run 10 buyer queries in your sector across ChatGPT, Perplexity, and Gemini to reveal your current citation gap before kickoff.
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {DELIVERABLES.map((item, idx) => (
+              <div
+                key={idx}
+                className="p-5 rounded-xl bg-[#14161A] border border-white/[0.08] flex items-center gap-3.5"
+              >
+                <CheckCircle2 className="w-5 h-5 text-[#D4F542] shrink-0" />
+                <span className="text-sm sm:text-base text-white/90 font-medium font-sans">{item}</span>
               </div>
-
-              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08] flex flex-col gap-1.5">
-                <span className="text-xs font-mono text-[#D4F542] font-bold">BONUS 02 · $1,500 VALUE</span>
-                <h4 className="text-sm font-tight font-semibold text-white">100% Schema &amp; Entity Asset Ownership Transfer</h4>
-                <p className="text-xs text-white/60 leading-relaxed">
-                  All JSON-LD schemas, Wikidata anchors, and llms.txt files are deployed into your code with zero ongoing software tax.
-                </p>
-              </div>
-            </div>
-
-            <a
-              href="#service-book"
-              className="h-12 w-full rounded-xl bg-[#D4F542] hover:bg-[#D4F542]/90 text-black font-mono font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_0_20px_rgba(212,245,66,0.3)] cursor-pointer"
-            >
-              <span>Claim This Offer &amp; Book Audit</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ========================================================
-          SECTION 7: RISK REVERSAL GUARANTEE BANNER
+          SECTION 7: GUARANTEE BANNER
           ======================================================== */}
-      <section className="py-16 md:py-24 px-6 md:px-10 lg:px-16 border-b border-white/[0.08]">
-        <div className="max-w-[1100px] mx-auto p-8 sm:p-12 rounded-3xl bg-[#14161A] border-2 border-[#D4F542] shadow-[0_0_40px_rgba(212,245,66,0.18)] flex flex-col md:flex-row items-center justify-between gap-8">
+      <section className="py-14 sm:py-18 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] bg-[#D4F542]/[0.03]">
+        <div className="max-w-[1280px] mx-auto p-8 sm:p-12 rounded-3xl bg-[#14161A] border border-[#D4F542]/40 flex flex-col md:flex-row items-center justify-between gap-8 shadow-[0_0_40px_rgba(212,245,66,0.1)]">
           <div className="flex flex-col gap-3 max-w-2xl">
-            <div className="flex items-center gap-2 text-[#D4F542] font-mono text-xs font-bold uppercase tracking-wider">
-              <ShieldCheck className="w-5 h-5 text-[#D4F542]" />
-              <span>THE MEASURABLE AI VISIBILITY GUARANTEE</span>
+            <div className="flex items-center gap-2 text-[#D4F542] font-mono text-xs font-semibold uppercase tracking-wider">
+              <ShieldCheck className="w-4 h-4" />
+              <span>Full-Verification Promise</span>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-tight font-semibold text-white">
-              Verified AI Indexation or we continue engineering at zero cost.
+            <h3 className="text-2xl sm:text-3xl font-tight font-bold text-white">
+              Clear Before-and-After Proof—No Black-Box Mystery
             </h3>
-            <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-sans">
-              We guarantee your brand entity graph and structured answer capsules will be fully indexed by OAI-SearchBot and PerplexityBot within 21 days of deployment, or we continue tuning your entity nodes at zero additional cost until citations register.
+            <p className="text-xs sm:text-sm text-white/75 leading-relaxed font-sans">
+              We start by showing you exactly what ChatGPT, Gemini, and Perplexity say about your brand today, and deliver a complete before-and-after report after our 21-day build—with 100% ownership of every change we make.
             </p>
           </div>
 
@@ -476,7 +452,7 @@ export default function LlmVisibilityPage() {
               href="#service-book"
               className="h-12 sm:h-14 px-8 rounded-xl bg-[#D4F542] hover:bg-[#D4F542]/90 text-black font-mono font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-[0_0_20px_rgba(212,245,66,0.3)] cursor-pointer"
             >
-              <span>Get Started Risk-Free</span>
+              <span>Check How AI Sees My Brand (Free) →</span>
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
@@ -484,14 +460,14 @@ export default function LlmVisibilityPage() {
       </section>
 
       {/* ========================================================
-          SECTION 8: OBJECTION-CRUSHING FAQS (4 SERVICE-SPECIFIC Q&AS)
+          SECTION 8: REAL FAQS IN PLAIN ENGLISH
           ======================================================== */}
       <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] bg-[#0E1014]">
         <div className="max-w-[900px] mx-auto flex flex-col gap-10">
           <div className="flex flex-col gap-2 text-center">
-            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">STRAIGHT ANSWERS</span>
+            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">FREQUENTLY ASKED</span>
             <h2 className="text-2xl sm:text-4xl font-tight font-semibold tracking-tight text-white">
-              Frequently Asked Questions
+              Common questions about AI Search ranking.
             </h2>
           </div>
 
@@ -505,7 +481,7 @@ export default function LlmVisibilityPage() {
                   <span>{faq.question}</span>
                   <span className="text-[#D4F542] font-mono text-xs">0{idx + 1}</span>
                 </h3>
-                <p className="text-xs sm:text-sm text-white/65 leading-relaxed font-sans">
+                <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-sans">
                   {faq.answer}
                 </p>
               </div>
@@ -515,9 +491,9 @@ export default function LlmVisibilityPage() {
       </section>
 
       {/* ========================================================
-          SECTION 9: DEDICATED SERVICE-PERSONALIZED 2-STEP BOOKING FORM
+          SECTION 9: PERSONALIZED BOOKING FORM
           ======================================================== */}
-      <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16">
+      <section id="service-book" className="py-16 md:py-20 px-6 md:px-10 lg:px-16">
         <div className="max-w-[1280px] mx-auto flex flex-col items-center">
           <ServiceBookingForm serviceType="llm-visibility" />
         </div>

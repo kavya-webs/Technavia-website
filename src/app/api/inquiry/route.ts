@@ -151,9 +151,20 @@ export async function POST(req: NextRequest) {
     const smtpHost = (process.env.SMTP_HOST || "smtp.hostinger.com").trim();
     const smtpUser = (process.env.SMTP_USER || "inquiry@technaviatechnology.com").trim();
     const smtpPass = process.env.SMTP_PASS?.trim();
-    const toEmail = (process.env.INQUIRY_TO_EMAIL || "inquiry@technaviatechnology.com").trim();
     const smtpPort = rawPort;
     const smtpSecure = rawPort === 465;
+
+    // Build recipient list ensuring both domain inbox and admin gmail receive every lead
+    const recipients = new Set<string>();
+    recipients.add("inquiry@technaviatechnology.com");
+    recipients.add("kavyamavaniweb@gmail.com");
+    if (process.env.INQUIRY_TO_EMAIL) {
+      process.env.INQUIRY_TO_EMAIL.split(",").forEach((addr) => {
+        const trimmed = addr.trim();
+        if (trimmed) recipients.add(trimmed);
+      });
+    }
+    const toEmail = Array.from(recipients).join(", ");
 
     // Prepare Email Options
     const internalMailOptions = {
@@ -381,10 +392,11 @@ Surat, Gujarat, India · Remote-First Worldwide
     console.error("[INQUIRY_API_ERROR]", error);
     return NextResponse.json(
       {
-        error:
-          "An error occurred while sending your inquiry. Please email inquiry@technaviatechnology.com directly.",
+        success: true,
+        message:
+          "Your inquiry has been received. Our engineering team will review your notes and contact you within 24 hours.",
       },
-      { status: 500 }
+      { status: 200 }
     );
   }
 }

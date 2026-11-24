@@ -64,11 +64,6 @@ export function BookSection({ defaultService }: { defaultService?: string }) {
       return;
     }
 
-    if (!websiteUrl.trim()) {
-      setErrorMessage("Please enter your website URL.");
-      return;
-    }
-
     setIsSubmitting(true);
 
     try {
@@ -322,12 +317,11 @@ export function BookSection({ defaultService }: { defaultService?: string }) {
 
                     <div className="flex flex-col gap-1">
                       <label className="text-[10px] font-mono uppercase text-white/70">
-                        Website URL <span className="text-[#D4F542]">*</span>
+                        Website URL <span className="text-white/40 font-normal">(Optional)</span>
                       </label>
                       <input
-                        type="url"
-                        required
-                        placeholder="https://company.com"
+                        type="text"
+                        placeholder="https://company.com (optional)"
                         value={websiteUrl}
                         onChange={(e) => setWebsiteUrl(e.target.value)}
                         className="w-full h-9 px-3 rounded-lg bg-white/[0.05] border border-white/[0.12] focus:border-[#D4F542] text-white text-xs font-mono outline-none placeholder:text-white/30"

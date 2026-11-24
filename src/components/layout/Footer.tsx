@@ -16,17 +16,9 @@ export function Footer() {
   }
 
   return (
-    <footer
-      className="relative w-full z-0 overflow-hidden lg:min-h-[720px]"
-      style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0% 100%)" }}
-    >
-      {/* Desktop spacer to allow natural scrolling to uncover the fixed curtain reveal footer */}
-      <div className="hidden lg:block relative w-full h-[720px] pointer-events-none opacity-0" />
-
-      {/* Footer Body: Static on mobile, fixed at bottom behind <main> on desktop for the curtain reveal */}
-      <div className="lg:fixed lg:bottom-0 lg:left-0 w-full lg:h-[720px] bg-[#07080A] text-[#F8F8F5] flex flex-col justify-between pt-16 pb-10 px-6 md:px-8 lg:px-14 z-0">
-        <div className="max-w-[1280px] w-full mx-auto flex flex-col justify-between h-full gap-12">
-          {/* Top Row: Headline & Navigation Columns */}
+    <footer className="relative w-full bg-[#07080A] text-[#F8F8F5] flex flex-col justify-between pt-16 pb-12 px-6 md:px-8 lg:px-14 z-20 border-t border-white/[0.08]">
+      <div className="max-w-[1280px] w-full mx-auto flex flex-col justify-between gap-12">
+        {/* Top Row: Headline & Navigation Columns */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Headline & CTA */}
             <div className="lg:col-span-5 flex flex-col gap-6">
@@ -285,7 +277,6 @@ export function Footer() {
             </div>
           </div>
         </div>
-      </div>
     </footer>
   );
 }

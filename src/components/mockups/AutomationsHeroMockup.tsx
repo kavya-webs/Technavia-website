@@ -8,26 +8,26 @@ export function AutomationsHeroMockup() {
   const steps = [
     {
       time: "00:01s",
-      title: "Meta Ad / Form Lead Captured",
-      desc: "Webhook triggers self-hosted n8n instance with 0 latency queue",
+      title: "Ad or Website Lead Received",
+      desc: "Instant capture from website forms, Meta Ads, or LinkedIn Lead Gen",
       tag: "TRIGGER",
     },
     {
-      time: "00:14s",
-      title: "AI Enriched & ICP Scored",
-      desc: "Company revenue, tech stack & headcount verified via API + LLM scoring",
+      time: "00:15s",
+      title: "Company Researched & Lead Qualified by AI",
+      desc: "Enriches company details & scores prospect against your exact ICP",
       tag: "ENRICHED",
     },
     {
-      time: "00:38s",
-      title: "Personalized Outreach + Booking Sent",
-      desc: "Dynamic WhatsApp & email dispatched with pre-populated calendar slot",
+      time: "00:40s",
+      title: "Personalized Email/WhatsApp + Booking Link Sent",
+      desc: "Prospect receives tailored outreach with calendar link in seconds",
       tag: "ENGAGED",
     },
     {
-      time: "00:42s",
-      title: "CRM Synced & Slack Alert Dispatched",
-      desc: "HubSpot deal stage updated and executive channel pinged with lead summary",
+      time: "00:45s",
+      title: "CRM Updated & Sales Team Notified in Slack",
+      desc: "HubSpot/Salesforce synced & team gets executive pre-call brief",
       tag: "RESOLVED",
     },
   ];

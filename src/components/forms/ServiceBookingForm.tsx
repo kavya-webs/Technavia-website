@@ -13,40 +13,53 @@ interface ServiceBookingFormProps {
 const SERVICE_CONFIGS = {
   "web-development-seo": {
     serviceName: "Web Development + Technical SEO",
-    headline: "Claim Your Free 5-Min Site Speed & Conversion Audit",
-    subhead: "Drop your URL. A senior engineer will record a custom tear-down or walk you through it live on a 20-min call.",
-    group1Label: "Current Platform:",
-    group1Options: ["WordPress", "Webflow / Framer", "Shopify / Custom", "Building From Scratch"],
-    group2Label: "Biggest Website Leak:",
-    group2Options: ["Slow Load Speed", "Not Ranking on Google", "Traffic Not Converting", "Outdated Brand Look"],
-    websiteLabel: "Your Website URL",
-    websitePlaceholder: "https://yourcompany.com",
-    submitLabel: "Book My 20-Min Website Audit",
+    headline: "Get a Free 5-Minute Review of Your Store or Website",
+    subhead: "Tell us a little about your business. We'll walk you through exactly what to fix to get more sales and Google traffic on a free 20-minute call.",
+    group1Label: "What best describes your site today?",
+    group1Options: ["Shopify / E-Commerce Store", "WordPress / Wix / Framer", "Custom Website", "Don't Have One Yet"],
+    group2Label: "What's your #1 goal right now?",
+    group2Options: ["Get More Sales / Leads", "Show Up Higher on Google", "Fix Slow Mobile Speed", "Fresh Modern Redesign"],
+    nameLabel: "Your Name",
+    emailLabel: "Email Address",
+    websiteLabel: "Website URL (Optional)",
+    websitePlaceholder: "https://yourcompany.com (optional)",
+    hasCompetitorField: false,
+    submitLabel: "Book My Free 20-Min Website Call →",
+    trustLine: "No tech jargon · No hard sales pitch · Free custom game plan",
   },
   "llm-visibility": {
-    serviceName: "LLM Visibility (AEO / GEO)",
-    headline: "See What ChatGPT & Perplexity Say About Your Brand Today",
-    subhead: "We'll run 10 live buyer prompts in your niche and walk you through your exact AI visibility gap in 20 minutes.",
-    group1Label: "Primary AI Search Goal:",
-    group1Options: ["Rank in ChatGPT", "Rank in Perplexity & Gemini", "Google AI Overviews", "All AI Answer Engines"],
-    group2Label: "Current AI Presence:",
-    group2Options: ["Invisible (0 Citations)", "Competitors Rank Above Us", "Haven't Checked Yet"],
-    websiteLabel: "Your Website URL",
-    websitePlaceholder: "https://yourcompany.com",
+    serviceName: "LLM Visibility",
+    headline: "Get a Free Check of What ChatGPT Says About Your Business",
+    subhead: "We'll run real customer questions in your industry on ChatGPT & Perplexity and show you the results live on a 20-minute call.",
+    group1Label: "Where do you want to show up?",
+    group1Options: ["ChatGPT", "Google AI & Gemini", "Perplexity", "All AI Search Tools"],
+    group2Label: "Have you tested your brand on AI yet?",
+    group2Options: ["Yes — We Don't Show Up", "Competitors Show Up Instead", "Haven't Checked Yet"],
+    nameLabel: "Your Name",
+    emailLabel: "Email Address",
+    websiteLabel: "Website URL (Optional)",
+    websitePlaceholder: "https://yourcompany.com (optional)",
+    competitorLabel: "Main Competitor Name (Optional)",
+    competitorPlaceholder: "e.g. Acme Corp or competitor.com",
     hasCompetitorField: true,
-    submitLabel: "Run My Free AI Visibility Audit",
+    submitLabel: "Get My Free AI Visibility Check →",
+    trustLine: "Zero obligation · 20-minute live screen-share · Real prompt data",
   },
   "ai-automations": {
     serviceName: "Custom AI Automations",
-    headline: "Get Your Custom 20-Min AI Workflow Blueprint",
-    subhead: "Tell us where manual work is slowing you down—we'll map the exact n8n & AI automation live on a screen share.",
-    group1Label: "First Bottleneck to Automate:",
-    group1Options: ["Lead Capture & Instant Follow-Up", "CRM Sync & Data Entry", "AI Qualification & Booking", "Internal Reporting / Ops"],
-    group2Label: "Current CRM / Stack:",
-    group2Options: ["HubSpot", "GoHighLevel / Salesforce", "Sheets / Notion", "Other / None Yet"],
-    websiteLabel: "Company Website or LinkedIn URL",
-    websitePlaceholder: "https://company.com or linkedin.com/company/...",
-    submitLabel: "Map My Automation Pipeline",
+    headline: "Get Your Custom 20-Min B2B Automation Blueprint",
+    subhead: "Show us where manual tasks are slowing your team down—we'll map the exact automated workflow live on a screen share.",
+    group1Label: "First Workflow to Automate:",
+    group1Options: ["Instant Lead Follow-Up", "CRM Sync & Data Entry", "AI Lead Qualification", "Client Onboarding & Reporting"],
+    group2Label: "Current CRM / Tools:",
+    group2Options: ["HubSpot", "Salesforce / GoHighLevel", "Google Sheets / Notion", "Other / None Yet"],
+    nameLabel: "Full Name",
+    emailLabel: "Work Email",
+    websiteLabel: "Website URL (Optional)",
+    websitePlaceholder: "https://company.com (optional)",
+    hasCompetitorField: false,
+    submitLabel: "Book My 20-Min Automation Call →",
+    trustLine: "No sales pitch · Live workflow mapping · 100% custom blueprint",
   },
 } as const;
 
@@ -90,11 +103,6 @@ export function ServiceBookingForm({ serviceType }: ServiceBookingFormProps) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email.trim() || !emailRegex.test(email.trim())) {
       setErrorMessage("Please enter a valid work email address.");
-      return;
-    }
-
-    if (!websiteUrl.trim()) {
-      setErrorMessage(`Please enter your ${config.websiteLabel}.`);
       return;
     }
 
@@ -346,7 +354,7 @@ export function ServiceBookingForm({ serviceType }: ServiceBookingFormProps) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                   <div className="flex flex-col gap-1.5">
                     <label className="text-[11px] font-mono uppercase tracking-wider text-white/70">
-                      Full Name <span className="text-[#D4F542]">*</span>
+                      {config.nameLabel} <span className="text-[#D4F542]">*</span>
                     </label>
                     <input
                       type="text"
@@ -360,7 +368,7 @@ export function ServiceBookingForm({ serviceType }: ServiceBookingFormProps) {
 
                   <div className="flex flex-col gap-1.5">
                     <label className="text-[11px] font-mono uppercase tracking-wider text-white/70">
-                      Work Email <span className="text-[#D4F542]">*</span>
+                      {config.emailLabel} <span className="text-[#D4F542]">*</span>
                     </label>
                     <input
                       type="email"
@@ -373,16 +381,15 @@ export function ServiceBookingForm({ serviceType }: ServiceBookingFormProps) {
                   </div>
                 </div>
 
-                {/* Website URL */}
+                {/* Website URL + Optional Competitor */}
                 {("hasCompetitorField" in config && config.hasCompetitorField) ? (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div className="flex flex-col gap-1.5">
                       <label className="text-[11px] font-mono uppercase tracking-wider text-white/70">
-                        {config.websiteLabel} <span className="text-[#D4F542]">*</span>
+                        {config.websiteLabel}
                       </label>
                       <input
-                        type="url"
-                        required
+                        type="text"
                         placeholder={config.websitePlaceholder}
                         value={websiteUrl}
                         onChange={(e) => setWebsiteUrl(e.target.value)}
@@ -392,11 +399,11 @@ export function ServiceBookingForm({ serviceType }: ServiceBookingFormProps) {
 
                     <div className="flex flex-col gap-1.5">
                       <label className="text-[11px] font-mono uppercase tracking-wider text-white/70">
-                        Top Competitor URL <span className="text-white/40">(Optional)</span>
+                        {("competitorLabel" in config ? (config as any).competitorLabel : "Main Competitor Name (Optional)")}
                       </label>
                       <input
-                        type="url"
-                        placeholder="https://competitor.com"
+                        type="text"
+                        placeholder={("competitorPlaceholder" in config ? (config as any).competitorPlaceholder : "e.g. Acme Corp or competitor.com")}
                         value={competitorUrl}
                         onChange={(e) => setCompetitorUrl(e.target.value)}
                         className="w-full h-10 px-3.5 rounded-xl bg-white/[0.05] border border-white/[0.12] focus:border-[#D4F542] focus:bg-white/[0.08] text-white text-xs font-mono outline-none transition-all placeholder:text-white/30"
@@ -406,11 +413,10 @@ export function ServiceBookingForm({ serviceType }: ServiceBookingFormProps) {
                 ) : (
                   <div className="flex flex-col gap-1.5">
                     <label className="text-[11px] font-mono uppercase tracking-wider text-white/70">
-                      {config.websiteLabel} <span className="text-[#D4F542]">*</span>
+                      {config.websiteLabel}
                     </label>
                     <input
-                      type="url"
-                      required
+                      type="text"
                       placeholder={config.websitePlaceholder}
                       value={websiteUrl}
                       onChange={(e) => setWebsiteUrl(e.target.value)}
@@ -435,7 +441,7 @@ export function ServiceBookingForm({ serviceType }: ServiceBookingFormProps) {
                     {isSubmitting ? (
                       <>
                         <Loader2 className="w-4 h-4 animate-spin" />
-                        <span>Generating Blueprint...</span>
+                        <span>Sending details...</span>
                       </>
                     ) : (
                       <>
@@ -446,7 +452,7 @@ export function ServiceBookingForm({ serviceType }: ServiceBookingFormProps) {
                   </button>
 
                   <div className="text-[11px] font-mono text-white/50 text-center tracking-tight">
-                    No pitch deck · Live screen-share audit · Zero obligation
+                    {("trustLine" in config ? (config as any).trustLine : "No pitch deck · Live screen-share audit · Zero obligation")}
                   </div>
                 </div>
               </motion.div>

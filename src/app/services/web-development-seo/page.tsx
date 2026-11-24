@@ -399,7 +399,16 @@ export default function WebDevelopmentSeoPage() {
       </section>
 
       {/* ========================================================
-          SECTION 5: SIMPLE GUARANTEE BANNER
+          SECTION 5: PERSONALIZED BOOKING FORM
+          ======================================================== */}
+      <section id="service-book" className="py-16 md:py-20 px-6 md:px-10 lg:px-16 border-b border-white/[0.08]">
+        <div className="max-w-[1280px] mx-auto flex flex-col items-center">
+          <ServiceBookingForm serviceType="web-development-seo" />
+        </div>
+      </section>
+
+      {/* ========================================================
+          SECTION 6: SIMPLE GUARANTEE BANNER
           ======================================================== */}
       <section className="py-14 sm:py-18 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] bg-[#D4F542]/[0.03]">
         <div className="max-w-[1280px] mx-auto p-8 sm:p-12 rounded-3xl bg-[#14161A] border border-[#D4F542]/40 flex flex-col md:flex-row items-center justify-between gap-8 shadow-[0_0_40px_rgba(212,245,66,0.1)]">
@@ -429,9 +438,9 @@ export default function WebDevelopmentSeoPage() {
       </section>
 
       {/* ========================================================
-          SECTION 6: REAL FAQS IN PLAIN ENGLISH
+          SECTION 7: REAL FAQS IN PLAIN ENGLISH
           ======================================================== */}
-      <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] bg-[#0E1014]">
+      <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-[#0E1014]">
         <div className="max-w-[900px] mx-auto flex flex-col gap-10">
           <div className="flex flex-col gap-2 text-center">
             <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">STRAIGHT ANSWERS</span>
@@ -456,15 +465,6 @@ export default function WebDevelopmentSeoPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          SECTION 7: PERSONALIZED BOOKING FORM
-          ======================================================== */}
-      <section id="service-book" className="py-16 md:py-20 px-6 md:px-10 lg:px-16">
-        <div className="max-w-[1280px] mx-auto flex flex-col items-center">
-          <ServiceBookingForm serviceType="web-development-seo" />
         </div>
       </section>
     </div>

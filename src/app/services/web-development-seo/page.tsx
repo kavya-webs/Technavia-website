@@ -303,7 +303,7 @@ export default function WebDevelopmentSeoPage() {
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-mono text-[#D4F542] font-bold">{item.num}</span>
-                    <span className="text-[10px] font-mono uppercase text-white/40 tracking-wider">{item.tag}</span>
+                    <span className="text-[10px] font-mono uppercase text-[#A8B0BC] tracking-wider">{item.tag}</span>
                   </div>
                   <h3 className="text-lg font-tight font-semibold text-white group-hover:text-[#D4F542] transition-colors">
                     {item.title}
@@ -346,7 +346,7 @@ export default function WebDevelopmentSeoPage() {
                     <span className="w-2 h-2 rounded-full bg-yellow-500/70" />
                     <span className="w-2 h-2 rounded-full bg-green-500/70" />
                   </div>
-                  <span className="text-[10px] font-mono text-white/40 truncate max-w-[150px]">
+                  <span className="text-[10px] font-mono text-[#A8B0BC] truncate max-w-[150px]">
                     {res.url.replace("https://", "").replace("/", "")}
                   </span>
                   <div className="w-6" />

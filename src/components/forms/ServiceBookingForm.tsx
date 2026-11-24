@@ -344,7 +344,7 @@ export function ServiceBookingForm({ serviceType }: ServiceBookingFormProps) {
                   <button
                     type="button"
                     onClick={() => setStep(1)}
-                    className="text-white/40 hover:text-white underline text-[11px] ml-2 shrink-0 cursor-pointer"
+                    className="text-[#A8B0BC] hover:text-white underline text-[11px] ml-2 shrink-0 cursor-pointer"
                   >
                     Edit
                   </button>

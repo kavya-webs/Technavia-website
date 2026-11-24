@@ -204,7 +204,7 @@ export function ProcessSection() {
         {/* Interactive Animated Card with Touch Swipe */}
         <div className="relative w-full max-w-2xl mx-auto">
           {/* Subtle Swipe Hint */}
-          <div className="flex items-center justify-between text-[11px] font-mono text-white/40 pb-2 px-1">
+          <div className="flex items-center justify-between text-[11px] font-mono text-[#A8B0BC] pb-2 px-1">
             <span className="flex items-center gap-1.5 text-[#D4F542]">
               <span className="animate-pulse">↔</span>
               <span>SWIPE OR TAP TO EXPLORE</span>
@@ -234,6 +234,8 @@ export function ProcessSection() {
                   alt={STEPS[mobileStep].title}
                   fill
                   sizes="(max-width: 1024px) 100vw, 680px"
+                  loading="lazy"
+                  decoding="async"
                   className="object-cover object-[50%_35%]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-[#0B0D10]/85 via-50% to-[#0B0D10]/60" />
@@ -319,19 +321,23 @@ export function ProcessSection() {
                 </button>
 
                 {/* Interactive Dots Pagination */}
-                <div className="flex items-center gap-1.5 px-2">
+                <div className="flex items-center gap-1 px-1">
                   {STEPS.map((_, i) => (
                     <button
                       key={i}
                       type="button"
                       onClick={() => handleStepChange(i)}
-                      className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                        mobileStep === i
-                          ? "w-6 bg-[#D4F542] shadow-[0_0_8px_#D4F542]"
-                          : "w-1.5 bg-white/30 hover:bg-white/60"
-                      }`}
+                      className="relative p-2.5 flex items-center justify-center cursor-pointer"
                       aria-label={`Go to step ${i + 1}`}
-                    />
+                    >
+                      <span
+                        className={`h-1.5 rounded-full transition-all ${
+                          mobileStep === i
+                            ? "w-6 bg-[#D4F542] shadow-[0_0_8px_#D4F542]"
+                            : "w-1.5 bg-white/30 hover:bg-white/60"
+                        }`}
+                      />
+                    </button>
                   ))}
                 </div>
 
@@ -409,6 +415,8 @@ export function ProcessSection() {
                           alt={s.title}
                           fill
                           sizes="(max-width: 1200px) 50vw, 620px"
+                          loading="lazy"
+                          decoding="async"
                           className="object-cover object-[50%_35%] scale-100"
                         />
                         {/* Gradient scrims for readability */}
@@ -517,7 +525,7 @@ export function ProcessSection() {
                             {s.week}
                           </span>
                         ) : (
-                          <span className="text-[11px] font-mono tracking-wider uppercase text-white/40 group-hover:text-white/70 transition-colors mb-1">
+                          <span className="text-[11px] font-mono tracking-wider uppercase text-[#A8B0BC] group-hover:text-white/70 transition-colors mb-1">
                             {s.week}
                           </span>
                         )}

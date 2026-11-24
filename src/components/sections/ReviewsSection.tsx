@@ -48,7 +48,7 @@ export function ReviewsSection() {
                 <span className="text-[#D4F542] uppercase tracking-wider font-semibold">
                   VERIFIED DEPLOYMENT
                 </span>
-                <span className="text-white/40 uppercase">
+                <span className="text-[#A8B0BC] uppercase">
                   {current.year}
                 </span>
               </div>

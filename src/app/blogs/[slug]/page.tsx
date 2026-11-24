@@ -223,7 +223,7 @@ export default async function BlogDetailPage({
                 href={`/blogs/${rel.slug}`}
                 className="p-8 rounded-2xl bg-[#14161A]/80 border border-white/[0.08] hover:border-[#D4F542]/50 hover:bg-[#14161A] transition-all flex flex-col justify-between gap-6 group"
               >
-                <div className="flex items-center justify-between text-xs font-mono text-white/40">
+                <div className="flex items-center justify-between text-xs font-mono text-[#A8B0BC]">
                   <span className="text-[#D4F542] font-semibold">{rel.category}</span>
                   <span>{rel.readTime}</span>
                 </div>

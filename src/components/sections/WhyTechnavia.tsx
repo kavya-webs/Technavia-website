@@ -55,7 +55,7 @@ export function WhyTechnavia() {
                   <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542] animate-pulse shrink-0" />
                   <span className="text-white/85 font-medium text-[10.5px] sm:text-xs whitespace-nowrap">ENGINEERING BUS ONLINE</span>
                 </div>
-                <span className="text-white/40 uppercase tracking-widest text-[9px] sm:text-[10px] shrink-0 whitespace-nowrap">NEXT.JS · GEO · N8N</span>
+                <span className="text-[#A8B0BC] uppercase tracking-widest text-[9px] sm:text-[10px] shrink-0 whitespace-nowrap">NEXT.JS · GEO · N8N</span>
               </div>
 
               {/* Center Architecture Blueprint Nodes - Responsive Grid for Mobile (Stacked) and Tablet/Desktop (3-Col) */}

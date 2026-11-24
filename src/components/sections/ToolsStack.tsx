@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
 
@@ -195,10 +196,14 @@ export function ToolsStack() {
     <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-36 px-6 md:px-14 border-t border-white/[0.08] overflow-hidden">
       {/* Background Photography: team in glass meeting room with lighter tint */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <img
-          src="https://framerusercontent.com/images/1RRozVJo6j9BUUQiWVOOruiGIKg.webp?scale-down-to=2048"
+        <Image
+          src="/images/case-studies/night_pipeline.webp"
           alt="A team talking in a glass-walled office at dusk, the city lit behind them"
-          className="w-full h-full object-cover object-[50%_50%] opacity-55"
+          fill
+          sizes="100vw"
+          loading="lazy"
+          decoding="async"
+          className="object-cover object-[50%_50%] opacity-55"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D10]/80 via-transparent to-[#0B0D10]/85" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10]/75 via-transparent to-[#0B0D10]/75" />
@@ -325,9 +330,9 @@ export function ToolsStack() {
                         {tool.category}
                       </span>
                     </div>
-                    <h4 className="text-2xl font-tight font-semibold text-white tracking-tight mb-2">
+                    <h3 className="text-2xl font-tight font-semibold text-white tracking-tight mb-2">
                       {tool.name}
-                    </h4>
+                    </h3>
                     <p className="text-xs sm:text-sm text-white/70 font-sans leading-relaxed mb-4">
                       {tool.description}
                     </p>
@@ -339,7 +344,7 @@ export function ToolsStack() {
                     <div className="text-xs font-mono text-white/90">
                       {tool.connectsTo}
                     </div>
-                    <div className="text-[10px] font-mono text-white/40 uppercase tracking-wider mt-3 pt-3 border-t border-white/[0.08]">
+                    <div className="text-[10px] font-mono text-[#A8B0BC] uppercase tracking-wider mt-3 pt-3 border-t border-white/[0.08]">
                       {tool.meta}
                     </div>
                   </div>
@@ -364,9 +369,9 @@ export function ToolsStack() {
                         {tool.category}
                       </span>
                     </div>
-                    <h4 className="text-2xl font-tight font-semibold text-white tracking-tight mb-2">
+                    <h3 className="text-2xl font-tight font-semibold text-white tracking-tight mb-2">
                       {tool.name}
-                    </h4>
+                    </h3>
                     <p className="text-xs sm:text-sm text-white/70 font-sans leading-relaxed mb-4">
                       {tool.description}
                     </p>
@@ -378,7 +383,7 @@ export function ToolsStack() {
                     <div className="text-xs font-mono text-white/90">
                       {tool.connectsTo}
                     </div>
-                    <div className="text-[10px] font-mono text-white/40 uppercase tracking-wider mt-3 pt-3 border-t border-white/[0.08]">
+                    <div className="text-[10px] font-mono text-[#A8B0BC] uppercase tracking-wider mt-3 pt-3 border-t border-white/[0.08]">
                       {tool.meta}
                     </div>
                   </div>

@@ -286,7 +286,7 @@ export default function LlmVisibilityPage() {
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-mono text-[#D4F542] font-bold">{item.num}</span>
-                    <span className="text-[10px] font-mono uppercase text-white/40 tracking-wider">{item.tag}</span>
+                    <span className="text-[10px] font-mono uppercase text-[#A8B0BC] tracking-wider">{item.tag}</span>
                   </div>
                   <h3 className="text-lg font-tight font-semibold text-white group-hover:text-[#D4F542] transition-colors">
                     {item.title}
@@ -322,7 +322,7 @@ export default function LlmVisibilityPage() {
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-mono font-bold text-[#D4F542]">STEP {st.num}</span>
-                    <span className="text-[10px] font-mono uppercase text-white/40">{st.tag}</span>
+                    <span className="text-[10px] font-mono uppercase text-[#A8B0BC]">{st.tag}</span>
                   </div>
                   <h3 className="text-xl font-tight font-semibold text-white group-hover:text-[#D4F542] transition-colors">
                     {st.title}

@@ -111,7 +111,7 @@ export function FaqSection({ showHeader = true }: FaqSectionProps = {}) {
                     <div className="flex items-center gap-5 sm:gap-6">
                       <span
                         className={`text-xs font-mono font-medium transition-colors ${
-                          isOpen ? "text-[#D4F542]" : "text-white/40 group-hover:text-white/80"
+                          isOpen ? "text-[#D4F542]" : "text-[#A8B0BC] group-hover:text-white/80"
                         }`}
                       >
                         {faq.num}

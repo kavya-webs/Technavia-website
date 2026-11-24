@@ -21,9 +21,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
-        tight: ["var(--font-inter-tight)", "sans-serif"],
-        mono: ["var(--font-jetbrains-mono)", "monospace"],
+        sans: ["var(--font-sans)", "var(--font-inter)", "sans-serif"],
+        tight: ["var(--font-tight)", "var(--font-inter-tight)", "sans-serif"],
+        mono: ["var(--font-mono)", "var(--font-jetbrains-mono)", "monospace"],
       },
       keyframes: {
         "rb-ping": {

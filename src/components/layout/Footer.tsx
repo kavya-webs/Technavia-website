@@ -38,7 +38,7 @@ export function Footer() {
             <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
               {/* Col 1: Services */}
               <div className="flex flex-col gap-3">
-                <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-white/45 border-b border-white/[0.08] pb-2">
+                <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[#A8B0BC] border-b border-white/[0.08] pb-2">
                   SERVICES
                 </span>
                 <ul className="flex flex-col gap-2.5 text-sm font-medium text-white/80 font-sans">
@@ -79,7 +79,7 @@ export function Footer() {
 
               {/* Col 2: Company */}
               <div className="flex flex-col gap-3">
-                <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-white/45 border-b border-white/[0.08] pb-2">
+                <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[#A8B0BC] border-b border-white/[0.08] pb-2">
                   COMPANY
                 </span>
                 <ul className="flex flex-col gap-2.5 text-sm font-medium text-white/80 font-sans">
@@ -128,7 +128,7 @@ export function Footer() {
 
               {/* Col 3: Contact */}
               <div className="col-span-2 sm:col-span-1 flex flex-col gap-3">
-                <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-white/45 border-b border-white/[0.08] pb-2">
+                <span className="text-[11px] font-mono font-semibold uppercase tracking-[0.16em] text-[#A8B0BC] border-b border-white/[0.08] pb-2">
                   CONTACT
                 </span>
                 <div className="flex flex-col gap-2.5 text-sm text-white/80 font-sans">
@@ -272,7 +272,7 @@ export function Footer() {
               </Link>
             </div>
 
-            <div className="text-white/45 uppercase tracking-widest text-[11px]">
+            <div className="text-[#A8B0BC] uppercase tracking-widest text-[11px]">
               BUILT TO RANK · AUTOMATED TO SCALE
             </div>
           </div>

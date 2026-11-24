@@ -317,7 +317,7 @@ export function BookSection({ defaultService }: { defaultService?: string }) {
 
                     <div className="flex flex-col gap-1">
                       <label className="text-[10px] font-mono uppercase text-white/70">
-                        Website URL <span className="text-white/40 font-normal">(Optional)</span>
+                        Website URL <span className="text-[#A8B0BC] font-normal">(Optional)</span>
                       </label>
                       <input
                         type="text"
@@ -354,7 +354,7 @@ export function BookSection({ defaultService }: { defaultService?: string }) {
                         )}
                       </button>
 
-                      <div className="text-[10px] font-mono text-white/40 text-center">
+                      <div className="text-[10px] font-mono text-[#A8B0BC] text-center">
                         No pitch deck · Live screen-share audit · Zero obligation
                       </div>
                     </div>

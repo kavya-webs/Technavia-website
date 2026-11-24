@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionLabel } from "../ui/SectionLabel";
@@ -125,10 +126,14 @@ export function NightLog() {
     <section className="relative w-full bg-[#0B0D10] text-[#F8F8F5] py-24 md:py-36 px-6 md:px-8 lg:px-14 border-t border-white/[0.08] overflow-hidden">
       {/* Background Photography: desk with lit monitors */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <img
-          src="https://framerusercontent.com/images/D5vywc1iZWqwCmhbjYFnlcV21C0.webp?scale-down-to=2048"
+        <Image
+          src="/images/case-studies/tools_architecture.webp"
           alt="A desk with three lit monitors in a dark office at night"
-          className="w-full h-full object-cover object-[50%_50%] opacity-25"
+          fill
+          sizes="100vw"
+          loading="lazy"
+          decoding="async"
+          className="object-cover object-[50%_50%] opacity-25"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D10] via-[#0B0D10]/85 to-[#0B0D10]" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-transparent to-[#0B0D10]" />
@@ -181,7 +186,7 @@ export function NightLog() {
                   className={`p-2.5 rounded-xl cursor-pointer transition-all flex items-center justify-between gap-4 ${
                     isCurrent
                       ? "bg-white/[0.08] text-white shadow-inner"
-                      : "text-white/40 hover:text-white/80 hover:bg-white/[0.02]"
+                      : "text-[#A8B0BC] hover:text-white/80 hover:bg-white/[0.02]"
                   }`}
                 >
                   <div className="flex items-center gap-3 overflow-hidden">
@@ -267,7 +272,7 @@ export function NightLog() {
               />
               <span>{isPaused ? "Resume" : "Pause"}</span>
             </button>
-            <span className="text-white/40 text-[11px]">
+            <span className="text-[#A8B0BC] text-[11px]">
               ↑ ↓ to navigate, → to step
             </span>
           </div>

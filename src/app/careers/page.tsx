@@ -215,7 +215,7 @@ export default function CareersPage() {
                   <span>Apply for role</span>
                   <span className="text-sm font-bold">→</span>
                 </a>
-                <span className="text-[11px] font-mono text-white/40">Reviewed in 48h</span>
+                <span className="text-[11px] font-mono text-[#A8B0BC]">Reviewed in 48h</span>
               </div>
             </div>
           ))}

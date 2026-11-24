@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
@@ -153,10 +154,14 @@ export function IndustriesSection({ variant = "list", showHeader = true }: Indus
               >
                 {/* Image Header with Hover Zoom & Gradient Vignette */}
                 <div className="relative w-full h-56 overflow-hidden bg-zinc-900">
-                  <img
+                  <Image
                     src={ind.img}
                     alt={ind.name}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    loading="lazy"
+                    decoding="async"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
                   <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/60 via-transparent to-transparent" />
@@ -258,10 +263,14 @@ export function IndustriesSection({ variant = "list", showHeader = true }: Indus
 
                 {/* Background Image corresponding to hovered industry */}
                 <div className="absolute inset-0 z-0">
-                  <img
+                  <Image
                     src={INDUSTRY_ITEMS[hoveredIdx].img}
                     alt={INDUSTRY_ITEMS[hoveredIdx].name}
-                    className="w-full h-full object-cover transition-all duration-300"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 380px"
+                    loading="lazy"
+                    decoding="async"
+                    className="object-cover transition-all duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
                 </div>
@@ -292,7 +301,7 @@ export function IndustriesSection({ variant = "list", showHeader = true }: Indus
                     <div className="flex items-center gap-3 sm:gap-6 md:gap-10">
                       <span
                         className={`text-xs sm:text-sm md:text-base font-mono transition-colors duration-200 ${
-                          isHovered ? "text-[#D4F542]" : "text-white/40"
+                          isHovered ? "text-[#D4F542]" : "text-[#A8B0BC]"
                         }`}
                       >
                         {ind.num}
@@ -301,7 +310,7 @@ export function IndustriesSection({ variant = "list", showHeader = true }: Indus
                       <div className="flex items-center gap-2 sm:gap-4">
                         <h3
                           className={`text-2xl sm:text-4xl md:text-5xl lg:text-[68px] font-tight font-bold tracking-tight transition-colors duration-200 leading-none ${
-                            isHovered ? "text-white" : "text-white/40 group-hover:text-white"
+                            isHovered ? "text-white" : "text-[#A8B0BC] group-hover:text-white"
                           }`}
                         >
                           {ind.name}

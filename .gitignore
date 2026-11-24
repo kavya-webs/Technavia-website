@@ -38,6 +38,7 @@ next-env.d.ts
 recordings/
 screenshots/
 temp_inspect/
+scratch/
 *.webm
 *.tmp
 

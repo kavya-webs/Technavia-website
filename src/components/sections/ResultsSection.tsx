@@ -159,7 +159,9 @@ export function ResultsSection() {
                       src={res.previewImg}
                       alt={`${res.client} Live Interface`}
                       fill
-                      sizes="88vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      loading="lazy"
+                      decoding="async"
                       className="object-cover object-top"
                     />
                   </a>
@@ -171,7 +173,7 @@ export function ResultsSection() {
                     <span className="text-[#D4F542] font-semibold tracking-wider uppercase text-[10px]">
                       {res.badge}
                     </span>
-                    <span className="text-white/40">RESULT {res.num}/03</span>
+                    <span className="text-[#A8B0BC]">RESULT {res.num}/03</span>
                   </div>
                   <h3 className="text-2xl font-tight font-semibold text-white tracking-tight">
                     {res.client}
@@ -372,7 +374,9 @@ export function ResultsSection() {
                       src={res.previewImg}
                       alt={`${res.client} Live Interface`}
                       fill
-                      sizes="40vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      loading="lazy"
+                      decoding="async"
                       className="object-cover object-top"
                     />
                   </a>
@@ -536,7 +540,9 @@ export function ResultsSection() {
                           src={res.previewImg}
                           alt={`${res.client} Live Interface`}
                           fill
-                          sizes="600px"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          loading="lazy"
+                          decoding="async"
                           className="object-cover object-top group-hover/frame:scale-[1.03] group-hover/frame:-translate-y-1 transition-transform duration-700 ease-out"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
@@ -569,7 +575,7 @@ export function ResultsSection() {
             </Button>
           </div>
 
-          <p className="text-xs font-mono text-white/40 text-center sm:text-left leading-relaxed">
+          <p className="text-xs font-mono text-[#A8B0BC] text-center sm:text-left leading-relaxed">
             Client mirrors are self-hosted with permission to preserve client domain privacy while letting you inspect live UI and engineering quality.
           </p>
         </div>

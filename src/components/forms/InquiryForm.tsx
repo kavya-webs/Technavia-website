@@ -333,7 +333,7 @@ export function InquiryForm({
                 {/* Full Width Website URL (Optional) */}
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[11px] font-mono uppercase tracking-wider text-white/70">
-                    Website URL <span className="text-white/40 font-normal">(Optional)</span>
+                    Website URL <span className="text-[#A8B0BC] font-normal">(Optional)</span>
                   </label>
                   <input
                     type="text"
@@ -347,7 +347,7 @@ export function InquiryForm({
                 {/* Optional 1-line bottleneck input (NOT a tall textarea) */}
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[11px] font-mono uppercase tracking-wider text-white/70">
-                    Biggest bottleneck <span className="text-white/40 font-normal">(optional)</span>
+                    Biggest bottleneck <span className="text-[#A8B0BC] font-normal">(optional)</span>
                   </label>
                   <input
                     type="text"

@@ -198,7 +198,7 @@ export function Navbar() {
                           <span className="font-mono text-[#D4F542] text-[11px] font-semibold">
                             {item.num} · {item.name}
                           </span>
-                          <span className="text-white/40 group-hover/item:translate-x-1 transition-transform">
+                          <span className="text-[#A8B0BC] group-hover/item:translate-x-1 transition-transform">
                             →
                           </span>
                         </div>
@@ -217,7 +217,7 @@ export function Navbar() {
                       <span>Compare All Services & Retainers</span>
                       <span>→</span>
                     </Link>
-                    <span className="text-[10px] font-mono text-white/40 uppercase">5D WEB · 16D SEO</span>
+                    <span className="text-[10px] font-mono text-[#A8B0BC] uppercase">5D WEB · 16D SEO</span>
                   </div>
                 </div>
               </div>
@@ -315,7 +315,7 @@ export function Navbar() {
                       >
                         <div className="flex items-center justify-between text-xs font-semibold text-white group-hover/item:text-[#D4F542] transition-colors">
                           <span>{item.name}</span>
-                          <span className="text-white/40 group-hover/item:translate-x-1 transition-transform">
+                          <span className="text-[#A8B0BC] group-hover/item:translate-x-1 transition-transform">
                             →
                           </span>
                         </div>

@@ -2,15 +2,16 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { SectionLabel } from "../ui/SectionLabel";
 import { Button } from "../ui/Button";
 import { ARTICLES } from "@/lib/data";
 
 const ARTICLE_COVERS = [
-  "https://framerusercontent.com/images/cYs8F5LBZmepNfUf2snm7RACtw.webp?scale-down-to=2048",
-  "https://framerusercontent.com/images/Jxu37NxDNOIaWeaS5R0LXCHC4BI.webp?scale-down-to=1024",
-  "https://framerusercontent.com/images/AxCkb9fHLjrXXGlXS7BA23JaGc.webp?scale-down-to=1024",
-  "https://framerusercontent.com/images/m9emPuCxxggvbxwlNI25zVMWXFo.webp?scale-down-to=1024",
+  "/images/case-studies/insights_1.webp",
+  "/images/case-studies/insights_2.webp",
+  "/images/case-studies/insights_3.webp",
+  "/images/case-studies/insights_4.webp",
 ];
 
 export function InsightsGrid() {
@@ -48,10 +49,14 @@ export function InsightsGrid() {
           >
             {/* Featured Article Background Image with subtle scrim */}
             <div className="absolute inset-0 z-0">
-              <img
+              <Image
                 src={ARTICLE_COVERS[0]}
                 alt={featured.title}
-                className="w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700"
+                fill
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                loading="lazy"
+                decoding="async"
+                className="object-cover opacity-20 group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-[#0B0D10]/80 to-transparent" />
             </div>
@@ -89,7 +94,7 @@ export function InsightsGrid() {
                 href={`/blogs/${post.slug}`}
                 className="p-6 md:p-7 rounded-2xl bg-zinc-950/70 border border-white/[0.1] hover:border-white/30 hover:bg-zinc-900/60 transition-all flex flex-col gap-3 group relative overflow-hidden"
               >
-                <div className="flex items-center gap-3 text-[11px] font-mono text-white/40">
+                <div className="flex items-center gap-3 text-[11px] font-mono text-[#A8B0BC]">
                   <span className="text-[#D4F542] font-medium">{post.type}</span>
                   <span>·</span>
                   <span>{post.readTime}</span>

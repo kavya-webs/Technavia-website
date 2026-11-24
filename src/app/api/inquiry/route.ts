@@ -144,25 +144,16 @@ export async function POST(req: NextRequest) {
 
     // 3. Guaranteed Lead Recording (Safeguard in runtime logs before attempting SMTP)
     const timestamp = new Date().toISOString();
-    console.log("[INQUIRY_RECEIVED_LEAD]", JSON.stringify({
-      timestamp,
-      fullName: cleanFullName,
-      email: cleanEmail,
-      website: cleanWebsite,
-      services: resolvedServices,
-      diagnostics: diagnosticSummary,
-      brief: cleanBrief,
-      sourcePage: sourcePage || "Direct",
-      ip,
-    }, null, 2));
+    console.error(`[LEAD_SAVED] Name="${cleanFullName}" Email="${cleanEmail}" Website="${cleanWebsite}" Services="${serviceList}" Bottleneck="${cleanBrief}" IP="${ip}" Source="${sourcePage || "Direct"}" Time="${timestamp}"`);
 
     // 4. SMTP Transport Configuration & Dispatch
-    const smtpHost = process.env.SMTP_HOST || "smtp.hostinger.com";
-    const smtpPort = Number(process.env.SMTP_PORT) || 465;
-    const smtpSecure = process.env.SMTP_SECURE !== "false"; // true for port 465
-    const smtpUser = process.env.SMTP_USER || "inquiry@technaviatechnology.com";
-    const smtpPass = process.env.SMTP_PASS;
-    const toEmail = process.env.INQUIRY_TO_EMAIL || "inquiry@technaviatechnology.com";
+    const rawPort = Number(process.env.SMTP_PORT) || 465;
+    const smtpHost = (process.env.SMTP_HOST || "smtp.hostinger.com").trim();
+    const smtpUser = (process.env.SMTP_USER || "inquiry@technaviatechnology.com").trim();
+    const smtpPass = process.env.SMTP_PASS?.trim();
+    const toEmail = (process.env.INQUIRY_TO_EMAIL || "inquiry@technaviatechnology.com").trim();
+    const smtpPort = rawPort;
+    const smtpSecure = rawPort === 465;
 
     // Prepare Email Options
     const internalMailOptions = {
@@ -331,17 +322,50 @@ Surat, Gujarat, India · Remote-First Worldwide
 
         await transporter.sendMail(internalMailOptions);
         emailSent = true;
-        console.log(`[INQUIRY_INTERNAL_EMAIL_SENT] Dispatched to ${toEmail}`);
+        console.error(`[INQUIRY_INTERNAL_EMAIL_SENT] Dispatched to ${toEmail}`);
 
         // Try client confirmation independently (non-fatal if blocked)
         try {
           await transporter.sendMail(clientMailOptions);
-          console.log(`[INQUIRY_CLIENT_EMAIL_SENT] Dispatched confirmation to ${cleanEmail}`);
+          console.error(`[INQUIRY_CLIENT_EMAIL_SENT] Dispatched confirmation to ${cleanEmail}`);
         } catch (clientErr: any) {
           console.warn("[CLIENT_MAIL_WARNING] Could not dispatch client auto-confirmation:", clientErr?.message);
         }
       } catch (smtpErr: any) {
-        console.error("[INQUIRY_SMTP_ERROR] Mail dispatch failed (check SMTP_PASS in hPanel):", smtpErr?.message || smtpErr);
+        console.error(`[INQUIRY_SMTP_ERROR_PORT_${smtpPort}] Mail dispatch failed:`, smtpErr?.message || smtpErr);
+
+        // Fallback retry on port 587 (STARTTLS) if port 465 failed
+        if (smtpPort === 465) {
+          try {
+            console.error("[INQUIRY_SMTP_RETRY] Attempting fallback on port 587 (STARTTLS)...");
+            const fallbackTransporter = nodemailer.createTransport({
+              host: smtpHost,
+              port: 587,
+              secure: false,
+              auth: {
+                user: smtpUser,
+                pass: smtpPass,
+              },
+              connectionTimeout: 8000,
+              greetingTimeout: 5000,
+              socketTimeout: 8000,
+              tls: {
+                rejectUnauthorized: false,
+              },
+            });
+
+            await fallbackTransporter.sendMail(internalMailOptions);
+            emailSent = true;
+            console.error(`[INQUIRY_FALLBACK_PORT_587_SUCCESS] Dispatched to ${toEmail}`);
+
+            try {
+              await fallbackTransporter.sendMail(clientMailOptions);
+              console.error(`[INQUIRY_CLIENT_EMAIL_SENT] Dispatched confirmation to ${cleanEmail}`);
+            } catch {}
+          } catch (fallbackErr: any) {
+            console.error("[INQUIRY_FALLBACK_PORT_587_ERROR] Fallback also failed:", fallbackErr?.message || fallbackErr);
+          }
+        }
       }
     } else {
       console.warn("[SMTP_WARNING] SMTP_PASS environment variable not set. Lead safely recorded in server logs.");

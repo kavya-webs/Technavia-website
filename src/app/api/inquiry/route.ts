@@ -142,7 +142,21 @@ export async function POST(req: NextRequest) {
     const cleanTimeline = "21-Day Sprint / Immediate";
     const cleanBudget = "Standard Architecture Scope";
 
-    // 3. SMTP Transport Setup
+    // 3. Guaranteed Lead Recording (Safeguard in runtime logs before attempting SMTP)
+    const timestamp = new Date().toISOString();
+    console.log("[INQUIRY_RECEIVED_LEAD]", JSON.stringify({
+      timestamp,
+      fullName: cleanFullName,
+      email: cleanEmail,
+      website: cleanWebsite,
+      services: resolvedServices,
+      diagnostics: diagnosticSummary,
+      brief: cleanBrief,
+      sourcePage: sourcePage || "Direct",
+      ip,
+    }, null, 2));
+
+    // 4. SMTP Transport Configuration & Dispatch
     const smtpHost = process.env.SMTP_HOST || "smtp.hostinger.com";
     const smtpPort = Number(process.env.SMTP_PORT) || 465;
     const smtpSecure = process.env.SMTP_SECURE !== "false"; // true for port 465
@@ -150,45 +164,7 @@ export async function POST(req: NextRequest) {
     const smtpPass = process.env.SMTP_PASS;
     const toEmail = process.env.INQUIRY_TO_EMAIL || "inquiry@technaviatechnology.com";
 
-    // If SMTP_PASS is missing in environment (e.g. before user sets it in hPanel),
-    // log clearly and return success so UX doesn't crash
-    if (!smtpPass) {
-      console.warn(
-        "[SMTP_WARNING] SMTP_PASS environment variable not set. Mocking email delivery for development/demo."
-      );
-      console.log("Inquiry Data:", {
-        cleanFullName,
-        cleanEmail,
-        cleanWebsite,
-        resolvedServices,
-        cleanBrief,
-        cleanTimeline,
-        cleanBudget,
-        sourcePage,
-        ip,
-      });
-
-      return NextResponse.json({
-        success: true,
-        mock: true,
-        message:
-          "Inquiry received successfully. (SMTP pending configuration in hPanel)",
-      });
-    }
-
-    const transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: smtpPort,
-      secure: smtpSecure,
-      auth: {
-        user: smtpUser,
-        pass: smtpPass,
-      },
-    });
-
-    const timestamp = new Date().toISOString();
-
-    // 4. Send Internal Notification to inquiry@technaviatechnology.com
+    // Prepare Email Options
     const internalMailOptions = {
       from: `"TECHNAVIA Engineering Desk" <${smtpUser}>`,
       to: toEmail,
@@ -270,7 +246,6 @@ Reply directly to this email to contact the prospect.
 `,
     };
 
-    // 5. Send Auto-Confirmation to Prospect (Lightweight, text-first for deliverability warmup)
     const clientMailOptions = {
       from: `"TECHNAVIA" <${smtpUser}>`,
       to: cleanEmail,
@@ -333,15 +308,50 @@ Surat, Gujarat, India · Remote-First Worldwide
 `,
     };
 
-    // Send both in parallel
-    await Promise.all([
-      transporter.sendMail(internalMailOptions),
-      transporter.sendMail(clientMailOptions),
-    ]);
+    let emailSent = false;
 
+    // Resilient SMTP Dispatch: Errors are logged, but never crash the lead submission
+    if (smtpPass) {
+      try {
+        const transporter = nodemailer.createTransport({
+          host: smtpHost,
+          port: smtpPort,
+          secure: smtpSecure,
+          auth: {
+            user: smtpUser,
+            pass: smtpPass,
+          },
+          connectionTimeout: 8000,
+          greetingTimeout: 5000,
+          socketTimeout: 8000,
+          tls: {
+            rejectUnauthorized: false,
+          },
+        });
+
+        await transporter.sendMail(internalMailOptions);
+        emailSent = true;
+        console.log(`[INQUIRY_INTERNAL_EMAIL_SENT] Dispatched to ${toEmail}`);
+
+        // Try client confirmation independently (non-fatal if blocked)
+        try {
+          await transporter.sendMail(clientMailOptions);
+          console.log(`[INQUIRY_CLIENT_EMAIL_SENT] Dispatched confirmation to ${cleanEmail}`);
+        } catch (clientErr: any) {
+          console.warn("[CLIENT_MAIL_WARNING] Could not dispatch client auto-confirmation:", clientErr?.message);
+        }
+      } catch (smtpErr: any) {
+        console.error("[INQUIRY_SMTP_ERROR] Mail dispatch failed (check SMTP_PASS in hPanel):", smtpErr?.message || smtpErr);
+      }
+    } else {
+      console.warn("[SMTP_WARNING] SMTP_PASS environment variable not set. Lead safely recorded in server logs.");
+    }
+
+    // Always succeed from the prospect's perspective so a technical SMTP glitch never shows a broken error banner
     return NextResponse.json({
       success: true,
-      message: "Inquiry dispatched successfully.",
+      emailSent,
+      message: "Your inquiry has been received. Our engineering team will review your notes and contact you within 24 hours.",
     });
   } catch (error: any) {
     console.error("[INQUIRY_API_ERROR]", error);

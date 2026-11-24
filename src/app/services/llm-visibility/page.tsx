@@ -80,39 +80,6 @@ const HOW_IT_WORKS_STEPS = [
   },
 ];
 
-const OPTIMIZE_PILLARS = [
-  {
-    num: "01",
-    title: "Clear Brand Identity Labels",
-    desc: "We connect your business name to verified online profiles and industry directories so AI tools never confuse you with another company.",
-  },
-  {
-    num: "02",
-    title: "Direct, Quotable Q&As",
-    desc: "We format key answers in crisp 40-word blocks that AI tools love to lift and quote directly to customers.",
-  },
-  {
-    num: "03",
-    title: "Live Prompt Testing",
-    desc: "We test dozens of real customer search questions on ChatGPT, Gemini, and Perplexity to verify when and how you get recommended.",
-  },
-  {
-    num: "04",
-    title: "Helpful Comparison Guides",
-    desc: "We add structured comparison tables so AI assistants understand your advantages over alternatives.",
-  },
-  {
-    num: "05",
-    title: "Consistent Web Mentions",
-    desc: "We ensure your location, services, and credentials match across official platforms so AI regards you as a trusted authority.",
-  },
-  {
-    num: "06",
-    title: "Unblocked AI Crawler Access",
-    desc: "We ensure search bots from OpenAI, Perplexity, and Google can read your site fast without hitting technical walls.",
-  },
-];
-
 const DELIVERABLES = [
   "Complete Business Profile & Structured Data Setup",
   "High-Value Quotable Q&A Sections Added to Key Pages",
@@ -371,42 +338,9 @@ export default function LlmVisibilityPage() {
       </section>
 
       {/* ========================================================
-          SECTION 5: WHAT WE OPTIMIZE BEHIND THE SCENES
+          SECTION 5: DELIVERABLES
           ======================================================== */}
       <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08]">
-        <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
-          <div className="flex flex-col gap-2 max-w-xl">
-            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">BEHIND THE SCENES</span>
-            <h2 className="text-2xl sm:text-4xl font-tight font-semibold tracking-tight text-white">
-              What we optimize behind the scenes
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {OPTIMIZE_PILLARS.map((item) => (
-              <div
-                key={item.num}
-                className="p-6 rounded-2xl bg-[#14161A]/80 border border-white/[0.08] flex flex-col gap-3 hover:border-white/[0.2] transition-all group"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono text-[#D4F542] font-bold">{item.num}</span>
-                </div>
-                <h3 className="text-base font-tight font-semibold text-white group-hover:text-[#D4F542] transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-white/65 leading-relaxed font-sans">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          SECTION 6: DELIVERABLES
-          ======================================================== */}
-      <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] bg-[#0E1014]">
         <div className="max-w-[1280px] mx-auto flex flex-col gap-10">
           <div className="flex flex-col gap-2 max-w-2xl">
             <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">THE COMPLETE PACKAGE</span>
@@ -430,7 +364,7 @@ export default function LlmVisibilityPage() {
       </section>
 
       {/* ========================================================
-          SECTION 7: PERSONALIZED BOOKING FORM
+          SECTION 6: PERSONALIZED BOOKING FORM
           ======================================================== */}
       <section id="service-book" className="py-16 md:py-20 px-6 md:px-10 lg:px-16 border-b border-white/[0.08]">
         <div className="max-w-[1280px] mx-auto flex flex-col items-center">
@@ -439,7 +373,7 @@ export default function LlmVisibilityPage() {
       </section>
 
       {/* ========================================================
-          SECTION 8: GUARANTEE BANNER
+          SECTION 7: GUARANTEE BANNER
           ======================================================== */}
       <section className="py-14 sm:py-18 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] bg-[#D4F542]/[0.03]">
         <div className="max-w-[1280px] mx-auto p-8 sm:p-12 rounded-3xl bg-[#14161A] border border-[#D4F542]/40 flex flex-col md:flex-row items-center justify-between gap-8 shadow-[0_0_40px_rgba(212,245,66,0.1)]">
@@ -469,7 +403,7 @@ export default function LlmVisibilityPage() {
       </section>
 
       {/* ========================================================
-          SECTION 9: REAL FAQS IN PLAIN ENGLISH
+          SECTION 8: REAL FAQS IN PLAIN ENGLISH
           ======================================================== */}
       <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-[#0E1014]">
         <div className="max-w-[900px] mx-auto flex flex-col gap-10">

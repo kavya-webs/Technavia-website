@@ -9,16 +9,16 @@ import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { PROCESS_STEPS } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "21-Day Engineering Process — From Audit to Launch",
+  title: "21-Day Process (5-Day Web + 16-Day SEO) — From Audit to Launch | TECHNAVIA",
   description:
-    "Our 5-stage sprint methodology: from forensic audit to speed-first Next.js build, LLM indexing, and AI workflow wiring with 100% source code ownership.",
+    "5 days for website + 16 days for SEO (21 days total). Our 5-stage sprint methodology: from rapid 5-day Next.js build to deep technical SEO, LLM citation graphs, and AI pipeline automation.",
   alternates: {
     canonical: "https://technaviatechnology.com/process",
   },
   openGraph: {
-    title: "21-Day Engineering Process — From Audit to Launch",
+    title: "21-Day Process (5-Day Web + 16-Day SEO) — From Audit to Launch | TECHNAVIA",
     description:
-      "Our 5-stage sprint methodology: from forensic audit to speed-first Next.js build, LLM indexing, and AI workflow wiring with 100% source code ownership.",
+      "5 days for website + 16 days for SEO (21 days total). Our 5-stage sprint methodology: from rapid 5-day Next.js build to deep technical SEO, LLM citation graphs, and AI pipeline automation.",
     url: "https://technaviatechnology.com/process",
     type: "website",
     images: [
@@ -26,15 +26,15 @@ export const metadata: Metadata = {
         url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
         width: 1200,
         height: 630,
-        alt: "TECHNAVIA — 21-Day Engineering Process",
+        alt: "TECHNAVIA — 21-Day Engineering Process (5-Day Web + 16-Day SEO)",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "21-Day Engineering Process — From Audit to Launch",
+    title: "21-Day Process (5-Day Web + 16-Day SEO) — From Audit to Launch | TECHNAVIA",
     description:
-      "Our 5-stage sprint methodology: from forensic audit to speed-first Next.js build, LLM indexing, and AI workflow wiring with 100% source code ownership.",
+      "5 days for website + 16 days for SEO (21 days total). Our 5-stage sprint methodology: from rapid 5-day Next.js build to deep technical SEO, LLM citation graphs, and AI pipeline automation.",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
   },
 };
@@ -54,13 +54,13 @@ export default function ProcessPage() {
         titleLine1="From blueprint"
         titleLine2="to market dominance."
         highlightLine2={true}
-        subtitle="From deep technical audit to fast web engineering, LLM indexing, and autonomous operations."
+        subtitle="5 days for your website, 16 days for SEO & AI visibility. From deep technical audit to fast web engineering, LLM indexing, and autonomous operations."
         primaryCta={{ label: "Book an audit", href: "/book" }}
         secondaryCta={{ label: "Read our blogs", href: "/blogs" }}
         backgroundImage="/images/tech/process_build.webp"
         wireframeNumber="05"
         statusPills={[
-          { text: "5 ENGINEERING PHASES", variant: "brass" },
+          { text: "5 DAYS WEB + 16 DAYS SEO", variant: "brass" },
           { text: "SUB-SECOND CORE WEB VITALS", variant: "ghost" },
           { text: "AEO / GEO VISIBILITY", variant: "outline" },
         ]}

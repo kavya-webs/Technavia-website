@@ -19,55 +19,55 @@ interface ProcessStep {
 const STEPS: ProcessStep[] = [
   {
     step: "01",
-    week: "DAYS 1–3",
-    title: "Audit & Blueprint",
+    week: "DAYS 1–2",
+    title: "Audit & Architecture",
     headline: "Audit & Offer Blueprint",
     description:
-      "We dissect your current site, competitors, search gaps, and AI visibility—then lock in your conversion offer and wireframe.",
+      "We dissect your current site, competitors, search gaps, and AI visibility—then lock in your conversion architecture and wireframes.",
     clientRole:
       "A 60-minute discovery call; access to search console and current workflow blueprints.",
     img: "/images/tech/process_audit.webp",
   },
   {
     step: "02",
-    week: "DAYS 4–10",
-    title: "Speed-First Build",
-    headline: "Speed-First Engineering",
+    week: "DAYS 3–5",
+    title: "5-Day Website Launch",
+    headline: "Lightning-Fast Website Build",
     description:
-      "We build your custom dark/brand-matched frontend in Next.js with zero bloat, clean heading hierarchy, and conversion copy.",
+      "We build your custom dark/brand-matched frontend in Next.js with zero bloat, clean heading hierarchy, and conversion copy—launched live by Day 5.",
     clientRole:
       "Review interactive staging environment and sign off on core page templates.",
     img: "/images/tech/process_build.webp",
   },
   {
     step: "03",
-    week: "DAYS 11–14",
-    title: "SEO & LLM Indexing",
-    headline: "SEO & LLM Entity Indexing",
+    week: "DAYS 6–11",
+    title: "SEO & Schema Indexing",
+    headline: "Deep Schema & Semantic SEO",
     description:
-      "We deploy structured JSON-LD schema, XML sitemaps, internal linking hubs, and AEO answer blocks built for Google and AI engines.",
+      "We deploy structured JSON-LD schema, XML sitemaps, internal linking hubs, and AEO answer blocks built for rapid Google indexation.",
     clientRole:
       "Sign-off on brand entity claims, core services, and knowledge graph attributes.",
     img: "/images/tech/process_indexing.webp",
   },
   {
     step: "04",
-    week: "DAYS 15–18",
-    title: "AI Workflows",
-    headline: "AI Workflow Wiring",
+    week: "DAYS 12–16",
+    title: "LLM Visibility",
+    headline: "AI Citation Graph & AEO Setup",
     description:
-      "We connect your forms, Meta Ads leads, calendar, and CRM via n8n so every inquiry gets qualified and routed in under 60 seconds.",
+      "We engineer knowledge graphs, entity associations, and authoritative citation sources so ChatGPT, Gemini, and Perplexity recommend your brand.",
     clientRole:
-      "Review dummy-lead test run and automated notification alerts.",
-    img: "/images/tech/process_automate.webp",
+      "Review AI prompt test benchmarks and citation footprint reports.",
+    img: "/images/tech/process_indexing.webp",
   },
   {
     step: "05",
-    week: "DAYS 19–21",
-    title: "QA & Launch",
-    headline: "QA, Launch & Handover",
+    week: "DAYS 17–21",
+    title: "Automations & QA",
+    headline: "Lead Automations, QA & Handover",
     description:
-      "We stress-test Core Web Vitals, verify tracking pixels, ship to your domain, and hand over 100% of the code and documentation.",
+      "We connect sub-60s lead automations, stress-test Core Web Vitals, verify rankings, ship to your domain, and hand over 100% of the code.",
     clientRole:
       "Domain DNS verification and complete repository handover.",
     img: "/images/tech/process_scale.webp",
@@ -167,15 +167,15 @@ export function ProcessSection() {
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
             <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542] font-semibold">
-              OUR 21-DAY PROCESS
+              OUR 21-DAY PROCESS (5 DAYS WEBSITE + 16 DAYS SEO)
             </span>
           </div>
           <p className="text-3xl sm:text-4xl font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.05]">
             From silent website <br />
-            <span className="text-[#D4F542]">to automated pipeline in three weeks.</span>
+            <span className="text-[#D4F542]">to automated pipeline in 21 days.</span>
           </p>
           <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-sans">
-            Five engineering stages from deep technical audit to fully indexed, automated digital authority.
+            5 days to launch your high-converting website, followed by 16 days of deep technical SEO, AI citation graphs, and automated pipelines.
           </p>
         </div>
 
@@ -369,17 +369,17 @@ export function ProcessSection() {
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
                   <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542] font-semibold">
-                    OUR 21-DAY PROCESS
+                    OUR 21-DAY PROCESS (5 DAYS WEBSITE + 16 DAYS SEO)
                   </span>
                 </div>
 
                 <h2 className="text-3xl sm:text-5xl lg:text-[54px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[1.04]">
                   From silent website <br />
-                  <span className="text-[#D4F542]">to automated pipeline in three weeks.</span>
+                  <span className="text-[#D4F542]">to automated pipeline in 21 days.</span>
                 </h2>
 
                 <p className="text-sm sm:text-base text-white/70 leading-relaxed font-sans max-w-sm">
-                  Five engineering stages from deep technical audit to fully indexed, automated digital authority.
+                  5 days to launch your high-converting website, followed by 16 days of deep technical SEO, AI citation graphs, and automated pipelines.
                 </p>
 
                 <div className="pt-2">

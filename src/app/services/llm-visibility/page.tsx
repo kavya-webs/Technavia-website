@@ -10,14 +10,14 @@ import { AdHeaderBar } from "@/components/ui/AdHeaderBar";
 export const metadata: Metadata = {
   title: "Get Recommended on ChatGPT, Gemini & Perplexity | TECHNAVIA",
   description:
-    "When customers ask ChatGPT or Google AI who to buy from, make sure your brand is the #1 answer. Complete 21-day AI search visibility setup.",
+    "When customers ask ChatGPT or Google AI who to buy from, make sure your brand is the #1 answer. Complete 21-day AI search visibility setup (5 days for website + 16 days for SEO).",
   alternates: {
     canonical: "https://technaviatechnology.com/services/llm-visibility",
   },
   openGraph: {
     title: "Get Recommended on ChatGPT, Gemini & Perplexity | TECHNAVIA",
     description:
-      "When customers ask ChatGPT or Google AI who to buy from, make sure your brand is the #1 answer. Complete 21-day AI search visibility setup.",
+      "When customers ask ChatGPT or Google AI who to buy from, make sure your brand is the #1 answer. Complete 21-day AI search visibility setup (5 days for website + 16 days for SEO).",
     url: "https://technaviatechnology.com/services/llm-visibility",
     type: "website",
     images: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Get Recommended on ChatGPT, Gemini & Perplexity | TECHNAVIA",
     description:
-      "When customers ask ChatGPT or Google AI who to buy from, make sure your brand is the #1 answer. Complete 21-day AI search visibility setup.",
+      "When customers ask ChatGPT or Google AI who to buy from, make sure your brand is the #1 answer. Complete 21-day AI search visibility setup (5 days for website + 16 days for SEO).",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
   },
 };
@@ -135,7 +135,7 @@ const FAQS = [
   {
     question: "How much does it cost and how long does it take?",
     answer:
-      "Our full AI Visibility setup takes 21 days for a transparent fixed project fee (we'll share exact pricing on your free audit call based on your site size). You can run it as a one-time upgrade—no forced monthly lock-in.",
+      "Our full AI Visibility setup takes 21 days (5 days for your website foundation + 16 days for deep SEO & AI citation graphs) for a transparent fixed project fee (we'll share exact pricing on your free audit call based on your site size). You can run it as a one-time upgrade—no forced monthly lock-in.",
   },
   {
     question: "Do I need to rebuild my whole website for this?",
@@ -155,7 +155,7 @@ export default function LlmVisibilityPage() {
       {/* Schema Markup */}
       <ServiceJsonLd
         name="LLM Visibility & AI Search Optimization"
-        description="Make ChatGPT, Gemini & Perplexity recommend your brand first. In 21 days, we organize your website and brand signals so AI engines cite your business."
+        description="Make ChatGPT, Gemini & Perplexity recommend your brand first. In 21 days (5 days for website + 16 days for SEO), we organize your website and brand signals so AI engines cite your business."
         url="https://technaviatechnology.com/services/llm-visibility"
         serviceType="AI Search Optimization & Brand Visibility"
       />
@@ -195,7 +195,7 @@ export default function LlmVisibilityPage() {
             </h1>
 
             <p className="text-base sm:text-lg text-white/75 font-sans leading-relaxed max-w-2xl">
-              More buyers now ask AI tools for recommendations instead of scrolling through 10 Google links. In 21 days, we organize your website and online brand signals so ChatGPT, Gemini, and Perplexity trust and recommend your business over competitors.
+              More buyers now ask AI tools for recommendations instead of scrolling through 10 Google links. In 21 days (5 days for website foundation + 16 days for deep SEO &amp; AI search optimization), we organize your website and online brand signals so ChatGPT, Gemini, and Perplexity trust and recommend your business over competitors.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
@@ -226,7 +226,7 @@ export default function LlmVisibilityPage() {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#D4F542]" />
-                <span>DONE-FOR-YOU IN 21 DAYS</span>
+                <span>DONE-FOR-YOU IN 21 DAYS (5D WEB + 16D SEO)</span>
               </div>
             </div>
           </div>
@@ -277,7 +277,7 @@ export default function LlmVisibilityPage() {
             <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#D4F542]/[0.06] border border-[#D4F542]/40 flex flex-col gap-4 shadow-[0_0_30px_rgba(212,245,66,0.1)]">
               <div className="flex items-center gap-2 text-[#D4F542] font-mono text-xs font-semibold tracking-wider uppercase">
                 <CheckCircle2 className="w-4 h-4" />
-                <span>After 21 Days With TECHNAVIA</span>
+                <span>After 21 Days (5-Day Web + 16-Day SEO)</span>
               </div>
               <div className="flex flex-col gap-3 text-sm sm:text-base text-white/90 leading-relaxed font-sans">
                 <div className="flex items-start gap-2.5">
@@ -411,7 +411,7 @@ export default function LlmVisibilityPage() {
           <div className="flex flex-col gap-2 max-w-2xl">
             <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#D4F542]">THE COMPLETE PACKAGE</span>
             <h2 className="text-2xl sm:text-4xl font-tight font-semibold tracking-tight text-white">
-              Everything included in your 21-Day AI Visibility Upgrade.
+              Everything included in your 21-Day AI Visibility &amp; SEO Upgrade.
             </h2>
           </div>
 
@@ -443,7 +443,7 @@ export default function LlmVisibilityPage() {
               Clear Before-and-After Proof—No Black-Box Mystery
             </h3>
             <p className="text-xs sm:text-sm text-white/75 leading-relaxed font-sans">
-              We start by showing you exactly what ChatGPT, Gemini, and Perplexity say about your brand today, and deliver a complete before-and-after report after our 21-day build—with 100% ownership of every change we make.
+              We start by showing you exactly what ChatGPT, Gemini, and Perplexity say about your brand today, and deliver a complete before-and-after report across our 21-day sprint (5 days for website + 16 days for SEO)—with 100% ownership of every change we make.
             </p>
           </div>
 

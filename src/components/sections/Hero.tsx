@@ -65,9 +65,9 @@ const HERO_PINS: HeroPin[] = [
   {
     id: "turnkey-delivery",
     time: "21 DAYS",
-    event: "TURNKEY DELIVERY · 100% CODE OWNERSHIP",
-    title: "Turnkey Done-For-You Delivery",
-    desc: "From architectural blueprint to live deployment with under 2 hours of founder input.",
+    event: "5 DAYS WEB · 16 DAYS SEO",
+    title: "5-Day Web + 16-Day SEO Sprint",
+    desc: "Your website live in 5 days, followed by 16 days of deep technical SEO and AI search indexing (21 days total).",
     href: "/book?type=audit",
     left: "88%",
     top: "60%",
@@ -276,7 +276,7 @@ export function Hero() {
 
           {/* Hero Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-[64px] xl:text-[70px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.98] max-w-[620px]">
-            Turn your website into a <span className="text-[#D4F542]">Google, AI-search,</span> and lead-automation engine in 21 days.
+            Turn your website into a <span className="text-[#D4F542]">Google, AI-search,</span> and lead-automation engine in 21 days (5-day web + 16-day SEO).
           </h1>
 
           {/* Subtitle */}

@@ -9,14 +9,14 @@ import { FAQS } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions — Web Dev & AI | TECHNAVIA",
   description:
-    "Everything you need to know about our Next.js engineering standards, Generative Engine Optimization (GEO/AEO), Core Web Vitals guarantees, and 21-day delivery.",
+    "Everything you need to know about our Next.js engineering standards, Generative Engine Optimization (GEO/AEO), Core Web Vitals guarantees, and 21-day delivery (5 days website + 16 days SEO).",
   alternates: {
     canonical: "https://technaviatechnology.com/faq",
   },
   openGraph: {
     title: "Frequently Asked Questions — Web Dev & AI | TECHNAVIA",
     description:
-      "Everything you need to know about our Next.js engineering standards, Generative Engine Optimization (GEO/AEO), Core Web Vitals guarantees, and 21-day delivery.",
+      "Everything you need to know about our Next.js engineering standards, Generative Engine Optimization (GEO/AEO), Core Web Vitals guarantees, and 21-day delivery (5 days website + 16 days SEO).",
     url: "https://technaviatechnology.com/faq",
     type: "website",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Frequently Asked Questions — Web Dev & AI | TECHNAVIA",
     description:
-      "Everything you need to know about our Next.js engineering standards, Generative Engine Optimization (GEO/AEO), Core Web Vitals guarantees, and 21-day delivery.",
+      "Everything you need to know about our Next.js engineering standards, Generative Engine Optimization (GEO/AEO), Core Web Vitals guarantees, and 21-day delivery (5 days website + 16 days SEO).",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
   },
 };

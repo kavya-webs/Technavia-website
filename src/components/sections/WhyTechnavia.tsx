@@ -86,7 +86,7 @@ export function WhyTechnavia() {
                     CORE WEB VITALS
                   </span>
                 </div>
-                <span className="text-[10px] sm:text-[11px] font-mono text-white/50 uppercase whitespace-nowrap">21-DAY DELIVERY</span>
+                <span className="text-[10px] sm:text-[11px] font-mono text-white/50 uppercase whitespace-nowrap">21-DAY SPRINT (5D WEB + 16D SEO)</span>
               </div>
             </div>
           </div>
@@ -104,7 +104,7 @@ export function WhyTechnavia() {
                 21 Days
               </div>
               <p className="text-xs sm:text-sm text-white/60 font-sans tracking-normal leading-snug">
-                From blueprint to live web, SEO & AI system
+                5 days for website + 16 days for SEO (21 days total)
               </p>
             </div>
 

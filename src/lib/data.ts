@@ -414,7 +414,7 @@ export const FAQS: FaqItem[] = [
     category: "PROCESS",
     question: "How long does a typical Web Development & SEO project take?",
     answer:
-      "Our core builds are executed in rapid 3-to-5 week engineering sprints: Week 1 is technical audit and blueprinting; Weeks 2–3 are Next.js architecture and UI engineering; Week 4 is Schema injection, LLM indexing, and automated pipeline integration; Week 5 is live launch and verification.",
+      "Our core builds are executed in a focused 21-day sprint: 5 days for the full website architecture and build, followed by 16 days of deep technical SEO, JSON-LD Schema injection, LLM answer-engine indexing, and automated pipeline integration (21 days total).",
   },
   {
     num: "05",

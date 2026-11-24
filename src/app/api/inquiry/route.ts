@@ -107,7 +107,7 @@ export async function POST(req: NextRequest) {
     } else if (typeof service === "string" && service.trim().length > 0) {
       resolvedServices = [service.trim()];
     } else {
-      resolvedServices = ["Full 21-Day Growth Engine"];
+      resolvedServices = ["Full 21-Day Growth Engine (5d Web + 16d SEO)"];
     }
 
     const cleanFullName = fullName.trim();
@@ -139,7 +139,7 @@ export async function POST(req: NextRequest) {
         : (diagnosticItems.length > 0 ? diagnosticSummary : "20-Min Architecture Audit Requested");
 
     const serviceList = resolvedServices.join(", ");
-    const cleanTimeline = "21-Day Sprint / Immediate";
+    const cleanTimeline = "21-Day Sprint (5 Days Website + 16 Days SEO)";
     const cleanBudget = "Standard Architecture Scope";
 
     // 3. Guaranteed Lead Recording (Safeguard in runtime logs before attempting SMTP)

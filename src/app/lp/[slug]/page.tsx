@@ -12,7 +12,7 @@ export async function generateMetadata({
   return {
     title: `TECHNAVIA — High-Growth B2B System (${slug})`,
     description:
-      "Turn your website into a Google, AI-search, and lead-automation engine in 21 days.",
+      "Turn your website into a Google, AI-search, and lead-automation engine in 21 days (5-day website build + 16-day SEO sprint).",
     robots: {
       index: false,
       follow: false,
@@ -42,7 +42,7 @@ export default async function PaidLandingPage({
         <TechnaviaLogo variant="horizontal" symbolSize={28} wordmarkHeight={18} />
         <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/[0.1] text-xs font-mono text-[#D4F542]">
           <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542] animate-pulse" />
-          <span>21-DAY TURNKEY BUILD</span>
+          <span>21-DAY SPRINT (5D WEB + 16D SEO)</span>
         </div>
       </header>
 
@@ -58,7 +58,7 @@ export default async function PaidLandingPage({
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-[62px] font-tight font-semibold tracking-[-0.035em] text-[#F8F8F5] leading-[1.04]">
-            Turn your website into a <span className="text-[#D4F542]">Google, AI-search & lead engine</span> in 21 days.
+            Turn your website into a <span className="text-[#D4F542]">Google, AI-search & lead engine</span> in 21 days (5-day web + 16-day SEO).
           </h1>
 
           <p className="text-base sm:text-lg text-white/70 font-sans leading-relaxed max-w-2xl mx-auto">
@@ -97,7 +97,7 @@ export default async function PaidLandingPage({
         <div className="p-8 sm:p-12 rounded-3xl bg-[#0E1116] border border-[#D4F542]/30 flex flex-col gap-8 shadow-2xl">
           <div className="flex flex-col gap-2">
             <span className="text-xs font-mono uppercase tracking-widest text-[#D4F542] font-semibold">
-              THE 21-DAY TURNKEY OFFER STACK
+              THE 21-DAY SPRINT (5 DAYS WEBSITE + 16 DAYS SEO)
             </span>
             <h2 className="text-2xl sm:text-4xl font-tight font-semibold text-white">
               Everything required to scale your inbound pipeline.

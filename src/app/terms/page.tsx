@@ -6,7 +6,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 export const metadata: Metadata = {
   title: "Terms of Service — Web Architecture Agreements | TECHNAVIA",
   description:
-    "Standard terms of service, intellectual property ownership, 100% source code handover policies, and 21-day turnkey sprint agreements for TECHNAVIA.",
+    "Standard terms of service, intellectual property ownership, 100% source code handover policies, and 21-day sprint agreements (5 days website + 16 days SEO) for TECHNAVIA.",
   alternates: {
     canonical: "https://technaviatechnology.com/terms",
   },

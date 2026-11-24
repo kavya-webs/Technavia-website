@@ -87,9 +87,9 @@ const BLUEPRINT_STAGES = [
   },
   {
     num: "02",
-    tag: "< 15s ENRICHMENT",
+    tag: "< 30s ENRICHMENT",
     title: "AI Research & Scoring",
-    desc: "AI instantly verifies the email, analyzes company size, and scores intent against your Ideal Customer Profile.",
+    desc: "AI instantly verifies the email, analyzes company size, and scores intent against your Ideal Customer Profile in under 30 seconds.",
   },
   {
     num: "03",

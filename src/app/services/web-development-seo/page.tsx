@@ -11,14 +11,14 @@ import { AdHeaderBar } from "@/components/ui/AdHeaderBar";
 export const metadata: Metadata = {
   title: "Fast, High-Converting Websites Built for Google Search | TECHNAVIA",
   description:
-    "A fast, modern website built to show up on Google and turn visitors into paying customers—in 21 days. 100% full ownership with zero monthly theme lock-in.",
+    "A fast, modern website built to show up on Google and turn visitors into paying customers—5 days for website + 16 days for SEO (21 days total). 100% full ownership with zero monthly theme lock-in.",
   alternates: {
     canonical: "https://technaviatechnology.com/services/web-development-seo",
   },
   openGraph: {
     title: "Fast, High-Converting Websites Built for Google Search | TECHNAVIA",
     description:
-      "A fast, modern website built to show up on Google and turn visitors into paying customers—in 21 days. 100% full ownership with zero monthly theme lock-in.",
+      "A fast, modern website built to show up on Google and turn visitors into paying customers—5 days for website + 16 days for SEO (21 days total). 100% full ownership with zero monthly theme lock-in.",
     url: "https://technaviatechnology.com/services/web-development-seo",
     type: "website",
     images: [
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Fast, High-Converting Websites Built for Google Search | TECHNAVIA",
     description:
-      "A fast, modern website built to show up on Google and turn visitors into paying customers—in 21 days. 100% full ownership with zero monthly theme lock-in.",
+      "A fast, modern website built to show up on Google and turn visitors into paying customers—5 days for website + 16 days for SEO (21 days total). 100% full ownership with zero monthly theme lock-in.",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
   },
 };
@@ -56,7 +56,7 @@ const AUDIENCE_CARDS = [
     num: "03",
     tag: "FRESH LAUNCHES",
     title: "Founders Starting Fresh or Rebranding",
-    desc: "You want a premium, trustworthy online presence launched in 3 weeks—without dealing with confusing tech talk or flaky freelancers.",
+    desc: "You want a premium, trustworthy online presence launched in 5 days (with 16 days of dedicated SEO to rank on Google)—without dealing with confusing tech talk or flaky freelancers.",
   },
 ];
 
@@ -113,7 +113,7 @@ const FAQS = [
   {
     question: "How long does it take, and how much of my time is needed?",
     answer:
-      "Most websites launch in 21 days from start to finish. You only need about 2 hours total across the entire project (one kickoff call and one review call)—we handle the design, copywriting, and setup.",
+      "Your full website launches in just 5 days, followed by 16 days of deep technical SEO, schema indexing, and search engine optimization (21 days total). You only need about 2 hours total across the entire project (one kickoff call and one review call)—we handle the design, copywriting, and setup.",
   },
   {
     question: "Do I need to be technical to update my website later?",
@@ -133,7 +133,7 @@ export default function WebDevelopmentSeoPage() {
       {/* Schema Markup */}
       <ServiceJsonLd
         name="Web Development + Technical SEO"
-        description="A fast, modern website built to show up on Google and turn visitors into paying customers—in 21 days."
+        description="A fast, modern website built to show up on Google and turn visitors into paying customers—5 days for website + 16 days for SEO (21 days total)."
         url="https://technaviatechnology.com/services/web-development-seo"
         serviceType="Web Design, Speed Optimization & Search Engine Optimization"
       />
@@ -172,7 +172,7 @@ export default function WebDevelopmentSeoPage() {
             {/* Benefit-First Primary H1 */}
             <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-tight font-bold tracking-tight text-white leading-[1.08]">
               A fast, modern website built to show up on Google and{" "}
-              <span className="text-[#D4F542]">turn visitors into paying customers</span>—in 21 days.
+              <span className="text-[#D4F542]">turn visitors into paying customers</span>—5 days for website, 16 days for SEO.
             </h1>
 
             {/* Clear Plain-English Subhead */}
@@ -261,7 +261,7 @@ export default function WebDevelopmentSeoPage() {
             <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#D4F542]/[0.06] border border-[#D4F542]/40 flex flex-col gap-4 shadow-[0_0_30px_rgba(212,245,66,0.1)]">
               <div className="flex items-center gap-2 text-[#D4F542] font-mono text-xs font-semibold tracking-wider uppercase">
                 <CheckCircle2 className="w-4 h-4" />
-                <span>After 21 Days With TECHNAVIA</span>
+                <span>After 21 Days (5-Day Web + 16-Day SEO)</span>
               </div>
               <div className="flex flex-col gap-3 text-sm sm:text-base text-white/90 leading-relaxed font-sans">
                 <div className="flex items-start gap-2.5">

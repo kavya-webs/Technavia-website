@@ -13,9 +13,9 @@ export function AutomationsHeroMockup() {
       tag: "TRIGGER",
     },
     {
-      time: "00:15s",
+      time: "00:30s",
       title: "Company Researched & Lead Qualified by AI",
-      desc: "Enriches company details & scores prospect against your exact ICP",
+      desc: "Enriches company details & scores prospect against your exact ICP in under 30s",
       tag: "ENRICHED",
     },
     {

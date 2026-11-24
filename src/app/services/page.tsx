@@ -113,13 +113,13 @@ export default function ServicesPage() {
         titleLine1="Three engineering systems."
         titleLine2="One compounding pipeline."
         highlightLine2={true}
-        subtitle="Every service is built to stand alone as a precision solution or compound together as our flagship 21-Day Turnkey Growth Engine."
+        subtitle="Every service is built to stand alone as a precision solution or compound together as our flagship 21-Day Turnkey Growth Engine (5 days for website + 16 days for SEO)."
         primaryCta={{ label: "Book an audit", href: "/book?type=audit" }}
         secondaryCta={{ label: "View results", href: "/results" }}
         backgroundImage="/images/tech/process_build.webp"
         wireframeNumber="03"
         statusPills={[
-          { text: "SUB-SECOND LOAD", variant: "brass" },
+          { text: "5 DAYS WEB · 16 DAYS SEO", variant: "brass" },
           { text: "AEO / GEO INDEXED", variant: "ghost" },
           { text: "24/7 AI PIPELINE", variant: "outline" },
         ]}
@@ -222,29 +222,29 @@ export default function ServicesPage() {
                   <span className="px-3 py-1 rounded-full bg-[#D4F542] text-black font-mono font-bold text-xs uppercase tracking-wider">
                     FLAGSHIP DELIVERY
                   </span>
-                  <span className="text-xs font-mono text-white/50">21-DAY SPRINT</span>
+                  <span className="text-xs font-mono text-white/50">5D WEB + 16D SEO (21 DAYS)</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-tight font-semibold text-white">
                   21-Day Turnkey Growth Engine
                 </h3>
                 <p className="text-sm text-white/70 font-sans leading-relaxed">
-                  The complete done-for-you transformation: sub-second Next.js frontend, full AEO/GEO entity indexing for ChatGPT & Perplexity, and automated CRM lead routing.
+                  The complete done-for-you transformation: 5 days to launch a sub-second Next.js frontend, followed by 16 days of deep AEO/GEO entity indexing for ChatGPT &amp; Perplexity and automated CRM lead routing.
                 </p>
                 <div className="flex flex-col gap-2 pt-2 text-xs font-sans text-white/80">
                   <div className="flex items-center gap-2">
-                    <span className="text-[#D4F542]">✓</span> Complete frontend engineering & conversion copy
+                    <span className="text-[#D4F542]">✓</span> 5-Day complete frontend engineering &amp; conversion copy
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[#D4F542]">✓</span> 16-Day technical SEO, schema indexing &amp; AI visibility
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-[#D4F542]">✓</span> Guaranteed 95+ Core Web Vitals mobile benchmark
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[#D4F542]">✓</span> Organization, Service & FAQ structured JSON-LD
-                  </div>
-                  <div className="flex items-center gap-2">
                     <span className="text-[#D4F542]">✓</span> Full n8n lead enrichment and webhook pipeline
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[#D4F542]">✓</span> 100% code ownership & deployment documentation
+                    <span className="text-[#D4F542]">✓</span> 100% code ownership &amp; deployment documentation
                   </div>
                 </div>
               </div>
@@ -252,7 +252,7 @@ export default function ServicesPage() {
               <div className="pt-6 border-t border-white/[0.08] flex items-center justify-between">
                 <div>
                   <div className="text-xs font-mono text-white/50 uppercase">TOTAL TIMELINE</div>
-                  <div className="text-xl font-tight font-bold text-white">21 Working Days</div>
+                  <div className="text-xl font-tight font-bold text-white">5d Web + 16d SEO (21 Days)</div>
                 </div>
                 <Link
                   href="/book?type=audit"

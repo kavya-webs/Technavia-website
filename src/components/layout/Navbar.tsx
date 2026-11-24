@@ -217,7 +217,7 @@ export function Navbar() {
                       <span>Compare All Services & Retainers</span>
                       <span>→</span>
                     </Link>
-                    <span className="text-[10px] font-mono text-white/40 uppercase">21-DAY BUILDS</span>
+                    <span className="text-[10px] font-mono text-white/40 uppercase">5D WEB · 16D SEO</span>
                   </div>
                 </div>
               </div>

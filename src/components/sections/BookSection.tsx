@@ -9,7 +9,7 @@ const SERVICE_OPTIONS = [
   "Web Dev + Technical SEO",
   "LLM Visibility (AEO / GEO)",
   "Custom AI Automations",
-  "Full 21-Day Growth Engine",
+  "Full 21-Day Growth Engine (5d Web + 16d SEO)",
 ] as const;
 
 type ServiceType = (typeof SERVICE_OPTIONS)[number];

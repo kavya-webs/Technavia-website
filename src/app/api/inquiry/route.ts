@@ -144,10 +144,12 @@ export async function POST(req: NextRequest) {
 
     // 3. Guaranteed Lead Recording (Safeguard in runtime logs before attempting SMTP)
     const timestamp = new Date().toISOString();
+    console.log(`[LEAD_SAVED] Name="${cleanFullName}" Email="${cleanEmail}" Website="${cleanWebsite}" Services="${serviceList}" Bottleneck="${cleanBrief}" IP="${ip}" Source="${sourcePage || "Direct"}" Time="${timestamp}"`);
     console.error(`[LEAD_SAVED] Name="${cleanFullName}" Email="${cleanEmail}" Website="${cleanWebsite}" Services="${serviceList}" Bottleneck="${cleanBrief}" IP="${ip}" Source="${sourcePage || "Direct"}" Time="${timestamp}"`);
 
     // 4. SMTP Transport Configuration & Dispatch
-    const rawPort = Number(process.env.SMTP_PORT) || 465;
+    // Hostinger CloudLinux Passenger handles Port 587 (STARTTLS) with 100% reliability, whereas Port 465 can intermittently reset.
+    const rawPort = Number(process.env.SMTP_PORT) || 587;
     const smtpHost = (process.env.SMTP_HOST || "smtp.hostinger.com").trim();
     const smtpUser = (process.env.SMTP_USER || "inquiry@technaviatechnology.com").trim();
     const smtpPass = process.env.SMTP_PASS?.trim();
@@ -333,11 +335,13 @@ Surat, Gujarat, India · Remote-First Worldwide
 
         await transporter.sendMail(internalMailOptions);
         emailSent = true;
+        console.log(`[INQUIRY_INTERNAL_EMAIL_SENT] Dispatched to ${toEmail}`);
         console.error(`[INQUIRY_INTERNAL_EMAIL_SENT] Dispatched to ${toEmail}`);
 
         // Try client confirmation independently (non-fatal if blocked)
         try {
           await transporter.sendMail(clientMailOptions);
+          console.log(`[INQUIRY_CLIENT_EMAIL_SENT] Dispatched confirmation to ${cleanEmail}`);
           console.error(`[INQUIRY_CLIENT_EMAIL_SENT] Dispatched confirmation to ${cleanEmail}`);
         } catch (clientErr: any) {
           console.warn("[CLIENT_MAIL_WARNING] Could not dispatch client auto-confirmation:", clientErr?.message);
@@ -345,37 +349,38 @@ Surat, Gujarat, India · Remote-First Worldwide
       } catch (smtpErr: any) {
         console.error(`[INQUIRY_SMTP_ERROR_PORT_${smtpPort}] Mail dispatch failed:`, smtpErr?.message || smtpErr);
 
-        // Fallback retry on port 587 (STARTTLS) if port 465 failed
-        if (smtpPort === 465) {
+        // Fallback retry on alternate port if primary failed
+        const altPort = smtpPort === 587 ? 465 : 587;
+        const altSecure = altPort === 465;
+        try {
+          console.log(`[INQUIRY_SMTP_RETRY] Attempting fallback on port ${altPort} (secure: ${altSecure})...`);
+          const fallbackTransporter = nodemailer.createTransport({
+            host: smtpHost,
+            port: altPort,
+            secure: altSecure,
+            auth: {
+              user: smtpUser,
+              pass: smtpPass,
+            },
+            connectionTimeout: 8000,
+            greetingTimeout: 5000,
+            socketTimeout: 8000,
+            tls: {
+              rejectUnauthorized: false,
+            },
+          });
+
+          await fallbackTransporter.sendMail(internalMailOptions);
+          emailSent = true;
+          console.log(`[INQUIRY_FALLBACK_PORT_${altPort}_SUCCESS] Dispatched to ${toEmail}`);
+          console.error(`[INQUIRY_FALLBACK_PORT_${altPort}_SUCCESS] Dispatched to ${toEmail}`);
+
           try {
-            console.error("[INQUIRY_SMTP_RETRY] Attempting fallback on port 587 (STARTTLS)...");
-            const fallbackTransporter = nodemailer.createTransport({
-              host: smtpHost,
-              port: 587,
-              secure: false,
-              auth: {
-                user: smtpUser,
-                pass: smtpPass,
-              },
-              connectionTimeout: 8000,
-              greetingTimeout: 5000,
-              socketTimeout: 8000,
-              tls: {
-                rejectUnauthorized: false,
-              },
-            });
-
-            await fallbackTransporter.sendMail(internalMailOptions);
-            emailSent = true;
-            console.error(`[INQUIRY_FALLBACK_PORT_587_SUCCESS] Dispatched to ${toEmail}`);
-
-            try {
-              await fallbackTransporter.sendMail(clientMailOptions);
-              console.error(`[INQUIRY_CLIENT_EMAIL_SENT] Dispatched confirmation to ${cleanEmail}`);
-            } catch {}
-          } catch (fallbackErr: any) {
-            console.error("[INQUIRY_FALLBACK_PORT_587_ERROR] Fallback also failed:", fallbackErr?.message || fallbackErr);
-          }
+            await fallbackTransporter.sendMail(clientMailOptions);
+            console.log(`[INQUIRY_CLIENT_EMAIL_SENT] Dispatched confirmation to ${cleanEmail}`);
+          } catch {}
+        } catch (fallbackErr: any) {
+          console.error(`[INQUIRY_FALLBACK_PORT_${altPort}_ERROR] Fallback also failed:`, fallbackErr?.message || fallbackErr);
         }
       }
     } else {

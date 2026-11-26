@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { OrganizationJsonLd } from "@/components/seo/JsonLd";
+import { MetaPixel } from "@/components/analytics/MetaPixel";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -101,6 +102,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`scroll-smooth ${inter.variable} ${interTight.variable} ${jetbrainsMono.variable}`}>
       <body className="bg-[#0B0D10] text-[#F8F8F5] min-h-screen flex flex-col font-sans selection:bg-[#D4F542] selection:text-black">
+        <MetaPixel />
         <OrganizationJsonLd />
         <SmoothScroll />
         <PageTransition />

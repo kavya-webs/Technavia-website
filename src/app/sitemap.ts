@@ -74,9 +74,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/faq`,
-      lastModified: new Date("2026-11-12T00:00:00.000Z"),
+      lastModified: new Date("2026-11-26T00:00:00.000Z"),
       changeFrequency: "weekly",
-      priority: 0.8,
+      priority: 0.85,
     },
     {
       url: `${baseUrl}/tools`,

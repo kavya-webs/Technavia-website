@@ -21,6 +21,7 @@ export interface SubpageHeroProps {
   imagePosition?: string;
   wireframeNumber?: string;
   statusPills?: Array<{ text: string; variant?: "brass" | "ghost" | "outline" }>;
+  headingTag?: "h1" | "p";
 }
 
 function renderTitleContent(
@@ -70,7 +71,9 @@ export function SubpageHero({
   imagePosition,
   wireframeNumber,
   statusPills,
+  headingTag = "h1",
 }: SubpageHeroProps) {
+  const HeadingTag = headingTag;
   // Determine if Line 2 should be highlighted in brass
   // Defaults to true if no highlightText is specified, or honors explicit boolean
   const isLine2Highlighted =
@@ -166,7 +169,7 @@ export function SubpageHero({
         )}
 
         {/* Hero Title with masked split-line phase-in animation */}
-        <h1 className="text-5xl sm:text-7xl lg:text-[96px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.96] max-w-5xl">
+        <HeadingTag className="text-5xl sm:text-7xl lg:text-[96px] font-tight font-semibold tracking-[-0.04em] text-[#F8F8F5] leading-[0.96] max-w-5xl">
           <span className="block overflow-hidden py-1">
             <motion.span
               initial={{ y: "115%", opacity: 0 }}
@@ -187,7 +190,7 @@ export function SubpageHero({
               {renderTitleContent(titleLine2, highlightText, isLine2Highlighted)}
             </motion.span>
           </span>
-        </h1>
+        </HeadingTag>
 
         {/* Subhead text phasing in */}
         <motion.p

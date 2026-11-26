@@ -8,7 +8,7 @@ export function OrganizationJsonLd() {
         "@type": ["Organization", "ProfessionalService"],
         "@id": "https://technaviatechnology.com/#organization",
         "name": "TECHNAVIA",
-        "alternateName": "Technavia Technology",
+        "alternateName": ["Technavia Technology", "TECHNAVIA Studio"],
         "disambiguatingDescription":
           "B2B technology studio specializing in Web Development, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations at technaviatechnology.com.",
         "url": "https://technaviatechnology.com",
@@ -21,7 +21,7 @@ export function OrganizationJsonLd() {
         "description":
           "B2B technology studio specializing in Web Development, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations at technaviatechnology.com.",
         "slogan": "BUILT TO RANK. AUTOMATED TO SCALE.",
-        "email": "inquiry@technaviatechnology.com",
+        "email": "contact@technaviatechnology.com",
         "telephone": "+91 7048617190",
         "address": {
           "@type": "PostalAddress",
@@ -31,7 +31,7 @@ export function OrganizationJsonLd() {
           "postalCode": "394105",
           "addressCountry": "IN",
         },
-        "areaServed": ["US", "GB", "CA", "AE", "IN", "EU"],
+        "areaServed": "Worldwide",
         "founder": {
           "@type": "Person",
           "name": "Kavya Mavani",
@@ -43,12 +43,31 @@ export function OrganizationJsonLd() {
           "https://www.pinterest.com/technaviatechnology/",
         ],
         "knowsAbout": [
-          "Web Development",
-          "Technical SEO",
-          "Answer Engine Optimization (AEO)",
-          "Generative Engine Optimization (GEO)",
-          "LLM Visibility",
-          "Custom AI Automations",
+          {
+            "@type": "Thing",
+            "name": "Website Design",
+            "sameAs": "https://en.wikipedia.org/wiki/Web_design",
+          },
+          {
+            "@type": "Thing",
+            "name": "Search Engine Optimization",
+            "sameAs": "https://en.wikipedia.org/wiki/Search_engine_optimization",
+          },
+          {
+            "@type": "Thing",
+            "name": "E-Commerce",
+            "sameAs": "https://en.wikipedia.org/wiki/E-commerce",
+          },
+          {
+            "@type": "Thing",
+            "name": "Generative Engine Optimization",
+            "sameAs": "https://en.wikipedia.org/wiki/Search_engine_optimization",
+          },
+          {
+            "@type": "Thing",
+            "name": "Business Process Automation",
+            "sameAs": "https://en.wikipedia.org/wiki/Business_process_automation",
+          },
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
@@ -212,18 +231,32 @@ export function ArticleJsonLd({
 
 export function FaqJsonLd({
   faqs,
+  pageUrl,
 }: {
   faqs: Array<{ question: string; answer: string }>;
+  pageUrl?: string;
 }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    ...(pageUrl
+      ? {
+          "@id": `${pageUrl}#faqpage`,
+          "url": pageUrl,
+          "isPartOf": {
+            "@id": "https://technaviatechnology.com/#website",
+          },
+          "publisher": {
+            "@id": "https://technaviatechnology.com/#organization",
+          },
+        }
+      : {}),
     "mainEntity": faqs.map((f) => ({
       "@type": "Question",
       "name": f.question,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": f.answer,
+        "text": f.answer.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, "$1"),
       },
     })),
   };
@@ -255,9 +288,7 @@ export function ServiceJsonLd({
     "url": url,
     "serviceType": serviceType,
     "provider": {
-      "@type": "Organization",
-      "name": "TECHNAVIA",
-      "url": "https://technaviatechnology.com",
+      "@id": "https://technaviatechnology.com/#organization",
     },
     "areaServed": "Worldwide",
   };

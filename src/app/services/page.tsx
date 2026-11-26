@@ -44,6 +44,7 @@ const SERVICES_DATA = [
     title: "Web Development + Technical SEO",
     tagline: "Sub-second Next.js architecture built to convert enterprise buyers and rank on Google from day one.",
     href: "/services/web-development-seo",
+    ctaLabel: "Explore Web Dev + SEO",
     deliverables: [
       "Custom conversion UI/UX engineered in Next.js & React 19",
       "Guaranteed 95+ Mobile Core Web Vitals & sub-second LCP",
@@ -61,6 +62,7 @@ const SERVICES_DATA = [
     title: "LLM Visibility (AEO / GEO)",
     tagline: "Entity graph optimization and structured answer architecture so ChatGPT, Gemini & Perplexity recommend your brand.",
     href: "/services/llm-visibility",
+    ctaLabel: "Explore LLM Visibility",
     deliverables: [
       "Wikidata, Crunchbase & Schema.org SameAs entity mapping",
       "Quotable answer-capsule content engineering",
@@ -78,6 +80,7 @@ const SERVICES_DATA = [
     title: "Custom AI Automations",
     tagline: "Production n8n and API workflows that capture, qualify, and follow up with inbound leads in under 60 seconds.",
     href: "/services/ai-automations",
+    ctaLabel: "Explore AI Automations",
     deliverables: [
       "Instant inbound lead enrichment via Apollo & Clearbit APIs",
       "LLM qualification agents scoring leads against your ICP",
@@ -181,14 +184,17 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Footer Link CTA */}
-                <div className="pt-8 mt-6 border-t border-white/[0.08] flex items-center justify-between">
+                <div className="pt-8 mt-6 border-t border-white/[0.08] flex items-center justify-between gap-3">
                   <span className="text-xs font-mono text-white/40">{srv.timeline}</span>
                   <Link
                     href={srv.href}
-                    className="group/btn inline-flex items-center gap-2 text-xs font-mono text-[#D4F542] font-semibold tracking-wider hover:underline"
+                    className="group/btn inline-flex items-center gap-2 text-xs font-mono text-[#D4F542] font-semibold tracking-wider hover:underline whitespace-nowrap"
                   >
-                    <span>DEEP DIVE</span>
-                    <span className="w-7 h-7 rounded-full bg-[#D4F542] text-black flex items-center justify-center font-bold text-xs group-hover/btn:translate-x-1 transition-transform">
+                    <span>{srv.ctaLabel}</span>
+                    <span
+                      aria-hidden="true"
+                      className="w-7 h-7 rounded-full bg-[#D4F542] text-black flex items-center justify-center font-bold text-xs group-hover/btn:translate-x-1 transition-transform"
+                    >
                       →
                     </span>
                   </Link>

@@ -247,7 +247,7 @@ export function ResultsSection() {
                     href={`/results/${res.id}`}
                     className="text-center text-xs font-mono text-white/50 hover:text-white uppercase tracking-wider py-1"
                   >
-                    Details & Architecture Spec →
+                    {res.client} Case Study →
                   </Link>
                 </div>
               </div>
@@ -502,7 +502,7 @@ export function ResultsSection() {
                           href={`/results/${res.id}`}
                           className="inline-flex items-center gap-1.5 text-xs font-mono text-white/60 hover:text-white uppercase tracking-wider px-3 py-2 transition-colors whitespace-nowrap"
                         >
-                          Details →
+                          {res.client} Case Study →
                         </Link>
                       </div>
                     </div>

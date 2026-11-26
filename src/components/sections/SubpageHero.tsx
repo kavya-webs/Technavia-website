@@ -213,15 +213,26 @@ export function SubpageHero({
               </Button>
             )}
 
-            {secondaryCta && (
-              <Link
-                href={secondaryCta.href}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/[0.08] hover:bg-white/[0.14] text-white text-sm font-tight font-semibold transition-colors border border-white/[0.1]"
-              >
-                <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_6px_#D4F542]" />
-                <span>{secondaryCta.label}</span>
-              </Link>
-            )}
+            {secondaryCta &&
+              (secondaryCta.href.startsWith("mailto:") ||
+              secondaryCta.href.startsWith("tel:") ||
+              secondaryCta.href.startsWith("http") ? (
+                <a
+                  href={secondaryCta.href}
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/[0.08] hover:bg-white/[0.14] text-white text-sm font-tight font-semibold transition-colors border border-white/[0.1]"
+                >
+                  <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_6px_#D4F542]" />
+                  <span>{secondaryCta.label}</span>
+                </a>
+              ) : (
+                <Link
+                  href={secondaryCta.href}
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/[0.08] hover:bg-white/[0.14] text-white text-sm font-tight font-semibold transition-colors border border-white/[0.1]"
+                >
+                  <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_6px_#D4F542]" />
+                  <span>{secondaryCta.label}</span>
+                </Link>
+              ))}
           </motion.div>
         )}
       </div>

@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2, XCircle, ShieldCheck } from "lucide-react";
 import { ServiceJsonLd, FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { AutomationsHeroMockup } from "@/components/mockups/AutomationsHeroMockup";
 import { ServiceBookingForm } from "@/components/forms/ServiceBookingForm";
+import { ServiceRelatedStrip } from "@/components/sections/ServiceRelatedStrip";
 import { AdHeaderBar } from "@/components/ui/AdHeaderBar";
 
 export const metadata: Metadata = {
@@ -493,11 +494,14 @@ export default function AiAutomationsPage() {
       {/* ========================================================
           SECTION 8: DEDICATED SERVICE BOOKING FORM
           ======================================================== */}
-      <section id="service-book" className="py-16 md:py-20 px-6 md:px-10 lg:px-16">
+      <section id="service-book" className="py-16 md:py-20 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] scroll-mt-24">
         <div className="max-w-[1280px] mx-auto flex flex-col items-center">
           <ServiceBookingForm serviceType="ai-automations" />
         </div>
       </section>
+
+      {/* Related Guides & Process Strip (hidden when ?ad=1 or utm_source is active) */}
+      <ServiceRelatedStrip serviceType="ai-automations" />
     </div>
   );
 }

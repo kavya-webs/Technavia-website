@@ -1,10 +1,10 @@
 import React, { Suspense } from "react";
 import { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight, CheckCircle2, XCircle, ShieldCheck, Sparkles, Clock } from "lucide-react";
 import { ServiceJsonLd, FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { LlmHeroMockup } from "@/components/mockups/LlmHeroMockup";
 import { ServiceBookingForm } from "@/components/forms/ServiceBookingForm";
+import { ServiceRelatedStrip } from "@/components/sections/ServiceRelatedStrip";
 import { AdHeaderBar } from "@/components/ui/AdHeaderBar";
 
 export const metadata: Metadata = {
@@ -366,11 +366,14 @@ export default function LlmVisibilityPage() {
       {/* ========================================================
           SECTION 6: PERSONALIZED BOOKING FORM
           ======================================================== */}
-      <section id="service-book" className="py-16 md:py-20 px-6 md:px-10 lg:px-16 border-b border-white/[0.08]">
+      <section id="service-book" className="py-16 md:py-20 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] scroll-mt-24">
         <div className="max-w-[1280px] mx-auto flex flex-col items-center">
           <ServiceBookingForm serviceType="llm-visibility" />
         </div>
       </section>
+
+      {/* Related Guides & Process Strip (hidden when ?ad=1 or utm_source is active) */}
+      <ServiceRelatedStrip serviceType="llm-visibility" />
 
       {/* ========================================================
           SECTION 7: GUARANTEE BANNER

@@ -12,6 +12,7 @@ interface CapabilityCard {
   num: string;
   title: string;
   href: string;
+  ctaLabel: string;
   tagline: string;
   bullets: string[];
   tools: string[];
@@ -26,6 +27,7 @@ const CAPABILITIES: CapabilityCard[] = [
     num: "01",
     title: "Web Development + Technical SEO",
     href: "/services/web-development-seo",
+    ctaLabel: "Explore Web Dev + SEO",
     tagline:
       "Conversion-engineered Next.js websites with clean semantic architecture, sub-second Core Web Vitals, and schema markup built to rank from day one.",
     bullets: [
@@ -43,6 +45,7 @@ const CAPABILITIES: CapabilityCard[] = [
     num: "02",
     title: "LLM Visibility (AEO / GEO)",
     href: "/services/llm-visibility",
+    ctaLabel: "Explore LLM Visibility",
     tagline:
       "Entity graph optimization and structured answer architecture so ChatGPT, Gemini, and Perplexity recommend your brand when buyers search your category.",
     bullets: [
@@ -60,6 +63,7 @@ const CAPABILITIES: CapabilityCard[] = [
     num: "03",
     title: "Custom AI Automations",
     href: "/services/ai-automations",
+    ctaLabel: "Explore AI Automations",
     tagline:
       "Production n8n and API workflows that capture, qualify, and follow up with inbound leads in under 60 seconds—eliminating manual ops bottlenecks.",
     bullets: [
@@ -147,7 +151,7 @@ export function WorkflowsAccordion() {
               </div>
 
               {/* Card Footer: Tools & Dedicated Page Link */}
-              <div className="relative z-10 pt-6 border-t border-white/[0.08] flex items-center justify-between gap-4">
+              <div className="relative z-10 pt-5 border-t border-white/[0.08] flex flex-col gap-4">
                 <div className="flex flex-wrap items-center gap-1.5">
                   {cap.tools.slice(0, 3).map((tool) => (
                     <span
@@ -161,21 +165,26 @@ export function WorkflowsAccordion() {
 
                 <Link
                   href={cap.href}
-                  className="w-10 h-10 rounded-full bg-[#D4F542] text-black flex items-center justify-center hover:scale-110 transition-transform shadow-[0_0_15px_rgba(212,245,66,0.25)] flex-shrink-0"
-                  aria-label={`Learn more about ${cap.title}`}
+                  className="inline-flex items-center justify-between w-full text-xs font-mono font-semibold text-[#D4F542] hover:text-white transition-colors group/link"
                   title={`Open ${cap.title}`}
                 >
-                  <svg
-                    className="w-4 h-4 -rotate-45"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <span>{cap.ctaLabel} →</span>
+                  <span
+                    aria-hidden="true"
+                    className="w-8 h-8 rounded-full bg-[#D4F542] text-black flex items-center justify-center group-hover/link:scale-110 transition-transform shadow-[0_0_15px_rgba(212,245,66,0.25)] flex-shrink-0"
                   >
-                    <path d="M5 12h14M13 5l7 7-7 7" />
-                  </svg>
+                    <svg
+                      className="w-3.5 h-3.5 -rotate-45"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14M13 5l7 7-7 7" />
+                    </svg>
+                  </span>
                 </Link>
               </div>
             </motion.div>

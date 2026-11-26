@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://technaviatechnology.com/careers",
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
   openGraph: {
     title: "Careers at TECHNAVIA — Web Engineers & AI Builders",
     description:
@@ -207,7 +211,7 @@ export default function CareersPage() {
               {/* Action Button */}
               <div className="relative z-10 flex lg:flex-col items-center lg:items-end justify-between lg:justify-center gap-4 flex-shrink-0 pt-4 lg:pt-0 border-t lg:border-t-0 border-white/[0.08]">
                 <a
-                  href={`mailto:careers@technavia.com?subject=Application:%20${encodeURIComponent(
+                  href={`mailto:contact@technaviatechnology.com?subject=Application:%20${encodeURIComponent(
                     role.title
                   )}`}
                   className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-white text-black hover:bg-[#D4F542] font-tight font-bold text-xs uppercase tracking-wider transition-all shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_rgba(212,245,66,0.4)] whitespace-nowrap"

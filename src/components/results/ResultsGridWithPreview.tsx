@@ -159,7 +159,7 @@ export function ResultsGridWithPreview() {
                   href={`/results/${res.id}`}
                   className="text-white/60 hover:text-white transition-colors uppercase tracking-wider"
                 >
-                  Full case study →
+                  {res.client} Case Study →
                 </Link>
 
                 <a

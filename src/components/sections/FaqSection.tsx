@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionLabel } from "../ui/SectionLabel";
 import { FaqJsonLd } from "../seo/JsonLd";
@@ -171,15 +170,15 @@ export function FaqSection({ showHeader = true }: FaqSectionProps = {}) {
                 Write to us with the tool stack you run. A real person replies inside one working day.
               </p>
             </div>
-            <Link
-              href="mailto:contact@technavia.com"
+            <a
+              href="mailto:contact@technaviatechnology.com"
               className="group inline-flex items-center gap-3 bg-[#F0F2E8] hover:bg-white text-black pl-5 pr-2 py-2 rounded-full font-tight font-semibold text-sm transition-all shadow-[0_4px_20px_rgba(0,0,0,0.3)] w-fit flex-shrink-0"
             >
               <span>Ask us</span>
               <span className="w-7 h-7 rounded-full bg-[#D4F542] flex items-center justify-center text-black text-xs font-bold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
                 ↗
               </span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

@@ -46,20 +46,55 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+const CATEGORY_SERVICE_MAP: Record<
+  string,
+  { href: string; badge: string; label: string; summary: string }
+> = {
+  "Web Engineering": {
+    href: "/services/web-development-seo",
+    badge: "WEB DEVELOPMENT + TECHNICAL SEO",
+    label: "Explore our 21-Day Web Development & SEO Service →",
+    summary: "Sub-second Next.js builds with 95+ Core Web Vitals, clean schema graphs, and full code ownership.",
+  },
+  "AI Visibility": {
+    href: "/services/llm-visibility",
+    badge: "LLM VISIBILITY (AEO / GEO)",
+    label: "Explore our LLM Visibility (ChatGPT & Perplexity) Service →",
+    summary: "Structured entity graphs and quotable Q&A blocks so AI answer engines cite and recommend your business.",
+  },
+  "AI Automations": {
+    href: "/services/ai-automations",
+    badge: "CUSTOM AI AUTOMATIONS",
+    label: "Explore our Custom B2B AI Automations Service →",
+    summary: "Sub-60s lead enrichment, AI qualification, and automated CRM routing without recurring Zapier markups.",
+  },
+};
+
 export default async function BlogDetailPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = ARTICLES.find((a) => a.slug === slug);
+  const currentIndex = ARTICLES.findIndex((a) => a.slug === slug);
+  const post = currentIndex >= 0 ? ARTICLES[currentIndex] : undefined;
 
   if (!post) {
     notFound();
   }
 
-  // Related articles from other topics
-  const related = ARTICLES.filter((a) => a.slug !== slug).slice(0, 2);
+  const serviceMatch =
+    CATEGORY_SERVICE_MAP[post.category] || CATEGORY_SERVICE_MAP["Web Engineering"];
+
+  // Rotate starting from the next article so all 6 articles receive incoming related links,
+  // prioritizing articles in the same category first.
+  const rotatedOthers = Array.from(
+    { length: ARTICLES.length - 1 },
+    (_, offset) => ARTICLES[(currentIndex + 1 + offset) % ARTICLES.length]
+  );
+  const sameCategory = rotatedOthers.filter((a) => a.category === post.category);
+  const otherCategory = rotatedOthers.filter((a) => a.category !== post.category);
+  const related = [...sameCategory, ...otherCategory].slice(0, 2);
 
   return (
     <div className="flex flex-col w-full bg-[#0B0D10] text-[#F8F8F5] pt-[92px]">
@@ -184,6 +219,25 @@ export default async function BlogDetailPage({
             {paragraph}
           </p>
         ))}
+
+        {/* Contextual Service Callout Card */}
+        <div className="p-6 sm:p-8 rounded-2xl bg-[#14161A] border border-[#D4F542]/40 flex flex-col gap-3 shadow-lg mt-2">
+          <div className="flex items-center gap-2 text-[11px] font-mono text-[#D4F542] uppercase tracking-widest font-semibold">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D4F542]" />
+            <span>{serviceMatch.badge}</span>
+          </div>
+          <p className="text-sm sm:text-base text-white/80 leading-relaxed font-sans">
+            {serviceMatch.summary}
+          </p>
+          <div className="pt-1">
+            <Link
+              href={serviceMatch.href}
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-semibold text-[#D4F542] hover:text-white transition-colors"
+            >
+              <span>{serviceMatch.label}</span>
+            </Link>
+          </div>
+        </div>
 
         {/* Blueprint Callout */}
         <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-6">

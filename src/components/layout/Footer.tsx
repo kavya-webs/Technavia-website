@@ -101,10 +101,26 @@ export function Footer() {
                   </li>
                   <li>
                     <Link
+                      href="/tools"
+                      className="hover:text-[#D4F542] transition-colors"
+                    >
+                      Tech Stack
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
                       href="/blogs"
                       className="hover:text-[#D4F542] transition-colors"
                     >
                       Blueprints & Blogs
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/faq"
+                      className="hover:text-[#D4F542] transition-colors"
+                    >
+                      FAQs
                     </Link>
                   </li>
                   <li>

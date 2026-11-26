@@ -6,6 +6,7 @@ import { ArrowRight, CheckCircle2, XCircle, ShieldCheck, Zap, Clock, ExternalLin
 import { ServiceJsonLd, FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { WebDevHeroMockup } from "@/components/mockups/WebDevHeroMockup";
 import { ServiceBookingForm } from "@/components/forms/ServiceBookingForm";
+import { ServiceRelatedStrip } from "@/components/sections/ServiceRelatedStrip";
 import { AdHeaderBar } from "@/components/ui/AdHeaderBar";
 
 export const metadata: Metadata = {
@@ -380,7 +381,7 @@ export default function WebDevelopmentSeoPage() {
                     {res.feature}
                   </p>
 
-                  <div className="pt-2">
+                  <div className="pt-2 flex flex-wrap items-center justify-between gap-3">
                     <a
                       href={res.url}
                       target="_blank"
@@ -390,6 +391,12 @@ export default function WebDevelopmentSeoPage() {
                       <span>Open Live Site ↗</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
+                    <Link
+                      href={`/results/${res.id}`}
+                      className="inline-flex items-center gap-1 text-xs font-mono text-[#A8B0BC] hover:text-white transition-colors"
+                    >
+                      <span>Read Case Study →</span>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -401,11 +408,14 @@ export default function WebDevelopmentSeoPage() {
       {/* ========================================================
           SECTION 5: PERSONALIZED BOOKING FORM
           ======================================================== */}
-      <section id="service-book" className="py-16 md:py-20 px-6 md:px-10 lg:px-16 border-b border-white/[0.08]">
+      <section id="service-book" className="py-16 md:py-20 px-6 md:px-10 lg:px-16 border-b border-white/[0.08] scroll-mt-24">
         <div className="max-w-[1280px] mx-auto flex flex-col items-center">
           <ServiceBookingForm serviceType="web-development-seo" />
         </div>
       </section>
+
+      {/* Related Guides & Process Strip (hidden when ?ad=1 or utm_source is active) */}
+      <ServiceRelatedStrip serviceType="web-development-seo" />
 
       {/* ========================================================
           SECTION 6: SIMPLE GUARANTEE BANNER

@@ -15,6 +15,7 @@ interface LogEntry {
   category: string;
   result: string;
   href: string;
+  linkLabel: string;
 }
 
 const TERMINAL_LOGS: LogEntry[] = [
@@ -25,6 +26,7 @@ const TERMINAL_LOGS: LogEntry[] = [
     category: "AI LEAD ROUTING",
     result: "Scored 94/100, enriched with company metrics, CRM updated",
     href: "/services/ai-automations",
+    linkLabel: "See AI Automations →",
   },
   {
     time: "00:07",
@@ -33,6 +35,7 @@ const TERMINAL_LOGS: LogEntry[] = [
     category: "TECHNICAL SEO",
     result: "100/100 Lighthouse, 0.38s LCP across all global nodes",
     href: "/services/web-development-seo",
+    linkLabel: "See Web Dev + SEO →",
   },
   {
     time: "00:41",
@@ -41,6 +44,7 @@ const TERMINAL_LOGS: LogEntry[] = [
     category: "LLM VISIBILITY",
     result: "Knowledge graph linked, authoritative source citation verified",
     href: "/services/llm-visibility",
+    linkLabel: "See LLM Visibility →",
   },
   {
     time: "01:15",
@@ -49,6 +53,7 @@ const TERMINAL_LOGS: LogEntry[] = [
     category: "SEARCH SCHEMA",
     result: "Zero rich snippet errors, instant indexation on Google & Bing",
     href: "/services/web-development-seo",
+    linkLabel: "See Web Dev + SEO →",
   },
   {
     time: "01:48",
@@ -57,6 +62,7 @@ const TERMINAL_LOGS: LogEntry[] = [
     category: "AI AUTOMATIONS",
     result: "Contract signed, staging repo initialized, client notified",
     href: "/services/ai-automations",
+    linkLabel: "See AI Automations →",
   },
   {
     time: "02:14",
@@ -65,6 +71,7 @@ const TERMINAL_LOGS: LogEntry[] = [
     category: "AEO MONITORING",
     result: "Position #1 secured for 14 keywords, weekly report delivered",
     href: "/services/llm-visibility",
+    linkLabel: "See LLM Visibility →",
   },
 ];
 
@@ -236,8 +243,8 @@ export function NightLog() {
             })}
           </div>
 
-          {/* Active Log Detail Box with Arrow CTA */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-black/75 border border-white/[0.12] flex items-center justify-between gap-4">
+          {/* Active Log Detail Box with Descriptive Service CTA */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-black/75 border border-white/[0.12] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex flex-col gap-1.5">
               <div className="flex items-center gap-2 text-[11px] font-mono text-white/50">
                 <span className="text-[#D4F542]">{activeEntry.time}</span>
@@ -252,10 +259,9 @@ export function NightLog() {
 
             <Link
               href={activeEntry.href}
-              className="w-10 h-10 rounded-full bg-[#D4F542] text-black flex items-center justify-center font-bold text-base hover:scale-110 transition-transform shadow-[0_0_16px_rgba(212,245,66,0.4)] flex-shrink-0"
-              aria-label="View workflow details"
+              className="px-4 py-2 rounded-full bg-[#D4F542] text-black font-mono font-semibold text-xs inline-flex items-center justify-center gap-1.5 hover:scale-105 transition-transform shadow-[0_0_16px_rgba(212,245,66,0.4)] flex-shrink-0 whitespace-nowrap w-fit"
             >
-              ↗
+              {activeEntry.linkLabel}
             </Link>
           </div>
 

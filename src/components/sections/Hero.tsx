@@ -237,6 +237,7 @@ export function Hero() {
                     <Link
                       href={pin.href}
                       className="row-span-2 w-8 h-8 rounded-full bg-[#D4F542] text-black grid place-items-center hover:scale-110 transition-transform shadow-[0_0_12px_rgba(212,245,66,0.35)]"
+                      aria-label={pin.title}
                       title={`Open ${pin.title}`}
                     >
                       <svg

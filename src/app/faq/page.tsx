@@ -61,7 +61,7 @@ export default function FaqPage() {
           { text: "REPLY < 24H", variant: "outline" },
         ]}
         primaryCta={{ label: "BOOK A CALL", href: "/book" }}
-        secondaryCta={{ label: "EMAIL AN ARCHITECT", href: "mailto:contact@technavia.com" }}
+        secondaryCta={{ label: "EMAIL AN ARCHITECT", href: "mailto:contact@technaviatechnology.com" }}
       />
 
       {/* Embedded FAQ Component with De-duplicated Heading */}

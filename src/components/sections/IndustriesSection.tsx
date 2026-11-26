@@ -223,7 +223,7 @@ export function IndustriesSection({ variant = "list", showHeader = true }: Indus
                       href="/services"
                       className="text-[#D4F542] flex items-center gap-1 group-hover:translate-x-1 transition-transform font-semibold"
                     >
-                      <span>Explore blueprints</span>
+                      <span>Explore our services</span>
                       <span>→</span>
                     </Link>
                   </div>

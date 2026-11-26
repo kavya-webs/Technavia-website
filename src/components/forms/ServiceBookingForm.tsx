@@ -162,8 +162,7 @@ export function ServiceBookingForm({ serviceType }: ServiceBookingFormProps) {
 
   return (
     <div
-      id="service-book"
-      className="w-full max-w-2xl mx-auto rounded-3xl bg-[#14161A]/95 border border-[#D4F542]/30 p-6 sm:p-10 backdrop-blur-2xl shadow-[0_24px_60px_rgba(0,0,0,0.9)] relative overflow-hidden scroll-mt-24"
+      className="w-full max-w-2xl mx-auto rounded-3xl bg-[#14161A]/95 border border-[#D4F542]/30 p-6 sm:p-10 backdrop-blur-2xl shadow-[0_24px_60px_rgba(0,0,0,0.9)] relative overflow-hidden"
     >
       {/* Decorative top neon lime highlight line */}
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4F542] to-transparent" />

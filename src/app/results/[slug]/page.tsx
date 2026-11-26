@@ -52,6 +52,34 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+const RESULT_SERVICE_MAP: Record<
+  string,
+  Array<{ label: string; href: string }>
+> = {
+  seravolve: [
+    {
+      label: "Explore Web Development + Technical SEO →",
+      href: "/services/web-development-seo",
+    },
+  ],
+  "cosmo-solor": [
+    {
+      label: "Explore Web Development + Technical SEO →",
+      href: "/services/web-development-seo",
+    },
+  ],
+  "tg-media": [
+    {
+      label: "Explore Web Development + Technical SEO →",
+      href: "/services/web-development-seo",
+    },
+    {
+      label: "Explore Custom AI Automations →",
+      href: "/services/ai-automations",
+    },
+  ],
+};
+
 export default async function ResultDetailPage({
   params,
 }: {
@@ -63,6 +91,9 @@ export default async function ResultDetailPage({
   if (!res) {
     notFound();
   }
+
+  const serviceLinks =
+    RESULT_SERVICE_MAP[res.id] || RESULT_SERVICE_MAP.seravolve;
 
   return (
     <div className="flex flex-col w-full pt-[100px]">
@@ -214,6 +245,39 @@ export default async function ResultDetailPage({
         {/* Footnote */}
         <div className="p-4 rounded-2xl bg-black/40 border border-white/[0.08] text-xs font-mono text-white/50 text-center sm:text-left leading-relaxed">
           Client mirrors are self-hosted with permission to preserve client domain privacy while letting you inspect live UI and engineering quality.
+        </div>
+
+        {/* Engineered With / Ready for Similar Results Footer Strip */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-[#14161A] border border-white/[0.12] flex flex-col lg:flex-row lg:items-center justify-between gap-6 shadow-xl">
+          <div className="flex flex-col gap-2 max-w-xl">
+            <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-[#D4F542] font-semibold">
+              ENGINEERED WITH · READY FOR SIMILAR RESULTS?
+            </span>
+            <h2 className="text-xl sm:text-2xl font-tight font-semibold text-[#F8F8F5]">
+              Deploy the same {res.workflowUsed.toLowerCase()} architecture for your team.
+            </h2>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3">
+            {serviceLinks.map((srv) => (
+              <Link
+                key={srv.href}
+                href={srv.href}
+                className="px-4 py-2.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.12] text-xs font-mono font-semibold text-[#D4F542] transition-colors"
+              >
+                {srv.label}
+              </Link>
+            ))}
+            <Link
+              href="/process"
+              className="px-4 py-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.1] border border-white/[0.1] text-xs font-mono text-white/85 hover:text-white transition-colors"
+            >
+              See Our 21-Day Build Process →
+            </Link>
+            <Button href="/book?type=audit" variant="solid" className="!h-[40px] !px-5 !text-xs">
+              Get a Free 5-Min Site Audit →
+            </Button>
+          </div>
         </div>
       </section>
 

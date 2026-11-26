@@ -90,12 +90,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.75,
     },
-    {
-      url: `${baseUrl}/careers`,
-      lastModified: new Date("2026-10-10T00:00:00.000Z"),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
   ];
 
   // Dynamic verified proof case studies

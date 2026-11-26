@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://technaviatechnology.com/privacy",
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function PrivacyPage() {
@@ -56,8 +60,14 @@ export default function PrivacyPage() {
 
         <h2 className="text-xl font-tight font-semibold text-white">4. Your Rights</h2>
         <p>
-          You may request full deletion of your contact records at any time by emailing
-          contact@technavia.com.
+          You may request full deletion of your contact records at any time by emailing{" "}
+          <a
+            href="mailto:contact@technaviatechnology.com"
+            className="text-[#D4F542] hover:underline"
+          >
+            contact@technaviatechnology.com
+          </a>
+          .
         </p>
       </article>
     </div>

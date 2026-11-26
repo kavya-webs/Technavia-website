@@ -76,9 +76,9 @@ const nextConfig = {
         ],
       },
       {
-        source: "/icon.svg",
+        source: "/:icon(favicon\\.ico|icon\\.svg|icon-48x48\\.png|icon-96x96\\.png|icon-192x192\\.png|apple-touch-icon\\.png)",
         headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+          { key: "Cache-Control", value: "public, max-age=2592000, stale-while-revalidate=86400" },
         ],
       },
       {

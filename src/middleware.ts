@@ -27,6 +27,6 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico, icon.svg, public images
      */
-    "/((?!_next/static|_next/image|favicon.ico|icon.svg|images).*)",
+    "/((?!_next/static|_next/image|favicon\\.ico|icon\\.svg|icon-.*\\.png|apple-touch-icon\\.png|images).*)",
   ],
 };

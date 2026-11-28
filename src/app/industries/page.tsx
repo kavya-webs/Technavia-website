@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     canonical: "https://technaviatechnology.com/industries",
   },
   openGraph: {
-    title: "Industries & Sectors Engineered to Rank | TECHNAVIA",
+    title: "Industries & Sectors Engineered to Rank | Technavia Technology",
     description:
       "Discover our specialized web engineering and LLM search optimization across six core B2B sectors: SaaS, agencies, healthcare clinics, logistics, and D2C.",
     url: "https://technaviatechnology.com/industries",
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
         url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
         width: 1200,
         height: 630,
-        alt: "TECHNAVIA — Industries & Specialized Sectors",
+        alt: "Technavia Technology — Industries & Specialized Sectors",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Industries & Sectors Engineered to Rank | TECHNAVIA",
+    title: "Industries & Sectors Engineered to Rank | Technavia Technology",
     description:
       "Discover our specialized web engineering and LLM search optimization across six core B2B sectors: SaaS, agencies, healthcare clinics, logistics, and D2C.",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],

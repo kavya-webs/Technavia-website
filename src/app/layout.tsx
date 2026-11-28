@@ -36,11 +36,11 @@ const isStaging =
 export const metadata: Metadata = {
   metadataBase: new URL("https://technaviatechnology.com"),
   title: {
-    default: "TECHNAVIA | Web Development, Technical SEO & AI Automation Studio",
-    template: "%s | TECHNAVIA",
+    default: "Technavia Technology | Web Development, Technical SEO & AI Automation Studio",
+    template: "%s | Technavia Technology",
   },
   description:
-    "TECHNAVIA is a B2B technology studio specializing in Web Development, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations at technaviatechnology.com.",
+    "Technavia Technology is a B2B technology studio specializing in Web Development, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations at technaviatechnology.com.",
   alternates: {
     canonical: "https://technaviatechnology.com",
   },
@@ -76,26 +76,26 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    title: "TECHNAVIA | Web Development, Technical SEO & AI Automation Studio",
+    title: "Technavia Technology | Web Development, Technical SEO & AI Automation Studio",
     description:
-      "B2B technology studio specializing in Web Development, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations at technaviatechnology.com.",
+      "Technavia Technology is a B2B web engineering, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automation studio at technaviatechnology.com.",
     url: "https://technaviatechnology.com",
-    siteName: "TECHNAVIA",
+    siteName: "Technavia Technology",
     type: "website",
     images: [
       {
         url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
         width: 1200,
         height: 630,
-        alt: "TECHNAVIA | Web Development, Technical SEO & AI Automation Studio",
+        alt: "Technavia Technology | Web Development, Technical SEO & AI Automation Studio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "TECHNAVIA | Web Development, Technical SEO & AI Automation Studio",
+    title: "Technavia Technology | Web Development, Technical SEO & AI Automation Studio",
     description:
-      "B2B technology studio specializing in Web Development, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations at technaviatechnology.com.",
+      "Technavia Technology is a B2B web engineering, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automation studio at technaviatechnology.com.",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
   },
 };

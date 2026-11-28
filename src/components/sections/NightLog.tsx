@@ -155,7 +155,7 @@ export function NightLog() {
             <span className="text-[#D4F542]">while your team sleeps.</span>
           </h2>
           <p className="text-sm sm:text-base text-white/70 leading-relaxed font-sans">
-            Example production triggers TECHNAVIA wires into client CRMs, websites, and AI monitoring pipelines:
+            Example production triggers Technavia Technology wires into client CRMs, websites, and AI monitoring pipelines:
           </p>
           <Button href="/services" variant="ghost" hasArrow={false} hasLamp={true}>
             Explore Services

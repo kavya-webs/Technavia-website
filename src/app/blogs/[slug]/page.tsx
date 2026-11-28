@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       canonical: `https://technaviatechnology.com/blogs/${slug}`,
     },
     openGraph: {
-      title: `${post.title} | TECHNAVIA Blueprints`,
+      title: `${post.title} | Technavia Technology Blueprints`,
       description: post.excerpt,
       url: `https://technaviatechnology.com/blogs/${slug}`,
       type: "article",
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     twitter: {
       card: "summary_large_image",
-      title: `${post.title} | TECHNAVIA Blueprints`,
+      title: `${post.title} | Technavia Technology Blueprints`,
       description: post.excerpt,
       images: [fullImageUrl],
     },

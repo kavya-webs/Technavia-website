@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const res = RESULTS.find((r) => r.id === slug);
   if (!res) return { title: "Result Not Found" };
 
-  const ogTitle = `${res.client}: ${res.metric} ${res.metricSub} | TECHNAVIA Case Study`;
+  const ogTitle = `${res.client}: ${res.metric} ${res.metricSub} | Technavia Technology Case Study`;
   const description = `${res.headline} Built with ${res.workflowUsed} for ${res.industry} achieving ${res.metricSub}.`;
 
   return {
@@ -218,14 +218,14 @@ export default async function ResultDetailPage({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-white/[0.1] pt-12">
           <div className="p-8 rounded-2xl bg-red-950/20 border border-red-500/20 flex flex-col gap-4">
             <span className="text-xs font-mono text-red-400 font-semibold uppercase tracking-wider">
-              Before TECHNAVIA
+              Before Technavia Technology
             </span>
             <p className="text-base text-white/80 leading-relaxed font-sans">{res.before}</p>
           </div>
 
           <div className="p-8 rounded-2xl bg-emerald-950/20 border border-emerald-500/20 flex flex-col gap-4">
             <span className="text-xs font-mono text-[#D4F542] font-semibold uppercase tracking-wider">
-              After TECHNAVIA
+              After Technavia Technology
             </span>
             <p className="text-base text-white/80 leading-relaxed font-sans">{res.after}</p>
           </div>

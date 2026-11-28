@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     canonical: "https://technaviatechnology.com/process",
   },
   openGraph: {
-    title: "21-Day Process (5-Day Web + 16-Day SEO) — From Audit to Launch | TECHNAVIA",
+    title: "21-Day Process (5-Day Web + 16-Day SEO) — From Audit to Launch | Technavia Technology",
     description:
       "5 days for website + 16 days for SEO (21 days total). Our 5-stage sprint methodology: from rapid 5-day Next.js build to deep technical SEO, LLM citation graphs, and AI pipeline automation.",
     url: "https://technaviatechnology.com/process",
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
         url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
         width: 1200,
         height: 630,
-        alt: "TECHNAVIA — 21-Day Engineering Process (5-Day Web + 16-Day SEO)",
+        alt: "Technavia Technology — 21-Day Engineering Process (5-Day Web + 16-Day SEO)",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "21-Day Process (5-Day Web + 16-Day SEO) — From Audit to Launch | TECHNAVIA",
+    title: "21-Day Process (5-Day Web + 16-Day SEO) — From Audit to Launch | Technavia Technology",
     description:
       "5 days for website + 16 days for SEO (21 days total). Our 5-stage sprint methodology: from rapid 5-day Next.js build to deep technical SEO, LLM citation graphs, and AI pipeline automation.",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],

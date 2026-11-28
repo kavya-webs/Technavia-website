@@ -170,10 +170,10 @@ export async function POST(req: NextRequest) {
 
     // Prepare Email Options
     const internalMailOptions = {
-      from: `"TECHNAVIA Engineering Desk" <${smtpUser}>`,
+      from: `"Technavia Technology Engineering Desk" <${smtpUser}>`,
       to: toEmail,
       replyTo: cleanEmail,
-      subject: `[TECHNAVIA Inquiry] ${serviceList} — ${cleanFullName}`,
+      subject: `[Technavia Technology Inquiry] ${serviceList} — ${cleanFullName}`,
       text: `NEW INBOUND ENGINEERING INQUIRY
 ----------------------------------------
 Prospect:    ${cleanFullName}
@@ -251,13 +251,13 @@ Reply directly to this email to contact the prospect.
     };
 
     const clientMailOptions = {
-      from: `"TECHNAVIA" <${smtpUser}>`,
+      from: `"Technavia Technology" <${smtpUser}>`,
       to: cleanEmail,
       replyTo: toEmail,
-      subject: `Inquiry Received — TECHNAVIA Engineering`,
+      subject: `Inquiry Received — Technavia Technology Engineering`,
       text: `Hello ${cleanFullName},
 
-Thank you for contacting TECHNAVIA.
+Thank you for contacting Technavia Technology.
 
 We have received your project brief regarding:
 ${serviceList}
@@ -272,7 +272,7 @@ If you have additional design specs, GitHub links, or analytics to share, reply 
 
 Best regards,
 Engineering Architecture Desk
-TECHNAVIA
+Technavia Technology
 https://technaviatechnology.com
 Surat, Gujarat, India · Remote-First Worldwide
 `,
@@ -292,9 +292,9 @@ Surat, Gujarat, India · Remote-First Worldwide
 </head>
 <body>
   <div class="container">
-    <h2>Inquiry Received — TECHNAVIA</h2>
+    <h2>Inquiry Received — Technavia Technology</h2>
     <p>Hello ${cleanFullName},</p>
-    <p>Thank you for contacting TECHNAVIA. We have received your technical inquiry regarding <strong>${serviceList}</strong>.</p>
+    <p>Thank you for contacting Technavia Technology. We have received your technical inquiry regarding <strong>${serviceList}</strong>.</p>
     <p>A senior web architect is reviewing your notes and website. We will respond with an initial technical assessment or audit scheduling link within 1 business day.</p>
     <div class="summary">
       <strong>Inquiry Summary:</strong><br/>
@@ -303,7 +303,7 @@ Surat, Gujarat, India · Remote-First Worldwide
     </div>
     <p>If you have additional technical specs, repository links, or analytics reports to attach, simply reply directly to this email.</p>
     <div class="footer">
-      <strong>TECHNAVIA</strong> · Engineering & AI Automation Studio<br/>
+      <strong>Technavia Technology</strong> · Engineering & AI Automation Studio<br/>
       <a href="https://technaviatechnology.com" style="color: #111827;">technaviatechnology.com</a> · Surat, Gujarat, India
     </div>
   </div>

@@ -8,16 +8,16 @@ import { BookSection } from "@/components/sections/BookSection";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "About TECHNAVIA — High-Growth B2B Web Engineering Studio",
+  title: "About Us — High-Growth B2B Web Engineering Studio",
   description:
-    "Learn how TECHNAVIA engineers high-ranking Next.js websites, optimizes entity graphs for AI engine citations, and deploys autonomous lead-to-CRM workflows.",
+    "Learn how Technavia Technology engineers high-ranking Next.js websites, optimizes entity graphs for AI engine citations, and deploys autonomous lead-to-CRM workflows.",
   alternates: {
     canonical: "https://technaviatechnology.com/about",
   },
   openGraph: {
-    title: "About TECHNAVIA — High-Growth B2B Web Engineering Studio",
+    title: "About Technavia Technology — High-Growth B2B Web Engineering Studio",
     description:
-      "Learn how TECHNAVIA engineers high-ranking Next.js websites, optimizes entity graphs for AI engine citations, and deploys autonomous lead-to-CRM workflows.",
+      "Learn how Technavia Technology engineers high-ranking Next.js websites, optimizes entity graphs for AI engine citations, and deploys autonomous lead-to-CRM workflows.",
     url: "https://technaviatechnology.com/about",
     type: "website",
     images: [
@@ -25,15 +25,15 @@ export const metadata: Metadata = {
         url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
         width: 1200,
         height: 630,
-        alt: "TECHNAVIA — Built to Rank. Automated to Scale.",
+        alt: "Technavia Technology — Built to Rank. Automated to Scale.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About TECHNAVIA — High-Growth B2B Web Engineering Studio",
+    title: "About Technavia Technology — High-Growth B2B Web Engineering Studio",
     description:
-      "Learn how TECHNAVIA engineers high-ranking Next.js websites, optimizes entity graphs for AI engine citations, and deploys autonomous lead-to-CRM workflows.",
+      "Learn how Technavia Technology engineers high-ranking Next.js websites, optimizes entity graphs for AI engine citations, and deploys autonomous lead-to-CRM workflows.",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
   },
 };
@@ -81,13 +81,13 @@ export default function AboutPage() {
             </div>
             <div className="flex flex-col gap-5 text-base sm:text-lg text-white/80 leading-relaxed font-sans">
               <p>
-                TECHNAVIA was established to solve a critical market gap: traditional agency websites look pretty but fail to rank on search engines or AI answer engines, and lack the automated infrastructure to convert inbound traffic.
+                Technavia Technology was established to solve a critical market gap: traditional agency websites look pretty but fail to rank on search engines or AI answer engines, and lack the automated infrastructure to convert inbound traffic.
               </p>
               <p>
                 We believe that modern digital presence requires an engineering-first approach. Fast Next.js architecture, semantic JSON-LD entity structures, and automated lead routing pipelines that run seamlessly 24/7.
               </p>
               <p>
-                Today, TECHNAVIA builds and powers digital infrastructure for high-growth SaaS, fintech, professional services, and ecommerce companies worldwide.
+                Today, Technavia Technology builds and powers digital infrastructure for high-growth SaaS, fintech, professional services, and ecommerce companies worldwide.
               </p>
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function AboutPage() {
             <figure className="relative w-full max-w-[500px] aspect-[4/3] rounded-3xl overflow-hidden border border-white/[0.12] shadow-2xl group">
               <img
                 src="/images/tech/process_build.webp"
-                alt="TECHNAVIA Engineering Systems"
+                alt="Technavia Technology Engineering Systems"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />

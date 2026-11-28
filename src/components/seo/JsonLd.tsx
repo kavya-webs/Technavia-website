@@ -7,19 +7,19 @@ export function OrganizationJsonLd() {
       {
         "@type": ["Organization", "ProfessionalService"],
         "@id": "https://technaviatechnology.com/#organization",
-        "name": "TECHNAVIA",
-        "alternateName": ["Technavia Technology", "TECHNAVIA Studio"],
+        "name": "Technavia Technology",
+        "alternateName": ["TECHNAVIA"],
         "disambiguatingDescription":
-          "B2B technology studio specializing in Web Development, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations at technaviatechnology.com.",
+          "Technavia Technology (technaviatechnology.com) is a Surat, India-based B2B web engineering, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automation studio serving global clients — unaffiliated with Technavia Pvt Ltd or Technavio market research.",
         "url": "https://technaviatechnology.com",
         "logo": {
           "@type": "ImageObject",
           "@id": "https://technaviatechnology.com/#logo",
           "url": "https://technaviatechnology.com/logo.png",
-          "caption": "TECHNAVIA Logo",
+          "caption": "Technavia Technology Logo",
         },
         "description":
-          "B2B technology studio specializing in Web Development, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automations at technaviatechnology.com.",
+          "Technavia Technology (technaviatechnology.com) is a Surat, India-based B2B web engineering, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automation studio serving global clients.",
         "slogan": "BUILT TO RANK. AUTOMATED TO SCALE.",
         "email": "inquiry@technaviatechnology.com",
         "telephone": "+91 7048617190",
@@ -71,7 +71,7 @@ export function OrganizationJsonLd() {
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "TECHNAVIA Core Engineering Services",
+          "name": "Technavia Technology Core Engineering Services",
           "itemListElement": [
             {
               "@type": "Offer",
@@ -98,7 +98,7 @@ export function OrganizationJsonLd() {
         "@type": "WebSite",
         "@id": "https://technaviatechnology.com/#website",
         "url": "https://technaviatechnology.com",
-        "name": "TECHNAVIA",
+        "name": "Technavia Technology",
         "description": "Websites engineered to rank on Google & AI.",
         "publisher": {
           "@id": "https://technaviatechnology.com/#organization",
@@ -209,7 +209,7 @@ export function ArticleJsonLd({
     },
     "publisher": {
       "@type": "Organization",
-      "name": "TECHNAVIA",
+      "name": "Technavia Technology",
       "logo": {
         "@type": "ImageObject",
         "url": "https://technaviatechnology.com/logo.png",

@@ -27,8 +27,8 @@ export const FAQ_CLUSTERS: FaqCluster[] = [
   {
     id: "about-technavia",
     clusterNum: "01",
-    title: "About TECHNAVIA & Entity Identity",
-    shortLabel: "About TECHNAVIA",
+    title: "About Technavia Technology & Entity Identity",
+    shortLabel: "About Technavia Technology",
     rangeLabel: "Q1–Q10",
     relatedServiceHref: "/results",
     relatedServiceLabel: "See Real Websites We Built →",
@@ -36,72 +36,72 @@ export const FAQ_CLUSTERS: FaqCluster[] = [
       {
         id: "q1",
         num: 1,
-        question: "What is TECHNAVIA?",
+        question: "What is Technavia Technology?",
         answer:
-          "TECHNAVIA (Technavia Technology) is a remote-first B2B and e-commerce technology studio that builds fast websites engineered for Google SEO, AI search visibility (ChatGPT, Gemini, and Perplexity), and custom B2B AI lead automations. Most client systems launch in 21 days with 100% code and asset ownership.",
+          "Technavia Technology (also stylized as TECHNAVIA) is a Surat, Gujarat, India-based remote-first B2B and e-commerce technology studio—unaffiliated with Technavia Pvt Ltd or Technavio market research—that builds fast websites engineered for Google SEO, AI search visibility (ChatGPT, Gemini, and Perplexity), and custom B2B AI lead automations. Most client systems launch in 21 days with 100% code and asset ownership.",
       },
       {
         id: "q2",
         num: 2,
-        question: "What core services does TECHNAVIA offer?",
+        question: "What core services does Technavia Technology offer?",
         answer:
-          "TECHNAVIA focuses on three connected growth systems: (1) high-speed Website Design and Technical SEO for e-commerce and B2B brands, (2) LLM Visibility (AEO/GEO) so AI assistants recommend your business, and (3) Custom B2B AI Automations for sub-60-second lead response and CRM sync.",
+          "Technavia Technology focuses on three connected growth systems: (1) high-speed Website Design and Technical SEO for e-commerce and B2B brands, (2) LLM Visibility (AEO/GEO) so AI assistants recommend your business, and (3) Custom B2B AI Automations for sub-60-second lead response and CRM sync.",
       },
       {
         id: "q3",
         num: 3,
-        question: "Who does TECHNAVIA typically work with?",
+        question: "Who does Technavia Technology typically work with?",
         answer:
-          "TECHNAVIA partners with e-commerce store owners, D2C brands, and non-technical founders for Website Design, Google SEO, and AI Search Visibility, and with B2B companies, agencies, clinics, and service firms for custom AI lead-response and operations automations.",
+          "Technavia Technology partners with e-commerce store owners, D2C brands, and non-technical founders for Website Design, Google SEO, and AI Search Visibility, and with B2B companies, agencies, clinics, and service firms for custom AI lead-response and operations automations.",
       },
       {
         id: "q4",
         num: 4,
-        question: "How does TECHNAVIA's 21-day build process work?",
+        question: "How does Technavia Technology's 21-day build process work?",
         answer:
-          "Every TECHNAVIA sprint follows five fixed milestones: Days 1–3 audit and offer blueprint, Days 4–10 custom frontend build, Days 11–14 SEO and AI search setup, Days 15–18 CRM and automation wiring, and Days 19–21 speed testing and full handover—requiring under 2 hours of client time.",
+          "Every Technavia Technology sprint follows five fixed milestones: Days 1–3 audit and offer blueprint, Days 4–10 custom frontend build, Days 11–14 SEO and AI search setup, Days 15–18 CRM and automation wiring, and Days 19–21 speed testing and full handover—requiring under 2 hours of client time.",
       },
       {
         id: "q5",
         num: 5,
-        question: "How much do TECHNAVIA's services cost?",
+        question: "How much do Technavia Technology's services cost?",
         answer:
-          "TECHNAVIA charges a transparent, fixed project fee based on scope—such as page count, custom e-commerce features, or number of automated workflows—rather than open-ended hourly billing. Every prospective client receives an exact fixed quote after a free 20-minute audit call, with no mandatory monthly retainer.",
+          "Technavia Technology charges a transparent, fixed project fee based on scope—such as page count, custom e-commerce features, or number of automated workflows—rather than open-ended hourly billing. Every prospective client receives an exact fixed quote after a free 20-minute audit call, with no mandatory monthly retainer.",
       },
       {
         id: "q6",
         num: 6,
-        question: "Does TECHNAVIA offer a speed or performance guarantee?",
+        question: "Does Technavia Technology offer a speed or performance guarantee?",
         answer:
-          "Yes. Every website TECHNAVIA launches is guaranteed to score 95+ on Google's official mobile speed benchmarks (Core Web Vitals) and comes with 100% source-code ownership. If a launched site misses our speed benchmark, we optimize it at no additional cost until it passes.",
+          "Yes. Every website Technavia Technology launches is guaranteed to score 95+ on Google's official mobile speed benchmarks (Core Web Vitals) and comes with 100% source-code ownership. If a launched site misses our speed benchmark, we optimize it at no additional cost until it passes.",
       },
       {
         id: "q7",
         num: 7,
         question: "Do clients own 100% of their website, domain, and automations?",
         answer:
-          "Yes. TECHNAVIA operates on a strict zero-lock-in model. Clients retain 100% ownership of their domain, design files, source code repository, hosting accounts, and self-hosted automation workflows—meaning you are never forced to pay an agency forever just to keep your systems online.",
+          "Yes. Technavia Technology operates on a strict zero-lock-in model. Clients retain 100% ownership of their domain, design files, source code repository, hosting accounts, and self-hosted automation workflows—meaning you are never forced to pay an agency forever just to keep your systems online.",
       },
       {
         id: "q8",
         num: 8,
-        question: "Can I inspect real websites TECHNAVIA has built?",
+        question: "Can I inspect real websites Technavia Technology has built?",
         answer:
-          "Yes. TECHNAVIA showcases live production builds and permissioned self-hosted client mirrors on our Results page, including Seravolve (D2C skincare e-commerce with an interactive 3-step quiz), TG media (growth agency with interactive video reels), and COSMO SOLOR (clean-tech solar platform).",
+          "Yes. Technavia Technology showcases live production builds and permissioned self-hosted client mirrors on our Results page, including Seravolve (D2C skincare e-commerce with an interactive 3-step quiz), TG media (growth agency with interactive video reels), and COSMO SOLOR (clean-tech solar platform).",
       },
       {
         id: "q9",
         num: 9,
-        question: "Where is TECHNAVIA located and what time zones do you serve?",
+        question: "Where is Technavia Technology located and what time zones do you serve?",
         answer:
-          "TECHNAVIA is a remote-first technology studio serving e-commerce and B2B teams worldwide across North America, Europe, the Middle East, and India. All audits, build reviews, and handover calls are scheduled around your local business hours, with direct email responses within one business day.",
+          "Technavia Technology is a remote-first technology studio based in Surat, Gujarat, India serving e-commerce and B2B teams worldwide across North America, Europe, the Middle East, and India. All audits, build reviews, and handover calls are scheduled around your local business hours, with direct email responses within one business day.",
       },
       {
         id: "q10",
         num: 10,
-        question: "How do I start a project or request a free audit with TECHNAVIA?",
+        question: "How do I start a project or request a free audit with Technavia Technology?",
         answer:
-          "You can book a free 20-minute strategy call or request a free 5-minute website and AI visibility review directly through TECHNAVIA's booking page, or email inquiry@technaviatechnology.com. No preparation or technical knowledge is required—we screen-share your exact opportunities live.",
+          "You can book a free 20-minute strategy call or request a free 5-minute website and AI visibility review directly through Technavia Technology's booking page, or email inquiry@technaviatechnology.com. No preparation or technical knowledge is required—we screen-share your exact opportunities live.",
       },
     ],
   },
@@ -145,30 +145,30 @@ export const FAQ_CLUSTERS: FaqCluster[] = [
       {
         id: "q15",
         num: 15,
-        question: "Can TECHNAVIA redesign my existing website without losing my Google rankings?",
+        question: "Can Technavia Technology redesign my existing website without losing my Google rankings?",
         answer:
-          "Yes. During every redesign, TECHNAVIA maps every existing URL, sets up permanent 301 redirects for any changed paths, preserves winning page titles and headings, and improves page speed—protecting your existing Google traffic while giving search engines a cleaner site to rank.",
+          "Yes. During every redesign, Technavia Technology maps every existing URL, sets up permanent 301 redirects for any changed paths, preserves winning page titles and headings, and improves page speed—protecting your existing Google traffic while giving search engines a cleaner site to rank.",
       },
       {
         id: "q16",
         num: 16,
         question: "How long does it take to launch a new conversion-focused website?",
         answer:
-          "A complete business or e-commerce website with TECHNAVIA typically launches in 21 days. Focused single-offer ad landing pages can ship in 5–7 days, while larger custom multi-category stores follow a clear weekly milestone schedule agreed upon before work starts.",
+          "A complete business or e-commerce website with Technavia Technology typically launches in 21 days. Focused single-offer ad landing pages can ship in 5–7 days, while larger custom multi-category stores follow a clear weekly milestone schedule agreed upon before work starts.",
       },
       {
         id: "q17",
         num: 17,
         question: "How much of my time is needed during a website build?",
         answer:
-          "You only need roughly 2 hours total across the 21-day build: a 30-minute kickoff call to align on your offer and customers, and a mid-build review call. TECHNAVIA handles the strategy, plain-English sales copywriting, mobile design, speed optimization, and launch.",
+          "You only need roughly 2 hours total across the 21-day build: a 30-minute kickoff call to align on your offer and customers, and a mid-build review call. Technavia Technology handles the strategy, plain-English sales copywriting, mobile design, speed optimization, and launch.",
       },
       {
         id: "q18",
         num: 18,
         question: "Do you write the website copy, or do I have to write it myself?",
         answer:
-          "TECHNAVIA writes the full conversion copy for you. We structure every page around clear buyer outcomes, proof, and risk reversal—using everyday language your customers actually speak instead of confusing technical buzzwords.",
+          "Technavia Technology writes the full conversion copy for you. We structure every page around clear buyer outcomes, proof, and risk reversal—using everyday language your customers actually speak instead of confusing technical buzzwords.",
       },
       {
         id: "q19",
@@ -372,14 +372,14 @@ export const FAQ_CLUSTERS: FaqCluster[] = [
         num: 44,
         question: "Do I need to rebuild my entire website to improve LLM visibility?",
         answer:
-          "Usually no. In most cases, TECHNAVIA can upgrade your existing website in 21 days by adding connected Entity and FAQ schema, rewriting key pages with quotable answer blocks, unblocking AI crawlers, and aligning your off-site brand profiles.",
+          "Usually no. In most cases, Technavia Technology can upgrade your existing website in 21 days by adding connected Entity and FAQ schema, rewriting key pages with quotable answer blocks, unblocking AI crawlers, and aligning your off-site brand profiles.",
       },
       {
         id: "q45",
         num: 45,
         question: "How do you measure and track AI Search visibility?",
         answer:
-          "Because AI answers don't have fixed \"rank #3\" positions like classic Google, TECHNAVIA benchmarks 10–25 real buyer prompts in your category across ChatGPT, Perplexity, and Gemini before and after our 21-day build—tracking brand mentions, citation links, and AI referral traffic in analytics.",
+          "Because AI answers don't have fixed \"rank #3\" positions like classic Google, Technavia Technology benchmarks 10–25 real buyer prompts in your category across ChatGPT, Perplexity, and Gemini before and after our 21-day build—tracking brand mentions, citation links, and AI referral traffic in analytics.",
       },
     ],
   },
@@ -402,7 +402,7 @@ export const FAQ_CLUSTERS: FaqCluster[] = [
       {
         id: "q47",
         num: 47,
-        question: "How does TECHNAVIA's sub-60-second AI lead automation work?",
+        question: "How does Technavia Technology's sub-60-second AI lead automation work?",
         answer:
           "When a prospect submits your website form or Meta/LinkedIn Lead Ad, our automation captures the inquiry in under a second, researches their company, scores ICP fit, sends a personalized email or WhatsApp reply with your booking link within 60 seconds, and logs everything into your CRM.",
       },
@@ -416,16 +416,16 @@ export const FAQ_CLUSTERS: FaqCluster[] = [
       {
         id: "q49",
         num: 49,
-        question: "Why does TECHNAVIA build automations on self-hosted n8n instead of Zapier?",
+        question: "Why does Technavia Technology build automations on self-hosted n8n instead of Zapier?",
         answer:
           "Zapier's per-task pricing becomes expensive quickly as B2B lead volume and multi-step AI calls scale. Self-hosted n8n handles complex AI branching, retries, and API integrations at a fraction of the monthly software cost—and you own 100% of the workflow infrastructure.",
       },
       {
         id: "q50",
         num: 50,
-        question: "Which CRMs and B2B tools can TECHNAVIA integrate with?",
+        question: "Which CRMs and B2B tools can Technavia Technology integrate with?",
         answer:
-          "TECHNAVIA integrates directly with HubSpot, Salesforce, GoHighLevel, Pipedrive, Zoho, Google Workspace, Slack, Microsoft Teams, WhatsApp Business API, Calendly, Cal.com, Stripe, Meta Lead Ads, and virtually any platform offering webhooks or a REST API.",
+          "Technavia Technology integrates directly with HubSpot, Salesforce, GoHighLevel, Pipedrive, Zoho, Google Workspace, Slack, Microsoft Teams, WhatsApp Business API, Calendly, Cal.com, Stripe, Meta Lead Ads, and virtually any platform offering webhooks or a REST API.",
       },
       {
         id: "q51",
@@ -439,7 +439,7 @@ export const FAQ_CLUSTERS: FaqCluster[] = [
         num: 52,
         question: "Will automated AI lead replies sound robotic to high-ticket B2B buyers?",
         answer:
-          "No. TECHNAVIA designs brand-matched prompts that reference the prospect's exact form answers, company website, and requested bottleneck—sounding like a sharp, helpful account executive while smoothly handing the conversation to your human sales rep the moment they reply or book.",
+          "No. Technavia Technology designs brand-matched prompts that reference the prospect's exact form answers, company website, and requested bottleneck—sounding like a sharp, helpful account executive while smoothly handing the conversation to your human sales rep the moment they reply or book.",
       },
       {
         id: "q53",
@@ -453,7 +453,7 @@ export const FAQ_CLUSTERS: FaqCluster[] = [
         num: 54,
         question: "What happens if a third-party API changes or an automation hits an error?",
         answer:
-          "Every TECHNAVIA workflow includes automated error-handling branches, automatic retries, and instant Slack or email alerts so silent failures never drop a lead. We also provide full documentation and an optional light support retainer as your tech stack evolves.",
+          "Every Technavia Technology workflow includes automated error-handling branches, automatic retries, and instant Slack or email alerts so silent failures never drop a lead. We also provide full documentation and an optional light support retainer as your tech stack evolves.",
       },
       {
         id: "q55",

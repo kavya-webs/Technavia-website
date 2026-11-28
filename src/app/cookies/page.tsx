@@ -6,7 +6,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 export const metadata: Metadata = {
   title: "Cookies Policy — Technical Data Usage",
   description:
-    "Information on how TECHNAVIA uses technical session cookies, anonymous analytics, and local storage to guarantee secure web engineering performance.",
+    "Information on how Technavia Technology uses technical session cookies, anonymous analytics, and local storage to guarantee secure web engineering performance.",
   alternates: {
     canonical: "https://technaviatechnology.com/cookies",
   },

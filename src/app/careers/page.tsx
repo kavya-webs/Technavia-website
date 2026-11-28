@@ -6,9 +6,9 @@ import { BookSection } from "@/components/sections/BookSection";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Careers at TECHNAVIA — Web Engineers & AI Builders",
+  title: "Careers — Web Engineers & AI Builders",
   description:
-    "Join TECHNAVIA's remote engineering studio. We build sub-second web applications, AEO visibility systems, and autonomous lead workflows with zero busywork.",
+    "Join Technavia Technology's remote engineering studio. We build sub-second web applications, AEO visibility systems, and autonomous lead workflows with zero busywork.",
   alternates: {
     canonical: "https://technaviatechnology.com/careers",
   },
@@ -17,9 +17,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Careers at TECHNAVIA — Web Engineers & AI Builders",
+    title: "Careers at Technavia Technology — Web Engineers & AI Builders",
     description:
-      "Join TECHNAVIA's remote engineering studio. We build sub-second web applications, AEO visibility systems, and autonomous lead workflows with zero busywork.",
+      "Join Technavia Technology's remote engineering studio. We build sub-second web applications, AEO visibility systems, and autonomous lead workflows with zero busywork.",
     url: "https://technaviatechnology.com/careers",
     type: "website",
     images: [
@@ -27,15 +27,15 @@ export const metadata: Metadata = {
         url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
         width: 1200,
         height: 630,
-        alt: "TECHNAVIA — Careers & Engineering Opportunities",
+        alt: "Technavia Technology — Careers & Engineering Opportunities",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Careers at TECHNAVIA — Web Engineers & AI Builders",
+    title: "Careers at Technavia Technology — Web Engineers & AI Builders",
     description:
-      "Join TECHNAVIA's remote engineering studio. We build sub-second web applications, AEO visibility systems, and autonomous lead workflows with zero busywork.",
+      "Join Technavia Technology's remote engineering studio. We build sub-second web applications, AEO visibility systems, and autonomous lead workflows with zero busywork.",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
   },
 };

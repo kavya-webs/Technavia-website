@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     canonical: "https://technaviatechnology.com/services/llm-visibility",
   },
   openGraph: {
-    title: "Get Recommended on ChatGPT, Gemini & Perplexity | TECHNAVIA",
+    title: "Get Recommended on ChatGPT, Gemini & Perplexity | Technavia Technology",
     description:
       "When customers ask ChatGPT or Google AI who to buy from, make sure your brand is the #1 answer. Complete 21-day AI search visibility setup (5 days for website + 16 days for SEO).",
     url: "https://technaviatechnology.com/services/llm-visibility",
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
         url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
         width: 1200,
         height: 630,
-        alt: "TECHNAVIA — AI Search Visibility (ChatGPT & Perplexity)",
+        alt: "Technavia Technology — AI Search Visibility (ChatGPT & Perplexity)",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Get Recommended on ChatGPT, Gemini & Perplexity | TECHNAVIA",
+    title: "Get Recommended on ChatGPT, Gemini & Perplexity | Technavia Technology",
     description:
       "When customers ask ChatGPT or Google AI who to buy from, make sure your brand is the #1 answer. Complete 21-day AI search visibility setup (5 days for website + 16 days for SEO).",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],

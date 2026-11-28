@@ -6,7 +6,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 export const metadata: Metadata = {
   title: "Privacy Policy — Data Protection Standards",
   description:
-    "TECHNAVIA's commitment to enterprise client privacy, confidentiality, data security protocols, and compliance across global web engineering retainers.",
+    "Technavia Technology's commitment to enterprise client privacy, confidentiality, data security protocols, and compliance across global web engineering retainers.",
   alternates: {
     canonical: "https://technaviatechnology.com/privacy",
   },

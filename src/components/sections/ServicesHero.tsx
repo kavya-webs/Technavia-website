@@ -12,7 +12,7 @@ export function ServicesHero() {
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <img
           src="/images/tech/process_build.webp"
-          alt="TECHNAVIA engineering architecture"
+          alt="Technavia Technology engineering architecture"
           className="w-full h-full object-cover object-[55%_40%] opacity-85 contrast-[1.04] brightness-[1.02]"
         />
         {/* Directional left scrim focused behind text, clear on the right */}

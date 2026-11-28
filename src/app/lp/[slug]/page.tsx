@@ -163,7 +163,7 @@ export default async function PaidLandingPage({
 
       {/* Minimal Footer (No exit links) */}
       <footer className="w-full py-8 px-6 text-center border-t border-white/[0.08] text-xs font-mono text-white/40">
-        <div>© 2026 TECHNAVIA · BUILT TO RANK · AUTOMATED TO SCALE</div>
+        <div>© 2026 Technavia Technology · BUILT TO RANK · AUTOMATED TO SCALE</div>
       </footer>
     </div>
   );

@@ -26,7 +26,7 @@ export function WhyTechnavia() {
             </h2>
 
             <p className="text-sm sm:text-base text-white/70 font-sans max-w-xl leading-relaxed mt-1">
-              Slow templates don&apos;t rank on Google, LLMs ignore unstructured brands, and manual follow-ups lose warm leads in minutes. TECHNAVIA replaces fragmented freelancers with one engineered growth system.
+              Slow templates don&apos;t rank on Google, LLMs ignore unstructured brands, and manual follow-ups lose warm leads in minutes. Technavia Technology replaces fragmented freelancers with one engineered growth system.
             </p>
           </div>
 

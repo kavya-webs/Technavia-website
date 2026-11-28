@@ -6,16 +6,16 @@ import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ContactForm } from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact TECHNAVIA — Direct Web Architect Line & Audit",
+  title: "Contact Us — Direct Web Architect Line & Audit",
   description:
-    "Direct line to senior web architects. Remote-first, serving B2B teams worldwide. Zero sales layers or drip funnels. Direct responses within 24 hours.",
+    "Direct line to Technavia Technology senior web architects. Remote-first, serving B2B teams worldwide. Zero sales layers or drip funnels. Direct responses within 24 hours.",
   alternates: {
     canonical: "https://technaviatechnology.com/contact",
   },
   openGraph: {
-    title: "Contact TECHNAVIA — Direct Web Architect Line & Audit",
+    title: "Contact Technavia Technology — Direct Web Architect Line & Audit",
     description:
-      "Direct line to senior web architects. Remote-first, serving B2B teams worldwide. Zero sales layers or drip funnels. Direct responses within 24 hours.",
+      "Direct line to Technavia Technology senior web architects. Remote-first, serving B2B teams worldwide. Zero sales layers or drip funnels. Direct responses within 24 hours.",
     url: "https://technaviatechnology.com/contact",
     type: "website",
     images: [
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
         url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
         width: 1200,
         height: 630,
-        alt: "TECHNAVIA — Contact Senior Web Architects",
+        alt: "Technavia Technology — Contact Senior Web Architects",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact TECHNAVIA — Direct Web Architect Line & Audit",
+    title: "Contact Technavia Technology — Direct Web Architect Line & Audit",
     description:
-      "Direct line to senior web architects. Remote-first, serving B2B teams worldwide. Zero sales layers or drip funnels. Direct responses within 24 hours.",
+      "Direct line to Technavia Technology senior web architects. Remote-first, serving B2B teams worldwide. Zero sales layers or drip funnels. Direct responses within 24 hours.",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
   },
 };

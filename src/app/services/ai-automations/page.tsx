@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     canonical: "https://technaviatechnology.com/services/ai-automations",
   },
   openGraph: {
-    title: "Custom AI Automations & Lead Routing Systems | TECHNAVIA",
+    title: "Custom AI Automations & Lead Routing Systems | Technavia Technology",
     description:
       "Respond to, qualify, and book every inbound B2B lead in under 60 seconds on 24/7 autopilot. Connect website, ads, CRM, and calendar with zero Zapier tax.",
     url: "https://technaviatechnology.com/services/ai-automations",
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
         url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
         width: 1200,
         height: 630,
-        alt: "TECHNAVIA — Custom AI Automations",
+        alt: "Technavia Technology — Custom AI Automations",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom AI Automations & Lead Routing Systems | TECHNAVIA",
+    title: "Custom AI Automations & Lead Routing Systems | Technavia Technology",
     description:
       "Respond to, qualify, and book every inbound B2B lead in under 60 seconds on 24/7 autopilot. Connect website, ads, CRM, and calendar with zero Zapier tax.",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
@@ -302,7 +302,7 @@ export default function AiAutomationsPage() {
               <div className="flex items-center gap-2 pb-3 border-b border-white/[0.06]">
                 <CheckCircle2 className="w-4 h-4 text-[#D4F542]" />
                 <span className="text-xs font-mono uppercase tracking-wider text-[#D4F542] font-semibold">
-                  AUTOMATED WITH TECHNAVIA
+                  AUTOMATED WITH TECHNAVIA TECHNOLOGY
                 </span>
               </div>
               <div className="flex flex-col gap-4">

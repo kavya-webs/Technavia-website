@@ -30,7 +30,7 @@ export function FaqSection({ showHeader = true }: FaqSectionProps = {}) {
             {/* Dark Studio Visual with Deep Vignette */}
             <img
               src="/images/questions/office_clean.jpg"
-              alt="TECHNAVIA engineering systems"
+              alt="Technavia Technology engineering systems"
               className="w-full h-full object-cover select-none pointer-events-none opacity-60"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D10] via-black/40 to-transparent pointer-events-none" />

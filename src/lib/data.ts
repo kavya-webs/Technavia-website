@@ -102,7 +102,7 @@ export const WORKFLOWS: WorkflowItem[] = [
     summary:
       "High-performance Next.js architectures with 100/100 Core Web Vitals, semantic Schema.org hierarchy, and canonical entity graphs designed to index and rank on Google from the moment of launch.",
     description:
-      "Slow, bloated agency sites bleed conversion and fail Google's rendering budget. TECHNAVIA engineers clean TypeScript codebases with zero render-blocking bloat, achieving sub-400ms LCP times and instant search engine indexation.",
+      "Slow, bloated agency sites bleed conversion and fail Google's rendering budget. Technavia Technology engineers clean TypeScript codebases with zero render-blocking bloat, achieving sub-400ms LCP times and instant search engine indexation.",
     tools: ["Next.js", "TypeScript", "Tailwind CSS", "Schema.org", "Vercel"],
     timestamp: "02:14",
     timeAction: "Core Web Vitals 100 · Schema Indexed",
@@ -118,7 +118,7 @@ export const WORKFLOWS: WorkflowItem[] = [
     caseStudy: {
       client: "Seravolve",
       metric: "+64% Quiz Conversion · < 1.0s LCP",
-      quote: "The 3-step quiz engine and sub-second routine builder TECHNAVIA built turned our storefront into an interactive conversion machine.",
+      quote: "The 3-step quiz engine and sub-second routine builder Technavia Technology built turned our storefront into an interactive conversion machine.",
     },
   },
   {
@@ -129,7 +129,7 @@ export const WORKFLOWS: WorkflowItem[] = [
     summary:
       "Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) that position your company as the authoritative citation when buyers prompt AI models for vendor recommendations.",
     description:
-      "Traditional SEO is no longer enough when B2B buyers query ChatGPT, Perplexity, and Gemini instead of clicking 10 blue links. TECHNAVIA structures your knowledge graph, entity associations, and authoritative data so AI models cite your brand first.",
+      "Traditional SEO is no longer enough when B2B buyers query ChatGPT, Perplexity, and Gemini instead of clicking 10 blue links. Technavia Technology structures your knowledge graph, entity associations, and authoritative data so AI models cite your brand first.",
     tools: ["ChatGPT", "Gemini", "Perplexity", "Claude", "Knowledge Graph"],
     timestamp: "02:15",
     timeAction: "Knowledge Graph Synced · AI Citations Live",
@@ -145,7 +145,7 @@ export const WORKFLOWS: WorkflowItem[] = [
     caseStudy: {
       client: "COSMO SOLOR",
       metric: "185% Inquiry Surge · < 0.6s LCP",
-      quote: "TECHNAVIA's entity graph optimization and sub-second architecture positioned our renewable solutions prominently across Google and generative search engines.",
+      quote: "Technavia Technology's entity graph optimization and sub-second architecture positioned our renewable solutions prominently across Google and generative search engines.",
     },
   },
   {
@@ -156,7 +156,7 @@ export const WORKFLOWS: WorkflowItem[] = [
     summary:
       "Event-driven autonomous pipelines that qualify inbound enquiries, enrich firmographics, schedule meetings, and sync CRMs while your team sleeps.",
     description:
-      "Eliminate administrative friction and human delay. TECHNAVIA connects your web forms, CRM, email infrastructure, and AI models into hardened background workflows that run 24/7 with zero manual intervention.",
+      "Eliminate administrative friction and human delay. Technavia Technology connects your web forms, CRM, email infrastructure, and AI models into hardened background workflows that run 24/7 with zero manual intervention.",
     tools: ["Python", "LangChain", "OpenAI API", "Supabase", "n8n"],
     timestamp: "02:16",
     timeAction: "Leads Qualified · Pipeline on Autopilot",
@@ -172,7 +172,7 @@ export const WORKFLOWS: WorkflowItem[] = [
     caseStudy: {
       client: "TG media",
       metric: "+310% Pipeline Engagement · 42s Triage",
-      quote: "TECHNAVIA engineered our 42-second lead triage bus and interactive showcase, eliminating manual ops bottlenecks completely.",
+      quote: "Technavia Technology engineered our 42-second lead triage bus and interactive showcase, eliminating manual ops bottlenecks completely.",
     },
   },
 ];
@@ -204,7 +204,7 @@ export const RESULTS: ResultItem[] = [
     ctaText: "Launch Live Site ↗",
     previewImg: "/images/results/seravolve.webp",
     quote: {
-      text: "The 3-step quiz engine and sub-second routine builder TECHNAVIA built turned our storefront into an interactive conversion machine.",
+      text: "The 3-step quiz engine and sub-second routine builder Technavia Technology built turned our storefront into an interactive conversion machine.",
       author: "Sarah Al-Mansoor",
       role: "Founder & CEO, Seravolve",
     },
@@ -260,7 +260,7 @@ export const RESULTS: ResultItem[] = [
     ctaText: "Launch Live Preview ↗",
     previewImg: "/images/results/cosmo_solor.webp",
     quote: {
-      text: "TECHNAVIA delivered an institutional-grade renewable energy platform that immediately established our credibility with commercial property managers.",
+      text: "Technavia Technology delivered an institutional-grade renewable energy platform that immediately established our credibility with commercial property managers.",
       author: "Christian Cole",
       role: "VP of Operations, COSMO SOLOR",
     },
@@ -391,9 +391,9 @@ export const FAQS: FaqItem[] = [
   {
     num: "01",
     category: "TECHNICAL SEO",
-    question: "What makes TECHNAVIA websites rank faster on Google?",
+    question: "What makes Technavia Technology websites rank faster on Google?",
     answer:
-      "Most agency websites are built on bloated CMS templates laden with render-blocking scripts, unoptimized fonts, and broken hierarchy. TECHNAVIA engineers clean Next.js architectures with 100/100 Core Web Vitals, sub-400ms LCP times, and deep JSON-LD Schema graphs. Search engine crawlers parse your entity relationships immediately without consuming crawl budget, giving you top rankings faster.",
+      "Most agency websites are built on bloated CMS templates laden with render-blocking scripts, unoptimized fonts, and broken hierarchy. Technavia Technology engineers clean Next.js architectures with 100/100 Core Web Vitals, sub-400ms LCP times, and deep JSON-LD Schema graphs. Search engine crawlers parse your entity relationships immediately without consuming crawl budget, giving you top rankings faster.",
   },
   {
     num: "02",
@@ -419,7 +419,7 @@ export const FAQS: FaqItem[] = [
   {
     num: "05",
     category: "INVESTMENT",
-    question: "Can we hire TECHNAVIA on an ongoing retainer?",
+    question: "Can we hire Technavia Technology on an ongoing retainer?",
     answer:
       "Yes. In addition to fixed-price project builds, we offer ongoing Autopilot Retainers that cover continuous technical SEO optimization, LLM prompt-citation monitoring, and automated workflow expansion as your business scales.",
   },
@@ -449,7 +449,7 @@ export const ARTICLES: ArticleItem[] = [
     tags: ["AEO", "GEO", "Schema", "ChatGPT", "Perplexity"],
     featured: true,
     author: {
-      name: "TECHNAVIA Engineering",
+      name: "Technavia Technology Engineering",
       role: "AI & Search Architecture",
     },
     content: [
@@ -473,7 +473,7 @@ export const ARTICLES: ArticleItem[] = [
     coverImage: "/images/tech/web_dev_seo.webp",
     tags: ["Next.js", "Core Web Vitals", "LCP", "Page Speed"],
     author: {
-      name: "TECHNAVIA Engineering",
+      name: "Technavia Technology Engineering",
       role: "Frontend Systems",
     },
     content: [
@@ -496,12 +496,12 @@ export const ARTICLES: ArticleItem[] = [
     coverImage: "/images/tech/ai_automations.webp",
     tags: ["AI Agents", "Webhooks", "Lead Triage", "HubSpot"],
     author: {
-      name: "TECHNAVIA Engineering",
+      name: "Technavia Technology Engineering",
       role: "Autonomous Operations",
     },
     content: [
       "Speed-to-lead is the single highest predictor of deal closure. A lead contacted within 5 minutes is 21 times more likely to enter the sales cycle than one contacted after 30 minutes.",
-      "By connecting web forms to LLM agents and webhook triggers, TECHNAVIA customers enrich company revenue and tech stack data instantly, booking qualified calls without any human overhead.",
+      "By connecting web forms to LLM agents and webhook triggers, Technavia Technology customers enrich company revenue and tech stack data instantly, booking qualified calls without any human overhead.",
       "The incoming payload triggers a serverless background worker that queries Apollo and Clearbit APIs, computes an ICP match score, and assigns a sales tier in real time.",
       "If the lead meets Tier-1 threshold, a personalized calendar link is dispatched within 42 seconds, and the prospect's profile is synced straight to Slack and HubSpot.",
     ],
@@ -518,14 +518,14 @@ export const ARTICLES: ArticleItem[] = [
     coverImage: "/images/tech/process_indexing.webp",
     tags: ["Entity Graphs", "Knowledge Base", "Wikidata", "JSON-LD"],
     author: {
-      name: "TECHNAVIA Engineering",
+      name: "Technavia Technology Engineering",
       role: "Knowledge Engineering",
     },
     content: [
       "Standard meta tags are no longer sufficient. When search algorithms like Google Gemini or OpenAI O1 crawl your website, they do not just read text—they construct knowledge graphs.",
       "An entity graph is a structured network of nodes representing your organization, its founders, founders' credentials, trademarks, offerings, and parent categories.",
       "By implementing deeply nested JSON-LD schema with exact @id references, you give LLMs mathematically unambiguous proof of who you are, what you deliver, and why you should be recommended.",
-      "In this blueprint, we outline the exact Schema architecture TECHNAVIA injects into every client build to dominate entity extraction pipelines.",
+      "In this blueprint, we outline the exact Schema architecture Technavia Technology injects into every client build to dominate entity extraction pipelines.",
     ],
   },
   {
@@ -540,7 +540,7 @@ export const ARTICLES: ArticleItem[] = [
     coverImage: "/images/tech/process_build.webp",
     tags: ["React Server Components", "SSR", "TypeScript", "Performance"],
     author: {
-      name: "TECHNAVIA Engineering",
+      name: "Technavia Technology Engineering",
       role: "Fullstack Architecture",
     },
     content: [
@@ -561,12 +561,12 @@ export const ARTICLES: ArticleItem[] = [
     coverImage: "/images/tech/process_automate.webp",
     tags: ["n8n", "Vector Search", "Supabase", "Autonomous Ops"],
     author: {
-      name: "TECHNAVIA Engineering",
+      name: "Technavia Technology Engineering",
       role: "AI Infrastructure",
     },
     content: [
       "When automation workflows break, deals fall through the cracks. Most naive AI automations fail because they lack idempotency keys, rate limiters, and retry queues.",
-      "At TECHNAVIA, we deploy mission-critical workflows with defensive engineering: every webhook payload is stored immediately in Supabase before processing.",
+      "At Technavia Technology, we deploy mission-critical workflows with defensive engineering: every webhook payload is stored immediately in Supabase before processing.",
       "If OpenAI rate-limits or a third-party CRM returns a 502, our queue scheduler backs off exponentially and retries automatically without losing a single client record.",
     ],
   },

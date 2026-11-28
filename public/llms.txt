@@ -1,6 +1,6 @@
-# TECHNAVIA
+# Technavia Technology
 
-> TECHNAVIA (technaviatechnology.com) is a B2B web engineering, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automation studio based in Surat, Gujarat, India serving global clients — distinct from Technavio market research.
+> Technavia Technology (technaviatechnology.com) is a Surat, Gujarat, India-based B2B web engineering, Technical SEO, LLM Visibility (AEO/GEO), and Custom AI Automation studio serving global clients — unaffiliated with Technavia Pvt Ltd or Technavio market research.
 
 We engineer sub-second Next.js websites built to rank on Google, get cited by ChatGPT, Gemini, and Perplexity, and automate B2B lead pipelines. Contact: inquiry@technaviatechnology.com.
 
@@ -31,5 +31,5 @@ We engineer sub-second Next.js websites built to rank on Google, get cited by Ch
 - [Contact Engineering Desk](https://technaviatechnology.com/contact): Direct project inquiries to inquiry@technaviatechnology.com.
 - [Process & Methodology](https://technaviatechnology.com/process): How our 3-to-5 week engineering sprints work.
 - [Frequently Asked Questions](https://technaviatechnology.com/faq): Answers on timelines, retainers, and 100% code ownership.
-- [TECHNAVIA on Instagram](https://www.instagram.com/technavia/): Official Instagram profile.
-- [TECHNAVIA on Pinterest](https://www.pinterest.com/technaviatechnology/): Official Pinterest profile.
+- [Technavia Technology on Instagram](https://www.instagram.com/technavia/): Official Instagram profile.
+- [Technavia Technology on Pinterest](https://www.pinterest.com/technaviatechnology/): Official Pinterest profile.

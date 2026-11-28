@@ -12,7 +12,7 @@ export interface FaqKnowledgeHubProps {
 
 const FILTER_TABS: Array<{ id: "all" | FaqCategoryId; label: string }> = [
   { id: "all", label: "All (55)" },
-  { id: "about-technavia", label: "About TECHNAVIA" },
+  { id: "about-technavia", label: "About Technavia Technology" },
   { id: "web-design-ecommerce", label: "Web & E-Commerce" },
   { id: "google-seo", label: "Google SEO" },
   { id: "ai-search-geo", label: "AI Search (GEO)" },

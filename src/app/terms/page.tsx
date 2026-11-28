@@ -6,7 +6,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 export const metadata: Metadata = {
   title: "Terms of Service — Web Architecture Agreements",
   description:
-    "Standard terms of service, intellectual property ownership, 100% source code handover policies, and 21-day sprint agreements (5 days website + 16 days SEO) for TECHNAVIA.",
+    "Standard terms of service, intellectual property ownership, 100% source code handover policies, and 21-day sprint agreements (5 days website + 16 days SEO) for Technavia Technology.",
   alternates: {
     canonical: "https://technaviatechnology.com/terms",
   },
@@ -40,7 +40,7 @@ export default function TermsPage() {
       <article className="py-16 px-6 md:px-14 max-w-[900px] mx-auto w-full flex flex-col gap-6 text-sm text-white/70 leading-relaxed font-sans">
         <h2 className="text-xl font-tight font-semibold text-white">1. Scope of Work</h2>
         <p>
-          TECHNAVIA provides web engineering, technical SEO, LLM visibility optimization, custom AI
+          Technavia Technology provides web engineering, technical SEO, LLM visibility optimization, custom AI
           automation wiring, and ongoing performance monitoring services under fixed-price statements of work.
         </p>
 
@@ -53,7 +53,7 @@ export default function TermsPage() {
         <h2 className="text-xl font-tight font-semibold text-white">3. Third-Party Software Dependencies</h2>
         <p>
           Systems depend upon third-party platforms and APIs (e.g., search engines, LLM providers, CRM platforms).
-          While TECHNAVIA builds robust error-handling into all architectures, we are not liable for outages caused
+          While Technavia Technology builds robust error-handling into all architectures, we are not liable for outages caused
           by third-party vendor service interruptions.
         </p>
       </article>

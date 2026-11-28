@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
         width: 1200,
         height: 630,
-        alt: "TECHNAVIA — Technical Blueprints & Insights",
+        alt: "Technavia Technology — Technical Blueprints & Insights",
       },
     ],
   },

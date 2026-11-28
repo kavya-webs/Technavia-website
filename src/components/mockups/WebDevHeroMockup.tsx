@@ -23,7 +23,7 @@ export function WebDevHeroMockup() {
         </span>
       </div>
 
-      {/* Comparison Cards: Old Template vs TECHNAVIA Build */}
+      {/* Comparison Cards: Old Template vs Technavia Technology Build */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 relative">
         {/* Typical Slow Store */}
         <div className="rounded-xl p-4 bg-white/[0.03] border border-red-500/20 flex flex-col justify-between gap-3 relative">
@@ -55,12 +55,12 @@ export function WebDevHeroMockup() {
           </div>
         </div>
 
-        {/* Your New TECHNAVIA Site */}
+        {/* Your New Technavia Technology Site */}
         <div className="rounded-xl p-4 bg-[#D4F542]/[0.05] border border-[#D4F542]/40 flex flex-col justify-between gap-3 relative shadow-[0_0_24px_rgba(212,245,66,0.12)]">
           <div className="flex items-center justify-between text-xs font-mono">
             <span className="text-[#D4F542] font-semibold flex items-center gap-1.5">
               <Zap className="w-3.5 h-3.5 fill-[#D4F542]" />
-              YOUR NEW TECHNAVIA SITE
+              YOUR NEW TECHNAVIA TECHNOLOGY SITE
             </span>
           </div>
 

@@ -9,14 +9,14 @@ import { FAQ_CLUSTERS, ALL_FAQS, faqAnswerToPlainText } from "@/data/faqs";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions (55 Answers) — Web Design, SEO, GEO & AI",
   description:
-    "55 plain-English answers on TECHNAVIA's 21-day build process, Web Design & E-Commerce, Google Technical SEO, AI Search Visibility (ChatGPT, Gemini, Perplexity), and Custom B2B AI Automations.",
+    "55 plain-English answers on Technavia Technology's 21-day build process, Web Design & E-Commerce, Google Technical SEO, AI Search Visibility (ChatGPT, Gemini, Perplexity), and Custom B2B AI Automations.",
   alternates: {
     canonical: "https://technaviatechnology.com/faq",
   },
   openGraph: {
-    title: "Frequently Asked Questions (55 Answers) — Web Design, SEO, GEO & AI | TECHNAVIA",
+    title: "Frequently Asked Questions (55 Answers) — Web Design, SEO, GEO & AI | Technavia Technology",
     description:
-      "55 plain-English answers on TECHNAVIA's 21-day build process, Web Design & E-Commerce, Google Technical SEO, AI Search Visibility (GEO/AEO), and Custom B2B AI Automations.",
+      "55 plain-English answers on Technavia Technology's 21-day build process, Web Design & E-Commerce, Google Technical SEO, AI Search Visibility (GEO/AEO), and Custom B2B AI Automations.",
     url: "https://technaviatechnology.com/faq",
     type: "website",
     images: [
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
         url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
         width: 1200,
         height: 630,
-        alt: "TECHNAVIA — 55-Question AEO & GEO Knowledge Hub",
+        alt: "Technavia Technology — 55-Question AEO & GEO Knowledge Hub",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Frequently Asked Questions (55 Answers) — Web Design, SEO, GEO & AI | TECHNAVIA",
+    title: "Frequently Asked Questions (55 Answers) — Web Design, SEO, GEO & AI | Technavia Technology",
     description:
       "55 plain-English answers on Web Design, Google SEO, AI Search Visibility (GEO/AEO), and Custom B2B AI Automations.",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],

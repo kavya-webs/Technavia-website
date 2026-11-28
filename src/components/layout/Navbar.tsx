@@ -36,7 +36,7 @@ const SERVICE_ITEMS: ServiceSubItem[] = [
 
 const COMPANY_ITEMS = [
   {
-    name: "About TECHNAVIA",
+    name: "About Technavia Technology",
     desc: "Studio story & engineering principles",
     href: "/about",
   },
@@ -132,8 +132,8 @@ export function Navbar() {
             : "bg-transparent border-b border-transparent"
         }`}
       >
-        {/* Brand Logo - Official TECHNAVIA */}
-        <Link href="/" className="flex items-center group py-2" aria-label="TECHNAVIA Home">
+        {/* Brand Logo - Official Technavia Technology */}
+        <Link href="/" className="flex items-center group py-2" aria-label="Technavia Technology Home">
           <TechnaviaLogo
             variant="horizontal"
             symbolSize={30}

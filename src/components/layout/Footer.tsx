@@ -276,7 +276,7 @@ export function Footer() {
           {/* Bottom Legal Bar */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 border-t border-white/[0.08] text-xs font-mono text-white/50">
             <div className="flex flex-wrap items-center gap-6">
-              <span>© 2026 TECHNAVIA</span>
+              <span>© 2026 Technavia Technology</span>
               <Link href="/privacy" className="hover:text-white transition-colors">
                 Privacy
               </Link>

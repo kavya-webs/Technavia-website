@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     canonical: "https://technaviatechnology.com/book",
   },
   openGraph: {
-    title: "Book a 20-Min Architecture Consultation | TECHNAVIA",
+    title: "Book a 20-Min Architecture Consultation | Technavia Technology",
     description:
       "Schedule a 20-minute screen share with a senior engineer. We map your web speed, LLM answer-engine visibility, and autonomous lead pipeline with zero pitch.",
     url: "https://technaviatechnology.com/book",
@@ -22,13 +22,13 @@ export const metadata: Metadata = {
         url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
         width: 1200,
         height: 630,
-        alt: "TECHNAVIA — Book a 20-Minute Architecture Consultation",
+        alt: "Technavia Technology — Book a 20-Minute Architecture Consultation",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Book a 20-Min Architecture Consultation | TECHNAVIA",
+    title: "Book a 20-Min Architecture Consultation | Technavia Technology",
     description:
       "Schedule a 20-minute screen share with a senior engineer. We map your web speed, LLM answer-engine visibility, and autonomous lead pipeline with zero pitch.",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     canonical: "https://technaviatechnology.com/services/web-development-seo",
   },
   openGraph: {
-    title: "Fast, High-Converting Websites Built for Google Search | TECHNAVIA",
+    title: "Fast, High-Converting Websites Built for Google Search | Technavia Technology",
     description:
       "A fast, modern website built to show up on Google and turn visitors into paying customers—5 days for website + 16 days for SEO (21 days total). 100% full ownership with zero monthly theme lock-in.",
     url: "https://technaviatechnology.com/services/web-development-seo",
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
         url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
         width: 1200,
         height: 630,
-        alt: "TECHNAVIA — High-Converting Websites Built for Google",
+        alt: "Technavia Technology — High-Converting Websites Built for Google",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fast, High-Converting Websites Built for Google Search | TECHNAVIA",
+    title: "Fast, High-Converting Websites Built for Google Search | Technavia Technology",
     description:
       "A fast, modern website built to show up on Google and turn visitors into paying customers—5 days for website + 16 days for SEO (21 days total). 100% full ownership with zero monthly theme lock-in.",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],
@@ -236,11 +236,11 @@ export default function WebDevelopmentSeoPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {/* Without TECHNAVIA */}
+            {/* Without Technavia Technology */}
             <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#14161A]/80 border border-red-500/30 flex flex-col gap-4">
               <div className="flex items-center gap-2 text-red-400 font-mono text-xs font-semibold tracking-wider uppercase">
                 <XCircle className="w-4 h-4" />
-                <span>Without TECHNAVIA</span>
+                <span>Without Technavia Technology</span>
               </div>
               <div className="flex flex-col gap-3 text-sm sm:text-base text-white/80 leading-relaxed font-sans">
                 <div className="flex items-start gap-2.5">

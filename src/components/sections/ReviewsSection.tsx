@@ -190,13 +190,13 @@ export function ReviewsSection() {
           </div>
         </div>
 
-        {/* TECHNAVIA Engineering Guarantee Strip */}
+        {/* Technavia Technology Engineering Guarantee Strip */}
         <div className="p-6 sm:p-8 rounded-3xl bg-[#0B0D10] border border-white/[0.12] text-[#F8F8F5] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
           <div className="flex flex-col gap-2 max-w-2xl">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#D4F542] shadow-[0_0_8px_#D4F542]" />
               <span className="font-mono text-xs uppercase tracking-widest text-[#D4F542] font-semibold">
-                TECHNAVIA ENGINEERING GUARANTEE
+                TECHNAVIA TECHNOLOGY ENGINEERING GUARANTEE
               </span>
             </div>
             <h3 className="text-xl sm:text-2xl font-tight font-semibold text-[#F8F8F5]">

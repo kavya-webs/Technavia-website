@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     canonical: "https://technaviatechnology.com/tools",
   },
   openGraph: {
-    title: "Engineering Stack & Infrastructure Tools | TECHNAVIA",
+    title: "Engineering Stack & Infrastructure Tools | Technavia Technology",
     description:
       "Explore our production technology stack: Next.js 16 Server Components, React 19, Tailwind CSS, Schema.org entity graphs, n8n automation, and edge cloud networks.",
     url: "https://technaviatechnology.com/tools",
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
         url: "https://technaviatechnology.com/images/technavia/Banner-1.png",
         width: 1200,
         height: 630,
-        alt: "TECHNAVIA — Technology Stack & Tools",
+        alt: "Technavia Technology — Technology Stack & Tools",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Engineering Stack & Infrastructure Tools | TECHNAVIA",
+    title: "Engineering Stack & Infrastructure Tools | Technavia Technology",
     description:
       "Explore our production technology stack: Next.js 16 Server Components, React 19, Tailwind CSS, Schema.org entity graphs, n8n automation, and edge cloud networks.",
     images: ["https://technaviatechnology.com/images/technavia/Banner-1.png"],

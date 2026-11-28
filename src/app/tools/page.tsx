@@ -9,7 +9,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TOOLS } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Engineering Stack & Infrastructure Tools | TECHNAVIA",
+  title: "Engineering Stack & Infrastructure Tools",
   description:
     "Explore our production technology stack: Next.js 16 Server Components, React 19, Tailwind CSS, Schema.org entity graphs, n8n automation, and edge cloud networks.",
   alternates: {

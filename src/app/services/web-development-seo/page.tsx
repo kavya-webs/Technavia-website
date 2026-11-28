@@ -10,7 +10,7 @@ import { ServiceRelatedStrip } from "@/components/sections/ServiceRelatedStrip";
 import { AdHeaderBar } from "@/components/ui/AdHeaderBar";
 
 export const metadata: Metadata = {
-  title: "Fast, High-Converting Websites Built for Google Search | TECHNAVIA",
+  title: "Fast, High-Converting Websites Built for Google Search",
   description:
     "A fast, modern website built to show up on Google and turn visitors into paying customers—5 days for website + 16 days for SEO (21 days total). 100% full ownership with zero monthly theme lock-in.",
   alternates: {

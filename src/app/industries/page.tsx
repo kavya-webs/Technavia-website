@@ -7,7 +7,7 @@ import { BookSection } from "@/components/sections/BookSection";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Industries & Sectors Engineered to Rank | TECHNAVIA",
+  title: "Industries & Sectors Engineered to Rank",
   description:
     "Discover our specialized web engineering and LLM search optimization across six core B2B sectors: SaaS, agencies, healthcare clinics, logistics, and D2C.",
   alternates: {

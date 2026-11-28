@@ -314,11 +314,11 @@ export function FaqKnowledgeHub({ clusters }: FaqKnowledgeHubProps) {
               <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
             </Link>
             <a
-              href="mailto:contact@technaviatechnology.com"
+              href="mailto:inquiry@technaviatechnology.com"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.12] text-[#F8F8F5] font-mono text-xs transition-colors"
             >
               <Mail className="w-3.5 h-3.5 text-[#D4F542]" aria-hidden="true" />
-              <span>contact@technaviatechnology.com</span>
+              <span>inquiry@technaviatechnology.com</span>
             </a>
           </div>
         </div>

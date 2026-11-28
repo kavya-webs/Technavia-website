@@ -7,7 +7,7 @@ import { FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { FAQ_CLUSTERS, ALL_FAQS, faqAnswerToPlainText } from "@/data/faqs";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions (55 Answers) — Web Design, SEO, GEO & AI | TECHNAVIA",
+  title: "Frequently Asked Questions (55 Answers) — Web Design, SEO, GEO & AI",
   description:
     "55 plain-English answers on TECHNAVIA's 21-day build process, Web Design & E-Commerce, Google Technical SEO, AI Search Visibility (ChatGPT, Gemini, Perplexity), and Custom B2B AI Automations.",
   alternates: {
@@ -68,7 +68,7 @@ export default function FaqPage() {
           { text: "REPLY < 24H", variant: "outline" },
         ]}
         primaryCta={{ label: "BOOK A CALL", href: "/book" }}
-        secondaryCta={{ label: "EMAIL AN ARCHITECT", href: "mailto:contact@technaviatechnology.com" }}
+        secondaryCta={{ label: "EMAIL AN ARCHITECT", href: "mailto:inquiry@technaviatechnology.com" }}
       />
 
       {/* Interactive 55-Question AEO / GEO Knowledge Hub */}

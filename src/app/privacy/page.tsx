@@ -4,7 +4,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Data Protection Standards | TECHNAVIA",
+  title: "Privacy Policy — Data Protection Standards",
   description:
     "TECHNAVIA's commitment to enterprise client privacy, confidentiality, data security protocols, and compliance across global web engineering retainers.",
   alternates: {
@@ -62,10 +62,10 @@ export default function PrivacyPage() {
         <p>
           You may request full deletion of your contact records at any time by emailing{" "}
           <a
-            href="mailto:contact@technaviatechnology.com"
+            href="mailto:inquiry@technaviatechnology.com"
             className="text-[#D4F542] hover:underline"
           >
-            contact@technaviatechnology.com
+            inquiry@technaviatechnology.com
           </a>
           .
         </p>

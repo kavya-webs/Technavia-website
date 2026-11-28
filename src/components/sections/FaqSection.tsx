@@ -171,7 +171,7 @@ export function FaqSection({ showHeader = true }: FaqSectionProps = {}) {
               </p>
             </div>
             <a
-              href="mailto:contact@technaviatechnology.com"
+              href="mailto:inquiry@technaviatechnology.com"
               className="group inline-flex items-center gap-3 bg-[#F0F2E8] hover:bg-white text-black pl-5 pr-2 py-2 rounded-full font-tight font-semibold text-sm transition-all shadow-[0_4px_20px_rgba(0,0,0,0.3)] w-fit flex-shrink-0"
             >
               <span>Ask us</span>

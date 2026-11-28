@@ -5,7 +5,7 @@ import { BookForm } from "./BookForm";
 import { CheckCircle2, ShieldCheck, Clock, Code2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Book a 20-Min Architecture Consultation | TECHNAVIA",
+  title: "Book a 20-Min Architecture Consultation",
   description:
     "Schedule a 20-minute screen share with a senior engineer. We map your web speed, LLM answer-engine visibility, and autonomous lead pipeline with zero pitch.",
   alternates: {

@@ -13,14 +13,14 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = ARTICLES.find((a) => a.slug === slug);
-  if (!post) return { title: "Blueprint Not Found — TECHNAVIA" };
+  if (!post) return { title: "Blueprint Not Found" };
 
   const fullImageUrl = post.coverImage.startsWith("http")
     ? post.coverImage
     : `https://technaviatechnology.com${post.coverImage}`;
 
   return {
-    title: `${post.title} | TECHNAVIA Blueprints`,
+    title: post.title,
     description: post.excerpt,
     alternates: {
       canonical: `https://technaviatechnology.com/blogs/${slug}`,

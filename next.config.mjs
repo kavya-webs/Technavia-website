@@ -24,6 +24,17 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.technaviatechnology.com",
+          },
+        ],
+        destination: "https://technaviatechnology.com/:path*",
+        statusCode: 301,
+      },
+      {
         source: "/workflows/web-dev-seo",
         destination: "/services/web-development-seo",
         permanent: true,

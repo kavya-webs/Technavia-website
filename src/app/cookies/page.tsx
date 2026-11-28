@@ -4,7 +4,7 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Cookies Policy — Technical Data Usage | TECHNAVIA",
+  title: "Cookies Policy — Technical Data Usage",
   description:
     "Information on how TECHNAVIA uses technical session cookies, anonymous analytics, and local storage to guarantee secure web engineering performance.",
   alternates: {
@@ -66,10 +66,10 @@ export default function CookiesPage() {
           </a>
           , or email{" "}
           <a
-            href="mailto:contact@technaviatechnology.com"
+            href="mailto:inquiry@technaviatechnology.com"
             className="text-[#D4F542] hover:underline"
           >
-            contact@technaviatechnology.com
+            inquiry@technaviatechnology.com
           </a>{" "}
           with any privacy questions.
         </p>

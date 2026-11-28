@@ -8,7 +8,7 @@ import { ServiceRelatedStrip } from "@/components/sections/ServiceRelatedStrip";
 import { AdHeaderBar } from "@/components/ui/AdHeaderBar";
 
 export const metadata: Metadata = {
-  title: "Get Recommended on ChatGPT, Gemini & Perplexity | TECHNAVIA",
+  title: "Get Recommended on ChatGPT, Gemini & Perplexity",
   description:
     "When customers ask ChatGPT or Google AI who to buy from, make sure your brand is the #1 answer. Complete 21-day AI search visibility setup (5 days for website + 16 days for SEO).",
   alternates: {

@@ -10,7 +10,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   return {
-    title: `TECHNAVIA — High-Growth B2B System (${slug})`,
+    title: `High-Growth B2B System (${slug})`,
     description:
       "Turn your website into a Google, AI-search, and lead-automation engine in 21 days (5-day website build + 16-day SEO sprint).",
     robots: {

@@ -8,7 +8,7 @@ import { ServiceRelatedStrip } from "@/components/sections/ServiceRelatedStrip";
 import { AdHeaderBar } from "@/components/ui/AdHeaderBar";
 
 export const metadata: Metadata = {
-  title: "Custom AI Automations & Lead Routing Systems | TECHNAVIA",
+  title: "Custom AI Automations & Lead Routing Systems",
   description:
     "Respond to, qualify, and book every inbound B2B lead in under 60 seconds on 24/7 autopilot. Connect website, ads, CRM, and calendar with zero Zapier tax.",
   alternates: {

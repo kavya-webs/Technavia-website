@@ -101,7 +101,7 @@ export const FAQ_CLUSTERS: FaqCluster[] = [
         num: 10,
         question: "How do I start a project or request a free audit with TECHNAVIA?",
         answer:
-          "You can book a free 20-minute strategy call or request a free 5-minute website and AI visibility review directly through TECHNAVIA's booking page, or email contact@technaviatechnology.com. No preparation or technical knowledge is required—we screen-share your exact opportunities live.",
+          "You can book a free 20-minute strategy call or request a free 5-minute website and AI visibility review directly through TECHNAVIA's booking page, or email inquiry@technaviatechnology.com. No preparation or technical knowledge is required—we screen-share your exact opportunities live.",
       },
     ],
   },

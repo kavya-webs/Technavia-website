@@ -2,7 +2,20 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  const host = request.headers.get("host")?.toLowerCase() || "";
+  const host = (request.headers.get("x-forwarded-host") || request.headers.get("host") || "")
+    .split(",")[0]
+    .trim()
+    .toLowerCase();
+
+  // Enforce canonical apex domain via permanent 301 redirect (www -> non-www)
+  if (host === "www.technaviatechnology.com" || host.startsWith("www.technaviatechnology.com:")) {
+    const redirectUrl = request.nextUrl.clone();
+    redirectUrl.protocol = "https";
+    redirectUrl.hostname = "technaviatechnology.com";
+    redirectUrl.port = "";
+    return NextResponse.redirect(redirectUrl, 301);
+  }
+
   const isProduction =
     host === "technaviatechnology.com" || host === "www.technaviatechnology.com";
   const isLocalhost =

@@ -9,7 +9,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { PROCESS_STEPS } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "21-Day Process (5-Day Web + 16-Day SEO) — From Audit to Launch | TECHNAVIA",
+  title: "21-Day Process (5-Day Web + 16-Day SEO) — From Audit to Launch",
   description:
     "5 days for website + 16 days for SEO (21 days total). Our 5-stage sprint methodology: from rapid 5-day Next.js build to deep technical SEO, LLM citation graphs, and AI pipeline automation.",
   alternates: {

@@ -14,19 +14,19 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const res = RESULTS.find((r) => r.id === slug);
-  if (!res) return { title: "Result Not Found — TECHNAVIA" };
+  if (!res) return { title: "Result Not Found" };
 
-  const title = `${res.client}: ${res.metric} ${res.metricSub} | TECHNAVIA Case Study`;
+  const ogTitle = `${res.client}: ${res.metric} ${res.metricSub} | TECHNAVIA Case Study`;
   const description = `${res.headline} Built with ${res.workflowUsed} for ${res.industry} achieving ${res.metricSub}.`;
 
   return {
-    title,
+    title: `${res.client}: ${res.metric} ${res.metricSub}`,
     description,
     alternates: {
       canonical: `https://technaviatechnology.com/results/${slug}`,
     },
     openGraph: {
-      title,
+      title: ogTitle,
       description,
       url: `https://technaviatechnology.com/results/${slug}`,
       type: "article",
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: ogTitle,
       description,
       images: [
         res.previewImg.startsWith("http")
